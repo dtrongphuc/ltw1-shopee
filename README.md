@@ -6,4 +6,4 @@ Thành viên:
 - 18600209 - Dương Trọng Phúc
 - 18600207 - Đinh Thành Phú
 - 18600362 - Nguyễn Hiếu Nghĩa
-- 18600 - Đỗ Văn Thành
+- 18600379 - Đỗ Văn Thành
