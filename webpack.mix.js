@@ -14,6 +14,6 @@ const mix = require("laravel-mix");
 mix.js("resources/js/app.js", "public/js");
 
 mix.styles(
-    ["resources/css/variable.css", "resources/css/auth.css"],
+    ["resources/css/variable.css", "resources/css/auth.css", "resources/css/header.css"],
     "public/css/app.css"
 );
