@@ -19,3 +19,7 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('/pages/login');
 });
+
+Route::get('/header', function () {
+    return view('/layouts/header');
+});
