@@ -11,7 +11,7 @@
 
 .login__body {
     height: 600px;
-    background-color: #EE4D2E;
+    background-color: #ee4d2e;
 }
 
 .login__body-img {
@@ -23,7 +23,7 @@
     position: absolute;
     top: 12%;
     right: 0;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     height: 475px;
     width: 400px;
     border-radius: 3px;
@@ -51,7 +51,7 @@
 .btn-register-login {
     height: 40px;
     width: 340px;
-    background-color: #EE4D2E;
+    background-color: #ee4d2e;
     border: none;
     border-radius: 3px;
     color: white;
@@ -60,7 +60,7 @@
 }
 
 .notlogin {
-    opacity: .8;
+    opacity: 0.8;
     cursor: default;
 }
 
@@ -79,12 +79,12 @@
 .login__body-form--dash-lf {
     height: 1px;
     width: 100%;
-    background-color: #CCD0DB;
+    background-color: #ccd0db;
 }
 
 .login__body-form--dash-content {
     font-size: 12px;
-    color: #CCD0DB;
+    color: #ccd0db;
     padding: 0 16px;
 }
 
@@ -107,13 +107,12 @@
 
 .login__body-form--register-link {
     padding-left: 12px;
-    color: #EE4D2E;
+    color: #ee4d2e;
 }
 
 .login__body-form--register-link:hover {
-    color: #EE4D2E;
+    color: #ee4d2e;
     text-decoration: none;
 }
-
 
 /* end login  */
