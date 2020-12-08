@@ -16,7 +16,6 @@ mix.js("resources/js/app.js", "public/js");
 mix.styles(
     [
         "resources/css/variable.css",
-        "resources/css/app.css",
         "resources/css/auth.css",
     ],
     "public/css/app.css"
