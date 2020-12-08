@@ -23,3 +23,6 @@ Route::get('/login', function () {
 Route::get('/header', function () {
     return view('/layouts/header');
 });
+Route::get('/product', function () {
+    return view('/pages/product');
+});

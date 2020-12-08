@@ -167,6 +167,34 @@
     text-decoration: none;
 }
 
+<<<<<<< HEAD
+/* end login  */
+
+
+/* Product */
+.companyinfo {
+    margin-top: 57px;
+  }
+  
+  .companyinfo h2 {
+    color: #B4B1AB;
+    font-family: abel;
+    font-size: 27px;
+    text-transform: uppercase;
+  }
+  
+  .companyinfo h2  span{
+    color:#FE980F;
+  }
+  
+  .companyinfo p {
+    color: #B3B3AD;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+  }
+/* Product  */
+=======
 
 /* register  */
 
@@ -188,6 +216,7 @@
     line-height: 15px;
     text-align: center;
 }
+<<<<<<< HEAD
 .header{
     height: var(--header-height);
     background-color: var(--primary-color);
@@ -258,3 +287,6 @@
     font-size: 1.8rem;
     margin: 0 4px;
 }
+=======
+>>>>>>> f9b74b628d5620731c6e967488d61ea5d857922c
+>>>>>>> 1ac4e68fff24d07f61e951201a0747bda342ba7a
