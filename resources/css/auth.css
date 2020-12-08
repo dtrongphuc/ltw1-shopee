@@ -1,0 +1,118 @@
+/* Login */
+
+.login__header {
+    height: 82px;
+}
+
+.login__header-support {
+    font-size: 14px;
+    color: tomato;
+}
+
+.login__body {
+    height: 600px;
+    background-color: #ee4d2e;
+}
+
+.login__body-img {
+    margin: auto;
+    position: relative;
+}
+
+.login__body-form {
+    position: absolute;
+    top: 12%;
+    right: 0;
+    background-color: #ffffff;
+    height: 475px;
+    width: 400px;
+    border-radius: 3px;
+    margin: auto;
+    padding: 32px;
+}
+
+.login__body-form--header {
+    font-size: 20px;
+    font-weight: 400;
+    padding-bottom: 31px;
+}
+
+.form-control {
+    height: 40px;
+    width: 340px;
+}
+
+.login__body-form--header-input {
+    font-size: 12px;
+    padding: 12px;
+    margin-bottom: 31px;
+}
+
+.btn-register-login {
+    height: 40px;
+    width: 340px;
+    background-color: #ee4d2e;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.notlogin {
+    opacity: 0.8;
+    cursor: default;
+}
+
+.login__body-form--forgotpass {
+    padding: 10px 0 0 0;
+}
+
+.form-forgotpass--link {
+    font-size: 12px;
+}
+
+.login__body-form--dash {
+    margin: 10px 0;
+}
+
+.login__body-form--dash-lf {
+    height: 1px;
+    width: 100%;
+    background-color: #ccd0db;
+}
+
+.login__body-form--dash-content {
+    font-size: 12px;
+    color: #ccd0db;
+    padding: 0 16px;
+}
+
+.login__body-form--btnapp {
+    width: 105px;
+    height: 40px;
+    border: none;
+    border-radius: 3px;
+    background-color: blue;
+    margin-bottom: 35px;
+}
+
+.login__body-form--register {
+    font: 12px;
+}
+
+.login__body-form--register-content {
+    color: #c5c6c9;
+}
+
+.login__body-form--register-link {
+    padding-left: 12px;
+    color: #ee4d2e;
+}
+
+.login__body-form--register-link:hover {
+    color: #ee4d2e;
+    text-decoration: none;
+}
+
+/* end login  */
