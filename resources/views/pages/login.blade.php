@@ -75,7 +75,7 @@
                         </div>
                         <div class="login__body-form--register d-flex flex-row justify-content-center">
                             <p class="login__body-form--register-content">Bạn mới biết đến Shopee?</p>
-                            <a href="http://127.0.0.1:5500/register.html" class="login__body-form--register-link">Đăng ký</a>
+                            <a href="http://127.0.0.1:8000/register" class="login__body-form--register-link">Đăng ký</a>
                         </div>
                     </form>
                 </div>
