@@ -17,6 +17,7 @@ mix.styles(
     [
         "resources/css/variable.css",
         "resources/css/auth.css",
+        "resources/css/header.css"
     ],
     "public/css/app.css"
 );
