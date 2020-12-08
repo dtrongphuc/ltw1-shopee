@@ -1,5 +1,3 @@
-/* Login */
-
 .login__header {
     height: 82px;
 }
@@ -11,7 +9,7 @@
 
 .login__body {
     height: 600px;
-    background-color: #ee4d2e;
+    background-color: #EE4D2E;
 }
 
 .login__body-img {
