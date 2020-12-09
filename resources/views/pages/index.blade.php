@@ -1,18 +1,66 @@
 <!DOCTYPE html>
 <html lang="vn">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
-    <title>Trang Chủ</title>
-</head>
+@extends('../layouts/master')
 <body>
     @include('../layouts/header')
-    <main>
-        
+    <main class="main mt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="main-filter d-flex">
+                        <div class="main-filter__left d-flex align-items-center">
+                            <p class="main-filter__left--title">Sắp xếp theo</p>
+                            <ul class="main-filter__left--list">
+                                <li class="filter-list__item filter-list__item--active">Phổ biến</li>
+                                <li class="filter-list__item">Mới nhất</li>
+                                <li class="filter-list__item">Bán chạy</li>
+                                <li class="filter-list__item filter-list__item--select">
+                                    Giá
+                                    <i class="fas fa-chevron-down"></i>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="main-filter__right"></div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="main-products">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="product-item">
+                                    Product
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="product-item">
+                                    Product
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="product-item">
+                                    Product
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="product-item">
+                                    Product
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="product-item">
+                                    Product
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="product-item">
+                                    Product
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <footer></footer>
 </body>
