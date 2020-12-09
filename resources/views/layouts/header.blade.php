@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,7 +9,7 @@
     <title>hearder chạy thử</title>
 </head>
 
-<body>
+<body> --}}
     <header>
         <div>
             <div class="header">
@@ -57,6 +57,6 @@
             </div>
         </div>
     </header>
-</body>
+{{-- </body>
 
-</html>
+</html> --}}

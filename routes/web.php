@@ -19,6 +19,9 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('/pages/login');
 });
+Route::get('/register', function () {
+    return view('/pages/register');
+});
 
 Route::get('/header', function () {
     return view('/layouts/header');

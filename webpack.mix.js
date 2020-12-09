@@ -14,6 +14,15 @@ const mix = require("laravel-mix");
 mix.js("resources/js/app.js", "public/js");
 
 mix.styles(
-    ["resources/css/variable.css", "resources/css/auth.css", "resources/css/header.css"],
+    [
+        "resources/css/normalize.css",
+        "resources/css/app.css",
+        "resources/css/variable.css",
+        "resources/css/auth.css",
+        "resources/css/header.css",
+        "resources/css/index.css"
+    ],
     "public/css/app.css"
 );
+
+mix.copyDirectory("resources/fonts", "public/fonts");

@@ -167,23 +167,25 @@
     text-decoration: none;
 }
 
-<<<<<<< HEAD
+
 /* end login  */
 
 
 /* Product */
-.product-details{
-	overflow:hidden;
+
+.product-details {
+    overflow: hidden;
 }
 
 .product-details {
-  margin-bottom: 40px;
-  overflow: hidden;
-  margin-top: 10px;
+    margin-bottom: 40px;
+    overflow: hidden;
+    margin-top: 10px;
 }
-.product-information span span{
-	display: block;
-	width: 100%;
+
+.product-information span span {
+    display: block;
+    width: 100%;
 }
 
 .product-information {
@@ -193,34 +195,34 @@
     padding-left: 60px;
     padding-top: 60px;
     position: relative;
-  }
-  
-  .newarrival{
-      position:absolute;
-      top:0;
-      left:0
-  }
-  
-  .product-information h2 {
+}
+
+.newarrival {
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.product-information h2 {
     color: #363432;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     margin-top: 0;
-  }
-  
-  .product-information p {
+}
+
+.product-information p {
     color: #696763;
     font-family: 'Roboto', sans-serif;
     margin-bottom: 5px;
-  }
-  
-  .product-information span {
+}
+
+.product-information span {
     display: inline-block;
     margin-bottom: 8px;
     margin-top: 18px;
-  }
-  
-  .product-information span span {
+}
+
+.product-information span span {
     color: #FE980F;
     float: left;
     font-family: 'Roboto', sans-serif;
@@ -228,8 +230,9 @@
     font-weight: 700;
     margin-right: 20px;
     margin-top: 0px;
-  }
-  .product-information span input {
+}
+
+.product-information span input {
     border: 1px solid #DEDEDC;
     color: #696763;
     font-family: 'Roboto', sans-serif;
@@ -239,32 +242,33 @@
     outline: medium none;
     text-align: center;
     width: 50px;
-  }
-  
-  .product-information span label {
+}
+
+.product-information span label {
     color: #696763;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     margin-right: 5px;
-  }
-  
+}
+
 #similar-product {
     margin-top: 40px;
 }
-#similar-product .carousel-inner .item img{
-	width: 65px;
+
+#similar-product .carousel-inner .item img {
+    width: 65px;
 }
+
 .view-product {
     position: relative;
 }
 
-  
 .view-product img {
     border: 1px solid #F7F7F0;
     height: 380px;
     width: 100%;
 }
-  
+
 .view-product h3 {
     background: #FE980F;
     bottom: 0;
@@ -277,8 +281,10 @@
     position: absolute;
     right: 0;
 }
+
+
 /* Product  */
-=======
+
 
 /* register  */
 
@@ -300,8 +306,6 @@
     line-height: 15px;
     text-align: center;
 }
->>>>>>> f9b74b628d5620731c6e967488d61ea5d857922c
-
 .header{
     height: 7.2825rem;
     background-color:  #ee4d2d;
