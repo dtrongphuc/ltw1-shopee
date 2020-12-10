@@ -38,7 +38,7 @@
                             <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
                             <input type="text" class="form-control login__body-form--header-input" id="formGroupExampleInput" placeholder="Email/Số điện thoại/Tên đăng nhập">
                             <div class="invalid-feedback">
-                                nhập sai!!
+                                *Email/Số điện thoại/Tên đăng nhập không chính xác!
                             </div>
                         </div>
                         <!-- khi điền đủ thong tin bỏ class notlogin -->
