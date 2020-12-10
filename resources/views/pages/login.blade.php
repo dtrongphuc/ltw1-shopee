@@ -38,16 +38,23 @@
                             <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
                             <input type="text" class="form-control login__body-form--header-input" id="formGroupExampleInput" placeholder="Email/Số điện thoại/Tên đăng nhập">
                             <div class="invalid-feedback">
-                                nhập sai!!
+                                *Email/Số điện thoại/Tên đăng nhập không chính xác!
                             </div>
                         </div>
-                        <div class="form-group login__body-form--password d-flex align-items-center">
-                            <input type="password" class="form-control login__body-form--header-input input-password" id="inputpass" placeholder="Mật khẩu">
-                            <div class="login__body-form--header-input-icon" onclick="hidepass()">
-                                <!-- khi hiện pass thì ẩn class 'fa-eye-slash' hiện class 'fa-eye' -->
-                                <i class="far fa-eye-slash" id="icon-eye"></i>
+
+                        <div class="form-group  ">
+                            <div class="login__body-form--password d-flex align-items-center">
+                                <input type="password" class="form-control login__body-form--header-input input-password" id="inputpass" placeholder="Mật khẩu">
+                                <div class="login__body-form--header-input-icon" onclick="hidepass()">
+                                    <!-- khi hiện pass thì ẩn class 'fa-eye-slash' hiện class 'fa-eye'  -->
+                                    <i class="far fa-eye-slash" id="icon-eye"></i>
+                                </div>
+                            </div>
+                            <div class="input-error">
+                                *Mật khẩu sai!
                             </div>
                         </div>
+
                         <!-- khi điền đủ thong tin bỏ class notlogin -->
                         <button class="btn-register-login notlogin">ĐĂNG NHẬP</button>
                         <div class="login__body-form--forgotpass justify-content-between d-flex">
