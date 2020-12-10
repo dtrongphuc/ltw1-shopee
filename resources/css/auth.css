@@ -57,7 +57,7 @@
 }
 
 .login__body-form--password:focus {
-    border: black solid 1px;
+    border: 1px solid black;
 }
 
 .input-password {

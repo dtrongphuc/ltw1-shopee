@@ -455,12 +455,12 @@ a {
 
 .login__body-form--password {
     border: 1px solid #ced4da;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     width: 340px;
 }
 
 .login__body-form--password:focus {
-    border: black solid 1px;
+    border: 1px solid black;
 }
 
 .input-password {
@@ -479,7 +479,7 @@ a {
 .btn-register-login {
     height: 40px;
     width: 340px;
-    background-color: #EE4D2E;
+    background-color: #ee4d2e;
     border: none;
     border-radius: 3px;
     color: white;
@@ -488,7 +488,7 @@ a {
 }
 
 .notlogin {
-    opacity: .8;
+    opacity: 0.8;
     cursor: default;
 }
 
@@ -507,12 +507,12 @@ a {
 .login__body-form--dash-lf {
     height: 1px;
     width: 100%;
-    background-color: #CCD0DB;
+    background-color: #ccd0db;
 }
 
 .login__body-form--dash-content {
     font-size: 12px;
-    color: #CCD0DB;
+    color: #ccd0db;
     padding: 0 16px;
 }
 
@@ -536,7 +536,7 @@ a {
 .login__body-form--btnapp-fbook:hover,
 .login__body-form--btnapp-google:hover,
 .login__body-form--btnapp-apple:hover {
-    opacity: .8;
+    opacity: 0.8;
 }
 
 .login__body-form--btnappname {
@@ -556,17 +556,15 @@ a {
 
 .login__body-form--register-link {
     padding-left: 12px;
-    color: #EE4D2E;
+    color: #ee4d2e;
 }
 
 .login__body-form--register-link:hover {
-    color: #EE4D2E;
+    color: #ee4d2e;
     text-decoration: none;
 }
 
-
 /* end login  */
-
 
 /* Product */
 
@@ -586,7 +584,7 @@ a {
 }
 
 .product-information {
-    border: 1px solid #F7F7F0;
+    border: 1px solid #f7f7f0;
     overflow: hidden;
     padding-bottom: 60px;
     padding-left: 60px;
@@ -597,19 +595,19 @@ a {
 .newarrival {
     position: absolute;
     top: 0;
-    left: 0
+    left: 0;
 }
 
 .product-information h2 {
     color: #363432;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 20px;
     margin-top: 0;
 }
 
 .product-information p {
     color: #696763;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     margin-bottom: 5px;
 }
 
@@ -620,9 +618,9 @@ a {
 }
 
 .product-information span span {
-    color: #FE980F;
+    color: #fe980f;
     float: left;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 30px;
     font-weight: 700;
     margin-right: 20px;
@@ -630,9 +628,9 @@ a {
 }
 
 .product-information span input {
-    border: 1px solid #DEDEDC;
+    border: 1px solid #dededc;
     color: #696763;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 20px;
     font-weight: 700;
     height: 33px;
@@ -643,7 +641,7 @@ a {
 
 .product-information span label {
     color: #696763;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 700;
     margin-right: 5px;
 }
@@ -661,16 +659,16 @@ a {
 }
 
 .view-product img {
-    border: 1px solid #F7F7F0;
+    border: 1px solid #f7f7f0;
     height: 380px;
     width: 100%;
 }
 
 .view-product h3 {
-    background: #FE980F;
+    background: #fe980f;
     bottom: 0;
-    color: #FFFFFF;
-    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    font-family: "Roboto", sans-serif;
     font-size: 14px;
     font-weight: 700;
     margin-bottom: 0;
@@ -679,9 +677,7 @@ a {
     right: 0;
 }
 
-
 /* Product  */
-
 
 /* register  */
 
@@ -689,7 +685,7 @@ a {
     position: absolute;
     top: 12%;
     right: 15px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     height: 430px;
     width: 400px;
     border-radius: 3px;
@@ -704,8 +700,8 @@ a {
     text-align: center;
 }
 .header {
-    height: var(--header-height);
-    background-color: var(--primary-color);
+    height: 7.2825rem;
+    background-color: #ee4d2d;
 }
 
 .grid {
@@ -719,15 +715,16 @@ a {
     justify-content: space-between;
 }
 
-.header__narbar-list {
+.header_narbar-list {
     list-style: none;
     padding-left: 0;
     margin-top: 4px;
+    margin-bottom: 8px;
 }
 
 .header__navbar-item {
     margin: 0 8px;
-    position: relative;
+
     min-height: 26px;
 }
 
@@ -751,21 +748,19 @@ a {
     font-weight: 400;
 }
 
-.header__navbar-item-separate::after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 1px;
-    height: 14px;
-    background-color: #f86c5b;
-    right: -8;
-    top: 50%;
-    transform: translateY(-50%);
+.header__navbar-item-separate {
+    border-right: 2px solid hsla(0, 0%, 100%, 0.22);
+    padding: 0 0.4375rem;
+
+    display: inline-block;
+    height: fit-content;
+    min-height: auto !important;
 }
 
 .header__navbar--icon-link {
     color: white;
     text-decoration: none;
+    height: 13px;
 }
 
 .header__navbar-icon {
