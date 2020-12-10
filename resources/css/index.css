@@ -40,6 +40,19 @@
     width: 200px;
 }
 
+/* Category */
+.category-item {
+    display: flex;
+    align-items: center;
+}
+
+.category-item--heading {
+    line-height: 1.1;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
 /* Products */
 
 .main-products {
