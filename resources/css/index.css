@@ -98,7 +98,23 @@
 }
 
 .product-item {
+    width: 100%;
     background-color: var(--secondary-color);
     height: 313px;
     margin-top: 0.7rem;
+}
+
+.product-item__img {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+}
+
+.product-item__img > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
 }

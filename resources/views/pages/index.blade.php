@@ -4,9 +4,9 @@
 <body>
     @include('../layouts/header')
     <main class="main mt-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-2">
+        <div class="container p-6">
+            <div class="row m--6">
+                <div class="col-2 p-6">
                     <ul class="categories">
                         <li class="category-item category-item--heading">
                             <i class="fas fa-list"></i>
@@ -23,8 +23,8 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-10">
-                    <div class="col-12">
+                <div class="col-10 p-6">
+                    <div class="col-12 p-6">
                         <div class="main-filter d-flex">
                             <div class="main-filter__left d-flex align-items-center">
                                 <p class="main-filter__left--title">Sắp xếp theo</p>
@@ -41,19 +41,28 @@
                             <div class="main-filter__right"></div>
                         </div>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 p-6">
                         <div class="main-products">
-                            <div class="row">
-                                <div class="col-3">
+                            <div class="row m--6">
+                                <div class="col-2-4">
                                     <div class="product-item">
-                                        Product
+                                        <a class="product-item__link" href="">
+                                            <div class="product-item__img">
+                                                <img src="https://cf.shopee.vn/file/bdec9f8272db39f28e55675ff2264796_tn" alt="">
+                                            </div>
+                                            <p class="product-item__heading"></p>
+                                            <p class="product-item__price"></p>
+                                            <div class="d-flex">
+                                                
+                                            </div>
+                                            <p class="product-item__place"></p>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
             </div>
         </div>
     </main>
