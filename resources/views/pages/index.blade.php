@@ -10,7 +10,16 @@
                     <ul class="categories">
                         <li class="category-item category-item--heading">
                             <i class="fas fa-list"></i>
-                            <p>Tất cả danh mục</p>
+                            <p class="ml-2">Tất cả danh mục</p>
+                        </li>
+                        <li class="category-item category-item--active">
+                            <a href="">Thiết bị điện tử</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="">Thiết bị âm thanh</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="">Tai nghe</a>
                         </li>
                     </ul>
                 </div>
