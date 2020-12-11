@@ -312,3 +312,15 @@
     line-height: 15px;
     text-align: center;
 }
+
+.login__header-title {
+    margin-left: 10px;
+}
+
+
+/* img */
+
+.auth-img {
+    width: 170px;
+    height: 45px;
+}
