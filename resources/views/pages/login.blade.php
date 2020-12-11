@@ -18,9 +18,13 @@
     <div class="login__header d-flex align-items-center">
         <div class="container">
             <div class="row">
-                <div class="col d-flex justify-content-between">
-                    <!-- <img src="" alt="" class="logo"> -->
-                    <h4 class="login__header-title">Đăng ký</h4>
+                <div class="col d-flex justify-content-between align-items-center">
+                    <div class="auth__titlelogo d-flex align-items-center">
+                        <a href="">
+                            <img src="images/products/logoshopee.png" alt="" class="auth-img"> 
+                        </a>
+                        <h4 class="login__header-title">Đăng Nhập</h4>
+                    </div>
                     <a href="#" class="login__header-support">Cần trợ giúp?</a>
                 </div>
 
@@ -50,7 +54,7 @@
                                     <i class="far fa-eye-slash" id="icon-eye"></i>
                                 </div>
                             </div>
-                            <div class="input-error">
+                            <div class="input-error" style="display: none;">
                                 *Mật khẩu sai!
                             </div>
                         </div>
