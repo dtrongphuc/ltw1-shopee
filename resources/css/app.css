@@ -35,9 +35,11 @@ h6 {
     margin: 0;
 }
 
-a {
+a,
+a:hover {
     text-decoration: none;
 }
+
 
 .p-6 {
     padding-right: 6px;
