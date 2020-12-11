@@ -1,3 +1,10 @@
+.body{
+    margin: 0 !important;
+}
+
+a{
+    text-decoration: none;
+}
 .header{
 height: 7.2825rem;
 background-color:  #ee4d2d;
@@ -45,6 +52,7 @@ align-items: center;
 
 .header__navbar-item--strong{
 font-weight: 400;
+color: white;
 }
 
 .header__navbar-item-separate{
@@ -108,4 +116,3 @@ font-size: 18px;
     display: flex;
     padding: 5px 6px;
 }
-    
