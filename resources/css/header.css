@@ -1,9 +1,12 @@
 .body{
     margin: 0 !important;
+    font-family: Helvetica Neue,Helvetica,Arial,文泉驛正黑,WenQuanYi Zen Hei,Hiragino Sans GB,儷黑 Pro,LiHei Pro,Heiti TC,微軟正黑體,Microsoft JhengHei UI,Microsoft JhengHei,sans-serif;
+    font-size: .875rem;
 }
 
 a{
     text-decoration: none;
+    color: white;
 }
 .header{
 height: 7.2825rem;

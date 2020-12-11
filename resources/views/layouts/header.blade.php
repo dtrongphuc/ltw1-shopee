@@ -41,8 +41,8 @@
                                     <i class="header__navbar-icon fab fa-instagram-square" style="color: white;"></i>
                                 </a>
                             </li>
-                            <li class="header__navbar-item header__navbar-item--strong header__navbar-item-separate">Đăng Ký</li>
-                            <li class="header__navbar-item header__navbar-item--strong">Đăng Nhập</li>
+                            <li class="header__navbar-item header__navbar-item--strong header__navbar-item-separate"><a href="#">Đăng Ký</a></li>
+                            <li class="header__navbar-item header__navbar-item--strong"><a href="#">Đăng Nhập</a></li>
                         </ul>
                     </nav>
                     <div class="center-header">
