@@ -93,6 +93,7 @@
             </div>
         </div>
     </div>
+    @include('../layouts/footer')
     <script>
         function hidepass() {
             var x = document.getElementById("inputpass");

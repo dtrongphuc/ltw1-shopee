@@ -1,0 +1,70 @@
+/* FOOTER */
+
+.footer__catogories {
+    border-top: #EE4D2E solid 5px;
+}
+
+.footer__catogories-container {
+    margin: 20px 0;
+}
+
+.footer__catogories-header {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    color: #0000008A;
+    margin-bottom: 15px;
+}
+
+.footer__catogories-list--items {
+    color: #0000008A;
+    font-size: 12px;
+    padding: 5px 0;
+}
+
+.footer__catogories-list--items:hover {
+    color: #EE4D2E;
+    text-decoration: none;
+}
+
+.footer__catogories-facebook:hover {
+    cursor: pointer;
+    color: #EE4D2E;
+}
+
+.footer__catogories-facebook--icon {
+    padding-right: 15px;
+}
+
+.footer__infoContact {
+    background-color: #F5F5F5;
+    padding: 45px 0;
+}
+
+.footer__info-list--items {
+    padding: 0 10px;
+    line-height: 12px;
+}
+
+.itemsboder {
+    border-left: #0000008A solid 1px;
+    border-right: #0000008A solid 1px;
+}
+
+.footer__info-link {
+    font-size: 12px;
+    text-decoration: none;
+    color: #0000008A;
+}
+
+.footer__contact {
+    padding: 40px 0 10px 0;
+}
+
+.footer__contact-namecompany {
+    font-size: 13px;
+}
+
+.footer__contact-copyright {
+    font-size: 11px;
+}
