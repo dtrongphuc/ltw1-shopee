@@ -21,7 +21,8 @@ mix.styles(
         "resources/css/auth.css",
         "resources/css/header.css",
         "resources/css/index.css",
-        "resources/css/footer.css"
+        "resources/css/footer.css",
+        "resources/css/products.css"
     ],
     "public/css/app.css"
 );
