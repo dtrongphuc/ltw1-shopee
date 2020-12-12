@@ -20,7 +20,8 @@ mix.styles(
         "resources/css/variable.css",
         "resources/css/auth.css",
         "resources/css/header.css",
-        "resources/css/index.css"
+        "resources/css/index.css",
+        "resources/css/products.css",
     ],
     "public/css/app.css"
 );
