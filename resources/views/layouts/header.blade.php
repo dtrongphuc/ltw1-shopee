@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
-    <link rel="stylesheet" href="./header.css">
+    <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
     <title>hearder chạy thử</title>
 </head>
 
@@ -54,6 +54,16 @@
                         <div class="cart-button">
                             <span><i class="fas fa-shopping-cart" style="color: white; margin-top: 10px;"></i></span>
                         </div>
+                    </div>
+                    <div class="bottom-header">
+                        <ul class="bottom-items">
+                            <li class="category-item--header"><a href="#" class="category-item--a">vòng cổ chữ A</a></li>
+                            <li class="category-item--header"><a href="#" class="category-item--a">vòng cổ chữ A</a></li>
+                            <li class="category-item--header"><a href="#" class="category-item--a">vòng cổ chữ A</a></li>
+                            <li class="category-item--header"><a href="#" class="category-item--a">vòng cổ chữ A</a></li>
+                            <li class="category-item--header"><a href="#" class="category-item--a">vòng cổ chữ A</a></li>
+
+                        </ul>
                     </div>
                 </div>
             </div>
