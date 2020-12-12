@@ -19,8 +19,12 @@
         <div class="container">
             <div class="row">
                 <div class="col d-flex justify-content-between">
-                    <!-- <img src="" alt="" class="logo"> -->
-                    <h4 class="login__header-title">Đăng ký</h4>
+                    <div class="auth__titlelogo d-flex align-items-center">
+                        <a href="">
+                            <img src="images/products/logoshopee.png" alt="" class="auth-img">
+                        </a>
+                        <h4 class="login__header-title">Đăng Nhập</h4>
+                    </div>
                     <a href="#" class="login__header-support">Cần trợ giúp?</a>
                 </div>
 
@@ -38,7 +42,7 @@
                             <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
                             <input type="text" class="form-control login__body-form--header-input" id="formGroupExampleInput" placeholder="Email/Số điện thoại/Tên đăng nhập">
                             <div class="invalid-feedback">
-                                nhập sai!!
+                                *Email/Số điện thoại/Tên đăng nhập không chính xác!
                             </div>
                         </div>
                         <!-- khi điền đủ thong tin bỏ class notlogin -->

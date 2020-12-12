@@ -25,5 +25,3 @@ mix.styles(
     ],
     "public/css/app.css"
 );
-
-mix.copyDirectory("resources/fonts", "public/fonts");
