@@ -29,6 +29,6 @@ Route::get('/header', function () {
 Route::get('/product', function () {
     return view('/pages/product');
 });
-Route::get('/detail', function () {
+Route::get('/detailproduct', function () {
     return view('/pages/detailproduct');
 });
