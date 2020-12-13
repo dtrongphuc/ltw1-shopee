@@ -604,6 +604,7 @@ a:hover {
 
 /* end login  */
 
+
 /* register  */
 
 .register__body-form {
@@ -644,7 +645,8 @@ a:hover {
 
 a{
     text-decoration: none;
-    color: white;
+    color: white !important;
+    
 }
 .header{
 height: 7.2825rem;
@@ -750,7 +752,7 @@ font-size: 18px;
 .search{
     width: 60%;
     background-color: white;
-    height: 25px;
+    height: 37px;
     margin: 10px;
     border-radius: 5px;
     position: relative;
@@ -758,6 +760,20 @@ font-size: 18px;
     padding: 5px 6px;
 }
 
+.bottom-items{
+    display: flex;
+    margin-left: 15%;
+    margin: 2px 20%;
+}
+.category-item--header{
+    list-style: none;
+    margin-right: 20px;
+    
+}
+
+.category-item--a{
+    font-size: 13px;
+}
 .main-filter {
     background-color: rgba(0, 0, 0, 0.03);
     height: 60px;
@@ -961,7 +977,7 @@ font-size: 18px;
 
 .footer__infoContact {
     background-color: #F5F5F5;
-    padding: 45px 0;
+    padding: 45px 0 20px 0
 }
 
 .footer__info-list--items {

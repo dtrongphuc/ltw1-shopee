@@ -1,18 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
-    <title>Document</title>
-</head>
+<html lang="vn">
+@extends('../layouts/master')
 
 <body>
     <div class="login__header d-flex align-items-center">
@@ -21,7 +9,7 @@
                 <div class="col d-flex justify-content-between align-items-center">
                     <div class="auth__titlelogo d-flex align-items-center">
                         <a href="">
-                            <img src="images/products/logoshopee.png" alt="" class="auth-img"> 
+                            <img src="images/logo/shopee-color.png" alt="" class="auth-img"> 
                         </a>
                         <h4 class="login__header-title">Đăng Nhập</h4>
                     </div>
@@ -40,7 +28,7 @@
                         <h4 class="login__body-form--header">Đăng Nhập</h4>
                         <div class="form-group">
                             <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                            <input type="text" class="form-control login__body-form--header-input" id="formGroupExampleInput" placeholder="Email/Số điện thoại/Tên đăng nhập">
+                            <input type="text" class="form-control login__body-form--header-input" id="formGroupExampleInput" placeholder="Email/Số điện thoại/Tên đăng nhập" require>
                             <div class="invalid-feedback">
                                 *Email/Số điện thoại/Tên đăng nhập không chính xác!
                             </div>
@@ -48,7 +36,7 @@
 
                         <div class="form-group  ">
                             <div class="login__body-form--password d-flex align-items-center">
-                                <input type="password" class="form-control login__body-form--header-input input-password" id="inputpass" placeholder="Mật khẩu">
+                                <input type="password" class="form-control login__body-form--header-input input-password" id="inputpass" placeholder="Mật khẩu" require>
                                 <div class="login__body-form--header-input-icon" onclick="hidepass()">
                                     <!-- khi hiện pass thì ẩn class 'fa-eye-slash' hiện class 'fa-eye'  -->
                                     <i class="far fa-eye-slash" id="icon-eye"></i>
@@ -60,7 +48,7 @@
                         </div>
 
                         <!-- khi điền đủ thong tin bỏ class notlogin -->
-                        <button class="btn-register-login notlogin">ĐĂNG NHẬP</button>
+                        <button type="submit" class="btn-register-login notlogin">ĐĂNG NHẬP</button>
                         <div class="login__body-form--forgotpass justify-content-between d-flex">
                             <a href="#" class="form-forgotpass--link">Quên mật khẩu</a>
                             <a href="#" class="form-forgotpass--link">Đăng nhập với SMS</a>

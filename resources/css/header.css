@@ -6,7 +6,8 @@
 
 a{
     text-decoration: none;
-    color: white;
+    color: white !important;
+    
 }
 .header{
 height: 7.2825rem;
@@ -112,10 +113,25 @@ font-size: 18px;
 .search{
     width: 60%;
     background-color: white;
-    height: 25px;
+    height: 37px;
     margin: 10px;
     border-radius: 5px;
     position: relative;
     display: flex;
     padding: 5px 6px;
+}
+
+.bottom-items{
+    display: flex;
+    margin-left: 15%;
+    margin: 2px 20%;
+}
+.category-item--header{
+    list-style: none;
+    margin-right: 20px;
+    
+}
+
+.category-item--a{
+    font-size: 13px;
 }
