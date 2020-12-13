@@ -18,10 +18,10 @@
     <div class="login__header d-flex align-items-center">
         <div class="container">
             <div class="row">
-                <div class="col d-flex justify-content-between">
+                <div class="col d-flex justify-content-between align-items-center">
                     <div class="auth__titlelogo d-flex align-items-center">
-                        <a href="">
-                            <img src="images/products/logoshopee.png" alt="" class="auth-img">
+                        <a href="./">
+                            <img src="images/logo/shopee-color.png" alt="" class="auth-img">
                         </a>
                         <h4 class="login__header-title">Đăng Nhập</h4>
                     </div>
@@ -40,13 +40,13 @@
                         <h4 class="login__body-form--header">Đăng Nhập</h4>
                         <div class="form-group">
                             <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                            <input type="text" class="form-control login__body-form--header-input" id="formGroupExampleInput" placeholder="Email/Số điện thoại/Tên đăng nhập">
+                            <input type="text" class="form-control login__body-form--header-input" id="formGroupExampleInput" placeholder="Email/Số điện thoại/Tên đăng nhập" require>
                             <div class="invalid-feedback">
                                 *Email/Số điện thoại/Tên đăng nhập không chính xác!
                             </div>
                         </div>
                         <!-- khi điền đủ thong tin bỏ class notlogin -->
-                        <button class="btn-register-login notlogin">ĐĂNG KÝ</button>
+                        <button type="submit" class="btn-register-login notlogin">ĐĂNG KÝ</button>
                         <div class="login__body-form--dash d-flex justify-content-between align-items-center">
                             <div class="login__body-form--dash-lf"></div>
                             <span class="login__body-form--dash-content">HOẶC</span>
@@ -80,6 +80,7 @@
             </div>
         </div>
     </div>
+    @include('../layouts/footer')
 </body>
 
 </html>

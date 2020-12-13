@@ -176,6 +176,7 @@
 
 /* end login  */
 
+
 /* register  */
 
 .register__body-form {
@@ -206,5 +207,4 @@
 
 .auth-img {
     width: 170px;
-    height: 45px;
 }
