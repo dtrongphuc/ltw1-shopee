@@ -16,9 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('/pages/index');
 });
+
 Route::get('/login', function () {
     return view('/pages/login');
 });
+
 Route::get('/register', function () {
     return view('/pages/register');
 });
@@ -26,11 +28,9 @@ Route::get('/register', function () {
 Route::get('/header', function () {
     return view('/layouts/header');
 });
+
 Route::get('/product', function () {
     return view('/pages/product');
-});
-Route::get('/detailproduct', function () {
-    return view('/pages/detailproduct');
 });
 Route::get('/cart', function () {
     return view('/pages/cart');
