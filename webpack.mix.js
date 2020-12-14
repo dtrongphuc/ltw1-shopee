@@ -22,8 +22,7 @@ mix.styles(
         "resources/css/header.css",
         "resources/css/index.css",
         "resources/css/footer.css",
-        "resources/css/products.css",
-        "resources/css/detailproduct.css",
+        "resources/css/product.css",
     ],
     "public/css/app.css"
 );
