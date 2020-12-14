@@ -95,3 +95,9 @@ input[type=checkbox]:checked:after {
     font-size: 14px;
     font-weight: 300;
 }
+
+.cartbody__products {
+    margin-top: 20px;
+    background-color: white;
+    padding: 17px 20px;
+}

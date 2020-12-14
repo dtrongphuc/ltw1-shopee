@@ -16,7 +16,7 @@
             </div>
             <div class="col-md-6">
                 <div class="cart__header-search d-flex justify-content-between">
-                    <input class="form-control cart__header-input" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control cart__header-input form-control" value="1" type="search" placeholder="Search" aria-label="Search">
                     <span class="cart-search d-flex align-items-center justify-content-center">
                         <i class="fas fa-search search-icon"></i>
                     </span>
@@ -50,5 +50,37 @@
                 </div>
             </div>
         </div>
+
+        <div class="cartbody__products">
+            <div class="row d-flex justify-content-around">
+                <div class="col-md-6">
+                    <div class="cartbody__checkall d-flex align-items-center">
+                        <div class="cartbody__products-check">
+                            <input type="checkbox">
+
+                        </div>
+                        <div class="cartbody__products-img"></div>
+                        <h5 class="cartbody__products-productname">
+                            QUẦN BAGGY JEANS ĐEN TRƠN RÁCH GỐI (có hình chụp thật)
+                        </h5>
+                        <span class="cartbody__products-classify">Phân loại: Đen, XL</span>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="cartbody__productsinfo d-flex justify-content-around">
+                        <p class="cartbody__productsinfo-unitprice">đ180.000</p>
+                        <div class="cartbody__productsinfo-amount">
+                            <button class="cartbody__productsinfo-amount--down"></button>
+                            <input class="cartbody__productsinfo-amount--content"></input>
+                            <button class="cartbody__productsinfo-amount--up"></button>
+                        </div>
+                        <h5 class="cartbody__productsinfo-price">đ180.000</h5>
+                        <span class="cartbody__productsinfo-manipulation">Xóa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    @stop
+</div>
+@stop
