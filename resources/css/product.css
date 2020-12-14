@@ -1,0 +1,109 @@
+.main-product__wrapper {
+    --red: #d0011b;
+    background-color: #fff;
+}
+
+.main-product__left {
+    padding: 1rem;
+}
+
+.main-product__right {
+    padding: 1rem 2rem 1rem;
+}
+
+.product-left__img {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.product-left__img--big {
+    padding-top: 100%;
+    background-image: url('../images/products/banphim.jfif');
+}
+
+.product-right__title {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.product-right__statistic {
+    margin-top: 1rem;
+}
+
+.product-statistic__list {
+    display: flex;
+    align-items: center;
+}
+
+.statistic-item {
+    position: relative;
+    height: 26px;
+    padding: 1px 1rem;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.statistic-item > a {
+    color: unset;
+}
+
+.product-statistic__list > .statistic-item:first-child {
+    padding-left: 0;
+}
+
+.product-statistic__list > .statistic-item:last-child {
+    padding-right: 0;
+    border-right: none;
+}
+
+.statistic-item__number {
+    line-height: 1.2;
+    margin-right: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    color:#222;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #555;
+}
+
+.statistic-item__number--red {
+    color: var(--red);
+    border-bottom: 1px solid var(--red);
+}
+
+.statistic-item__star {
+    color: var(--red);
+    font-size: 0.9rem;
+}
+
+.statistic-item__text {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 0.95rem;
+}
+
+.product-right__price {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 0 1.4rem;
+    height: 66px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.product-right__price--unit {
+    color: var(--red);
+    font-size: 1.3rem;
+    line-height: 1;
+    margin-bottom: 6px;
+    border-bottom: 1px solid var(--red);
+}
+
+.product-right__price--currency {
+    color: var(--red);
+    font-size: 2rem;
+    line-height: 1;
+    font-weight: 400;
+}

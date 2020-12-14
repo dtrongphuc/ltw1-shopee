@@ -1,183 +1,59 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    <title>Document</title>
-</head>
-<body>
-    <div class="app">
-        <div class="app__container">
-            <div class="grid wide">
-                <div class="grid__row app__content">
-                    <div class="grid__column-10">
-
-                        <!-- product -->
-                        <div class="home-product">
-                            <div class="grid__row">
-                                <!-- product item -->
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item-img" style="background-image: url(images/products/1.jpg)">
-                                        </div>
-                                        <h4 class="home-product-item-name"> VÁY DẠ HỘI THỜI THƯỢNG</h4>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-old">1.400.000đ</span>
-                                            <span class="home-product-item__price-current">1.300.000₫</span>
-                                        </div>
-                                        <div class="home-product-item__action">
-                                            <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="far fa-heart home-product-item-icon-like-empty"></i>
-                                                <i class="fas fa-heart home-product-item-icon home-product-item-icon-like-fill"></i>
-                                            </span>
-                                            <div class="home-product-item__rating">
-                                                <i class="fas fa-star home-product-item__star--gold"></i>
-                                                <i class="fas fa-star home-product-item__star--gold"></i>
-                                                <i class="fas fa-star home-product-item__star--gold"></i>
-                                                <i class="fas fa-star home-product-item__star--gold"></i>
-                                                <i class="fas fa-star home-product-item__star--gold"></i>
-                                            </div>
-                                            <span class="home-product-item__sold">22 đã bán</span>
-                                        </div>
-                                        <div class="home-product-item__origin">
-                                            <span class="home-product-item__brand">Yohe</span>
-                                            <span class="home-product-item__origin-name">Thái Lan</span>
-                                        </div>
-                                        <!-- <div class="home-product-item__favourite">
-                                            <i class="fas fa-check"></i>
-                                            <span>Yêu thích</span>
-                                        </div> -->
-                                        <div class="home-product-item__sale-off">
-                                            <span class="home-product-item__sale-off-percent">10%</span>
-                                            <span class="home-product-item__sale-off-label">GIẢM</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item-img" style="background-image: url(images/products/similar1.jpg)">
-                                        </div>
-                                        <h4 class="home-product-item-name"> TÚI XÁCH THỜI TRANG CAO CẤP</h4>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-old">1.200.000đ</span>
-                                            <span class="home-product-item__price-current">900.000đ</span>
-                                        </div>
-                                        <div class="home-product-item__action">
-                                            <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="far fa-heart home-product-item-icon-like-empty"></i>
-                                                <i class="fas fa-heart home-product-item-icon home-product-item-icon-like-fill"></i>
-                                            </span>
-                                            <div class="home-product-item__rating">
-                                                <i class="fas fa-star home-product-item__star--gold"></i>
-                                                <i class="fas fa-star home-product-item__star--gold"></i>
-                                                <i class="fas fa-star home-product-item__star--gold"></i>
-                                                <i class="fas fa-star home-product-item__star--gold"></i>
-                                                <i class="fas fa-star home-product-item__star--gold"></i>
-                                            </div>
-                                            <span class="home-product-item__sold">22 đã bán</span>
-                                        </div>
-                                        <div class="home-product-item__origin">
-                                            <span class="home-product-item__brand">Whoo</span>
-                                            <span class="home-product-item__origin-name">Nhật Bản</span>
-                                        </div>
-                                        <div class="home-product-item__favourite">
-                                            <i class="fas fa-check"></i>
-                                            <span>Yêu thích</span>
-                                        </div>
-                                        <div class="home-product-item__sale-off">
-                                            <span class="home-product-item__sale-off-percent">10%</span>
-                                            <span class="home-product-item__sale-off-label">GIẢM</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item-img" style="background-image: url(images/products/similar2.jpg)">
-                                        </div>
-                                        <h4 class="home-product-item-name"> ÁO THUN TRƠN THỂ THAO</h4>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-old">1.700.000đ</span>
-                                            <span class="home-product-item__price-current">1.500.000₫</span>
-                                        </div>
-                                        <div class="home-product-item__action">
-                                            <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="far fa-heart home-product-item-icon-like-empty"></i>
-                                                <i class="fas fa-heart home-product-item-icon home-product-item-icon-like-fill"></i>
-                                            </span>
-                                            <div class="home-product-item__rating">
-                                                <i class="fas fa-star home-product-item__star--gold"></i>
-                                                <i class="fas fa-star home-product-item__star--gold"></i>
-                                                <i class="fas fa-star home-product-item__star--gold"></i>
-                                                <i class="fas fa-star home-product-item__star--gold"></i>
-                                                <i class="fas fa-star home-product-item__star--gold"></i>
-                                            </div>
-                                            <span class="home-product-item__sold">22 đã bán</span>
-                                        </div>
-                                        <div class="home-product-item__origin">
-                                            <span class="home-product-item__brand">LS2</span>
-                                            <span class="home-product-item__origin-name">Trung Quốc</span>
-                                        </div>
-                                        <div class="home-product-item__favourite">
-                                            <i class="fas fa-check"></i>
-                                            <span>Yêu thích</span>
-                                        </div>
-                                        <div class="home-product-item__sale-off">
-                                            <span class="home-product-item__sale-off-percent">10%</span>
-                                            <span class="home-product-item__sale-off-label">GIẢM</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="#">
-                                        <div class="home-product-item-img" style="background-image: url(images/products/similar3.jpg)">
-                                        </div>
-                                        <h4 class="home-product-item-name"> ÁO THUN ĐẲNG CẤP THỜI TRANG</h4>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-old">3.500.000đ</span>
-                                            <span class="home-product-item__price-current">3.300.000₫</span>
-                                        </div>
-                                        <div class="home-product-item__action">
-                                            <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="far fa-heart home-product-item-icon-like-empty"></i>
-                                                <i class="fas fa-heart home-product-item-icon home-product-item-icon-like-fill"></i>
-                                            </span>
-                                            <div class="home-product-item__rating">
-                                                <i class="fas fa-star home-product-item__star--gold"></i>
-                                                <i class="fas fa-star home-product-item__star--gold"></i>
-                                                <i class="fas fa-star home-product-item__star--gold"></i>
-                                                <i class="fas fa-star home-product-item__star--gold"></i>
-                                                <i class="fas fa-star home-product-item__star--gold"></i>
-                                            </div>
-                                            <span class="home-product-item__sold">22 đã bán</span>
-                                        </div>
-                                        <div class="home-product-item__origin">
-                                            <span class="home-product-item__brand">QC</span>
-                                            <span class="home-product-item__origin-name">Việt Nam</span>
-                                        </div>
-                                        <div class="home-product-item__favourite">
-                                            <i class="fas fa-check"></i>
-                                            <span>Yêu thích</span>
-                                        </div>
-                                        <div class="home-product-item__sale-off">
-                                            <span class="home-product-item__sale-off-percent">12%</span>
-                                            <span class="home-product-item__sale-off-label">GIẢM</span>
-                                        </div>
-                                    </a>
-                                </div>
-                             
-                            </div>
-                        </div>
-                        <!--end product -->
+@extends('../layouts/master', ['title' => 'Sản phẩm'])
+@section('body')
+@parent
+<main class="main main-product">
+    <div class="container">
+        <div class="main-product__wrapper">
+            <div class="row">
+                <div class="col-5">
+                    <div class="main-product__left">
+                        <div class="product-left__img product-left__img--big"></div>
 
                     </div>
+                </div>
+                <div class="col-7">
+                    <section class="main-product__right">
+                        <h4 class="product-right__title">Bàn phím Bluetooth Logitech K380 Multi-Device - Kết nối Bluetooth cùng lúc 3 thiết bị</h4>
+                        <div class="product-right__statistic">
+                            <ul class="product-statistic__list">
+                                <li class="statistic-item">
+                                    <a href="#">
+                                        <div class="d-flex align-items-center">
+                                            <span class="statistic-item__number statistic-item__number--red">4.9</span>
+                                            <div style="margin-bottom: 3px">
+                                                <i class="fas fa-star statistic-item__star"></i>
+                                                <i class="fas fa-star statistic-item__star"></i>
+                                                <i class="fas fa-star statistic-item__star"></i>
+                                                <i class="fas fa-star statistic-item__star"></i>
+                                                <i class="fas fa-star statistic-item__star"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="statistic-item">
+                                    <a href="">
+                                        <div class="d-flex align-items-center">
+                                            <span class="statistic-item__number">1,6k</span>
+                                            <p class="statistic-item__text">Đánh Giá</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="statistic-item">
+                                    <div class="d-flex align-items-center">
+                                        <span class="statistic-item__number">4,1k</span>
+                                        <p class="statistic-item__text">Đã Bán</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="product-right__price">
+                            <p class="product-right__price--unit">đ</p>
+                            <p class="product-right__price--currency">579.000</p>
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>
     </div>
-   
-</body>
-</html>
+</main>
+@stop

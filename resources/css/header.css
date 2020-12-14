@@ -1,137 +1,156 @@
-.body{
+.body {
     margin: 0 !important;
-    font-family: Helvetica Neue,Helvetica,Arial,文泉驛正黑,WenQuanYi Zen Hei,Hiragino Sans GB,儷黑 Pro,LiHei Pro,Heiti TC,微軟正黑體,Microsoft JhengHei UI,Microsoft JhengHei,sans-serif;
     font-size: .875rem;
 }
 
-a{
-    text-decoration: none;
-    color: white !important;
-    
-}
-.header{
-height: 7.2825rem;
-background-color:  #ee4d2d;
+.header {
+    height: var(--header-height);
+    background: #f53d2d;
+    background: -webkit-gradient(linear,left top,left bottom,from(#f53d2d),to(#f63));
+    background: linear-gradient(-180deg,#f53d2d,#f63);
 }
 
-.grid{
-width: 1200px;
-max-width: 100%;
-margin: 0 auto;
+.header__navbar {
+    display: flex;
+    justify-content: space-between;
 }
 
-.header__navbar{
-display: flex;
-justify-content: space-between;
+.header_narbar-list {
+    list-style: none;
+    padding-left: 0;
+    padding-top: 4px;
 }
 
-.header_narbar-list{
-list-style: none;
-padding-left: 0;
-margin-top: 4px;
-margin-bottom: 8px;
+.header__navbar-item {
+    min-height: 26px;
 }
 
-.header__navbar-item{
-margin: 0 8px;
-
-min-height: 26px;
+.header__navbar-item > a {
+    color:#fff;
 }
 
 .header__navbar-item,
-.header__navbar-item-link{
-display: inline-block;
-font-size: 15px;
-color: var(--secondary-color);
-text-decoration: none;
-font-weight: 300;
+.header__navbar-item-link {
+    display: inline-block;
+    font-size: 13px;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 300;
 }
 
 .header__navbar-item,
 .header__navbar-item-link,
-.header__navbar-icon-link{
-display: inline-flex;
-align-items: center;
+.header__navbar-icon-link {
+    display: inline-flex;
+    align-items: center;
 }
 
-.header__navbar-item--strong{
-font-weight: 400;
-color: white;
+.header__navbar-item--strong {
+    font-weight: 400;
+    color: white;
 }
 
-.header__navbar-item-separate{
-border-right: 2px solid hsla(0,0%,100%,.22);
-padding: 0 .4375rem;
-
-display: inline-block;
-height: fit-content;
-min-height: auto !important;
+.header__navbar-item-separate {
+    border-right: 2px solid hsla(0, 0%, 100%, .22);
+    padding: 0 .4375rem;
+    display: inline-block;
+    height: fit-content;
+    min-height: auto !important;
+    padding: 0 1rem;
+    margin-right: 1rem;
 }
 
-.header__navbar--icon-link{
-color: white;
-text-decoration: none;
-height: 13px;
+.header__navbar--icon-link {
+    color: white;
+    text-decoration: none;
+    height: 13px;
 }
 
-.header__navbar-icon{
-font-size: 1.8rem;
-margin: 0 4px;
-font-size: 18px;
+.header__navbar-icon {
+    margin: 0 4px;
+    font-size: 15px;
 }
 
-.center-header{
+.center-header {
     display: flex;
-    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 254px;
+    height: 88px;
+}
+
+.bottom-header {
+    margin: 0 10px;
+}
+
+.search-keyword {
+    width: 100%;
 }
 
 .search,
-.input-search{
-    width: 90%;
+.input-search {
+    width: 92%;
     height: 100%;
     border: none;
     margin-left: 10px;
-  
+}
+
+.input-search:focus {
+    border: none;
+    outline: none;
+}
+
+.button-search {
+    cursor: pointer;
 }
 
 .search,
-.button-search .search-icon{
-    padding: 7px 17px;
+.button-search .search-icon {
     color: white;
     background: red;
-    padding: 6px 22px;
-    border-radius: 5px;
-} 
-
-.cart-button{
-    display: inline-block;
-    width: 20%;
-    height: 20%;
-    font-size: 24px;
-    margin: 11px 28px;
+    padding: 8px 24px;
+    border-radius: 2px;
 }
-.search{
-    width: 60%;
+
+.cart-button {
+    display: inline-block;
+    font-size: 24px;
+    margin: 10px 34px;
+    cursor: pointer;
+}
+
+.search {
+    width: 100%;
     background-color: white;
     height: 37px;
-    margin: 10px;
-    border-radius: 5px;
+    margin: 10px 10px 4px 10px;
+    border-radius: 2px;
     position: relative;
     display: flex;
-    padding: 5px 6px;
+    padding: 5px 5px;
+    box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.03);
 }
 
-.bottom-items{
+.bottom-items {
     display: flex;
-    margin-left: 15%;
-    margin: 2px 20%;
+    align-items: center;
 }
-.category-item--header{
+
+.category-item--header {
     list-style: none;
     margin-right: 20px;
-    
 }
 
-.category-item--a{
-    font-size: 13px;
+.category-item--a {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1;
+}
+
+.category-item--a:hover {
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
 }
