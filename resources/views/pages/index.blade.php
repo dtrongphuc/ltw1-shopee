@@ -1,7 +1,7 @@
 @extends('../layouts/master', ['title' => 'Trang chủ'])
     @section('body')
     @parent
-        <main class="main mt-4">
+        <main class="main main-home">
             <div class="container p-6">
                 <div class="row m--6">
                     <div class="col-2 p-6">
