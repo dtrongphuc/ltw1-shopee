@@ -107,3 +107,63 @@
     line-height: 1;
     font-weight: 400;
 }
+
+.product-right__subtitle {
+    width: 110px;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 1rem;
+}
+
+.product-types__btn,
+.product-types__btn:focus,
+.product-types__btn:active {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 80px;
+    height: 34px;
+    color: rgba(0, 0, 0, 0.8);
+    border-radius: 2px;
+    margin-right: 8px;
+    outline: none;
+}
+
+.product-types__btn--disable:disabled {
+    color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: not-allowed;
+}
+
+.product-types__btn--active,
+.product-types__btn--active:focus,
+.product-types__btn--active:active {
+    color: var(--red);
+    border: 1px solid var(--red);
+    outline: none;
+}
+
+.product-types__check {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 0.5rem;
+    z-index: 1;
+}
+
+.product-types__check::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: -2px;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 12px solid var(--red);
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+.product-types__btn--active > .product-types__check {
+    display: inline-block;
+}

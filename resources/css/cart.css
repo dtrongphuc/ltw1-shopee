@@ -92,6 +92,15 @@ input[type=checkbox]:checked:after {
 }
 
 .cartbody__headercolumn {
+    font-size: 16px;
+    font-weight: 500;
+    color: #978888;
+}
+
+
+/* sản phẩm trong giỏ hàng */
+
+.cartbody__headercolumn {
     font-size: 14px;
     font-weight: 300;
 }
@@ -100,4 +109,19 @@ input[type=checkbox]:checked:after {
     margin-top: 20px;
     background-color: white;
     padding: 17px 20px;
+}
+
+.cartbody__checkall,
+.cartbody__productsinfo {
+    margin: 10px 0;
+}
+
+.cartbody__products-check {
+    padding: 0 17px;
+}
+
+.cartbody__products-productname {
+    font-size: 13px;
+    font-weight: 400;
+    width: 230px;
 }
