@@ -41,11 +41,11 @@
 
                 </div>
                 <div class="col-md-6">
-                    <div class="cartbody__headercolumn d-flex justify-content-around">
-                        <h5 class="cartbody__headercolumn-unitprice">Đơn giá</h5>
-                        <h5 class="cartbody__headercolumn-amount">Số lượng</h5>
-                        <h5 class="cartbody__headercolumn-price">Số tiền</h5>
-                        <h5 class="cartbody__headercolumn-manipulation">Thao tác</h5>
+                    <div class="cartbody__headercolumn-list d-flex justify-content-around">
+                        <h5 class="cartbody__headercolumn">Đơn giá</h5>
+                        <h5 class="cartbody__headercolumn">Số lượng</h5>
+                        <h5 class="cartbody__headercolumn">Số tiền</h5>
+                        <h5 class="cartbody__headercolumn">Thao tác</h5>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@
         <div class="cartbody__products">
             <div class="row d-flex justify-content-around">
                 <div class="col-md-6">
-                    <div class="cartbody__checkall d-flex align-items-center">
+                    <div class="cartbody__checkall d-flex align-items-center ">
                         <div class="cartbody__products-check">
                             <input type="checkbox">
 
@@ -63,7 +63,7 @@
                         <h5 class="cartbody__products-productname">
                             QUẦN BAGGY JEANS ĐEN TRƠN RÁCH GỐI (có hình chụp thật)
                         </h5>
-                        <span class="cartbody__products-classify">Phân loại: Đen, XL</span>
+                        <span class="cartbody__products-classify ml-auto">Phân loại: Đen, XL</span>
                     </div>
 
                 </div>
