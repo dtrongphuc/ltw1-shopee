@@ -73,7 +73,12 @@
                         </div>
                         <div class="d-flex align-items-center mt-4">
                             <p class="product-right__subtitle">Số lượng</p>
-                            
+                            <div class="d-flex align-items-center product-quantity">
+                                <button class="product-quantity__btn">-</button>
+                                <input type="text" class="product-quantity__input" name="product-quantity" value="1" pattern="[0-9]+">
+                                <button class="product-quantity__btn">+</button>
+                            </div>
+                            <p class="product-right__quantity--text">73 sản phẩm có sẵn</p>
                         </div>
                     </section>
                 </div>

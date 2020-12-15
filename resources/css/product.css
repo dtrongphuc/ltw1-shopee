@@ -110,7 +110,7 @@
 
 .product-right__subtitle {
     width: 110px;
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.6);
     font-size: 1rem;
 }
 
@@ -166,4 +166,37 @@
 
 .product-types__btn--active > .product-types__check {
     display: inline-block;
+}
+
+.product-quantity__btn,
+.product-quantity__btn:active,
+.product-quantity__btn:focus {
+    outline: none;
+    color: rgba(0, 0, 0, 0.6);
+    background-color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.product-quantity__btn,
+.product-quantity__input {
+    height: 32px;
+    width: 32px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.product-quantity__input,
+.product-quantity__input:focus,
+.product-quantity__input:active {
+    width: 50px;
+    outline: none;
+    text-align: center;
+    border-right: none;
+    border-left: none;
+}
+
+.product-right__quantity--text {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 0.9rem;
+    margin-left: 1rem;
 }
