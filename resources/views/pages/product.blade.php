@@ -50,6 +50,31 @@
                             <p class="product-right__price--unit">đ</p>
                             <p class="product-right__price--currency">579.000</p>
                         </div>
+                        <div class="d-flex align-items-center mt-4">
+                            <p class="product-right__subtitle">Loại</p>
+                            <div class="d-flex align-items-center product-types">
+                                <button disabled class="product-types__btn product-types__btn--disable">
+                                    Xanh
+                                    <i class="fas fa-check product-types__check"></i>
+                                </button>
+                                <button class="product-types__btn">
+                                    Trắng
+                                    <i class="fas fa-check product-types__check"></i>
+                                </button>
+                                <button class="product-types__btn">
+                                    Đen
+                                    <i class="fas fa-check product-types__check"></i>
+                                </button>
+                                <button class="product-types__btn product-types__btn--active">
+                                    Hồng
+                                    <i class="fas fa-check product-types__check"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mt-4">
+                            <p class="product-right__subtitle">Số lượng</p>
+                            
+                        </div>
                     </section>
                 </div>
             </div>
