@@ -80,6 +80,13 @@
                             </div>
                             <p class="product-right__quantity--text">73 sản phẩm có sẵn</p>
                         </div>
+                        <div class="d-flex align-items-center mt-4">
+                            <button class="product-cart__btn product-cart__btn--outline">
+                                <i class="fas fa-cart-plus"></i>
+                                Thêm Vào Giỏ Hàng
+                            </button>
+                            <button class="product-cart__btn product-cart__btn--fullred">Mua Ngay</button>
+                        </div>
                     </section>
                 </div>
             </div>
