@@ -28,9 +28,9 @@
 </div>
 <div class="cartbody">
     <div class="container">
-        <div class="cartbody__headeroflist">
-            <div class="row d-flex justify-content-around">
-                <div class="col-md-6">
+        <div class="cartbody__headeroflist ">
+            <div class="row d-flex justify-content-around align-items-center" style="text-align: center;">
+                <div class="col-md-5">
                     <div class="cartbody__checkall d-flex align-items-center">
                         <div class="cartbody__checkall-check">
                             <input type="checkbox">
@@ -40,12 +40,25 @@
                     </div>
 
                 </div>
-                <div class="col-md-6">
-                    <div class="cartbody__headercolumn-list d-flex justify-content-around">
-                        <h5 class="cartbody__headercolumn">Đơn giá</h5>
-                        <h5 class="cartbody__headercolumn">Số lượng</h5>
-                        <h5 class="cartbody__headercolumn">Số tiền</h5>
-                        <h5 class="cartbody__headercolumn">Thao tác</h5>
+                <div class="col-md-7">
+                    <div class="container">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-3">
+                                <h5 class="cartbody__headercolumn">Đơn giá</h5>
+                            </div>
+                            <div class="col-3">
+                                <h5 class="cartbody__headercolumn">Số lượng</h5>
+
+                            </div>
+                            <div class="col-3">
+                                <h5 class="cartbody__headercolumn">Số tiền</h5>
+
+                            </div>
+                            <div class="col-3">
+                                <h5 class="cartbody__headercolumn">Thao tác</h5>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -53,11 +66,10 @@
 
         <div class="cartbody__products">
             <div class="row d-flex justify-content-around">
-                <div class="col-md-6">
+                <div class="col-md-5">
                     <div class="cartbody__checkall d-flex align-items-center ">
                         <div class="cartbody__products-check">
                             <input type="checkbox">
-
                         </div>
                         <div class="cartbody__products-img"></div>
                         <h5 class="cartbody__products-productname">
@@ -65,21 +77,78 @@
                         </h5>
                         <span class="cartbody__products-classify ml-auto">Phân loại: Đen, XL</span>
                     </div>
-
                 </div>
-                <div class="col-md-6">
-                    <div class="cartbody__productsinfo d-flex justify-content-around">
-                        <p class="cartbody__productsinfo-unitprice">đ180.000</p>
-                        <div class="cartbody__productsinfo-amount">
-                            <button class="cartbody__productsinfo-amount--down"></button>
-                            <input class="cartbody__productsinfo-amount--content"></input>
-                            <button class="cartbody__productsinfo-amount--up"></button>
+                <div class="col-md-7 d-flex align-items-center">
+                    <div class="container">
+                        <div class="row d-flex align-items-center" style="text-align: center;">
+                            <div class="col-3">
+                                <p class="cartbody__productsinfo-unitprice">đ180.000</p>
+                            </div>
+                            <div class="col-3">
+                                <div class="cartbody__productsinfo-amount">
+                                    <button class="cartbody__productsinfo-amount--downup">
+                                        <span>&#8722</span>
+                                    </button>
+                                    <input class="cartbody__productsinfo-amount--content" value="1"></input>
+                                    <button class="cartbody__productsinfo-amount--downup">
+                                        <span>&#43</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <p class="cartbody__productsinfo-price">đ180.000</p>
+                            </div>
+                            <div class="col-3">
+                                <span class="cartbody__productsinfo-manipulation">Xóa</span>
+                            </div>
                         </div>
-                        <h5 class="cartbody__productsinfo-price">đ180.000</h5>
-                        <span class="cartbody__productsinfo-manipulation">Xóa</span>
                     </div>
                 </div>
             </div>
+        </div>
+        
+        <div class="cartbody__products">
+            <div class="row d-flex justify-content-around">
+                <div class="col-md-5">
+                    <div class="cartbody__checkall d-flex align-items-center ">
+                        <div class="cartbody__products-check">
+                            <input type="checkbox">
+                        </div>
+                        <div class="cartbody__products-img"></div>
+                        <h5 class="cartbody__products-productname">
+                            QUẦN BAGGY JEANS ĐEN TRƠN RÁCH GỐI (có hình chụp thật)
+                        </h5>
+                        <span class="cartbody__products-classify ml-auto">Phân loại: Đen, XL</span>
+                    </div>
+                </div>
+                <div class="col-md-7 d-flex align-items-center">
+                    <div class="container">
+                        <div class="row d-flex align-items-center" style="text-align: center;">
+                            <div class="col-3">
+                                <p class="cartbody__productsinfo-unitprice">đ180.000</p>
+                            </div>
+                            <div class="col-3">
+                                <div class="cartbody__productsinfo-amount">
+                                    <button class="cartbody__productsinfo-amount--downup">
+                                        <span>&#8722</span>
+                                    </button>
+                                    <input class="cartbody__productsinfo-amount--content" value="1"></input>
+                                    <button class="cartbody__productsinfo-amount--downup">
+                                        <span>&#43</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <p class="cartbody__productsinfo-price">đ180.000</p>
+                            </div>
+                            <div class="col-3">
+                                <span class="cartbody__productsinfo-manipulation">Xóa</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
         </div>
     </div>
 </div>
