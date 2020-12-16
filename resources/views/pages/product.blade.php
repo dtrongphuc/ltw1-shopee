@@ -4,16 +4,47 @@
 <main class="main main-product">
     <div class="container">
         <div class="main-product__wrapper">
-            <div class="row">
-                <div class="col-5">
-                    <div class="main-product__left">
-                        <div class="product-left__img product-left__img--big"></div>
-
+                <div class="main-product__left">
+                    <div class="product-left__img product-left__img--big"></div>
+                    <div class="product-left__images">
+                        <div class="product-images__slider">
+                            <div class="product-image__item">
+                                <div class="image-item__bg" style="background-image: url('../images/products/1.jfif')"></div>
+                                <div class="image-item__border"></div>
+                            </div>
+                            <div class="product-image__item">
+                                <div class="image-item__bg" style="background-image: url('../images/products/2.jfif')"></div>
+                                <div class="image-item__border"></div>
+                            </div>
+                            <div class="product-image__item">
+                                <div class="image-item__bg" style="background-image: url('../images/products/3.jfif')"></div>
+                                <div class="image-item__border"></div>
+                            </div>
+                            <div class="product-image__item">
+                                <div class="image-item__bg" style="background-image: url('../images/products/4.jfif')"></div>
+                                <div class="image-item__border"></div>
+                            </div>
+                            <div class="product-image__item">
+                                <div class="image-item__bg" style="background-image: url('../images/products/5.jfif')"></div>
+                                <div class="image-item__border"></div>
+                            </div>
+                            <div class="product-image__item">
+                                <div class="image-item__bg" style="background-image: url('../images/products/6.jfif')"></div>
+                                <div class="image-item__border"></div>
+                            </div>
+                        </div>
+                        <button class="product-images__ctn product-images__ctn--left">
+                            <i class="fas fa-angle-left"></i>
+                        </button>
+                        <button class="product-images__ctn product-images__ctn--right">
+                            <i class="fas fa-angle-right"></i>
+                        </button>
                     </div>
                 </div>
-                <div class="col-7">
-                    <section class="main-product__right">
-                        <h4 class="product-right__title">Bàn phím Bluetooth Logitech K380 Multi-Device - Kết nối Bluetooth cùng lúc 3 thiết bị</h4>
+                <section class="main-product__right">
+                    <div>
+                        <h4 class="product-right__title">Bàn phím Bluetooth Logitech K380 Multi-Device - Kết nối
+                            Bluetooth cùng lúc 3 thiết bị</h4>
                         <div class="product-right__statistic">
                             <ul class="product-statistic__list">
                                 <li class="statistic-item">
@@ -75,15 +106,22 @@
                             <p class="product-right__subtitle">Số lượng</p>
                             <div class="d-flex align-items-center product-quantity">
                                 <button class="product-quantity__btn">-</button>
-                                <input type="text" class="product-quantity__input" name="product-quantity" value="1" pattern="[0-9]+">
+                                <input type="text" class="product-quantity__input" name="product-quantity" value="1"
+                                    pattern="[0-9]+">
                                 <button class="product-quantity__btn">+</button>
                             </div>
                             <p class="product-right__quantity--text">73 sản phẩm có sẵn</p>
                         </div>
-                    </section>
-                </div>
+                        <div class="d-flex align-items-center mt-4">
+                            <button class="product-cart__btn product-cart__btn--outline">
+                                <i class="fas fa-cart-plus"></i>
+                                Thêm Vào Giỏ Hàng
+                            </button>
+                            <button class="product-cart__btn product-cart__btn--fullred">Mua Ngay</button>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </div>
     </div>
 </main>
 @stop
