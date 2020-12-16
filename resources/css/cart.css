@@ -183,3 +183,34 @@ input[type=checkbox]:checked:after {
     font-size: 13px;
     color: var(--primary-color);
 }
+
+
+/* footer giỏ hàng  */
+
+.cartfooter {
+    margin-top: 20px;
+    background-color: white;
+    padding: 17px 20px;
+}
+
+.cartfooter__selectproduct-favoriteall {
+    color: var(--primary-color);
+}
+
+.cartfooter__buyproduct-totalmoney--money {
+    margin-left: 8px;
+    font-weight: 300;
+    color: var(--primary-color);
+}
+
+.cartfooter__buyproduct-btnbuy {
+    width: 210px;
+    background-color: var(--primary-color);
+    border: none;
+    margin-left: 15px;
+}
+
+.cartfooter__buyproduct-btnbuy:hover {
+    background-color: var(--primary-color);
+    border: none;
+}

@@ -106,7 +106,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="cartbody__products">
             <div class="row d-flex justify-content-around">
                 <div class="col-md-5">
@@ -148,7 +148,35 @@
                     </div>
                 </div>
             </div>
-           
+
+        </div>
+
+        <div class="cartfooter">
+            <div class="row d-flex justify-content-between align-items-center">
+                <div class="col-md-6">
+                    <div class="cartfooter__selectproduct d-flex align-items-center">
+                        <div class="cartfooter__selectproduct-checkall d-flex align-items-center">
+                            <div class="cartbody__products-check cartfooter__selectproduct-checkall--check">
+                                <input type="checkbox">
+                            </div>
+                            <p class="cartfooter__selectproduct-checkall--content">Chọn tất cả (12)</p>
+                        </div>
+                        <button class="btn cartfooter__selectproduct-deleteall">Xóa</button>
+                        <button class="btn cartfooter__selectproduct-favoriteall">Lưu vào mục đã thích</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="cartfooter__buyproduct d-flex align-items-center justify-content-end">
+                        <div class="cartfooter__buyproduct-totalmoney d-flex align-items-center">
+                            <p class="cartfooter__buyproduct-totalmoney--content">Tổng tiền hàng (0 sản phẩm):</p>
+                            <div class="cartfooter__buyproduct-totalmoney--money">
+                                <h3>đ0</h1>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary cartfooter__buyproduct-btnbuy">Mua hàng</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
