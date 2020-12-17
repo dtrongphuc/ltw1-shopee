@@ -25,6 +25,7 @@
 
 .cart__header-input {
     border: none;
+    width: 485px !important;
 }
 
 .cart__header-input:focus {
@@ -182,6 +183,7 @@ input[type=checkbox]:checked:after {
 .cartbody__productsinfo-manipulation {
     font-size: 13px;
     color: var(--primary-color);
+    cursor: pointer;
 }
 
 

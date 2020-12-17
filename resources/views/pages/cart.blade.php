@@ -151,6 +151,7 @@
 
         </div>
 
+
         <div class="cartfooter">
             <div class="row d-flex justify-content-between align-items-center">
                 <div class="col-md-6">
