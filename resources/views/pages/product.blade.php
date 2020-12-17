@@ -119,6 +119,13 @@
                             </button>
                             <button class="product-cart__btn product-cart__btn--fullred">Mua Ngay</button>
                         </div>
+                        <div class="mt-4">
+                            <ul class="product-right__footer">
+                                <li>
+                                    
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </section>
             </div>
