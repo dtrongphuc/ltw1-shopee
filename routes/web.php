@@ -35,3 +35,6 @@ Route::get('/product', function () {
 Route::get('/cart', function () {
     return view('/pages/cart');
 });
+Route::get('/pay', function () {
+    return view('/pages/pay');
+});

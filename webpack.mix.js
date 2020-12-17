@@ -23,7 +23,8 @@ mix.styles(
         "resources/css/index.css",
         "resources/css/footer.css",
         "resources/css/product.css",
-        "resources/css/cart.css"
+        "resources/css/cart.css",
+        "resources/css/pay.css"
     ],
     "public/css/app.css"
 );
