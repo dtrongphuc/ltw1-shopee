@@ -261,18 +261,29 @@
     cursor: pointer;
 }
 
+.product-image__item:focus {
+    border: none;
+    outline: none;
+}
+
 .product-image__item:hover > .image-item__border {
     display: block;
 }
 
 .image-item__border {
     display: none;
+}
+
+.image-item__border,
+.image-item__border:focus,
+.image-item__border:active {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     border: 2px solid var(--red);
+    outline: none;
 }
 
 .image-item__bg {
