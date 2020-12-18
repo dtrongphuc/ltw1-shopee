@@ -28,18 +28,25 @@
                 </div>
                 <p class="pay__addressship-header--content">Địa Chỉ Nhận Hàng</p>
             </div>
-            <div class="pay__addressship-info d-flex align-items-center">
-                <div class="pay__addressship-info--username">
-                    <strong>Nguyễn hiếu nghĩa</strong>
+            <div class="pay__addressship-info d-flex align-items-center justify-content-between">
+
+                <div class="pay__addressship-infouser  d-flex align-items-center">
+
+                    <div class="pay__addressship-info--username">
+                        <strong>Nguyễn hiếu nghĩa</strong>
+                    </div>
+                    <div class="pay__addressship-info--phone" style="margin: 0 10px;">
+                        <strong>(+84) 947094472</strong>
+                    </div>
+                    <div class="pay__addressship-info--address">
+                        L22 cư xá Phú Lâm A, Phường 12, Quận 6, TP. Hồ Chí Minh
+
+                    </div>
                 </div>
-                <div class="pay__addressship-info--phone">
-                    <strong>(+84) 947094472</strong>
-                </div>
-                <div class="pay__addressship-info--address">
-                    L22 cư xá Phú Lâm A, Phường 12, Quận 6, TP. Hồ Chí Minh
+                <div class="">
+                    <button type="button" class="btn pay__addressship-btnchange" data-toggle="modal" data-target="#exampleModal">Thay đổi</button>
                 </div>
 
-                <button type="button" class="btn pay__addressship-btnchange" data-toggle="modal" data-target="#exampleModal">Thay đổi</button>
             </div>
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -66,17 +73,13 @@
             <div class="row d-flex justify-content-around align-items-center" style="text-align: center;">
                 <div class="col-md-5">
                     <div class="cartbody__checkall d-flex align-items-center">
-                        <div class="cartbody__checkall-check">
-                            <input type="checkbox">
-
-                        </div>
                         <span class="cartbody__checkall-content">Sản phẩm</span>
                     </div>
 
                 </div>
                 <div class="col-md-7">
                     <div class="container">
-                        <div class="row d-flex align-items-center">
+                        <div class="row d-flex align-items-center justify-content-end">
                             <div class="col-3">
                                 <h5 class="cartbody__headercolumn">Đơn giá</h5>
                             </div>
@@ -85,12 +88,7 @@
 
                             </div>
                             <div class="col-3">
-                                <h5 class="cartbody__headercolumn">Số tiền</h5>
-
-                            </div>
-                            <div class="col-3">
-                                <h5 class="cartbody__headercolumn">Thao tác</h5>
-
+                                <h5 class="cartbody__headercolumn">Thành Tiền</h5>
                             </div>
                         </div>
                     </div>
@@ -102,119 +100,44 @@
             <div class="row d-flex justify-content-around">
                 <div class="col-md-5">
                     <div class="cartbody__checkall d-flex align-items-center ">
-                        <div class="cartbody__products-check">
-                            <input type="checkbox">
-                        </div>
                         <div class="cartbody__products-img">
                             <img src="images/products/hoodie_cart.jpg" alt="" style="width: 80px; height: 80px;">
                         </div>
                         <h5 class="cartbody__products-productname">
                             QUẦN BAGGY JEANS ĐEN TRƠN RÁCH GỐI (có hình chụp thật)
                         </h5>
-                        <span class="cartbody__products-classify ml-auto">Phân loại: Đen, XL</span>
+                        <span class="cartbody__products-classify ml-auto">Loại: Đen, XL</span>
                     </div>
                 </div>
-                <div class="col-md-7 d-flex align-items-center">
+                <div class="col-md-7 d-flex align-items-center ">
                     <div class="container">
-                        <div class="row d-flex align-items-center" style="text-align: center;">
+                        <div class="row d-flex align-items-center justify-content-end" style="text-align: center;">
                             <div class="col-3">
                                 <p class="cartbody__productsinfo-unitprice">đ180.000</p>
                             </div>
                             <div class="col-3">
-                                <div class="cartbody__productsinfo-amount">
-                                    <button class="cartbody__productsinfo-amount--downup">
-                                        <span>&#8722</span>
-                                    </button>
-                                    <input class="cartbody__productsinfo-amount--content" value="1"></input>
-                                    <button class="cartbody__productsinfo-amount--downup">
-                                        <span>&#43</span>
-                                    </button>
-                                </div>
+                                <div class="pay__amount">1</div>
                             </div>
                             <div class="col-3">
                                 <p class="cartbody__productsinfo-price">đ180.000</p>
-                            </div>
-                            <div class="col-3">
-                                <span class="cartbody__productsinfo-manipulation">Xóa</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="cartbody__products">
-            <div class="row d-flex justify-content-around">
-                <div class="col-md-5">
-                    <div class="cartbody__checkall d-flex align-items-center ">
-                        <div class="cartbody__products-check">
-                            <input type="checkbox">
-                        </div>
-                        <div class="cartbody__products-img">
-                            <img src="images/products/hoodie_cart.jpg" alt="" style="width: 80px; height: 80px;">
-                        </div>
-                        <h5 class="cartbody__products-productname">
-                            QUẦN BAGGY JEANS ĐEN TRƠN RÁCH GỐI (có hình chụp thật)
-                        </h5>
-                        <span class="cartbody__products-classify ml-auto">Phân loại: Đen, XL</span>
-                    </div>
-                </div>
-                <div class="col-md-7 d-flex align-items-center">
-                    <div class="container">
-                        <div class="row d-flex align-items-center" style="text-align: center;">
-                            <div class="col-3">
-                                <p class="cartbody__productsinfo-unitprice">đ180.000</p>
-                            </div>
-                            <div class="col-3">
-                                <div class="cartbody__productsinfo-amount">
-                                    <button class="cartbody__productsinfo-amount--downup">
-                                        <span>&#8722</span>
-                                    </button>
-                                    <input class="cartbody__productsinfo-amount--content" value="1"></input>
-                                    <button class="cartbody__productsinfo-amount--downup">
-                                        <span>&#43</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <p class="cartbody__productsinfo-price">đ180.000</p>
-                            </div>
-                            <div class="col-3">
-                                <span class="cartbody__productsinfo-manipulation">Xóa</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
 
         <div class="cartfooter">
-            <div class="row d-flex justify-content-between align-items-center">
-                <div class="col-md-6">
-                    <div class="cartfooter__selectproduct d-flex align-items-center">
-                        <div class="cartfooter__selectproduct-checkall d-flex align-items-center">
-                            <div class="cartbody__products-check cartfooter__selectproduct-checkall--check">
-                                <input type="checkbox">
-                            </div>
-                            <p class="cartfooter__selectproduct-checkall--content">Chọn tất cả (12)</p>
-                        </div>
-                        <button class="btn cartfooter__selectproduct-deleteall">Xóa</button>
-                        <button class="btn cartfooter__selectproduct-favoriteall">Lưu vào mục đã thích</button>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="cartfooter__buyproduct d-flex align-items-center justify-content-end">
-                        <div class="cartfooter__buyproduct-totalmoney d-flex align-items-center">
-                            <p class="cartfooter__buyproduct-totalmoney--content">Tổng tiền hàng (0 sản phẩm):</p>
-                            <div class="cartfooter__buyproduct-totalmoney--money">
-                                <h3>đ0</h1>
-                            </div>
-                        </div>
-                        <button class="btn btn-primary cartfooter__buyproduct-btnbuy">Mua hàng</button>
-                    </div>
+            <div class="payfooter__totalpay d-flex align-items-center justify-content-end">
+                <p class="payfooter__totalpay-content">Tổng thanh toán:</p>
+                <div class="payfooter__totalpay-price">
+                    <h3>đ150.000.000</h1>
                 </div>
             </div>
+            <div class="payfooter_btnpay d-flex justify-content-end">
+                <button class="btn btn-primary cartfooter__buyproduct-btnbuy">Mua hàng</button>
+            </div>
+
         </div>
     </div>
 </div>

@@ -50,7 +50,7 @@
 
 .cartbody__headeroflist {
     background-color: white;
-    padding: 17px 20px;
+    padding: 17px 25px;
 }
 
 .cartbody__checkall-check {
@@ -215,4 +215,8 @@ input[type=checkbox]:checked:after {
 .cartfooter__buyproduct-btnbuy:hover {
     background-color: var(--primary-color);
     border: none;
+}
+
+.cartbody__products-img {
+    margin-right: 10px;
 }

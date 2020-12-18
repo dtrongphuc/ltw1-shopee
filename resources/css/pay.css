@@ -1,0 +1,48 @@
+.pay__addressship {
+    background-color: white;
+    padding: 17px 25px;
+    margin-bottom: 20px;
+}
+
+.pay__addressship-header {
+    color: var(--primary-color);
+    font-size: 15px;
+}
+
+.pay__addressship-info {
+    font-size: 18px;
+}
+
+.pay__addressship-header--content {
+    margin-left: 10px;
+}
+
+.pay__addressship-btnchange {
+    margin-left: 20px;
+    font-size: 17px;
+    color: var(--primary-color);
+}
+
+.pay__addressship-btnchange:focus {
+    box-shadow: none;
+}
+
+.payfooter__totalpay {
+    padding: 10px 0 20px 0;
+}
+
+.payfooter__totalpay-content {
+    font-size: 13px;
+    color: #757573;
+}
+
+.payfooter__totalpay-price {
+    margin-left: 20px;
+    font-size: 25px;
+    color: var(--primary-color);
+}
+
+.payfooter_btnpay {
+    padding: 30px 0 10px 0;
+    border-top: #c4c4c4 solid 1px;
+}
