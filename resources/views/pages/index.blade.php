@@ -104,10 +104,7 @@
                 <a href="#">7</a>
                 <a href="#">. . .</a>
                 <a href="#">&raquo;</a>
+            </div>
         </div>
-    </div>
-
-
-        </main>
-
-    @stop
+    </main>
+@stop
