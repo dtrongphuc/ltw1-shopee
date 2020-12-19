@@ -38,3 +38,11 @@ Route::get('/cart', function () {
 Route::get('/pay', function () {
     return view('/pages/pay');
 });
+
+Route::get('/pay', function () {
+    return view('/pages/pay');
+});
+
+Route::get('/admin', function () {
+    return view('/adminthucong/index');
+});
