@@ -24,7 +24,8 @@ mix.styles(
         "resources/css/product.css",
         "resources/css/cart.css",
         "resources/css/pay.css",
-        "resources/css/adminStyle.css"
+        "resources/css/adminStyle.css",
+        "resources/css/infouser.css"
     ],
     "public/css/app.css"
 );
