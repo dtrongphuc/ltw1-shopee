@@ -17,13 +17,13 @@ class CreateUsersTable extends Migration
             $table->id()->unique();
             $table->string('email');
             $table->string('password');
-            $table->string('name');
-            $table->string('phoneNumber');
-            $table->enum('gender', ['male', 'female', 'other']);
-            $table->date('birthday');
-            $table->binary('avatar');
-            $table->string('address');
-            $table->enum('role', [0, 1]);
+            $table->string('name')->nullable();
+            $table->string('phoneNumber')->nullable();
+            $table->enum('gender', ['male', 'female', 'other'])->nullable();
+            $table->date('birthday')->nullable();
+            $table->binary('avatar')->nullable();
+            $table->string('address')->nullable();
+            $table->enum('role', [0, 1])->nullable();
         });
     }
 
