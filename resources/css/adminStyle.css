@@ -1,0 +1,86 @@
+ul{
+    list-style-type: none;
+    padding: 0 !important;
+}
+a{
+    text-decoration: none !important;
+}
+body{
+    font-size: 12px;
+}
+.avatar{
+    width: 30px;
+    height: 30px;
+    border-radius: 25px;
+}
+.box-content{
+    display: flex;
+}
+.box-content .left{
+    height: 100vh;
+    width: 18%;
+    padding: 0 20px;
+    background-color: #4e73df;
+    background-image: linear-gradient(180deg,#4e73df 10%,#224abe 100%);
+    background-size: cover;
+}
+.box-content .left .headerleft{
+    height: 4.375rem;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 800;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .05rem;
+    border-bottom: 1px solid white;
+}
+.box-content .left .list-item .item i{
+    font-size: 1.2em;
+    color: rgba(255,255,255,.8);
+}
+.box-content .left .list-item .item{
+    display: block;
+    text-align: left;
+    padding: 1rem 0;
+}
+.box-content .left .list-item .item a{
+    font-size: 1.2em;
+    color: rgba(255,255,255,.8);
+}
+.box-content .left .list-item .item a:hover{
+    color: white;
+}
+
+.box-content .right{
+    height: 500px;
+    width: 82%;
+}
+.box-content .right .header-right{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 0 30px;
+    height: 70px;
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
+}
+.box-content .right .content-right{ 
+    padding: 25px 15px;
+    background: #6360600f;
+    height: calc(100vh - 70px);;
+}
+.box-content .right .content-right .box-content-right .title{
+    color: #5a5c69;
+    font-size: 1.75em;
+}
+
+.box-content .right .content-right .card-body{ 
+    padding: 1.25rem;
+    background: white;
+}
+
+.box-content .right .content-right .card-body .pag{ 
+    display: flex;
+    flex-direction: row-reverse;
+}
+
