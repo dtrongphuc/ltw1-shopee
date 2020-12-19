@@ -12,7 +12,6 @@ const mix = require("laravel-mix");
  */
 
 mix.js("resources/js/app.js", "public/js");
-
 mix.styles(
     [
         "resources/css/normalize.css",
@@ -28,3 +27,4 @@ mix.styles(
     ],
     "public/css/app.css"
 );
+mix.disableNotifications();
