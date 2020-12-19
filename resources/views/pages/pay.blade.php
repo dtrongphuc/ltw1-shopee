@@ -135,7 +135,7 @@
                 </div>
             </div>
             <div class="payfooter_btnpay d-flex justify-content-end">
-                <button class="btn btn-primary cartfooter__buyproduct-btnbuy">Mua hàng</button>
+                <button class="btn btn-primary cartfooter__buyproduct-btnbuy">Dặt hàng</button>
             </div>
 
         </div>
