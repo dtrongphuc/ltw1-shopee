@@ -44,7 +44,7 @@
                             <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
                             <input type="text" class="form-control login__body-form--header-input" id="formGroupExampleInput" placeholder="Mât khẩu ko phải 8 kí tự trở lên" require>
                             <div class="invalid-feedback">
-                                *Mât khẩu ko phải 8 kí tự trở lên
+                                *Mật khẩu phải 8 kí tự trở lên
                             </div>
                         </div>
                         <div class="form-group">
@@ -61,20 +61,6 @@
                             <span class="login__body-form--dash-content">HOẶC</span>
                             <div class="login__body-form--dash-lf"></div>
                         </div>
-                        <!-- <div class="login__body-form--apps  d-flex justify-content-between align-items-center">
-                            <button class="login__body-form--btnapp-fbook btn d-flex flex-row justify-content-center align-items-center">
-                                <i class="fab fa-facebook iconfacebook"></i>
-                                <div class="login__body-form--btnappname">Facebook</div>
-                            </button>
-                            <button class="login__body-form--btnapp-google btn d-flex flex-row justify-content-center align-items-center">
-                                <i class="fab fa-facebook iconfacebook"></i>
-                                <div class="login__body-form--btnappname">Google</div>
-                            </button>
-                            <button class="login__body-form--btnapp-apple btn d-flex flex-row justify-content-center align-items-center">
-                                <i class="fab fa-facebook iconfacebook"></i>
-                                <div class="login__body-form--btnappname">Apple</div>
-                            </button>
-                        </div> -->
                         <div class="body-form--rules">
                             <div class="body-form--rules-content">
                                 <p>Bằng việc đăng kí, bạn đã đồng ý với Shopee về Điều khoản dịch vụ & Chính sách bảo mật</p>
