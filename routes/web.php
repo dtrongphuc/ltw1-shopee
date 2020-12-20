@@ -57,7 +57,13 @@ Route::get('/admin', function () {
     return view('/adminthucong/index');
 });
 
+Route::get('/admin/UserManagement', function () {
+    return view('/adminthucong/QLUser');
+});
 
+Route::get('/admin/Chart', function () {
+    return view('/adminthucong/chart');
+});
 Route::get('/info', function () {
     return view('/pages/infouser');
 });

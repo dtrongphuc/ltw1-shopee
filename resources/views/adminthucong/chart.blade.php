@@ -24,7 +24,7 @@
                 </li>
                 <li class="item active">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="#">Quản lý thống kê</a>
+                    <a href="./">Quản lý thống kê</a>
                 </li>
                 <li class="item">
                     <i class="fas fa-fw fa-table"></i>
