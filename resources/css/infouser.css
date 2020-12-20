@@ -53,3 +53,67 @@
 .info__categor-favorite--content:hover {
     color: var(--primary-color);
 }
+
+
+/* right */
+
+.main__right {
+    background-color: white;
+    padding: 20px;
+}
+
+.main__right-header {
+    padding-bottom: 30px;
+}
+
+.main__right-header--contentsmall {
+    font-size: 14px;
+    color: rgba(85, 85, 85, .8);
+    padding-top: 8px;
+}
+
+.main__right-body {
+    padding-top: 30px;
+    border-top: #c2c2c2 solid 1px;
+}
+
+.right__info {
+    padding-right: 15px;
+}
+
+.col-form-label {
+    font-size: 14px;
+    color: rgba(85, 85, 85, .8);
+}
+
+.info__btn-changepass {
+    border: none;
+    background-color: transparent;
+}
+
+.info__btn-changepass:focus {
+    border: none;
+    outline: 0;
+}
+
+.info__btn-changepass:hover {
+    color: var(--primary-color)
+}
+
+.btn-changeinfo {
+    background-color: var(--primary-color);
+    width: 170px;
+    height: 35px;
+}
+
+
+/* right upload ảnh */
+
+.info__right-uploadimg {
+    padding-left: 15px;
+    border-left: #c2c2c2 solid 1px;
+}
+
+.info__right-uploadimgimg {
+    border-radius: 50%;
+}
