@@ -161,3 +161,34 @@
     color: rgba(0, 0, 0, 0.8);
     line-height: 1.2;
 }
+
+/* pagination */
+
+.container-pagination {
+    width: 500px;
+	margin: auto;
+	text-align: center;
+}
+
+.pagination {
+	width: 400px;
+	margin-left: 50px;
+}
+
+.pagination a {
+	display: block;
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	transition: background-color .3s;
+}
+
+.pagination a.pagination__active {
+    background-color:#EE4D2E;
+    color: white;
+}
+ 
+.pagination a:hover:not(.pagination__active) {
+  background-color: #ddd;
+}

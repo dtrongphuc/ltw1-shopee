@@ -48,10 +48,12 @@
                 </div>
 
             </div>
+
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
+
+                        <!-- <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -63,10 +65,120 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="button" class="btn btn-primary">Save changes</button>
+                        </div> -->
+
+                        <div class="shopee-modal__content">
+                            <div>
+                                <div class="shopee-popup-form address-modal">
+                                    <div class="shopee-popup-form__header">
+                                        <div class="shopee-popup-form__title">Thêm 1 địa chỉ mới</div>
+                                    </div>
+                                    <div class="shopee-popup-form__main">
+                                        <div class="shopee-popup-form__main-container">
+                                            <div>
+                                            </div>
+                                            <div class="address-modal__form_input">
+                                                <div class="_3gunFW">
+                                                    <div class="voN2GT _28onW4">
+                                                        <input class="_3uWB5R" type="text" placeholder="Họ &amp; Tên" maxlength="64" value="">
+                                                    </div>
+                                                    <div>
+                                                        <span class="_1ERb2l shopee-modal__transition-enter-done">Vui lòng điền Tên</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="address-modal__form_input">
+                                                <div class="_3gunFW">
+                                                    <div class="voN2GT _28onW4">
+                                                        <input class="_3uWB5R" type="text" placeholder="Số điện thoại" value="">
+                                                    </div>
+                                                    <div>
+                                                        <span class="_1ERb2l shopee-modal__transition-enter-done">Số điện thoại không hợp lệ</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="address-modal__form_input">
+                                                <div>
+                                                    <div class="select-with-status">
+                                                        <div class="select-with-status__holder select-with-status__box-shadow">
+                                                            <span class="select-with-status__placeholder">Tỉnh/Thành phố</span>
+                                                            <div class="select-with-status__arrow"></div>
+                                                            <div class="select-with-status__block-arrow">
+                                                                <div>
+
+                                                                </div>
+                                                            </div>
+                                                            <div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="address-modal__form_input">
+                                                <div>
+                                                    <div class="select-with-status select-with-status--disabled">
+                                                        <div class="select-with-status__holder select-with-status__box-shadow">
+                                                            <span class="select-with-status__placeholder">Quận/Huyện</span>
+                                                            <div class="select-with-status__arrow"></div>
+                                                            <div class="select-with-status__block-arrow">
+                                                                <div>
+
+                                                                </div>
+                                                            </div>
+                                                            <div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="address-modal__form_input">
+                                                <div>
+                                                    <div class="select-with-status select-with-status--disabled">
+                                                        <div class="select-with-status__holder select-with-status__box-shadow">
+                                                            <span class="select-with-status__placeholder">Phường/ Xã</span>
+                                                            <div class="select-with-status__arrow">
+
+                                                            </div>
+                                                            <div class="select-with-status__block-arrow">
+                                                                <div>
+
+                                                                </div>
+                                                            </div>
+                                                            <div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="address-modal__form_input">
+                                                <div class="_3gunFW">
+                                                    <div class="voN2GT">
+                                                        <input class="_3uWB5R" type="text" placeholder="Toà nhà, Tên Đường..." maxlength="128" value="">
+                                                    </div>
+                                                    <div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="shopee-popup-form__footer">
+                                            <button class="cancel-btn">Trở Lại</button>
+                                            <button type="button" class="btn btn-solid-primary btn--s btn--inline khi9AY">Hoàn thành</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <!-- Kết thúc thêm địa chỉ mới -->
+
                     </div>
                 </div>
             </div>
+
+
         </div>
 
         <div class="cartbody__headeroflist ">
