@@ -28,9 +28,30 @@
                         <h4 class="login__body-form--header">Đăng Ký</h4>
                         <div class="form-group">
                             <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
+                            <input type="text" class="form-control login__body-form--header-input" id="formGroupExampleInput" placeholder="Tên người dùng" require>
+                            <div class="invalid-feedback">
+                                *tên đăng nhập ko đúng quy định
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
                             <input type="text" class="form-control login__body-form--header-input" id="formGroupExampleInput" placeholder="Email/Số điện thoại/Tên đăng nhập" require>
                             <div class="invalid-feedback">
                                 *Email/Số điện thoại/Tên đăng nhập không chính xác!
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
+                            <input type="text" class="form-control login__body-form--header-input" id="formGroupExampleInput" placeholder="Mât khẩu ko phải 8 kí tự trở lên" require>
+                            <div class="invalid-feedback">
+                                *Mât khẩu ko phải 8 kí tự trở lên
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
+                            <input type="text" class="form-control login__body-form--header-input" id="formGroupExampleInput" placeholder="Mât khẩu ko phải 8 kí tự trở lên" require>
+                            <div class="invalid-feedback">
+                                *Nhập lại mật khẩu ko trùng khớp
                             </div>
                         </div>
                         <!-- khi điền đủ thong tin bỏ class notlogin -->
@@ -40,7 +61,7 @@
                             <span class="login__body-form--dash-content">HOẶC</span>
                             <div class="login__body-form--dash-lf"></div>
                         </div>
-                        <div class="login__body-form--apps  d-flex justify-content-between align-items-center">
+                        <!-- <div class="login__body-form--apps  d-flex justify-content-between align-items-center">
                             <button class="login__body-form--btnapp-fbook btn d-flex flex-row justify-content-center align-items-center">
                                 <i class="fab fa-facebook iconfacebook"></i>
                                 <div class="login__body-form--btnappname">Facebook</div>
@@ -53,7 +74,7 @@
                                 <i class="fab fa-facebook iconfacebook"></i>
                                 <div class="login__body-form--btnappname">Apple</div>
                             </button>
-                        </div>
+                        </div> -->
                         <div class="body-form--rules">
                             <div class="body-form--rules-content">
                                 <p>Bằng việc đăng kí, bạn đã đồng ý với Shopee về Điều khoản dịch vụ & Chính sách bảo mật</p>
