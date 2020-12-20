@@ -14,7 +14,7 @@ class CreateReviewImagesTable extends Migration
     public function up()
     {
         Schema::create('review_images', function (Blueprint $table) {
-            $table->integer('reviewId');
+            $table->unsignedBigInteger('reviewId');
             $table->foreign('reviewId')->references('id')->on('reviews');
             $table->binary('imgae');
         });

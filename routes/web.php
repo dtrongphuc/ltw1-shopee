@@ -58,6 +58,7 @@ Route::get('/admin', function () {
     return view('/adminthucong/index');
 });
 
+
 Route::get('/info', function () {
     return view('/pages/infouser');
 });

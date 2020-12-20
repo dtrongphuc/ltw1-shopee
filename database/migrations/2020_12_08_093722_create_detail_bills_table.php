@@ -14,9 +14,9 @@ class CreateDetailBillsTable extends Migration
     public function up()
     {
         Schema::create('detail_bills', function (Blueprint $table) {
-            $table->integer('billId');
+            $table->unsignedBigInteger('billId');
             $table->foreign('billId')->references('id')->on('bills');
-            $table->integer('productId');
+            $table->unsignedBigInteger('productId');
             $table->foreign('productId')->references('productId')->on('products');
             $table->integer('quantity');
             $table->decimal('totalPrice', 10, 2);

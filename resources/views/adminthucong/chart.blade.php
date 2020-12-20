@@ -18,11 +18,11 @@
                 <a class="text-light" href="#">ADMIN</a>
             </div>
             <ul class="list-item">
-                <li class="item active">
+                <li class="item">
                     <i class="fas fa-fw fa-table"></i>
                     <a href="#">Quản lý sản phẩm</a>
                 </li>
-                <li class="item">
+                <li class="item active">
                     <i class="fas fa-fw fa-table"></i>
                     <a href="#">Quản lý thống kê</a>
                 </li>
