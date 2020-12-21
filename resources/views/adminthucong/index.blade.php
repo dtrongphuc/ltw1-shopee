@@ -29,7 +29,7 @@
                 </li>
                 <li class="item">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="./UserManagement">Quản lý người dùng</a>
+                    <a href="/User">Quản lý người dùng</a>
                 </li>
             </ul>
         </div>
