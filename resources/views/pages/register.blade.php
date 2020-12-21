@@ -28,28 +28,28 @@
                         <h4 class="login__body-form--header">Đăng Ký</h4>
                         <div class="form-group">
                             <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                            <input type="text" class="form-control login__body-form--header-input" id="formGroupExampleInput" placeholder="Tên người dùng" require>
+                            <input type="text" class="form-control login__body-form--header-input" placeholder="Tên người dùng" require>
                             <div class="invalid-feedback">
                                 *tên đăng nhập ko đúng quy định
                             </div>
                         </div>
                         <div class="form-group">
                             <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                            <input type="text" class="form-control login__body-form--header-input" id="formGroupExampleInput" placeholder="Email/Số điện thoại/Tên đăng nhập" require>
+                            <input type="text" class="form-control login__body-form--header-input" placeholder="Email/Số điện thoại/Tên đăng nhập" require>
                             <div class="invalid-feedback">
                                 *Email/Số điện thoại/Tên đăng nhập không chính xác!
                             </div>
                         </div>
                         <div class="form-group">
                             <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                            <input type="text" class="form-control login__body-form--header-input" id="formGroupExampleInput" placeholder="Mât khẩu ko phải 8 kí tự trở lên" require>
+                            <input type="text" class="form-control login__body-form--header-input" placeholder="Mât khẩu ko phải 8 kí tự trở lên" require>
                             <div class="invalid-feedback">
                                 *Mật khẩu phải 8 kí tự trở lên
                             </div>
                         </div>
                         <div class="form-group">
                             <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                            <input type="text" class="form-control login__body-form--header-input" id="formGroupExampleInput" placeholder="Mât khẩu ko phải 8 kí tự trở lên" require>
+                            <input type="text" class="form-control login__body-form--header-input" placeholder="Mât khẩu ko phải 8 kí tự trở lên" require>
                             <div class="invalid-feedback">
                                 *Nhập lại mật khẩu ko trùng khớp
                             </div>

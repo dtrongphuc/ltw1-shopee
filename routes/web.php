@@ -61,3 +61,6 @@ Route::get('/admin', function () {
 Route::get('/info', function () {
     return view('/pages/infouser');
 });
+Route::get('/info-favorite', function () {
+    return view('/pages/favorite');
+});

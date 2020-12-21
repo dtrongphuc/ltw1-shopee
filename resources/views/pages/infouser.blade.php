@@ -21,11 +21,15 @@
                     <div class="info__left-category">
                         <div class="info__categor-update d-flex align-items-center">
                             <i class="fas fa-user-circle icon-user"></i>
-                            <p class="info__categor-update--content">Tài khoản của tôi</p>
+                            <a href="">
+                                <p class="info__categor-update--content">Tài khoản của tôi</p>
+                            </a>
                         </div>
                         <div class="info__categor-favorite d-flex align-items-center">
                             <i class="fab fa-gratipay icon-favorite"></i>
-                            <p class="info__categor-favorite--content">Sản phẩm yêu thích</p>
+                            <a href="">
+                                <p class="info__categor-favorite--content">Sản phẩm yêu thích</p>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -91,7 +95,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary">Lưu thay đổi</button>
+                                                    <button type="button" class="btn btn-primary btn-changeinfo">Lưu thay đổi</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -117,10 +121,20 @@
                         </div>
                         <div class="col-4">
                             <div class="info__right-uploadimg">
-                                <img src="images/products/hoodie_cart.jpg" alt="" class="info__right-uploadimgimg" width="100px" height="100px">
-                                <input type="file" class="info__right-uploadimg--btnupload"></input>
-                                <p class="info__right-uploadimg--note">Dụng lượng file tối đa 1 MB</p>
-                                <p class="info__right-uploadimg--note">Định dạng:.JPEG, .PNG</p>
+                                <div class="d-flex justify-content-center">
+                                    <img id="img-info" src="images/products/hoodie_cart.jpg" alt="" class="info__right-uploadimgimg" width="100px" height="100px">
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <label for="apply" class="lable-upload">
+                                        <input class="info__right-uploadimg--btnupload" type="file" name="" id="apply" accept="image/*" onchange="readURL(this);">Get file
+                                    </label>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <p class="info__right-uploadimg--note">Dụng lượng file tối đa 1 MB</p>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <p class="info__right-uploadimg--note">Định dạng:.JPEG, .PNG</p>
+                                </div>
                             </div>
                         </div>
                     </div>
