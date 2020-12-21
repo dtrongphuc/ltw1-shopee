@@ -23,11 +23,11 @@
                     <i class="fas fa-fw fa-table"></i>
                     <a href="./admin">Quản lý sản phẩm</a>
                 </li>
-                <li class="item">
+                <li class="item active">
                     <i class="fas fa-fw fa-table"></i>
                     <a href="./Chart">Quản lý thống kê</a>
                 </li>
-                <li class="item active">
+                <li class="item">
                     <i class="fas fa-fw fa-table"></i>
                     <a href="./UserManagement">Quản lý người dùng</a>
                 </li>
