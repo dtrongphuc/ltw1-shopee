@@ -29,6 +29,22 @@
         $('#myModal').on('shown.bs.modal', function() {
             $('#myInput').trigger('focus')
         })
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#img-info')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
     </script>
 </body>
 

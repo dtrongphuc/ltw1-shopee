@@ -47,6 +47,7 @@
 .info__categor-update--content,
 .info__categor-favorite--content {
     margin-left: 15px;
+    color: var(--primary-color);
 }
 
 .info__categor-update--content:hover,
@@ -106,6 +107,11 @@
     height: 35px;
 }
 
+.btn-changeinfo:hover {
+    background-color: var(--primary-color);
+    outline: 0;
+}
+
 
 /* right upload ảnh */
 
@@ -116,4 +122,80 @@
 
 .info__right-uploadimgimg {
     border-radius: 50%;
+}
+
+.info__right-uploadimg--note {
+    font-size: 14px;
+    color: rgba(85, 85, 85, .8);
+}
+
+.lable-upload {
+    display: block;
+    width: 60vw;
+    max-width: 100px;
+    margin: 10px auto;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+    font-size: 1em;
+    line-height: 2.5em;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+.lable-upload:hover {
+    background-color: var(--primary-color);
+}
+
+.info__right-uploadimg--btnupload {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+
+/* FAVORITE */
+
+.favorite__header {
+    padding-bottom: 20px;
+    border-bottom: #c2c2c2 solid 1px;
+}
+
+.favorite__body {
+    padding-top: 20px;
+}
+
+..favorite__body-product {
+    margin: 5px 0;
+}
+
+.favorite__body-product:hover {
+    background-color: #f5f5f5;
+    border-radius: 3px;
+}
+
+.favorite__product-infopeoduct {
+    padding-left: 15px;
+    color: rgba(85, 85, 85, .8);
+}
+
+.favorite__product-infopeoduct--name {
+    font-size: 18px;
+}
+
+.favorite__product-infopeoduct--price {
+    font-size: 14px;
+    color: var(--primary-color)
+}
+
+.delte-product {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration-style: solid;
+    cursor: pointer;
 }

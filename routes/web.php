@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Auth\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,7 +36,7 @@ Route::get('/login', function () {
 
 Route::get('/register', function () {
     return view('/pages/register');
-});
+})->name('register');
 
 Route::get('/header', function () {
     return view('/layouts/header');
@@ -67,3 +68,9 @@ Route::get('/admin/Chart', function () {
 Route::get('/info', function () {
     return view('/pages/infouser');
 });
+Route::get('/info-favorite', function () {
+    return view('/pages/favorite');
+});
+
+// POST METHODS
+Route::post('/register', [RegisterController::class, 'register']);
