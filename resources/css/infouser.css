@@ -170,6 +170,15 @@
     padding-top: 20px;
 }
 
+..favorite__body-product {
+    margin: 5px 0;
+}
+
+.favorite__body-product:hover {
+    background-color: #f5f5f5;
+    border-radius: 3px;
+}
+
 .favorite__product-infopeoduct {
     padding-left: 15px;
     color: rgba(85, 85, 85, .8);
@@ -182,4 +191,11 @@
 .favorite__product-infopeoduct--price {
     font-size: 14px;
     color: var(--primary-color)
+}
+
+.delte-product {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration-style: solid;
+    cursor: pointer;
 }
