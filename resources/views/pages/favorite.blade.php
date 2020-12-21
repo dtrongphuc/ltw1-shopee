@@ -42,15 +42,31 @@
                     </div>
                     <div class="favorite__body">
                         <div class="favorite__body-product d-flex align-items-center">
-                            <div class="favorite__product-img">
+                            <div class="favorite__product-img p-2">
                                 <img src="images/products/hoodie_cart.jpg" alt="hình sản phẩm" width="80px" height="80px">
                             </div>
-                            .
-                            <div class="favorite__product-infopeoduct align-items-end flex-column">
+                            <div class="favorite__product-infopeoduct align-items-end flex-column p-2">
                                 <div class="favorite__product-infopeoduct--name p-2">
                                     Áo hoodie trơn nam vải nỉ lót bông form rộng
                                 </div>
                                 <div class="favorite__product-infopeoduct--price mt-auto p-2">₫159.000</div>
+                            </div>
+                            <div class="favorite__product-infopeoduct-btndelete ml-auto p-2">
+                                <span class="delte-product">Xóa</span>
+                            </div>
+                        </div>
+                        <div class="favorite__body-product d-flex align-items-center">
+                            <div class="favorite__product-img p-2">
+                                <img src="images/products/hoodie_cart.jpg" alt="hình sản phẩm" width="80px" height="80px">
+                            </div>
+                            <div class="favorite__product-infopeoduct align-items-end flex-column p-2">
+                                <div class="favorite__product-infopeoduct--name p-2">
+                                    Áo hoodie trơn nam vải nỉ lót bông form rộng
+                                </div>
+                                <div class="favorite__product-infopeoduct--price mt-auto p-2">₫159.000</div>
+                            </div>
+                            <div class="favorite__product-infopeoduct-btndelete ml-auto p-2">
+                                <span class="delte-product">Xóa</span>
                             </div>
                         </div>
                     </div>
