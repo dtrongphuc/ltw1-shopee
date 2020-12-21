@@ -15,20 +15,20 @@
     <div class="box-content">
         <div class="left">
             <div class="headerleft">
-                <a class="text-light" href="#">ADMIN</a>
+                <a class="text-light " href="#">ADMIN</a>
             </div>
             <ul class="list-item">
+                <li class="item">
+                    <i class="fas fa-fw fa-table"></i>
+                    <a href="#">Quản lý sản phẩm</a>
+                </li>
+                <li class="item">
+                    <i class="fas fa-fw fa-table"></i>
+                    <a href="#">Quản lý thống kê</a>
+                </li>
                 <li class="item active">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="./admin">Quản lý sản phẩm</a>
-                </li>
-                <li class="item">
-                    <i class="fas fa-fw fa-table"></i>
-                    <a href="./Chart">Quản lý thống kê</a>
-                </li>
-                <li class="item">
-                    <i class="fas fa-fw fa-table"></i>
-                    <a href="./UserManagement">Quản lý người dùng</a>
+                    <a href="#" class="active">Quản lý người dùng</a>
                 </li>
             </ul>
         </div>
@@ -49,7 +49,7 @@
 
             <div class="content-right">
                 <div class="box-content-right">
-                    <p class="title">Quản lý sản phẩm</p>
+                    <p class="title">Quản lý Người Dùng</p>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">

@@ -64,6 +64,11 @@ body{
     height: 70px;
     box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
 }
+.box-content .right .header-right .dropdown-content{
+    min-width: fit-content !important;
+    width: 150px; 
+    top: 11px !important;
+}
 .box-content .right .content-right{ 
     padding: 25px 15px;
     background: #6360600f;
@@ -82,5 +87,9 @@ body{
 .box-content .right .content-right .card-body .pag{ 
     display: flex;
     flex-direction: row-reverse;
+}
+
+.active a{
+    color: white !important;
 }
 

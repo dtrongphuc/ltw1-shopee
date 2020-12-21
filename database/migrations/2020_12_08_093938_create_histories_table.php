@@ -14,9 +14,9 @@ class CreateHistoriesTable extends Migration
     public function up()
     {
         Schema::create('histories', function (Blueprint $table) {
-            $table->integer('userId');
+            $table->unsignedBigInteger('userId');
             $table->foreign('userId')->references('id')->on('users');
-            $table->integer('billId');
+            $table->unsignedBigInteger('billId');
             $table->foreign('billId')->references('id')->on('bills');
         });
     }

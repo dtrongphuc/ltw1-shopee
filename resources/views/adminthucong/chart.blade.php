@@ -18,17 +18,17 @@
                 <a class="text-light" href="#">ADMIN</a>
             </div>
             <ul class="list-item">
+                <li class="item">
+                    <i class="fas fa-fw fa-table"></i>
+                    <a href="#">Quản lý sản phẩm</a>
+                </li>
                 <li class="item active">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="./admin">Quản lý sản phẩm</a>
+                    <a href="./">Quản lý thống kê</a>
                 </li>
                 <li class="item">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="./Chart">Quản lý thống kê</a>
-                </li>
-                <li class="item">
-                    <i class="fas fa-fw fa-table"></i>
-                    <a href="./UserManagement">Quản lý người dùng</a>
+                    <a href="#">Quản lý người dùng</a>
                 </li>
             </ul>
         </div>

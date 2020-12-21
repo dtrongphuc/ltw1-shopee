@@ -1,2 +1,2 @@
-require('./bootstrap');
-require('./product');
+require("./bootstrap");
+require("./product");
