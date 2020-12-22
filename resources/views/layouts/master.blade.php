@@ -45,6 +45,29 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
+        // nút tăng số lượng 
+        $(document).ready(function() {
+            $("#up").click(function() {
+
+                var str = (parseInt($("#quantify").val()) + 1).toString();
+                console.log(str);
+                $("#quantify").val(str);
+                $('.down-default').css('cursor', 'pointer');
+            });
+        });
+        $(document).ready(function() {
+            $("#down").click(function() {
+                var str = (parseInt($("#quantify").val()) - 1).toString();
+                if (parseInt(str) <= 0)
+                    $('.down-default').css('cursor', 'not-allowed');
+                else {
+                    console.log(str);
+                    $("#quantify").val(str);
+                }
+
+            });
+        });
     </script>
 </body>
 
