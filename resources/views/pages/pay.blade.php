@@ -18,6 +18,10 @@
     </div>
 </div>
 
+<div class="payfooter_btnpay d-flex justify-content-end" style="margin-right: 90px;">
+    <button class="btn btn-primary cartfooter__buyproduct-btnbuy"  data-toggle="modal" data-target="#exampleModal">+ Thêm địa chỉ mới</button>
+</div>
+
 <div class="cartbody">
     <div class="container" style="padding-bottom: 70px;">
         <div class="pay__addressship">
@@ -78,7 +82,7 @@
                                                         <input class="_3uWB5R" type="text" placeholder="Số điện thoại" value="">
                                                     </div>
                                                     <div>
-                                                        <span class="_1ERb2l shopee-modal__transition-enter-done">Số điện thoại không hợp lệ</span>
+                                                        <span class="_1ERb2l shopee-modal__transition-enter-done">Vui lòng điền Số điện thoại</span>
                                                     </div>
                                                 </div>
                                             </div>
