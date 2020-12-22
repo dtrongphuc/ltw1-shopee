@@ -71,5 +71,6 @@ Route::get('/info-favorite', function () {
     return view('/pages/favorite');
 });
 
+
 // POST METHODS
 Route::post('/register', [RegisterController::class, 'register']);
