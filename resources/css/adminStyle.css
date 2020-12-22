@@ -2,7 +2,10 @@ ul{
     list-style-type: none;
     padding: 0 !important;
 }
-a{
+.left .headerleft a,
+.left .headerleft .list-item .item a,
+.right .header-right .dropdown-content a,
+.right .header-right .dropdown-content .dropdown-menu a{
     text-decoration: none !important;
 }
 body{
@@ -18,8 +21,7 @@ body{
 }
 .box-content .left{
     height: 100vh;
-    width: 18%;
-    padding: 0 20px;
+    width: 0;
     background-color: #4e73df;
     background-image: linear-gradient(180deg,#4e73df 10%,#224abe 100%);
     background-size: cover;
@@ -54,20 +56,20 @@ body{
 
 .box-content .right{
     height: 500px;
-    width: 82%;
+    width: 100%;
 }
 .box-content .right .header-right{
     display: flex;
-    flex-direction: row-reverse;
     align-items: center;
     padding: 0 30px;
     height: 70px;
     box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
+    justify-content: space-between;
 }
 .box-content .right .header-right .dropdown-content{
     min-width: fit-content !important;
     width: 150px; 
-    top: 11px !important;
+    top: 4px !important;
 }
 .box-content .right .content-right{ 
     padding: 25px 15px;
@@ -91,5 +93,14 @@ body{
 
 .active a{
     color: white !important;
+    text-decoration-line: underline !important;
 }
 
+.showLeft .left{
+    width: 18% !important;
+    padding: 0 20px;
+}
+
+.showLeft .right{
+    width: 82%;
+}

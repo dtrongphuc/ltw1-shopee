@@ -8,39 +8,44 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="./myStyle.css"> -->
     <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
-    <title>Home</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Quản Lý User</title>
 </head>
 
 <body>
-    <div class="box-content">
+    <div class="box-content showLeft" id="box-content">
         <div class="left">
             <div class="headerleft">
-                <a class="text-light " href="#">ADMIN</a>
+                <a class="text-light" href="#">ADMIN</a>
             </div>
             <ul class="list-item">
-                <li class="item">
+                <li class="item ">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="#">Quản lý sản phẩm</a>
+                    <a href="./admin">Quản lý sản phẩm</a>
                 </li>
                 <li class="item">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="#">Quản lý thống kê</a>
+                    <a href="./Chart">Quản lý thống kê</a>
                 </li>
                 <li class="item active">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="#" class="active">Quản lý người dùng</a>
+                    <a href="./UserManagement">Quản lý người dùng</a>
                 </li>
             </ul>
         </div>
         <div class="right">
             <div class="header-right">
+                <div style="cursor: pointer;">
+                    <span><i class="fa fa-bars" id="btnReposiveLeft"></i></span>
+
+                </div>
                 <div class="dropdown show dropdown-content">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Thành Phú
                         <img style="margin-left: 10px;" class="avatar" src="../images/av.png" />
                     </a>
 
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <div class="dropdown-menu " style="top: 8px !important;" aria-labelledby="dropdownMenuLink">
                         <a class="dropdown-item" href="#">Profile</a>
                         <a class="dropdown-item" href="#">Log out</a>
                     </div>
@@ -99,10 +104,17 @@
     </div>
 
 
-
-
-
-
+    <script>
+        $(document).ready(function() {
+            $("#btnReposiveLeft").click(function() {
+                if ($("#box-content").hasClass("showLeft")) {
+                    $("#box-content").removeClass("showLeft");
+                } else {
+                    $("#box-content").addClass("showLeft");
+                }
+            });
+        });
+    </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
