@@ -1,2 +1,3 @@
 require("./bootstrap");
-require("./product");
+// require("./product");
+require("./auth");

@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\HomeController;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,20 +16,16 @@ use App\Http\Controllers\Auth\RegisterController;
 |
 */
 
-Route::get('/', function () {
-    return view('/pages/index');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Verification
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
 
-Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
-
-    return redirect('/home');
-})->middleware(['auth', 'signed'])->name('verification.verify');
+Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
+    ->middleware(['signed', 'throttle:6,1'])
+    ->name('verification.verify');
 
 Route::get('/login', function () {
     return view('/pages/login');
@@ -37,10 +34,6 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('/pages/register');
 })->name('register');
-
-Route::get('/header', function () {
-    return view('/layouts/header');
-});
 
 Route::get('/product', function () {
     return view('/pages/product');
@@ -67,10 +60,8 @@ Route::get('/admin/Chart', function () {
 });
 Route::get('/info', function () {
     return view('/pages/infouser');
-});
+})->middleware('verified');
+
 Route::get('/info-favorite', function () {
     return view('/pages/favorite');
-});
-
-// POST METHODS
-Route::post('/register', [RegisterController::class, 'register']);
+})->middleware('verified');
