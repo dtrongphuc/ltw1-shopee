@@ -88,11 +88,11 @@
                             </div>
                             <div class="col-3">
                                 <div class="cartbody__productsinfo-amount">
-                                    <button class="cartbody__productsinfo-amount--downup">
+                                    <button class="cartbody__productsinfo-amount--downup down-default" id="down">
                                         <span>&#8722</span>
                                     </button>
-                                    <input class="cartbody__productsinfo-amount--content" value="1"></input>
-                                    <button class="cartbody__productsinfo-amount--downup">
+                                    <input class="cartbody__productsinfo-amount--content" value="1" id="quantify"></input>
+                                    <button class="cartbody__productsinfo-amount--downup" id="up">
                                         <span>&#43</span>
                                     </button>
                                 </div>
@@ -133,11 +133,11 @@
                             </div>
                             <div class="col-3">
                                 <div class="cartbody__productsinfo-amount">
-                                    <button class="cartbody__productsinfo-amount--downup">
+                                    <button class="cartbody__productsinfo-amount--downup down-default" id="down">
                                         <span>&#8722</span>
                                     </button>
-                                    <input class="cartbody__productsinfo-amount--content" value="1"></input>
-                                    <button class="cartbody__productsinfo-amount--downup">
+                                    <input class="cartbody__productsinfo-amount--content" value="1" id="quantify"></input>
+                                    <button class="cartbody__productsinfo-amount--downup" id="up">
                                         <span>&#43</span>
                                     </button>
                                 </div>

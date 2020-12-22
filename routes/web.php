@@ -51,11 +51,10 @@ Route::get('/admin', function () {
     return view('/adminthucong/index');
 });
 
-Route::get('/admin/UserManagement', function () {
-    return view('/adminthucong/QLUser');
+Route::get('/User', function () {
+    return view('/adminthucong/User');
 });
-
-Route::get('/admin/Chart', function () {
+Route::get('/Chart', function () {
     return view('/adminthucong/chart');
 });
 Route::get('/info', function () {
@@ -65,3 +64,7 @@ Route::get('/info', function () {
 Route::get('/info-favorite', function () {
     return view('/pages/favorite');
 })->middleware('verified');
+
+Route::get('/administrator', function () {
+    return view('/pages/administrator');
+});
