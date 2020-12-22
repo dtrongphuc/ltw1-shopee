@@ -47,7 +47,6 @@
     border-top: #c4c4c4 solid 1px;
 }
 
-
 /* Thêm mới 1 Địa chỉ giao hàng */
 .shopee-modal__content {
     background: #fff;
@@ -369,3 +368,4 @@ element.style {
     outline: 0;
     cursor: pointer;
 }
+

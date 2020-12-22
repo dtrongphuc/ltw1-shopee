@@ -31,7 +31,7 @@
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-lg-10">
                     <img src="https://cf.shopee.vn/file/e963a4f6d9136744cf6a888b28c31706" alt="" class="login__body-img img-fluid" alt="Responsive image">
-                    <form id="register-form" method="POST" action="/register" class="register__body-form">
+                    <form id="register-form" method="POST" action="#" class="register__body-form">
                         @csrf
                         <h4 class="login__body-form--header">Đăng Ký</h4>
                         <div class="mb-2">
@@ -84,7 +84,8 @@
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="{{ URL::asset('js/app.css') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
+    <script src="{{ URL::asset('js/app.js') }}"></script>
 </body>
 
 </html>

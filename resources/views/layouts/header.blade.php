@@ -31,8 +31,8 @@
                                 </li> -->
 
                             <li class="header__navbar-item header__navbar-item--strong header__navbar-item-separate"><a
-                                    href="#">Đăng ký</a></li>
-                            <li class="header__navbar-item header__navbar-item--strong"><a href="#">Đăng nhập</a></li>
+                                    href="/register">Đăng ký</a></li>
+                            <li class="header__navbar-item header__navbar-item--strong"><a href="/login">Đăng nhập</a></li>
                         </ul>
                     </nav>
                     <div class="center-header">

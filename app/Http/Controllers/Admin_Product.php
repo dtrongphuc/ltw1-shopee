@@ -8,6 +8,6 @@ class Admin_Product extends Controller
 {
     public function index()
     {
-        echo "Đây là index trong homecontroller";
+        echo "Đây là index trong Admin";
     }
 }
