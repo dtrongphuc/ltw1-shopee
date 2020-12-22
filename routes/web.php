@@ -71,6 +71,8 @@ Route::get('/info', function () {
 Route::get('/info-favorite', function () {
     return view('/pages/favorite');
 });
-
+Route::get('/administrator', function () {
+    return view('/pages/administrator');
+});
 // POST METHODS
 Route::post('/register', [RegisterController::class, 'register']);
