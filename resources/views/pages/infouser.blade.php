@@ -49,10 +49,22 @@
                                     <input type="email" class="col-sm-8 form-control" id="inputEmail3" placeholder="Email">
 
                                 </div>
+
                                 <div class="form-group row">
                                     <label for="inputEmail3" class="col-sm-4 col-form-label">Tên người dùng</label>
                                     <input type="email" class="col-sm-8 form-control" id="inputEmail3" placeholder="Tên người dùng">
                                 </div>
+
+                                <div class="form-group row">
+                                    <label for="inputEmail3" class="col-sm-4 col-form-label">Số điện thoại</label>
+                                    <input type="email" class="col-sm-8 form-control" id="inputEmail3" placeholder="Số điện thoại">
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="inputEmail3" class="col-sm-4 col-form-label">Địa chỉ</label>
+                                    <input type="email" class="col-sm-8 form-control" id="inputEmail3" placeholder="Địa chỉ">
+                                </div>
+
                                 <div class="form-group row">
                                     <label for="inputPassword3" class="col-sm-4 col-form-label">Password</label>
                                     <input type="password" class="col-sm-6 form-control" id="inputPassword3" placeholder="Password">
@@ -114,6 +126,14 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- Ngày tháng năm sinh -->
+                                <div class="form-group row">
+                                    <label for="inputEmail3" class="col-sm-4 col-form-label">Ngày sinh</label>
+                                    <input type="email" class="col-sm-8 form-control" id="inputEmail3" placeholder="Ngày sinh">
+                                </div>
+                                <!-- End Ngày tháng năm sinh -->
+
                                 <div class="form-group d-flex align-items-center justify-content-center">
                                     <button type="submit" class="btn btn-primary btn-changeinfo">Lưu thay đổi</button>
                                 </div>

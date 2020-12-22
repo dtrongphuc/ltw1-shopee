@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Controllers\API\BaseController as BaseController;
+use App\Http\Controllers\Controller;
 use App\Models\Model;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 
-class LoginController extends BaseController
+class LoginController extends Controller
 {
     // Login API
     public function login(Request $request) {
@@ -18,7 +17,7 @@ class LoginController extends BaseController
             'password' => $request->password,     
         ])) {
             $user = Auth::user();
-            $success['token'] = $user->createToken('MyApp')->accessToken;
+            $success['token'] = $user->createToken('user')->accessToken;
             $success['email'] = $user->email;
 
             return $this->sendResponse($success, 'User login successfully.');
