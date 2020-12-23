@@ -18,6 +18,7 @@ use Illuminate\Http\Request;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+
 // Verification
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
@@ -73,3 +74,15 @@ Route::post('/register', [RegisterController::class, 'register']);
 Route::get('/administrator', function () {
     return view('/pages/administrator');
 });
+
+// Route::get('/','PagesController@ListCategories');
+
+Route::get('thu',function(){
+    $category = categories::find(1);
+    foreach($category as $cate){
+        echo $cate->categoryName."<br>";
+    }
+});
+
+
+

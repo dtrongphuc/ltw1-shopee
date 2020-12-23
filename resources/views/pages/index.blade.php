@@ -11,14 +11,16 @@
                                 <p class="ml-2">Tất cả danh mục</p>
                             </li>
                             <li class="category-item category-item--active">
-                                <a href="">Thiết bị điện tử</a>
+                                <a href="">Thiết bị điện tử</a>
                             </li>
+
                             <li class="category-item">
                                 <a href="">Thiết bị âm thanh</a>
                             </li>
                             <li class="category-item">
                                 <a href="">Tai nghe</a>
                             </li>
+
                         </ul>
                     </div>
                     <div class="col-10 p-6">

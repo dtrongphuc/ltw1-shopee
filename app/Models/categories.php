@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categories extends Model
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory, Notifiable;
+    protected $table = "categories";
+    
+    protected $fillable = [
+        'categoryId',
+        'categoryName',
+    ];
 }
