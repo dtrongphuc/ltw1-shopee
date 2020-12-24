@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PagesController;
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -75,14 +76,7 @@ Route::get('/administrator', function () {
     return view('/pages/administrator');
 });
 
-// Route::get('/','PagesController@ListCategories');
-
-Route::get('thu',function(){
-    $category = categories::find(1);
-    foreach($category as $cate){
-        echo $cate->categoryName."<br>";
-    }
-});
+Route::get('/',[PagesController::class, 'ListCategories']);
 
 
 

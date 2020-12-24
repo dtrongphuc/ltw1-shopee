@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\View;
 use App\Models\categories;
 
-
-
-class PagesController extends Controllers
+class PagesController extends Controller
 {
     public function ListCategories()
     {

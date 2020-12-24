@@ -10,16 +10,18 @@
                                 <i class="fas fa-list"></i>
                                 <p class="ml-2">Tất cả danh mục</p>
                             </li>
+                            @foreach($category as $cate)
                             <li class="category-item category-item--active">
-                                <a href="">Thiết bị điện tử</a>
+                                <a href="">{{$cate -> categoryName}}</a>
                             </li>
+                            @endforeach
 
-                            <li class="category-item">
+                            <!-- <li class="category-item">
                                 <a href="">Thiết bị âm thanh</a>
                             </li>
                             <li class="category-item">
                                 <a href="">Tai nghe</a>
-                            </li>
+                            </li> -->
 
                         </ul>
                     </div>
