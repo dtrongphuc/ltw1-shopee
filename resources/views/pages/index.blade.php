@@ -12,16 +12,10 @@
                             </li>
                             @foreach($category as $cate)
                             <li class="category-item category-item--active">
+                                <!-- <option value="{{$cate -> categoryId}}">{{$cate -> categoryName}}</option> -->
                                 <a href="">{{$cate -> categoryName}}</a>
                             </li>
                             @endforeach
-
-                            <!-- <li class="category-item">
-                                <a href="">Thiết bị âm thanh</a>
-                            </li>
-                            <li class="category-item">
-                                <a href="">Tai nghe</a>
-                            </li> -->
 
                         </ul>
                     </div>
