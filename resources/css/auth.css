@@ -32,7 +32,7 @@
 .login__body-form--header {
     font-size: 20px;
     font-weight: 400;
-    padding-bottom: 31px;
+    padding-bottom: 26px;
 }
 
 .form-control {
@@ -95,6 +95,16 @@
     font-weight: 500;
 }
 
+.btn-register-login:hover {
+    background-color: #e73d1a;
+}
+
+.btn-register-login:focus,
+.btn-register-login:active {
+    outline: none;
+    border: none;
+}
+
 .notlogin {
     opacity: .8;
     cursor: default;
@@ -155,7 +165,7 @@
 
 .login__body-form--register {
     font-size: 12px;
-    margin-top: 35px;
+    margin-top: 20px;
 }
 
 .login__body-form--register-content {
@@ -178,12 +188,12 @@
 
 /* register  */
 
-.register__body-form {
+.register-body__form {
     position: absolute;
     top: 7%;
     right: 15px;
     background-color: #FFFFFF;
-    height: 520px;
+    height: fit-content;
     width: 400px;
     border-radius: 3px;
     margin: auto;
@@ -206,4 +216,8 @@
 
 .auth-img {
     width: 170px;
+}
+
+.auth-alert__success {
+    display: none;
 }

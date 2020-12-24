@@ -31,54 +31,57 @@
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-lg-10">
                     <img src="https://cf.shopee.vn/file/e963a4f6d9136744cf6a888b28c31706" alt="" class="login__body-img img-fluid" alt="Responsive image">
-                    <form id="register-form" method="POST" action="#" class="register__body-form">
-                        @csrf
+                    <div class="register-body__form">
                         <h4 class="login__body-form--header">Đăng Ký</h4>
-                        <div class="mb-2">
-                            <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                            <input type="text" name="username" id="username" class="form-control login__body-form--header-input" placeholder="Tên đăng nhập" require>
-                            <div class="invalid-feedback">
-                                *tên đăng nhập ko đúng quy định
+                        <div class="alert alert-success auth-alert__success" role="alert">Đăng ký thành công, vui lòng kiểm tra email để kích hoạt tài khoản</div>
+                        <form id="register-form" method="POST" action="#" class="register__body-form">
+                            @csrf
+                            <div class="mb-2">
+                                <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
+                                <input type="text" name="username" id="username" class="form-control login__body-form--header-input" placeholder="Tên đăng nhập" require>
+                                <div class="invalid-feedback">
+                                    *tên đăng nhập ko đúng quy định
+                                </div>
                             </div>
-                        </div>
-                        <div class="mb-2">
-                            <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                            <input type="text" name="email" id="email" class="form-control login__body-form--header-input" placeholder="Email" require>
-                            <div class="invalid-feedback">
-                                *Email không hợp lệ!
+                            <div class="mb-2">
+                                <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
+                                <input type="text" name="email" id="email" class="form-control login__body-form--header-input" placeholder="Email" require>
+                                <div class="invalid-feedback">
+                                    *Email không hợp lệ!
+                                </div>
                             </div>
-                        </div>
-                        <div class="mb-2">
-                            <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                            <input type="text" name="password" id="password" class="form-control login__body-form--header-input" placeholder="Mât khẩu" require>
-                            <div class="invalid-feedback">
-                                *Mât khẩu phải 8 kí tự trở lên
+                            <div class="mb-2">
+                                <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
+                                <input type="text" name="password" id="password" class="form-control login__body-form--header-input" placeholder="Mât khẩu" require>
+                                <div class="invalid-feedback">
+                                    *Mât khẩu phải 8 kí tự trở lên
+                                </div>
                             </div>
-                        </div>
-                        <div class="mb-2">
-                            <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                            <input type="text" name="r_password" id="r_password" class="form-control login__body-form--header-input" placeholder="Nhập lại mật khẩu" require>
-                            <div class="invalid-feedback">
-                                *Mật khẩu không trùng khớp
+                            <div class="mb-2">
+                                <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
+                                <input type="text" name="r_password" id="r_password" class="form-control login__body-form--header-input" placeholder="Nhập lại mật khẩu" require>
+                                <div class="invalid-feedback">
+                                    *Mật khẩu không trùng khớp
+                                </div>
                             </div>
-                        </div>
-                        <!-- khi điền đủ thong tin bỏ class notlogin -->
-                        <button type="submit" class="btn-register-login notlogin">ĐĂNG KÝ</button>
+                            <!-- khi điền đủ thong tin bỏ class notlogin -->
+                            <button type="submit" class="btn-register-login notlogin">ĐĂNG KÝ</button>
+                        </form>
                         <div class="login__body-form--dash d-flex justify-content-between align-items-center">
                             <div class="login__body-form--dash-lf"></div>
                             <span class="login__body-form--dash-content">HOẶC</span>
                             <div class="login__body-form--dash-lf"></div>
                         </div>
-                        <div class="body-form--rules">
+                        {{-- <div class="body-form--rules">
                             <div class="body-form--rules-content">
                                 <p>Bằng việc đăng kí, bạn đã đồng ý với Shopee về Điều khoản dịch vụ & Chính sách bảo mật</p>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="login__body-form--register d-flex flex-row justify-content-center">
                             <p class="login__body-form--register-content">Bạn mới biết đến Shopee?</p>
                             <a href="./login" class="login__body-form--register-link">Đăng nhập</a>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

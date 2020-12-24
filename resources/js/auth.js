@@ -13,7 +13,9 @@ registerForm &&
 
         try {
             const response = await axios.post("api/register", registerData);
-            console.log(response);
+            if (response.status === 200)
+                document.querySelector(".auth-alert__success").styles.display =
+                    "block";
         } catch (error) {
             console.log(error);
         }

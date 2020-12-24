@@ -20148,7 +20148,7 @@ registerForm && registerForm.addEventListener("submit", /*#__PURE__*/function ()
 
           case 6:
             response = _context.sent;
-            console.log(response);
+            if (response.status === 200) document.querySelector(".auth-alert__success").styles.display = "block";
             _context.next = 13;
             break;
 
@@ -20256,7 +20256,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\CSS_HTML_JS_ME\LTWed-1-LT\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! Z:\Code\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })
