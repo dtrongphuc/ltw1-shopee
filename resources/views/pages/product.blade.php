@@ -127,9 +127,9 @@
                     </div>
                     <div class="mt-4">
                         <div class="product-favorite">
-                            <div>
-                                <i class="far fa-heart heart-icon"></i>
-                                <i class="fas fa-heart heart-icon heart-icon--full"></i>
+                            <div id="change-heart">
+                                <i class="far fa-heart heart-icon" id="heart-hollow"></i>
+                                <i class="fas fa-heart heart-icon heart-icon--full" id="heart"></i>
                             </div>
                             <p>Đã thích (639)</p>
                         </div>
