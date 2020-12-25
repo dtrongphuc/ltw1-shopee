@@ -9,7 +9,7 @@
     <!-- <link rel="stylesheet" href="./myStyle.css"> -->
     <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Quản Lý User</title>
+    <title>Quản Lý Người Dùng</title>
 </head>
 
 <body>

@@ -61,7 +61,8 @@ Route::get('/info', function () {
     return view('/pages/infouser');
 })->middleware('verified');
 
-Route::get('data', 'Admin_Product@index');
+Route::get('/UserManagement', 'App\Http\Controllers\Admin_Controller_User@index');
+Route::get('/ProductManagement', 'App\Http\Controllers\Admin_Controller_Product@index');
 
 Route::get('/info-favorite', function () {
     return view('/pages/favorite');

@@ -9,7 +9,7 @@
     <!-- <link rel="stylesheet" href="./myStyle.css"> -->
     <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Home</title>
+    <title>Quản Lý Sản Phẩm</title>
 </head>
 
 <body>
@@ -61,31 +61,33 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
+                                    <th>Tên Sản Phẩm</th>
+                                    <th>Loại Danh Mục</th>
+                                    <th>Loại</th>
+                                    <th>Giá</th>
+                                    <th>Số Lượng</th>
+                                    <th>Lược thích</th>
+                                    <th>Đánh Giá</th>
+                                    <th>Đã bán</th>
+                                    <th>Thời Gian Đăng</th>
+                                    <th>Mô tả</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach( $sanpham as $sp)
                                 <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
+                                    <td>{{$sp->productName}}</td>
+                                    <td>{{$sp->categoryName}}</td>
+                                    <td>{{$sp->type}}</td>
+                                    <td>{{$sp->price}}</td>
+                                    <td>{{$sp->quantity}}</td>
+                                    <td>{{$sp->likeCount}}</td>
+                                    <td>{{$sp->rate}}</td>
+                                    <td>{{$sp->sold}}</td>
+                                    <td>{{$sp->postAt}}</td>
+                                    <td>{{$sp->description}}</td>
                                 </tr>
-                                <tr>
-                                    <td>Donna Snider</td>
-                                    <td>Customer Support</td>
-                                    <td>New York</td>
-                                    <td>27</td>
-                                    <td>2011/01/25</td>
-                                    <td>$112,000</td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
