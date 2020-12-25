@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PagesController;
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,7 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
 
 // Verification
 Route::get('/email/verify', function () {
@@ -74,3 +76,8 @@ Route::post('/register', [RegisterController::class, 'register']);
 Route::get('/administrator', function () {
     return view('/pages/administrator');
 });
+
+Route::get('/',[PagesController::class, 'ListCategories']);
+
+
+

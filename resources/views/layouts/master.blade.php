@@ -56,6 +56,8 @@
                 $('.down-default').css('cursor', 'pointer');
             });
         });
+
+        //giảm số lượng
         $(document).ready(function() {
             $("#down").click(function() {
                 var str = (parseInt($("#quantify").val()) - 1).toString();
@@ -66,6 +68,21 @@
                     $("#quantify").val(str);
                 }
 
+            });
+        });
+
+        //click trái tim yêu thích
+        $(document).ready(function() {
+            $("#change-heart").click(function() {
+                if ($('#heart').css('display') == 'none') {
+                    $("#heart").css("display", "block");
+                    $("#heart-hollow").css("display", "none");
+                }
+                else
+                {
+                    $("#heart-hollow").css("display", "block");
+                    $("#heart").css("display", "none");
+                }
             });
         });
     </script>

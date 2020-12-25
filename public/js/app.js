@@ -20148,7 +20148,7 @@ registerForm && registerForm.addEventListener("submit", /*#__PURE__*/function ()
 
           case 6:
             response = _context.sent;
-            console.log(response);
+            if (response.status === 200) document.querySelector(".auth-alert__success").styles.display = "block";
             _context.next = 13;
             break;
 
