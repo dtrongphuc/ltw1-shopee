@@ -17,18 +17,6 @@
     position: relative;
 }
 
-.login__body-form {
-    position: absolute;
-    top: 12%;
-    right: 15px;
-    background-color: var(--secondary-color);
-    height: 475px;
-    width: 400px;
-    border-radius: 3px;
-    margin: auto;
-    padding: 32px;
-}
-
 .login__body-form--header {
     font-size: 20px;
     font-weight: 400;
@@ -188,7 +176,8 @@
 
 /* register  */
 
-.register-body__form {
+.register-body__form,
+.login-body__form {
     position: absolute;
     top: 7%;
     right: 15px;

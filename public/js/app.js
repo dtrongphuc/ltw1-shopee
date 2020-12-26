@@ -20128,7 +20128,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var registerForm = document.querySelector("#register-form");
 var loginForm = document.querySelector("#login-form");
 var successAlert = document.querySelector(".auth-alert__success");
-var errorAlert = document.querySelector(".auth-alert__error");
 registerForm && registerForm.addEventListener("submit", /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
     var formData, registerData, response, _error$response, _error$response$data, messageObj, fields;
@@ -20139,7 +20138,6 @@ registerForm && registerForm.addEventListener("submit", /*#__PURE__*/function ()
           case 0:
             e.preventDefault();
             successAlert.style.display = "none";
-            errorAlert.style.display = "none";
             formData = new FormData(registerForm);
             registerData = {
               username: formData.get("username"),
@@ -20147,35 +20145,35 @@ registerForm && registerForm.addEventListener("submit", /*#__PURE__*/function ()
               password: formData.get("password"),
               r_password: formData.get("r_password")
             };
-            _context.prev = 5;
-            _context.next = 8;
+            _context.prev = 4;
+            _context.next = 7;
             return axios.post("api/register", registerData);
 
-          case 8:
+          case 7:
             response = _context.sent;
 
             if (response.status === 200) {
               successAlert.style.display = "block";
             }
 
-            _context.next = 17;
+            _context.next = 16;
             break;
 
-          case 12:
-            _context.prev = 12;
-            _context.t0 = _context["catch"](5);
+          case 11:
+            _context.prev = 11;
+            _context.t0 = _context["catch"](4);
             messageObj = _context.t0 === null || _context.t0 === void 0 ? void 0 : (_error$response = _context.t0.response) === null || _error$response === void 0 ? void 0 : (_error$response$data = _error$response.data) === null || _error$response$data === void 0 ? void 0 : _error$response$data.data;
             fields = Object.keys(messageObj);
             fields.forEach(function (field) {
               document.querySelector("#" + field).classList.add("is-invalid");
             });
 
-          case 17:
+          case 16:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[5, 12]]);
+    }, _callee, null, [[4, 11]]);
   }));
 
   return function (_x) {
@@ -20203,8 +20201,7 @@ loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
             response = _context2.sent;
 
             if (response.status === 200) {
-              // window.location.href = "/";
-              console.log(response);
+              successAlert.style.display = "block";
             }
 
             _context2.next = 13;
@@ -20213,7 +20210,11 @@ loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
           case 10:
             _context2.prev = 10;
             _context2.t0 = _context2["catch"](3);
-            console.log(_context2.t0);
+            console.log(_context2.t0.response); // let messageObj = error?.response?.data?.data;
+            // let fields = Object.keys(messageObj);
+            // fields.forEach(field => {
+            //     document.querySelector("#" + field).classList.add("is-invalid");
+            // });
 
           case 13:
           case "end":
