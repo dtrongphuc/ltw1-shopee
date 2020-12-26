@@ -15,7 +15,7 @@ class AuthController extends AuthBaseController
     // Login API
     public function login(Request $request) {
         $validator = Validator::make($request->all(),[
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email',
             'password' => 'required',
         ], [
             'email.required' => 'Vui lòng điền email',
@@ -32,7 +32,7 @@ class AuthController extends AuthBaseController
         ])) {
             $user = Auth::user();
             if(!Auth::user()->hasVerifiedEmail()) {
-                return $this->sendError('Verify Error.', ['verify' => 'Tài khoản chưa được xác thực']);
+                return $this->sendError('Verify Error.', ['verify' => 'Tài khoản chưa được xác thực'], 401);
             }
             $success['token'] = $user->createToken('user')->accessToken;
             $success['email'] = $user->email;

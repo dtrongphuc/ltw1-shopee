@@ -34,11 +34,11 @@
                     <img src="https://cf.shopee.vn/file/e963a4f6d9136744cf6a888b28c31706" alt="" class="login__body-img img-fluid" alt="Responsive image">
                     <div class="login-body__form">
                         <h4 class="login__body-form--header">Đăng Nhập</h4>
-                        <div class="alert alert-success auth-alert__success" role="alert">Đăng ký thành công, vui lòng kiểm tra email để kích hoạt tài khoản</div>
+                        <div class="alert alert-danger auth-alert__error" role="alert">Tài khoản chưa được kích hoạt</div>
                         <form id="login-form" method="POST" class="login__body-form">
                             <div class="mb-2">
                                 <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                                <input type="text" name="email" class="form-control login__body-form--header-input" placeholder="Email" require>
+                                <input id="email" type="text" name="email" class="form-control login__body-form--header-input" placeholder="Email" require>
                                 <div class="invalid-feedback">
                                     *Email không chính xác!
                                 </div>
@@ -46,7 +46,7 @@
     
                             <div class="mb-2">
                                 <div class="login__body-form--password d-flex align-items-center">
-                                    <input type="password" name="password" class="form-control login__body-form--header-input input-password" id="inputpass" placeholder="Mật khẩu" require>
+                                    <input type="password" name="password" class="form-control login__body-form--header-input input-password" id="password" placeholder="Mật khẩu" require>
                                     <div class="login__body-form--header-input-icon" onclick="hidepass()">
                                         <!-- khi hiện pass thì ẩn class 'fa-eye-slash' hiện class 'fa-eye'  -->
                                         <i class="far fa-eye-slash" id="icon-eye"></i>

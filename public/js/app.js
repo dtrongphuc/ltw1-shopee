@@ -20128,6 +20128,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var registerForm = document.querySelector("#register-form");
 var loginForm = document.querySelector("#login-form");
 var successAlert = document.querySelector(".auth-alert__success");
+var errorAlert = document.querySelector(".auth-alert__error");
 registerForm && registerForm.addEventListener("submit", /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
     var formData, registerData, response, _error$response, _error$response$data, messageObj, fields;
@@ -20182,46 +20183,53 @@ registerForm && registerForm.addEventListener("submit", /*#__PURE__*/function ()
 }());
 loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
-    var formData, loginData, response;
+    var formData, loginData, response, _error$response2, _error$response2$data, messageObj, fields;
+
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
             e.preventDefault();
+            errorAlert.style.display = "none";
             formData = new FormData(loginForm);
             loginData = {
               email: formData.get("email"),
               password: formData.get("password")
             };
-            _context2.prev = 3;
-            _context2.next = 6;
+            _context2.prev = 4;
+            _context2.next = 7;
             return axios.post("api/login", loginData);
 
-          case 6:
+          case 7:
             response = _context2.sent;
-
-            if (response.status === 200) {
-              successAlert.style.display = "block";
-            }
-
-            _context2.next = 13;
+            _context2.next = 18;
             break;
 
           case 10:
             _context2.prev = 10;
-            _context2.t0 = _context2["catch"](3);
-            console.log(_context2.t0.response); // let messageObj = error?.response?.data?.data;
-            // let fields = Object.keys(messageObj);
-            // fields.forEach(field => {
-            //     document.querySelector("#" + field).classList.add("is-invalid");
-            // });
+            _context2.t0 = _context2["catch"](4);
 
-          case 13:
+            if (!(_context2.t0.response.status === 401)) {
+              _context2.next = 15;
+              break;
+            }
+
+            errorAlert.style.display = "block";
+            return _context2.abrupt("return");
+
+          case 15:
+            messageObj = _context2.t0 === null || _context2.t0 === void 0 ? void 0 : (_error$response2 = _context2.t0.response) === null || _error$response2 === void 0 ? void 0 : (_error$response2$data = _error$response2.data) === null || _error$response2$data === void 0 ? void 0 : _error$response2$data.data;
+            fields = Object.keys(messageObj);
+            fields.forEach(function (field) {
+              document.querySelector("#" + field).classList.add("is-invalid");
+            });
+
+          case 18:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[3, 10]]);
+    }, _callee2, null, [[4, 10]]);
   }));
 
   return function (_x2) {
