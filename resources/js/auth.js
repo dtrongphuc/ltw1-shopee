@@ -1,8 +1,13 @@
 const registerForm = document.querySelector("#register-form");
 const loginForm = document.querySelector("#login-form");
+const successAlert = document.querySelector(".auth-alert__success");
+const errorAlert = document.querySelector(".auth-alert__error");
 registerForm &&
     registerForm.addEventListener("submit", async e => {
         e.preventDefault();
+        successAlert.style.display = "none";
+        errorAlert.style.display = "none";
+
         let formData = new FormData(registerForm);
         const registerData = {
             username: formData.get("username"),
@@ -13,11 +18,15 @@ registerForm &&
 
         try {
             const response = await axios.post("api/register", registerData);
-            if (response.status === 200)
-                document.querySelector(".auth-alert__success").styles.display =
-                    "block";
+            if (response.status === 200) {
+                successAlert.style.display = "block";
+            }
         } catch (error) {
-            console.log(error);
+            let messageObj = error?.response?.data?.data;
+            let fields = Object.keys(messageObj);
+            fields.forEach(field => {
+                document.querySelector("#" + field).classList.add("is-invalid");
+            });
         }
     });
 

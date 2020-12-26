@@ -20127,14 +20127,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var registerForm = document.querySelector("#register-form");
 var loginForm = document.querySelector("#login-form");
+var successAlert = document.querySelector(".auth-alert__success");
+var errorAlert = document.querySelector(".auth-alert__error");
 registerForm && registerForm.addEventListener("submit", /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
-    var formData, registerData, response;
+    var formData, registerData, response, _error$response, _error$response$data, messageObj, fields;
+
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             e.preventDefault();
+            successAlert.style.display = "none";
+            errorAlert.style.display = "none";
             formData = new FormData(registerForm);
             registerData = {
               username: formData.get("username"),
@@ -20142,27 +20147,35 @@ registerForm && registerForm.addEventListener("submit", /*#__PURE__*/function ()
               password: formData.get("password"),
               r_password: formData.get("r_password")
             };
-            _context.prev = 3;
-            _context.next = 6;
+            _context.prev = 5;
+            _context.next = 8;
             return axios.post("api/register", registerData);
 
-          case 6:
+          case 8:
             response = _context.sent;
-            if (response.status === 200) document.querySelector(".auth-alert__success").styles.display = "block";
-            _context.next = 13;
+
+            if (response.status === 200) {
+              successAlert.style.display = "block";
+            }
+
+            _context.next = 17;
             break;
 
-          case 10:
-            _context.prev = 10;
-            _context.t0 = _context["catch"](3);
-            console.log(_context.t0);
+          case 12:
+            _context.prev = 12;
+            _context.t0 = _context["catch"](5);
+            messageObj = _context.t0 === null || _context.t0 === void 0 ? void 0 : (_error$response = _context.t0.response) === null || _error$response === void 0 ? void 0 : (_error$response$data = _error$response.data) === null || _error$response$data === void 0 ? void 0 : _error$response$data.data;
+            fields = Object.keys(messageObj);
+            fields.forEach(function (field) {
+              document.querySelector("#" + field).classList.add("is-invalid");
+            });
 
-          case 13:
+          case 17:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[3, 10]]);
+    }, _callee, null, [[5, 12]]);
   }));
 
   return function (_x) {
@@ -20256,7 +20269,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\CSS_HTML_JS_ME\LTWed-1-LT\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! Z:\Code\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })

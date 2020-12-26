@@ -32,9 +32,15 @@ class AuthController extends AuthBaseController
     // Register API
     public function register(Request $request) {
         $validator = Validator::make($request->all(),[
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'password' => 'required',
             'r_password' => 'required|same:password',
+        ], [
+            'email.required' => 'Vui lòng điền email',
+            'email.unique' => 'Tài khoản đã tồn tại',
+            'password.required' => 'Vui lòng điền mật khẩu',
+            'r_password.required' => 'Vui lòng điền mật khẩu',
+            'r_password.same' => 'Mật khẩu xác nhận không khớp'
         ]);
 
         if($validator->fails()) {

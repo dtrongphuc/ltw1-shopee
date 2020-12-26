@@ -8,15 +8,17 @@
                         <ul class="categories">
                             <li class="category-item category-item--heading">
                                 <i class="fas fa-list"></i>
-                                <p class="ml-2">Tất cả danh mục</p>
+                                <p class="ms-2">Tất cả danh mục</p>
                             </li>
-                            @foreach($category as $cate)
-                            <li class="category-item category-item--active">
-                                <!-- <option value="{{$cate -> categoryId}}">{{$cate -> categoryName}}</option> -->
-                                <a href="">{{$cate -> categoryName}}</a>
-                            </li>
-                            @endforeach
 
+                            @if(isset($category))
+                                @foreach($category as $cate)
+                                <li class="category-item category-item--active">
+                                    <!-- <option value="{{$cate -> categoryId}}">{{$cate -> categoryName}}</option> -->
+                                    <a href="">{{$cate -> categoryName}}</a>
+                                </li>
+                                @endforeach
+                            @endif
                         </ul>
                     </div>
                     <div class="col-10 p-6">

@@ -218,6 +218,7 @@
     width: 170px;
 }
 
-.auth-alert__success {
+.auth-alert__success,
+.auth-alert__error  {
     display: none;
 }
