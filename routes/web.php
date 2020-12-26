@@ -78,3 +78,5 @@ Route::get('/administrator', function () {
 });
 
 Route::get('/', [PagesController::class, 'ListCategories']);
+Route::get('/', [PagesController::class, 'ListProducts']);
+Route::get('/', [PagesController::class, 'ProductImages']);
