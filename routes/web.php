@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PagesController;
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -62,7 +63,8 @@ Route::get('/info', function () {
     return view('/pages/infouser');
 })->middleware('verified');
 
-Route::get('data', 'Admin_Product@index');
+Route::get('/UserManagement', 'App\Http\Controllers\Admin_Controller_User@index');
+Route::get('/ProductManagement', 'App\Http\Controllers\Admin_Controller_Product@index');
 
 Route::get('/info-favorite', function () {
     return view('/pages/favorite');
@@ -75,14 +77,7 @@ Route::get('/administrator', function () {
     return view('/pages/administrator');
 });
 
-// Route::get('/','PagesController@ListCategories');
-
-Route::get('thu',function(){
-    $category = categories::find(1);
-    foreach($category as $cate){
-        echo $cate->categoryName."<br>";
-    }
-});
+Route::get('/',[PagesController::class, 'ListCategories']);
 
 
 

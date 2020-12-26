@@ -11,8 +11,9 @@ use Laravel\Passport\HasApiTokens;
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
+
     public $timestamps = false;
-    
+    protected $table = "users";
     protected $fillable = [
         'email',
         'password',
