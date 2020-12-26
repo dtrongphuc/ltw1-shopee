@@ -104,3 +104,7 @@ body{
 .showLeft .right{
     width: 82%;
 }
+
+.box-content .right .content-right .card-body .chart-1{
+    display: flex;
+}
