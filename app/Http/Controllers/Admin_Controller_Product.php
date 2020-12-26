@@ -11,6 +11,7 @@ class Admin_Controller_Product extends Controller
     {
         $product = DB::table('products')
             ->select(
+                'products.productId',
                 'products.productName',
                 'products.description',
                 'products.type',

@@ -49,9 +49,9 @@ Route::get('/pay', function () {
     return view('/pages/pay');
 });
 
-Route::get('/admin', function () {
-    return view('/adminthucong/index');
-});
+// Route::get('/admin', function () {
+//     return view('/adminthucong/index');
+// });
 
 Route::get('/User', function () {
     return view('/adminthucong/User');
@@ -63,8 +63,8 @@ Route::get('/info', function () {
     return view('/pages/infouser');
 })->middleware('verified');
 
-Route::get('/UserManagement', 'App\Http\Controllers\Admin_Controller_User@index');
-Route::get('/ProductManagement', 'App\Http\Controllers\Admin_Controller_Product@index');
+Route::get('/UserManagement', 'App\Http\Controllers\Admin_Cotroller_User@index');
+Route::get('/Admin', 'App\Http\Controllers\Admin_Controller_Product@index');
 
 Route::get('/info-favorite', function () {
     return view('/pages/favorite');
@@ -77,7 +77,4 @@ Route::get('/administrator', function () {
     return view('/pages/administrator');
 });
 
-Route::get('/',[PagesController::class, 'ListCategories']);
-
-
-
+Route::get('/', [PagesController::class, 'ListCategories']);

@@ -33,8 +33,7 @@
                 <div class="col-md-5">
                     <div class="cartbody__checkall d-flex align-items-center">
                         <div class="cartbody__checkall-check">
-                            <input type="checkbox">
-
+                            <!-- <input type="checkbox"> -->
                         </div>
                         <span class="cartbody__checkall-content">Sản phẩm</span>
                     </div>
@@ -69,7 +68,7 @@
                 <div class="col-md-5">
                     <div class="cartbody__checkall d-flex align-items-center ">
                         <div class="cartbody__products-check">
-                            <input type="checkbox">
+                            <input type="checkbox" name="check-one">
                         </div>
                         <div class="cartbody__products-img">
                             <img src="images/products/hoodie_cart.jpg" alt="" style="width: 80px; height: 80px;">
@@ -114,7 +113,7 @@
                 <div class="col-md-5">
                     <div class="cartbody__checkall d-flex align-items-center ">
                         <div class="cartbody__products-check">
-                            <input type="checkbox">
+                            <input type="checkbox" name="check-one">
                         </div>
                         <div class="cartbody__products-img">
                             <img src="images/products/hoodie_cart.jpg" alt="" style="width: 80px; height: 80px;">
@@ -161,7 +160,7 @@
                     <div class="cartfooter__selectproduct d-flex align-items-center">
                         <div class="cartfooter__selectproduct-checkall d-flex align-items-center">
                             <div class="cartbody__products-check cartfooter__selectproduct-checkall--check">
-                                <input type="checkbox">
+                                <input type="checkbox" id="check-all">
                             </div>
                             <p class="cartfooter__selectproduct-checkall--content">Chọn tất cả (12)</p>
                         </div>
