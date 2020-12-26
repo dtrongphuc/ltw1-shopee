@@ -77,14 +77,26 @@
                 if ($('#heart').css('display') == 'none') {
                     $("#heart").css("display", "block");
                     $("#heart-hollow").css("display", "none");
-                }
-                else
-                {
+                } else {
                     $("#heart-hollow").css("display", "block");
                     $("#heart").css("display", "none");
                 }
             });
         });
+
+        //check tất cả trong giở hàng
+        document.getElementById("check-all").onclick = function() {
+            //lấy ds checkbox
+            var checkboxs = document.getElementsByName("check-one");
+            if (document.getElementById("check-all").checked == true)
+                for (var i = 0; i < checkboxs.length; i++) {
+                    checkboxs[i].checked = true;
+                }
+            else 
+            for (var i = 0; i < checkboxs.length; i++) {
+                    checkboxs[i].checked = false;
+                }
+        }
     </script>
 </body>
 
