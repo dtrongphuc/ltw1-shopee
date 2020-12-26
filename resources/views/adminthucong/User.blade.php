@@ -21,7 +21,7 @@
             <ul class="list-item">
                 <li class="item ">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="./admin">Quản lý sản phẩm</a>
+                    <a href="./Admin">Quản lý sản phẩm</a>
                 </li>
                 <li class="item">
                     <i class="fas fa-fw fa-table"></i>
@@ -61,12 +61,15 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
+                                    {{$users}}
+                                    <th>STT</th>
+                                    <th>Email</th>
+                                    <th>Tên</th>
+                                    <th>Số Điện Thoại</th>
+                                    <th>Giới Tính</th>
+                                    <th>Ngày Sinh</th>
+                                    <th>Địa Chỉ</th>
+                                    <th>Quyền</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -77,14 +80,8 @@
                                     <td>61</td>
                                     <td>2011/04/25</td>
                                     <td>$320,800</td>
-                                </tr>
-                                <tr>
-                                    <td>Donna Snider</td>
-                                    <td>Customer Support</td>
-                                    <td>New York</td>
-                                    <td>27</td>
-                                    <td>2011/01/25</td>
-                                    <td>$112,000</td>
+                                    <td>$320,800</td>
+                                    <td>$320,800</td>
                                 </tr>
                             </tbody>
                         </table>

@@ -61,6 +61,7 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
+                                    <th>STT</th>
                                     <th>Tên Sản Phẩm</th>
                                     <th>Loại Danh Mục</th>
                                     <th>Loại</th>
@@ -71,11 +72,14 @@
                                     <th>Đã bán</th>
                                     <th>Thời Gian Đăng</th>
                                     <th>Mô tả</th>
+                                    <th>Xóa</th>
+                                    <th>Sửa</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach( $sanpham as $sp)
                                 <tr>
+                                    <td>{{$sp->productId}}</td>
                                     <td>{{$sp->productName}}</td>
                                     <td>{{$sp->categoryName}}</td>
                                     <td>{{$sp->type}}</td>
@@ -86,6 +90,8 @@
                                     <td>{{$sp->sold}}</td>
                                     <td>{{$sp->postAt}}</td>
                                     <td>{{$sp->description}}</td>
+                                    <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
+                                    <td><a href="#"><i class="fas fa-edit"></i></a></td>
                                 </tr>
                                 @endforeach
                             </tbody>
