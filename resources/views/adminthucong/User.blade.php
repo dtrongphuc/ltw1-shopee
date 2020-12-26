@@ -31,6 +31,10 @@
                     <i class="fas fa-fw fa-table"></i>
                     <a href="./UserManagement">Quản lý người dùng</a>
                 </li>
+                <li class="item">
+                    <i class="fas fa-fw fa-table"></i>
+                    <a href="./OrderManagement">Quản lý Đơn Hàng</a>
+                </li>
             </ul>
         </div>
         <div class="right">
@@ -61,7 +65,6 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    {{$users}}
                                     <th>STT</th>
                                     <th>Email</th>
                                     <th>Tên</th>
@@ -69,20 +72,34 @@
                                     <th>Giới Tính</th>
                                     <th>Ngày Sinh</th>
                                     <th>Địa Chỉ</th>
+                                    <th>Ngày Xác Nhận Email</th>
                                     <th>Quyền</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($users as $us)
                                 <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                    <td>$320,800</td>
-                                    <td>$320,800</td>
+                                    <td>{{$us->id}}</td>
+                                    <td>{{$us->email}}</td>
+                                    <td>{{$us->name}}</td>
+                                    <td>{{$us->phoneNumber}}</td>
+                                    @if($us->gender == "male")
+                                    <td>Nam</td>
+                                    @elseif ($us->gender == "female")
+                                    <td>Nữ</td>
+                                    @else
+                                    <td>Giới Tính Khác</td>
+                                    @endif
+                                    <td>{{$us->birthday}}</td>
+                                    <td>{{$us->address}}</td>
+                                    <td>{{$us->email_verified_at}}</td>
+                                    @if($us->role == 0)
+                                    <td>Khách Hàng</td>
+                                    @else
+                                    <td>Quản Lý</td>
+                                    @endif
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

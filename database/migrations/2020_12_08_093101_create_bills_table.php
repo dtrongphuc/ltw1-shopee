@@ -21,7 +21,7 @@ class CreateBillsTable extends Migration
             $table->decimal('totalPrice', 10, 2);
             $table->date('createAt');
             $table->date('expectedAt');
-            $table->enum('status', [0, 1, 2]);
+            $table->enum('status', [0, 1, 2, 3, 4]);
         });
     }
 

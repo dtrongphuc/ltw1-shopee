@@ -1,8 +1,12 @@
 const registerForm = document.querySelector("#register-form");
 const loginForm = document.querySelector("#login-form");
+const successAlert = document.querySelector(".auth-alert__success");
+const errorAlert = document.querySelector(".auth-alert__error");
 registerForm &&
     registerForm.addEventListener("submit", async e => {
         e.preventDefault();
+        successAlert.style.display = "none";
+
         let formData = new FormData(registerForm);
         const registerData = {
             username: formData.get("username"),
@@ -13,17 +17,23 @@ registerForm &&
 
         try {
             const response = await axios.post("api/register", registerData);
-            if (response.status === 200)
-                document.querySelector(".auth-alert__success").styles.display =
-                    "block";
+            if (response.status === 200) {
+                successAlert.style.display = "block";
+            }
         } catch (error) {
-            console.log(error);
+            let messageObj = error?.response?.data?.data;
+            let fields = Object.keys(messageObj);
+            fields.forEach(field => {
+                document.querySelector("#" + field).classList.add("is-invalid");
+            });
         }
     });
 
 loginForm &&
     loginForm.addEventListener("submit", async e => {
         e.preventDefault();
+        errorAlert.style.display = "none";
+
         let formData = new FormData(loginForm);
         const loginData = {
             email: formData.get("email"),
@@ -32,11 +42,19 @@ loginForm &&
 
         try {
             const response = await axios.post("api/login", loginData);
-            if (response.status === 200) {
-                // window.location.href = "/";
-                console.log(response);
-            }
+            // if (response.status === 200) {
+            //     successAlert.style.display = "block";
+            // }
         } catch (error) {
-            console.log(error);
+            if (error.response.status === 401) {
+                errorAlert.style.display = "block";
+                return;
+            }
+
+            let messageObj = error?.response?.data?.data;
+            let fields = Object.keys(messageObj);
+            fields.forEach(field => {
+                document.querySelector("#" + field).classList.add("is-invalid");
+            });
         }
     });

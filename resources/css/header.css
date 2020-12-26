@@ -8,6 +8,7 @@
     background: #f53d2d;
     background: -webkit-gradient(linear,left top,left bottom,from(#f53d2d),to(#f63));
     background: linear-gradient(-180deg,#f53d2d,#f63);
+    padding-top: 4px;
 }
 
 .header__navbar {

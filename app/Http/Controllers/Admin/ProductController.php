@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class Admin_Controller_Product extends Controller
+class ProductController extends Controller
 {
     public function index()
     {
@@ -23,7 +24,7 @@ class Admin_Controller_Product extends Controller
                 'products.postAt',
                 'categories.categoryName'
             )
-            ->join('categories', 'products.categoryId', 'categories.id')->get();
+            ->join('categories', 'products.categoryId', 'categories.categoryId')->get();
         //$product = Product::all();
         return view('adminthucong/index', ['sanpham' => $product]);
         //return response()->json($product, 200);

@@ -21,7 +21,7 @@
             <ul class="list-item">
                 <li class="item active">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="./admin">Quản lý sản phẩm</a>
+                    <a href="./Admin">Quản lý sản phẩm</a>
                 </li>
                 <li class="item">
                     <i class="fas fa-fw fa-table"></i>
@@ -29,7 +29,11 @@
                 </li>
                 <li class="item">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="/User">Quản lý người dùng</a>
+                    <a href="/UserManagement">Quản lý người dùng</a>
+                </li>
+                <li class="item">
+                    <i class="fas fa-fw fa-table"></i>
+                    <a href="./OrderManagement">Quản lý Đơn Hàng</a>
                 </li>
             </ul>
         </div>
