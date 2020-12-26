@@ -20127,14 +20127,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var registerForm = document.querySelector("#register-form");
 var loginForm = document.querySelector("#login-form");
+var successAlert = document.querySelector(".auth-alert__success");
+var errorAlert = document.querySelector(".auth-alert__error");
 registerForm && registerForm.addEventListener("submit", /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
-    var formData, registerData, response;
+    var formData, registerData, response, _error$response, _error$response$data, messageObj, fields;
+
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             e.preventDefault();
+            successAlert.style.display = "none";
             formData = new FormData(registerForm);
             registerData = {
               username: formData.get("username"),
@@ -20142,27 +20146,35 @@ registerForm && registerForm.addEventListener("submit", /*#__PURE__*/function ()
               password: formData.get("password"),
               r_password: formData.get("r_password")
             };
-            _context.prev = 3;
-            _context.next = 6;
+            _context.prev = 4;
+            _context.next = 7;
             return axios.post("api/register", registerData);
 
-          case 6:
+          case 7:
             response = _context.sent;
-            if (response.status === 200) document.querySelector(".auth-alert__success").styles.display = "block";
-            _context.next = 13;
+
+            if (response.status === 200) {
+              successAlert.style.display = "block";
+            }
+
+            _context.next = 16;
             break;
 
-          case 10:
-            _context.prev = 10;
-            _context.t0 = _context["catch"](3);
-            console.log(_context.t0);
+          case 11:
+            _context.prev = 11;
+            _context.t0 = _context["catch"](4);
+            messageObj = _context.t0 === null || _context.t0 === void 0 ? void 0 : (_error$response = _context.t0.response) === null || _error$response === void 0 ? void 0 : (_error$response$data = _error$response.data) === null || _error$response$data === void 0 ? void 0 : _error$response$data.data;
+            fields = Object.keys(messageObj);
+            fields.forEach(function (field) {
+              document.querySelector("#" + field).classList.add("is-invalid");
+            });
 
-          case 13:
+          case 16:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[3, 10]]);
+    }, _callee, null, [[4, 11]]);
   }));
 
   return function (_x) {
@@ -20171,43 +20183,53 @@ registerForm && registerForm.addEventListener("submit", /*#__PURE__*/function ()
 }());
 loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
-    var formData, loginData, response;
+    var formData, loginData, response, _error$response2, _error$response2$data, messageObj, fields;
+
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
             e.preventDefault();
+            errorAlert.style.display = "none";
             formData = new FormData(loginForm);
             loginData = {
               email: formData.get("email"),
               password: formData.get("password")
             };
-            _context2.prev = 3;
-            _context2.next = 6;
+            _context2.prev = 4;
+            _context2.next = 7;
             return axios.post("api/login", loginData);
 
-          case 6:
+          case 7:
             response = _context2.sent;
-
-            if (response.status === 200) {
-              // window.location.href = "/";
-              console.log(response);
-            }
-
-            _context2.next = 13;
+            _context2.next = 18;
             break;
 
           case 10:
             _context2.prev = 10;
-            _context2.t0 = _context2["catch"](3);
-            console.log(_context2.t0);
+            _context2.t0 = _context2["catch"](4);
 
-          case 13:
+            if (!(_context2.t0.response.status === 401)) {
+              _context2.next = 15;
+              break;
+            }
+
+            errorAlert.style.display = "block";
+            return _context2.abrupt("return");
+
+          case 15:
+            messageObj = _context2.t0 === null || _context2.t0 === void 0 ? void 0 : (_error$response2 = _context2.t0.response) === null || _error$response2 === void 0 ? void 0 : (_error$response2$data = _error$response2.data) === null || _error$response2$data === void 0 ? void 0 : _error$response2$data.data;
+            fields = Object.keys(messageObj);
+            fields.forEach(function (field) {
+              document.querySelector("#" + field).classList.add("is-invalid");
+            });
+
+          case 18:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[3, 10]]);
+    }, _callee2, null, [[4, 10]]);
   }));
 
   return function (_x2) {
@@ -20256,7 +20278,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\CSS_HTML_JS_ME\LTWed-1-LT\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! Z:\Code\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })

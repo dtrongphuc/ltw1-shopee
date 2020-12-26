@@ -14,11 +14,26 @@ class AuthController extends AuthBaseController
 {
     // Login API
     public function login(Request $request) {
+        $validator = Validator::make($request->all(),[
+            'email' => 'required|email',
+            'password' => 'required',
+        ], [
+            'email.required' => 'Vui lòng điền email',
+            'password.required' => 'Vui lòng điền mật khẩu',
+        ]);
+
+        if($validator->fails()) {
+            return $this->sendError('Validator Error.', $validator->errors());
+        }
+
         if(Auth::attempt([
             'email' => $request->email, 
             'password' => $request->password,     
         ])) {
             $user = Auth::user();
+            if(!Auth::user()->hasVerifiedEmail()) {
+                return $this->sendError('Verify Error.', ['verify' => 'Tài khoản chưa được xác thực'], 401);
+            }
             $success['token'] = $user->createToken('user')->accessToken;
             $success['email'] = $user->email;
             $success['verified'] = Auth::user()->hasVerifiedEmail();
@@ -32,9 +47,15 @@ class AuthController extends AuthBaseController
     // Register API
     public function register(Request $request) {
         $validator = Validator::make($request->all(),[
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'password' => 'required',
             'r_password' => 'required|same:password',
+        ], [
+            'email.required' => 'Vui lòng điền email',
+            'email.unique' => 'Tài khoản đã tồn tại',
+            'password.required' => 'Vui lòng điền mật khẩu',
+            'r_password.required' => 'Vui lòng điền mật khẩu',
+            'r_password.same' => 'Mật khẩu xác nhận không khớp'
         ]);
 
         if($validator->fails()) {

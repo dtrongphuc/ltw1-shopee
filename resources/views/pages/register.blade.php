@@ -34,15 +34,9 @@
                     <div class="register-body__form">
                         <h4 class="login__body-form--header">Đăng Ký</h4>
                         <div class="alert alert-success auth-alert__success" role="alert">Đăng ký thành công, vui lòng kiểm tra email để kích hoạt tài khoản</div>
+                        <div class="alert alert-danger auth-alert__error" role="alert"></div>
                         <form id="register-form" method="POST" action="#" class="register__body-form">
                             @csrf
-                            <div class="mb-2">
-                                <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                                <input type="text" name="username" id="username" class="form-control login__body-form--header-input" placeholder="Tên đăng nhập" require>
-                                <div class="invalid-feedback">
-                                    *tên đăng nhập ko đúng quy định
-                                </div>
-                            </div>
                             <div class="mb-2">
                                 <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
                                 <input type="text" name="email" id="email" class="form-control login__body-form--header-input" placeholder="Email" require>
@@ -72,11 +66,11 @@
                             <span class="login__body-form--dash-content">HOẶC</span>
                             <div class="login__body-form--dash-lf"></div>
                         </div>
-                        {{-- <div class="body-form--rules">
+                        <div class="body-form--rules">
                             <div class="body-form--rules-content">
                                 <p>Bằng việc đăng kí, bạn đã đồng ý với Shopee về Điều khoản dịch vụ & Chính sách bảo mật</p>
                             </div>
-                        </div> --}}
+                        </div>
                         <div class="login__body-form--register d-flex flex-row justify-content-center">
                             <p class="login__body-form--register-content">Bạn mới biết đến Shopee?</p>
                             <a href="./login" class="login__body-form--register-link">Đăng nhập</a>
