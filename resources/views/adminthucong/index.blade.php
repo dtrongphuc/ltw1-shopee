@@ -31,6 +31,10 @@
                     <i class="fas fa-fw fa-table"></i>
                     <a href="/User">Quản lý người dùng</a>
                 </li>
+                <li class="item">
+                    <i class="fas fa-fw fa-table"></i>
+                    <a href="./OrderManagement">Quản lý Đơn Hàng</a>
+                </li>
             </ul>
         </div>
         <div class="right">

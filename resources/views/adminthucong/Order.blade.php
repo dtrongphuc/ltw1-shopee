@@ -21,7 +21,7 @@
             <ul class="list-item">
                 <li class="item ">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="./admin">Quản lý sản phẩm</a>
+                    <a href="./Admin">Quản lý sản phẩm</a>
                 </li>
                 <li class="item ">
                     <i class="fas fa-fw fa-table"></i>
@@ -33,7 +33,7 @@
                 </li>
                 <li class="item active">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="./UserManagement">Quản lý Đơn Hàng</a>
+                    <a href="./OrderManagement">Quản lý Đơn Hàng</a>
                 </li>
             </ul>
         </div>
@@ -60,7 +60,57 @@
                 <div class="box-content-right">
                     <p class="title">Đơn Hàng</p>
                 </div>
-
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên</th>
+                                    <th>Số Điện Thoại</th>
+                                    <th>Địa Chỉ</th>
+                                    <th>Tổng Tiền</th>
+                                    <th>Ngày Đặt</th>
+                                    <th>Dự Kiến Giao Hàng</th>
+                                    <th>Trạng Thái</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($orders as $od)
+                                <tr>
+                                    <td>{{$od ->id}}</td>
+                                    <td>{{$od ->customerName}}</td>
+                                    <td>{{$od ->phoneNumber}}</td>
+                                    <td>{{$od ->address}}</td>
+                                    <td>{{$od ->totalPrice}}</td>
+                                    <td>{{$od ->createAt}}</td>
+                                    <td>{{$od ->expectedAt}}</td>
+                                    @if($od->status == 0)
+                                    <td>Chờ Xử Lý</td>
+                                    @elseif ($od->status == 1)
+                                    <td>Hủy</td>
+                                    @elseif ($od->status == 2)
+                                    <td>Đang Xử Lý</td>
+                                    @elseif ($od->status == 3)
+                                    <td>Đang Giao Hàng</td>
+                                    @else
+                                    <td>Hoàn Thành</td>
+                                    @endif
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <nav aria-label="Page navigation example" class="pag">
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     </div>

@@ -65,6 +65,7 @@ Route::get('/info', function () {
 
 Route::get('/UserManagement', 'App\Http\Controllers\Admin_Cotroller_User@index');
 Route::get('/Admin', 'App\Http\Controllers\Admin_Controller_Product@index');
+Route::get('/OrderManagement', 'App\Http\Controllers\Admin\OrderController@index');
 
 Route::get('/info-favorite', function () {
     return view('/pages/favorite');

@@ -23,7 +23,7 @@ class Admin_Controller_Product extends Controller
                 'products.postAt',
                 'categories.categoryName'
             )
-            ->join('categories', 'products.categoryId', 'categories.id')->get();
+            ->join('categories', 'products.categoryId', 'categories.categoryId')->get();
         //$product = Product::all();
         return view('adminthucong/index', ['sanpham' => $product]);
         //return response()->json($product, 200);
