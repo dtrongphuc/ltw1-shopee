@@ -85,7 +85,7 @@
                                     <td>{{$od ->totalPrice}}</td>
                                     <td>{{$od ->createAt}}</td>
                                     <td>{{$od ->expectedAt}}</td>
-                                    @if($od->status == 0)
+                                    <!-- @if($od->status == 0)
                                     <td>Chờ Xử Lý</td>
                                     @elseif ($od->status == 1)
                                     <td>Hủy</td>
@@ -95,7 +95,16 @@
                                     <td>Đang Giao Hàng</td>
                                     @else
                                     <td>Hoàn Thành</td>
-                                    @endif
+                                    @endif -->
+                                    <td>
+                                        <select name="statusOrder" id="statusOrder">
+                                            <option value="0">Chờ Xử Lý</option>
+                                            <option value="1">Hủy</option>
+                                            <option value="2">Đang Xử Lý</option>
+                                            <option value="3">Đang Giao Hàng</option>
+                                            <option value="4">Hoàn Thành</option>
+                                        </select>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -126,6 +135,11 @@
                 }
             });
         });
+
+        function StatusOrderSelected(status) {
+            console.log(status);
+            document.getElementById("status").selected = "true";
+        }
     </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
