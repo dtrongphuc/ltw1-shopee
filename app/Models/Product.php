@@ -11,4 +11,8 @@ class Product extends Model
     use HasFactory;
     public $product = "Products";
     public $timestamps = true;
+
+   public function categories(){
+       return $this->belongTo('App\categories','categoryId','productId');
+   }
 }
