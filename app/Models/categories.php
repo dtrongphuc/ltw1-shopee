@@ -10,4 +10,8 @@ class Categories extends Model
     protected $table = "categories";
     public $timestamps = false;
     protected $fillable = ['categoryId', 'categoryName'];
+
+    public function product(){
+        return $this->hasMany('App\Product','categoryId','categoryId');
+    }
 }

@@ -76,6 +76,10 @@
     color: var(--primary-color);
     font-weight: 600;
 }
+.category-item--active > option {
+    color: var(--primary-color);
+    font-weight: 600;
+}
 
 .category-item--active::before {
     content: "";
