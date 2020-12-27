@@ -20141,14 +20141,13 @@ registerForm && registerForm.addEventListener("submit", /*#__PURE__*/function ()
             successAlert.style.display = "none";
             formData = new FormData(registerForm);
             registerData = {
-              username: formData.get("username"),
               email: formData.get("email"),
               password: formData.get("password"),
               r_password: formData.get("r_password")
             };
             _context.prev = 4;
             _context.next = 7;
-            return axios.post("api/register", registerData);
+            return axios.post("/register", registerData);
 
           case 7:
             response = _context.sent;
@@ -20167,6 +20166,7 @@ registerForm && registerForm.addEventListener("submit", /*#__PURE__*/function ()
             fields = Object.keys(messageObj);
             fields.forEach(function (field) {
               document.querySelector("#" + field).classList.add("is-invalid");
+              document.querySelector("#".concat(field, " + .invalid-feedback")).innerHTML = messageObj[field];
             });
 
           case 16:
@@ -20198,7 +20198,7 @@ loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
             };
             _context2.prev = 4;
             _context2.next = 7;
-            return axios.post("api/login", loginData);
+            return axios.post("login", loginData);
 
           case 7:
             response = _context2.sent;
@@ -20240,6 +20240,7 @@ loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
             fields = Object.keys(messageObj);
             fields.forEach(function (field) {
               document.querySelector("#" + field).classList.add("is-invalid");
+              document.querySelector("#".concat(field, " + .invalid-feedback")).innerHTML = messageObj[field];
             });
 
           case 25:

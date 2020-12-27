@@ -35,28 +35,22 @@
                         <h4 class="login__body-form--header">Đăng Ký</h4>
                         <div class="alert alert-success auth-alert__success" role="alert">Đăng ký thành công, vui lòng kiểm tra email để kích hoạt tài khoản</div>
                         <div class="alert alert-danger auth-alert__error" role="alert"></div>
-                        <form id="register-form" method="POST" action="#" class="register__body-form">
+                        <form id="register-form" method="POST" action="{{route('auth.create')}}" class="register__body-form">
                             @csrf
                             <div class="mb-2">
                                 <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
                                 <input type="text" name="email" id="email" class="form-control login__body-form--header-input" placeholder="Email" require>
-                                <div class="invalid-feedback">
-                                    *Email không hợp lệ!
-                                </div>
+                                <div class="invalid-feedback"></div>
                             </div>
                             <div class="mb-2">
                                 <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                                <input type="text" name="password" id="password" class="form-control login__body-form--header-input" placeholder="Mât khẩu" require>
-                                <div class="invalid-feedback">
-                                    *Mât khẩu phải 8 kí tự trở lên
-                                </div>
+                                <input type="password" name="password" id="password" class="form-control login__body-form--header-input" placeholder="Mât khẩu" require>
+                                <div class="invalid-feedback"></div>
                             </div>
                             <div class="mb-2">
                                 <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                                <input type="text" name="r_password" id="r_password" class="form-control login__body-form--header-input" placeholder="Nhập lại mật khẩu" require>
-                                <div class="invalid-feedback">
-                                    *Mật khẩu không trùng khớp
-                                </div>
+                                <input type="password" name="r_password" id="r_password" class="form-control login__body-form--header-input" placeholder="Nhập lại mật khẩu" require>
+                                <div class="invalid-feedback"></div>
                             </div>
                             <!-- khi điền đủ thong tin bỏ class notlogin -->
                             <button type="submit" class="btn-register-login notlogin">ĐĂNG KÝ</button>

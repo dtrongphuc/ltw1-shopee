@@ -12,7 +12,7 @@ use Validator;
 
 class AuthController extends AuthBaseController
 {
-    // Login API
+    // Login
     public function login(Request $request) {
         $validator = Validator::make($request->all(),[
             'email' => 'required|email',
@@ -36,26 +36,25 @@ class AuthController extends AuthBaseController
                 return $this->sendError('Verify Error.', ['verify' => 'Tài khoản chưa được xác thực'], 401);
             }
             Auth::login($user);
-
-            $success['token'] = $user->createToken('user')->accessToken;
-            $success['email'] = $user->email;
-            $success['verified'] = Auth::user()->hasVerifiedEmail();
-            return $this->sendResponse($success, 'User login successfully.');
+            return $this->sendResponse('User login successfully.');
         } else {
-            return $this->sendError('Unauthorized.', ['error' => 'Unauthorized']);
+            return $this->sendError('Unauthorized.', ['error' => 'Lỗi xác thực']);
         }
     }
 
-    // Register API
+    // Register
     public function register(Request $request) {
         $validator = Validator::make($request->all(),[
             'email' => 'required|email|unique:users',
-            'password' => 'required',
+            'password' => 'required|min:5|max:12',
             'r_password' => 'required|same:password',
         ], [
             'email.required' => 'Vui lòng điền email',
+            'email.email' => 'Email không hợp lệ',
             'email.unique' => 'Tài khoản đã tồn tại',
             'password.required' => 'Vui lòng điền mật khẩu',
+            'password.min' => 'Mật khẩu tối thiểu 5 kí tự',
+            'password.max' => 'Mật khẩu tối đa 12 kí tự',
             'r_password.required' => 'Vui lòng điền mật khẩu',
             'r_password.same' => 'Mật khẩu xác nhận không khớp'
         ]);
@@ -69,10 +68,8 @@ class AuthController extends AuthBaseController
         $user = User::create($input);
         event(new Registered($user));
         Auth::login($user);
-        $success['token'] = $user->createToken('MyApp')->accessToken;
-        $success['email'] = $user->email;
 
-        return $this->sendResponse($success, 'User register successfully.');
+        return $this->sendResponse('User register successfully.');
     }
 
     // Logout API

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\VerifyEmailController;
-use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Http\Request;
@@ -37,13 +37,24 @@ Route::get('/register', function () {
     return view('/pages/register');
 })->name('register');
 
+Route::post('register', [AuthController::class, 'register'])->name('auth.create');
+Route::post('login', [AuthController::class, 'login'])->name('auth.check');
+
 Route::get('/product', function () {
     return view('/pages/product');
 });
 
-// Route::get('/cart', function () {
-//     return view('/pages/cart');
-// });
+// Route user
+Route:prefix('user')->group(function () {
+    Route::get('/account', function () {
+        return view('/pages/profile');
+    });
+    
+    Route::get('/purchase', function () {
+        return view('/pages/cart');
+    });
+})->middleware(['auth', 'verified']);
+
 
 Route::get('/pay', function () {
     return view('/pages/pay');
@@ -56,12 +67,10 @@ Route::get('/pay', function () {
 Route::get('/User', function () {
     return view('/adminthucong/User');
 });
+
 Route::get('/Chart', function () {
     return view('/adminthucong/chart');
 });
-Route::get('/info', function () {
-    return view('/pages/infouser');
-})->middleware('verified');
 
 Route::get('/UserManagement', 'App\Http\Controllers\Admin\UserController@index');
 Route::get('/Admin', 'App\Http\Controllers\Admin\ProductController@index');
@@ -69,11 +78,10 @@ Route::get('/OrderManagement', 'App\Http\Controllers\Admin\OrderController@index
 
 Route::get('/info-favorite', function () {
     return view('/pages/favorite');
-})->middleware('verified');
+})->middleware(['auth', 'verified']);
 
 
 // POST METHODS
-Route::post('/register', [RegisterController::class, 'register']);
 Route::get('/administrator', function () {
     return view('/pages/administrator');
 });

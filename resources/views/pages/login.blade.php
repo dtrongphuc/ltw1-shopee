@@ -35,13 +35,11 @@
                     <div class="login-body__form">
                         <h4 class="login__body-form--header">Đăng Nhập</h4>
                         <div class="alert alert-danger auth-alert__error" role="alert"></div>
-                        <form id="login-form" method="POST" class="login__body-form">
+                        <form id="login-form" method="POST" action="{{route('auth.check')}}" class="login__body-form">
                             <div class="mb-2">
                                 <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
                                 <input id="email" type="text" name="email" class="form-control login__body-form--header-input" placeholder="Email" require>
-                                <div class="invalid-feedback">
-                                    *Email không chính xác!
-                                </div>
+                                <div class="invalid-feedback"> </div>
                             </div>
     
                             <div class="mb-2">
@@ -52,9 +50,7 @@
                                         <i class="far fa-eye-slash" id="icon-eye"></i>
                                     </div>
                                 </div>
-                                <div class="input-error" style="display: none;">
-                                    *Mật khẩu sai!
-                                </div>
+                                <div class="input-error" style="display: none;"></div>
                             </div>
     
                             <!-- khi điền đủ thong tin bỏ class notlogin -->
