@@ -31,13 +31,15 @@ class AuthController extends AuthBaseController
             'password' => $request->password,     
         ])) {
             $user = Auth::user();
+            
             if(!Auth::user()->hasVerifiedEmail()) {
                 return $this->sendError('Verify Error.', ['verify' => 'Tài khoản chưa được xác thực'], 401);
             }
+            Auth::login($user);
+
             $success['token'] = $user->createToken('user')->accessToken;
             $success['email'] = $user->email;
             $success['verified'] = Auth::user()->hasVerifiedEmail();
-            $success['id'] = $id = Auth::id();
             return $this->sendResponse($success, 'User login successfully.');
         } else {
             return $this->sendError('Unauthorized.', ['error' => 'Unauthorized']);

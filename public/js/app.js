@@ -20202,34 +20202,52 @@ loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
 
           case 7:
             response = _context2.sent;
-            _context2.next = 18;
+            console.log(response);
+
+            if (response.status === 200) {
+              window.location.href = "/";
+            }
+
+            _context2.next = 25;
             break;
 
-          case 10:
-            _context2.prev = 10;
+          case 12:
+            _context2.prev = 12;
             _context2.t0 = _context2["catch"](4);
 
             if (!(_context2.t0.response.status === 401)) {
-              _context2.next = 15;
+              _context2.next = 18;
               break;
             }
 
+            errorAlert.innerHTML = "Tài khoản chưa được kích hoạt";
             errorAlert.style.display = "block";
             return _context2.abrupt("return");
 
-          case 15:
+          case 18:
             messageObj = _context2.t0 === null || _context2.t0 === void 0 ? void 0 : (_error$response2 = _context2.t0.response) === null || _error$response2 === void 0 ? void 0 : (_error$response2$data = _error$response2.data) === null || _error$response2$data === void 0 ? void 0 : _error$response2$data.data;
+
+            if (!messageObj.error) {
+              _context2.next = 23;
+              break;
+            }
+
+            errorAlert.innerHTML = "Tài khoản hoặc mật khẩu không chính xác";
+            errorAlert.style.display = "block";
+            return _context2.abrupt("return");
+
+          case 23:
             fields = Object.keys(messageObj);
             fields.forEach(function (field) {
               document.querySelector("#" + field).classList.add("is-invalid");
             });
 
-          case 18:
+          case 25:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[4, 10]]);
+    }, _callee2, null, [[4, 12]]);
   }));
 
   return function (_x2) {

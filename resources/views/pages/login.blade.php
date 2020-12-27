@@ -34,7 +34,7 @@
                     <img src="https://cf.shopee.vn/file/e963a4f6d9136744cf6a888b28c31706" alt="" class="login__body-img img-fluid" alt="Responsive image">
                     <div class="login-body__form">
                         <h4 class="login__body-form--header">Đăng Nhập</h4>
-                        <div class="alert alert-danger auth-alert__error" role="alert">Tài khoản chưa được kích hoạt</div>
+                        <div class="alert alert-danger auth-alert__error" role="alert"></div>
                         <form id="login-form" method="POST" class="login__body-form">
                             <div class="mb-2">
                                 <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->

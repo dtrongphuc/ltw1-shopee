@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+// Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
 // Verification
@@ -79,5 +79,5 @@ Route::get('/administrator', function () {
 });
 
 Route::get('/', [PagesController::class, 'ListCategories']);
-Route::get('/', [PagesController::class, 'ListProducts']);
-Route::get('/', [PagesController::class, 'ProductImages']);
+// Route::get('/', [PagesController::class, 'ListProducts']);
+// Route::get('/', [PagesController::class, 'ProductImages']);

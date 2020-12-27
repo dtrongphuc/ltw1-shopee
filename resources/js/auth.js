@@ -42,16 +42,25 @@ loginForm &&
 
         try {
             const response = await axios.post("api/login", loginData);
-            // if (response.status === 200) {
-            //     successAlert.style.display = "block";
-            // }
+            console.log(response);
+            if (response.status === 200) {
+                window.location.href = "/";
+            }
         } catch (error) {
             if (error.response.status === 401) {
+                errorAlert.innerHTML = "Tài khoản chưa được kích hoạt";
                 errorAlert.style.display = "block";
                 return;
             }
 
             let messageObj = error?.response?.data?.data;
+            if (messageObj.error) {
+                errorAlert.innerHTML =
+                    "Tài khoản hoặc mật khẩu không chính xác";
+                errorAlert.style.display = "block";
+                return;
+            }
+
             let fields = Object.keys(messageObj);
             fields.forEach(field => {
                 document.querySelector("#" + field).classList.add("is-invalid");

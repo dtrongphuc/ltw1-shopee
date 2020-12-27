@@ -29,10 +29,19 @@
                                         Trợ Giúp
                                     </a>
                                 </li> -->
-
-                            <li class="header__navbar-item header__navbar-item--strong header__navbar-item-separate"><a
-                                    href="/register">Đăng ký</a></li>
-                            <li class="header__navbar-item header__navbar-item--strong"><a href="/login">Đăng nhập</a></li>
+                            @guest
+                                <li class="header__navbar-item header__navbar-item--strong header__navbar-item-separate">
+                                    <a href="/register">Đăng ký</a>
+                                </li>
+                                <li class="header__navbar-item header__navbar-item--strong">
+                                    <a href="/login">Đăng nhập</a>
+                                </li>
+                            @endguest
+                            @auth
+                            <li class="header__navbar-item header__navbar-item--strong">
+                                <a href="/login">hnihihi</a>
+                            </li>
+                            @endauth
                         </ul>
                     </nav>
                     <div class="center-header">
