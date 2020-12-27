@@ -9,14 +9,13 @@ registerForm &&
 
         let formData = new FormData(registerForm);
         const registerData = {
-            username: formData.get("username"),
             email: formData.get("email"),
             password: formData.get("password"),
             r_password: formData.get("r_password")
         };
 
         try {
-            const response = await axios.post("api/register", registerData);
+            const response = await axios.post("/register", registerData);
             if (response.status === 200) {
                 successAlert.style.display = "block";
             }
@@ -25,6 +24,9 @@ registerForm &&
             let fields = Object.keys(messageObj);
             fields.forEach(field => {
                 document.querySelector("#" + field).classList.add("is-invalid");
+                document.querySelector(
+                    `#${field} + .invalid-feedback`
+                ).innerHTML = messageObj[field];
             });
         }
     });
@@ -41,7 +43,7 @@ loginForm &&
         };
 
         try {
-            const response = await axios.post("api/login", loginData);
+            const response = await axios.post("login", loginData);
             console.log(response);
             if (response.status === 200) {
                 window.location.href = "/";
@@ -64,6 +66,9 @@ loginForm &&
             let fields = Object.keys(messageObj);
             fields.forEach(field => {
                 document.querySelector("#" + field).classList.add("is-invalid");
+                document.querySelector(
+                    `#${field} + .invalid-feedback`
+                ).innerHTML = messageObj[field];
             });
         }
     });
