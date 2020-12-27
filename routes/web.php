@@ -79,8 +79,8 @@ Route::get('/administrator', function () {
 });
 
 Route::get('/', [PagesController::class, 'ListCategories']);
-// Route::get('/', [PagesController::class, 'ListProducts']);
-// Route::get('/', [PagesController::class, 'ProductImages']);
+//Route::get('/', [PagesController::class, 'ListProducts']);
+//Route::get('/', [PagesController::class, 'ProductImages']);
 
 //giỏ hàng
 Route::get('/cart', 'App\Http\Controllers\Cart\CartController@cart');

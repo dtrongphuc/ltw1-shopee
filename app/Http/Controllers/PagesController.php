@@ -17,19 +17,15 @@ class PagesController extends Controller
         return view('pages.index',['category' => $category]);
     }
 
-    public function ListProducts(Type $var = null)
+    public function ListProducts()
     {
         $products = Product::all();
         return view('pages.index',['products' => $products]);
     }
 
-    public function ProductImages(Request $request){
-        $productId = $request -> productId;
-
-        $images = ProductImage::find($productId);
-        if(count($images) != 0) {
-            return view('pages.index',['images' => $images]);
-        } 
+    public function ProductImages(){
+        $images = ProductImage::all();
+        return view('pages.index',['images' => $images]);
     }
 
 }
