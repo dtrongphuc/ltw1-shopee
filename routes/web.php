@@ -17,9 +17,6 @@ use Illuminate\Http\Request;
 |
 */
 
-// Route::get('/', [HomeController::class, 'index'])->name('home');
-
-
 // Verification
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
@@ -37,6 +34,14 @@ Route::get('/register', function () {
     return view('/pages/register');
 })->name('register');
 
+Route::get('forgot-password', function() {
+    return view('/pages/forgotPassword');
+})->middleware('guest');
+
+Route::post('forgot-password', [AuthController::class, 'resetPassword'])
+        ->middleware('guest')
+        ->name('password.reset');
+
 Route::post('register', [AuthController::class, 'register'])->name('auth.create');
 Route::post('login', [AuthController::class, 'login'])->name('auth.check');
 
@@ -44,21 +49,30 @@ Route::get('/product', function () {
     return view('/pages/product');
 });
 
-// Route user
-Route:prefix('user')->group(function () {
-    Route::get('/account', function () {
-        return view('/pages/profile');
-    });
+// Protected routes
+Route::middleware(['auth', 'verified'])->group(function () {
+    // Routes user
+    Route::prefix('user')->group(function () {
+        Route::get('/account', function () {
+            return view('/pages/profile');
+        });
     
-    Route::get('/purchase', function () {
-        return view('/pages/cart');
+        Route::get('/purchase', function () {
+            return view('/pages/cart');
+        });
+
+        Route::get('/favorite', function () {
+            return view('/pages/favorite');
+        });
     });
-})->middleware(['auth', 'verified']);
 
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/pay', function () {
-    return view('/pages/pay');
+    Route::get('/pay', function () {
+        return view('/pages/pay');
+    });
 });
+
 
 // Route::get('/admin', function () {
 //     return view('/adminthucong/index');
@@ -76,9 +90,7 @@ Route::get('/UserManagement', 'App\Http\Controllers\Admin\UserController@index')
 Route::get('/Admin', 'App\Http\Controllers\Admin\ProductController@index');
 Route::get('/OrderManagement', 'App\Http\Controllers\Admin\OrderController@index');
 
-Route::get('/info-favorite', function () {
-    return view('/pages/favorite');
-})->middleware(['auth', 'verified']);
+
 
 
 // POST METHODS

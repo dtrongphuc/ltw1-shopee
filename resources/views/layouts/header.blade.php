@@ -49,7 +49,7 @@
                                             <a href="/profile">Tài khoản của tôi</a>
                                         </li>
                                         <li class="user-menu__item">
-                                            <a href="/logout">Đăng xuất</a>
+                                            <a href="{{route('logout')}}">Đăng xuất</a>
                                         </li>
                                     </ul>
                                 </div>

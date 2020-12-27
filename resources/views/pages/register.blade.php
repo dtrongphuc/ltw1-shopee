@@ -11,7 +11,7 @@
     <title>Đăng ký</title>
 </head>
 <body>
-    <div class="login__header d-flex align-items-center">
+    <div class="auth__header d-flex align-items-center">
         <div class="container">
             <div class="row">
                 <div class="col d-flex justify-content-between align-items-center">
@@ -19,55 +19,55 @@
                         <a href="./">
                             <img src="images/logo/shopee-color.png" alt="" class="auth-img">
                         </a>
-                        <h4 class="login__header-title">Đăng Ký</h4>
+                        <h4 class="auth__header-title">Đăng Ký</h4>
                     </div>
-                    <a href="#" class="login__header-support">Cần trợ giúp?</a>
+                    <a href="#" class="auth__header-support">Cần trợ giúp?</a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="login__body">
+    <div class="auth__body">
         <div class="container position-relative">
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-lg-10">
-                    <img src="https://cf.shopee.vn/file/e963a4f6d9136744cf6a888b28c31706" alt="" class="login__body-img img-fluid" alt="Responsive image">
-                    <div class="register-body__form">
-                        <h4 class="login__body-form--header">Đăng Ký</h4>
+                    <img src="https://cf.shopee.vn/file/e963a4f6d9136744cf6a888b28c31706" alt="" class="auth__body-img img-fluid" alt="Responsive image">
+                    <div class="auth-body__form">
+                        <h4 class="auth__body-form--header">Đăng Ký</h4>
                         <div class="alert alert-success auth-alert__success" role="alert">Đăng ký thành công, vui lòng kiểm tra email để kích hoạt tài khoản</div>
                         <div class="alert alert-danger auth-alert__error" role="alert"></div>
                         <form id="register-form" method="POST" action="{{route('auth.create')}}" class="register__body-form">
                             @csrf
                             <div class="mb-2">
                                 <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                                <input type="text" name="email" id="email" class="form-control login__body-form--header-input" placeholder="Email" require>
+                                <input type="text" name="email" id="email" class="form-control auth__body-form--header-input" placeholder="Email" require>
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="mb-2">
                                 <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                                <input type="password" name="password" id="password" class="form-control login__body-form--header-input" placeholder="Mât khẩu" require>
+                                <input type="password" name="password" id="password" class="form-control auth__body-form--header-input" placeholder="Mât khẩu" require>
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="mb-2">
                                 <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                                <input type="password" name="r_password" id="r_password" class="form-control login__body-form--header-input" placeholder="Nhập lại mật khẩu" require>
+                                <input type="password" name="r_password" id="r_password" class="form-control auth__body-form--header-input" placeholder="Nhập lại mật khẩu" require>
                                 <div class="invalid-feedback"></div>
                             </div>
                             <!-- khi điền đủ thong tin bỏ class notlogin -->
                             <button type="submit" class="btn-register-login notlogin">ĐĂNG KÝ</button>
                         </form>
-                        <div class="login__body-form--dash d-flex justify-content-between align-items-center">
-                            <div class="login__body-form--dash-lf"></div>
-                            <span class="login__body-form--dash-content">HOẶC</span>
-                            <div class="login__body-form--dash-lf"></div>
+                        <div class="auth__body-form--dash d-flex justify-content-between align-items-center">
+                            <div class="auth__body-form--dash-lf"></div>
+                            <span class="auth__body-form--dash-content">HOẶC</span>
+                            <div class="auth__body-form--dash-lf"></div>
                         </div>
                         <div class="body-form--rules">
                             <div class="body-form--rules-content">
                                 <p>Bằng việc đăng kí, bạn đã đồng ý với Shopee về Điều khoản dịch vụ & Chính sách bảo mật</p>
                             </div>
                         </div>
-                        <div class="login__body-form--register d-flex flex-row justify-content-center">
-                            <p class="login__body-form--register-content">Bạn mới biết đến Shopee?</p>
-                            <a href="./login" class="login__body-form--register-link">Đăng nhập</a>
+                        <div class="auth__body-form--register d-flex flex-row justify-content-center">
+                            <p class="auth__body-form--register-content">Bạn mới biết đến Shopee?</p>
+                            <a href="./login" class="auth__body-form--register-link">Đăng nhập</a>
                         </div>
                     </div>
                 </div>

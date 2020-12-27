@@ -72,12 +72,14 @@ class AuthController extends AuthBaseController
         return $this->sendResponse('User register successfully.');
     }
 
-    // Logout API
+    // Logout
     public function logout(Request $request)
     {
-        $request->user()->token()->revoke();
-        return response()->json([
-            'message' => 'Successfully logged out'
-        ]);
+        return redirect('login')->with(Auth::logout());
+    }
+
+    // Reset Password
+    public function resetPassword(Request $request) {
+        
     }
 }
