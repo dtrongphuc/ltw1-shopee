@@ -8,10 +8,9 @@ use Illuminate\Http\Request;
 class AuthBaseController extends Controller
 {
     // success response
-    public function sendResponse($result, $message) {
+    public function sendResponse($message) {
         $response = [
             'success' => true,
-            'data' => $result,
             'message' => $message,
         ];
 
