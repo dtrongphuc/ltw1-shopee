@@ -26,9 +26,9 @@ class PagesController extends Controller
     public function ProductImages(Request $request){
         $productId = $request -> productId;
 
-        $images = ProductImage::find($productId)
-        if(count($images) != 0){
-            return return view('pages.index',['images' => $images]);
+        $images = ProductImage::find($productId);
+        if(count($images) != 0) {
+            return view('pages.index',['images' => $images]);
         } 
     }
 
