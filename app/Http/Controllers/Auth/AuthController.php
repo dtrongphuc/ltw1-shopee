@@ -80,6 +80,22 @@ class AuthController extends AuthBaseController
 
     // Reset Password
     public function resetPassword(Request $request) {
-        
+        $validator = Validator::make($request->email, [
+            'email' => 'required|email'
+        ]);
+
+        if($validator->fails()) {
+            return $this->sendError('Validator Error.', $validator->errors());
+        }
+
+        $user = User::where('email', $request->email)->first();
+
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+    
+        return $status === Password::RESET_LINK_SENT
+                    ? $this->sendResponse('Sent mail successfully.')
+                    : $this->sendError('Sent mail error.');
     }
 }
