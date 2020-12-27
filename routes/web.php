@@ -41,9 +41,9 @@ Route::get('/product', function () {
     return view('/pages/product');
 });
 
-Route::get('/cart', function () {
-    return view('/pages/cart');
-});
+// Route::get('/cart', function () {
+//     return view('/pages/cart');
+// });
 
 Route::get('/pay', function () {
     return view('/pages/pay');
@@ -81,3 +81,6 @@ Route::get('/administrator', function () {
 Route::get('/', [PagesController::class, 'ListCategories']);
 // Route::get('/', [PagesController::class, 'ListProducts']);
 // Route::get('/', [PagesController::class, 'ProductImages']);
+
+//giỏ hàng
+Route::get('/cart', 'App\Http\Controllers\Cart\CartController@cart');

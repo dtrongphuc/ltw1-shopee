@@ -64,95 +64,53 @@
         </div>
 
         <div class="cartbody__products">
-            <div class="row d-flex justify-content-around">
-                <div class="col-md-5">
-                    <div class="cartbody__checkall d-flex align-items-center ">
-                        <div class="cartbody__products-check">
-                            <input type="checkbox" name="check-one">
-                        </div>
-                        <div class="cartbody__products-img">
-                            <img src="images/products/hoodie_cart.jpg" alt="" style="width: 80px; height: 80px;">
-                        </div>
-                        <h5 class="cartbody__products-productname">
-                            QUẦN BAGGY JEANS ĐEN TRƠN RÁCH GỐI (có hình chụp thật)
-                        </h5>
-                        <span class="cartbody__products-classify ml-auto">Phân loại: Đen, XL</span>
-                    </div>
-                </div>
-                <div class="col-md-7 d-flex align-items-center">
-                    <div class="container">
-                        <div class="row d-flex align-items-center" style="text-align: center;">
-                            <div class="col-3">
-                                <p class="cartbody__productsinfo-unitprice">đ180.000</p>
+            @if(isset($products))
+                @foreach( $products as $product)
+                <div class="row d-flex justify-content-around" style="border-bottom: #f5f5f5 solid 1px; padding-bottom: 15px">
+                    <div class="col-md-5">
+                        <div class="cartbody__checkall d-flex align-items-center ">
+                            <div class="cartbody__products-check">
+                                <input type="checkbox" name="check-one">
                             </div>
-                            <div class="col-3">
-                                <div class="cartbody__productsinfo-amount">
-                                    <button class="cartbody__productsinfo-amount--downup down-default" id="down">
-                                        <span>&#8722</span>
-                                    </button>
-                                    <input class="cartbody__productsinfo-amount--content" value="1" id="quantify"></input>
-                                    <button class="cartbody__productsinfo-amount--downup" id="up">
-                                        <span>&#43</span>
-                                    </button>
+                            <div class="cartbody__products-img">
+                                <img src="images/products/hoodie_cart.jpg" alt="" style="width: 80px; height: 80px;">
+                            </div>
+                            <h5 class="cartbody__products-productname">
+                                {{$product->productName}}
+                            </h5>
+                            <span class="cartbody__products-classify ml-auto">{{$product->type}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-7 d-flex align-items-center">
+                        <div class="container">
+                            <div class="row d-flex align-items-center" style="text-align: center;">
+                                <div class="col-3">
+                                    <p class="cartbody__productsinfo-unitprice">{{$product->price}}đ</p>
+                                </div>
+                                <div class="col-3">
+                                    <div class="cartbody__productsinfo-amount">
+                                        <button class="cartbody__productsinfo-amount--downup down-default" id="down">
+                                            <span>&#8722</span>
+                                        </button>
+                                        <input class="cartbody__productsinfo-amount--content" value="{{$product->quatity}}" id="quantify">
+                                        <button class="cartbody__productsinfo-amount--downup" id="up">
+                                            <span>&#43</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <p class="cartbody__productsinfo-price">đ180.000</p>
+                                </div>
+                                <div class="col-3">
+                                    <span class="cartbody__productsinfo-manipulation">Xóa</span>
                                 </div>
                             </div>
-                            <div class="col-3">
-                                <p class="cartbody__productsinfo-price">đ180.000</p>
-                            </div>
-                            <div class="col-3">
-                                <span class="cartbody__productsinfo-manipulation">Xóa</span>
-                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                @endforeach
+            @endif
         </div>
-
-        <div class="cartbody__products">
-            <div class="row d-flex justify-content-around">
-                <div class="col-md-5">
-                    <div class="cartbody__checkall d-flex align-items-center ">
-                        <div class="cartbody__products-check">
-                            <input type="checkbox" name="check-one">
-                        </div>
-                        <div class="cartbody__products-img">
-                            <img src="images/products/hoodie_cart.jpg" alt="" style="width: 80px; height: 80px;">
-                        </div>
-                        <h5 class="cartbody__products-productname">
-                            QUẦN BAGGY JEANS ĐEN TRƠN RÁCH GỐI (có hình chụp thật)
-                        </h5>
-                        <span class="cartbody__products-classify ml-auto">Phân loại: Đen, XL</span>
-                    </div>
-                </div>
-                <div class="col-md-7 d-flex align-items-center">
-                    <div class="container">
-                        <div class="row d-flex align-items-center" style="text-align: center;">
-                            <div class="col-3">
-                                <p class="cartbody__productsinfo-unitprice">đ180.000</p>
-                            </div>
-                            <div class="col-3">
-                                <div class="cartbody__productsinfo-amount">
-                                    <button class="cartbody__productsinfo-amount--downup down-default" id="down">
-                                        <span>&#8722</span>
-                                    </button>
-                                    <input class="cartbody__productsinfo-amount--content" value="1" id="quantify"></input>
-                                    <button class="cartbody__productsinfo-amount--downup" id="up">
-                                        <span>&#43</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <p class="cartbody__productsinfo-price">đ180.000</p>
-                            </div>
-                            <div class="col-3">
-                                <span class="cartbody__productsinfo-manipulation">Xóa</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
 
         <div class="cartfooter">
             <div class="row d-flex justify-content-between align-items-center">

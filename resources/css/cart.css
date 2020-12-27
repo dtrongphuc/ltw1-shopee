@@ -136,6 +136,7 @@ input[type=checkbox]:checked:after {
     border-top: #c4c4c4 solid 1px;
     border-bottom: #c4c4c4 solid 1px;
     height: 33px;
+    width: 128px;
 }
 
 .cartbody__productsinfo-amount--content {
@@ -190,7 +191,7 @@ input[type=checkbox]:checked:after {
 /* footer giỏ hàng  */
 
 .cartfooter {
-    margin-top: 20px;
+    margin: 20px 0 50px 0;
     background-color: white;
     padding: 17px 20px;
 }
