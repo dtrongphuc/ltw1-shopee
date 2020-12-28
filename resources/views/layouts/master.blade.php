@@ -49,10 +49,10 @@
         // nút tăng số lượng 
         $(document).ready(function() {
             $("#up").click(function() {
-
                 var str = (parseInt($("#quantify").val()) + 1).toString();
-                console.log(str);
+                var price = (parseInt($("#price").text()) * (parseInt($("#quantify").val()) + 1)).toString();
                 $("#quantify").val(str);
+                $("#toltalprice").text(price);
                 $('.down-default').css('cursor', 'pointer');
             });
         });
