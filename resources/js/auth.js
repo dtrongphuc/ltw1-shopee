@@ -4,6 +4,7 @@ const forgotForm = document.querySelector("#forgot-password-form");
 const resetForm = document.querySelector("#reset-password-form");
 const successAlert = document.querySelector(".auth-alert__success");
 const errorAlert = document.querySelector(".auth-alert__error");
+const btnSubmit = document.querySelector(".btn-auth__submit");
 
 const resetNotify = () => {
     if (!!successAlert) {
@@ -35,6 +36,7 @@ registerForm &&
         };
 
         try {
+            btnSubmit.disabled = true;
             const response = await axios.post("/register", registerData);
             if (response.status === 200) {
                 successAlert.style.display = "block";
@@ -48,6 +50,8 @@ registerForm &&
                     `#${field} + .invalid-feedback`
                 ).innerHTML = messageObj[field];
             });
+        } finally {
+            btnSubmit.disabled = false;
         }
     });
 
@@ -63,6 +67,7 @@ loginForm &&
         };
 
         try {
+            btnSubmit.disabled = true;
             const response = await axios.post("login", loginData);
             console.log(response);
             if (response.status === 200) {
@@ -90,6 +95,8 @@ loginForm &&
                     `#${field} + .invalid-feedback`
                 ).innerHTML = messageObj[field];
             });
+        } finally {
+            btnSubmit.disabled = false;
         }
     });
 
@@ -104,6 +111,7 @@ forgotForm &&
         };
 
         try {
+            btnSubmit.disabled = true;
             const response = await axios.post("forgot-password", forgotData);
             if (response.status === 200) {
                 successAlert.style.display = "block";
@@ -119,6 +127,8 @@ forgotForm &&
             document.querySelector("#email").classList.add("is-invalid");
             document.querySelector(`#email + .invalid-feedback`).innerHTML =
                 messageObj?.email;
+        } finally {
+            btnSubmit.disabled = false;
         }
     });
 
@@ -136,6 +146,7 @@ resetForm &&
         };
 
         try {
+            btnSubmit.disabled = true;
             const response = await axios.post("/reset-password", resetData);
             if (response.status === 200) {
                 successAlert.style.display = "block";
@@ -158,5 +169,7 @@ resetForm &&
                     `#${field} + .invalid-feedback`
                 ).innerHTML = messageObj[field];
             });
+        } finally {
+            btnSubmit.disabled = false;
         }
     });

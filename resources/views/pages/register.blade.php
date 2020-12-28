@@ -53,7 +53,10 @@
                                 <div class="invalid-feedback"></div>
                             </div>
                             <!-- khi điền đủ thong tin bỏ class notlogin -->
-                            <button type="submit" class="btn-register-login notlogin">ĐĂNG KÝ</button>
+                            <button type="submit" class="btn-auth__submit btn-register-login notlogin">
+                                <span class="spinner-border spinner-border-sm spinner-loading" role="status" aria-hidden="true"></span>
+                                ĐĂNG KÝ
+                            </button>
                         </form>
                         <div class="auth__body-form--dash d-flex justify-content-between align-items-center">
                             <div class="auth__body-form--dash-lf"></div>

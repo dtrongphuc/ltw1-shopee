@@ -55,7 +55,10 @@
                             </div>
     
                             <!-- khi điền đủ thong tin bỏ class notlogin -->
-                            <button type="submit" class="btn-register-login notlogin">ĐĂNG NHẬP</button>
+                            <button type="submit" class="btn-auth__submit btn-register-login notlogin">
+                                <span class="spinner-border spinner-border-sm spinner-loading" role="status" aria-hidden="true"></span>
+                                ĐĂNG NHẬP
+                            </button>
                             <div class="auth__body-form--forgotpass justify-content-between d-flex">
                                 <a href="forgot-password" class="form-forgotpass--link">Quên mật khẩu</a>
                             </div>

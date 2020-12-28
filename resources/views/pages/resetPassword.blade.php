@@ -51,7 +51,10 @@
                                 <div class="invalid-feedback"></div>
                             </div>
                             <!-- khi điền đủ thong tin bỏ class notlogin -->
-                            <button type="submit" class="btn-register-login notlogin">Gửi</button>
+                            <button type="submit" class="btn-auth__submit btn-register-login notlogin">
+                                <span class="spinner-border spinner-border-sm spinner-loading" role="status" aria-hidden="true"></span>
+                                GỬI
+                            </button>
                             <div class="auth__body-form--register d-flex flex-row justify-content-center">
                                 <p class="auth__body-form--register-content">Bạn mới biết đến Shopee?</p>
                                 <a href="/register" class="auth__body-form--register-link">Đăng ký</a>

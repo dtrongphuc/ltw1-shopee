@@ -20131,6 +20131,7 @@ var forgotForm = document.querySelector("#forgot-password-form");
 var resetForm = document.querySelector("#reset-password-form");
 var successAlert = document.querySelector(".auth-alert__success");
 var errorAlert = document.querySelector(".auth-alert__error");
+var btnSubmit = document.querySelector(".btn-auth__submit");
 
 var resetNotify = function resetNotify() {
   if (!!successAlert) {
@@ -20166,21 +20167,22 @@ registerForm && registerForm.addEventListener("submit", /*#__PURE__*/function ()
               r_password: formData.get("r_password")
             };
             _context.prev = 4;
-            _context.next = 7;
+            btnSubmit.disabled = true;
+            _context.next = 8;
             return axios.post("/register", registerData);
 
-          case 7:
+          case 8:
             response = _context.sent;
 
             if (response.status === 200) {
               successAlert.style.display = "block";
             }
 
-            _context.next = 16;
+            _context.next = 17;
             break;
 
-          case 11:
-            _context.prev = 11;
+          case 12:
+            _context.prev = 12;
             _context.t0 = _context["catch"](4);
             messageObj = _context.t0 === null || _context.t0 === void 0 ? void 0 : (_error$response = _context.t0.response) === null || _error$response === void 0 ? void 0 : (_error$response$data = _error$response.data) === null || _error$response$data === void 0 ? void 0 : _error$response$data.data;
             fields = Object.keys(messageObj);
@@ -20189,12 +20191,17 @@ registerForm && registerForm.addEventListener("submit", /*#__PURE__*/function ()
               document.querySelector("#".concat(field, " + .invalid-feedback")).innerHTML = messageObj[field];
             });
 
-          case 16:
+          case 17:
+            _context.prev = 17;
+            btnSubmit.disabled = false;
+            return _context.finish(17);
+
+          case 20:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[4, 11]]);
+    }, _callee, null, [[4, 12, 17, 20]]);
   }));
 
   return function (_x) {
@@ -20217,10 +20224,11 @@ loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
               password: formData.get("password")
             };
             _context2.prev = 4;
-            _context2.next = 7;
+            btnSubmit.disabled = true;
+            _context2.next = 8;
             return axios.post("login", loginData);
 
-          case 7:
+          case 8:
             response = _context2.sent;
             console.log(response);
 
@@ -20228,15 +20236,15 @@ loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
               window.location.href = "/";
             }
 
-            _context2.next = 25;
+            _context2.next = 26;
             break;
 
-          case 12:
-            _context2.prev = 12;
+          case 13:
+            _context2.prev = 13;
             _context2.t0 = _context2["catch"](4);
 
             if (!(_context2.t0.response.status === 401)) {
-              _context2.next = 18;
+              _context2.next = 19;
               break;
             }
 
@@ -20244,11 +20252,11 @@ loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
             errorAlert.style.display = "block";
             return _context2.abrupt("return");
 
-          case 18:
+          case 19:
             messageObj = _context2.t0 === null || _context2.t0 === void 0 ? void 0 : (_error$response2 = _context2.t0.response) === null || _error$response2 === void 0 ? void 0 : (_error$response2$data = _error$response2.data) === null || _error$response2$data === void 0 ? void 0 : _error$response2$data.data;
 
             if (!messageObj.error) {
-              _context2.next = 23;
+              _context2.next = 24;
               break;
             }
 
@@ -20256,19 +20264,24 @@ loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
             errorAlert.style.display = "block";
             return _context2.abrupt("return");
 
-          case 23:
+          case 24:
             fields = Object.keys(messageObj);
             fields.forEach(function (field) {
               document.querySelector("#" + field).classList.add("is-invalid");
               document.querySelector("#".concat(field, " + .invalid-feedback")).innerHTML = messageObj[field];
             });
 
-          case 25:
+          case 26:
+            _context2.prev = 26;
+            btnSubmit.disabled = false;
+            return _context2.finish(26);
+
+          case 29:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[4, 12]]);
+    }, _callee2, null, [[4, 13, 26, 29]]);
   }));
 
   return function (_x2) {
@@ -20290,26 +20303,27 @@ forgotForm && forgotForm.addEventListener("submit", /*#__PURE__*/function () {
               email: formData.get("email")
             };
             _context3.prev = 4;
-            _context3.next = 7;
+            btnSubmit.disabled = true;
+            _context3.next = 8;
             return axios.post("forgot-password", forgotData);
 
-          case 7:
+          case 8:
             response = _context3.sent;
 
             if (response.status === 200) {
               successAlert.style.display = "block";
             }
 
-            _context3.next = 20;
+            _context3.next = 21;
             break;
 
-          case 11:
-            _context3.prev = 11;
+          case 12:
+            _context3.prev = 12;
             _context3.t0 = _context3["catch"](4);
             messageObj = _context3.t0 === null || _context3.t0 === void 0 ? void 0 : (_error$response3 = _context3.t0.response) === null || _error$response3 === void 0 ? void 0 : (_error$response3$data = _error$response3.data) === null || _error$response3$data === void 0 ? void 0 : _error$response3$data.data;
 
             if (!messageObj.error) {
-              _context3.next = 18;
+              _context3.next = 19;
               break;
             }
 
@@ -20317,16 +20331,21 @@ forgotForm && forgotForm.addEventListener("submit", /*#__PURE__*/function () {
             errorAlert.style.display = "block";
             return _context3.abrupt("return");
 
-          case 18:
+          case 19:
             document.querySelector("#email").classList.add("is-invalid");
             document.querySelector("#email + .invalid-feedback").innerHTML = messageObj === null || messageObj === void 0 ? void 0 : messageObj.email;
 
-          case 20:
+          case 21:
+            _context3.prev = 21;
+            btnSubmit.disabled = false;
+            return _context3.finish(21);
+
+          case 24:
           case "end":
             return _context3.stop();
         }
       }
-    }, _callee3, null, [[4, 11]]);
+    }, _callee3, null, [[4, 12, 21, 24]]);
   }));
 
   return function (_x3) {
@@ -20351,10 +20370,11 @@ resetForm && resetForm.addEventListener("submit", /*#__PURE__*/function () {
               r_password: formData.get("r_password")
             };
             _context4.prev = 4;
-            _context4.next = 7;
+            btnSubmit.disabled = true;
+            _context4.next = 8;
             return axios.post("/reset-password", resetData);
 
-          case 7:
+          case 8:
             response = _context4.sent;
 
             if (response.status === 200) {
@@ -20364,16 +20384,16 @@ resetForm && resetForm.addEventListener("submit", /*#__PURE__*/function () {
               }, 3000);
             }
 
-            _context4.next = 20;
+            _context4.next = 21;
             break;
 
-          case 11:
-            _context4.prev = 11;
+          case 12:
+            _context4.prev = 12;
             _context4.t0 = _context4["catch"](4);
             messageObj = _context4.t0 === null || _context4.t0 === void 0 ? void 0 : (_error$response4 = _context4.t0.response) === null || _error$response4 === void 0 ? void 0 : (_error$response4$data = _error$response4.data) === null || _error$response4$data === void 0 ? void 0 : _error$response4$data.data;
 
             if (!messageObj.error) {
-              _context4.next = 18;
+              _context4.next = 19;
               break;
             }
 
@@ -20381,19 +20401,24 @@ resetForm && resetForm.addEventListener("submit", /*#__PURE__*/function () {
             errorAlert.style.display = "block";
             return _context4.abrupt("return");
 
-          case 18:
+          case 19:
             fields = Object.keys(messageObj);
             fields.forEach(function (field) {
               document.querySelector("#" + field).classList.add("is-invalid");
               document.querySelector("#".concat(field, " + .invalid-feedback")).innerHTML = messageObj[field];
             });
 
-          case 20:
+          case 21:
+            _context4.prev = 21;
+            btnSubmit.disabled = false;
+            return _context4.finish(21);
+
+          case 24:
           case "end":
             return _context4.stop();
         }
       }
-    }, _callee4, null, [[4, 11]]);
+    }, _callee4, null, [[4, 12, 21, 24]]);
   }));
 
   return function (_x4) {
