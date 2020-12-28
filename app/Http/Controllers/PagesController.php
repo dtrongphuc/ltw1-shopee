@@ -14,18 +14,13 @@ class PagesController extends Controller
     public function ListCategories()
     {
         $category = Categories::all();
-        return view('pages.index',['category' => $category]);
-    }
-
-    public function ListProducts()
-    {
         $products = Product::all();
-        return view('pages.index',['products' => $products]);
-    }
-
-    public function ProductImages(){
         $images = ProductImage::all();
-        return view('pages.index',['images' => $images]);
+        // $images = DB::table('productImage')
+        //         ->join('Product', 'productImage.productId','=','Product.productId')
+        //         ->select('productImage.productId','productImage')
+        //         ->get();
+        return view('pages.index',['category' => $category,'images' => $images,'products' => $products]);
     }
 
 }
