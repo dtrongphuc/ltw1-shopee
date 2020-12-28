@@ -222,6 +222,8 @@
 }
 
 .user-menu__item > a {
+    display: block;
+    width: 100%;
     color: rgba(0, 0, 0, 0.8);
     font-size: 0.85rem;
 }
