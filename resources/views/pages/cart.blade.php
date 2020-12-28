@@ -78,14 +78,15 @@
                             <h5 class="cartbody__products-productname">
                                 {{$product->productName}}
                             </h5>
-                            <span class="cartbody__products-classify ml-auto">{{$product->type}}</span>
+                            <span class="cartbody__products-classify ml-auto">Phân loại: {{$product->type}}</span>
                         </div>
                     </div>
                     <div class="col-md-7 d-flex align-items-center">
                         <div class="container">
                             <div class="row d-flex align-items-center" style="text-align: center;">
-                                <div class="col-3">
-                                    <p class="cartbody__productsinfo-unitprice">{{$product->price}}đ</p>
+                                <div class="col-3 d-flex justify-content-center">
+                                    <p class="cartbody__productsinfo-unitprice" id="price">{{number_format(floatval($product->price), 2)}}</p>
+                                    <p class="cartbody__productsinfo-unitprice">đ</p>
                                 </div>
                                 <div class="col-3">
                                     <div class="cartbody__productsinfo-amount">
@@ -98,8 +99,9 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="col-3">
-                                    <p class="cartbody__productsinfo-price">đ180.000</p>
+                                <div class="col-3 d-flex justify-content-center">
+                                    <p class="cartbody__productsinfo-price">đ</p>
+                                    <p class="cartbody__productsinfo-price" id="toltalprice">{{number_format(floatval($product->price * $product->quatity), 2)}}</p>
                                 </div>
                                 <div class="col-3">
                                     <span class="cartbody__productsinfo-manipulation">Xóa</span>
