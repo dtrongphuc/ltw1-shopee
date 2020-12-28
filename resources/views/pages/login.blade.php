@@ -36,10 +36,11 @@
                         <h4 class="auth__body-form--header">Đăng Nhập</h4>
                         <div class="alert alert-danger auth-alert__error" role="alert"></div>
                         <form id="login-form" method="POST" action="{{route('auth.check')}}" class="auth__body-form">
+                            @csrf
                             <div class="mb-2">
                                 <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
                                 <input id="email" type="text" name="email" class="form-control auth__body-form--header-input" placeholder="Email" require>
-                                <div class="invalid-feedback"> </div>
+                                <div class="invalid-feedback"></div>
                             </div>
     
                             <div class="mb-2">
@@ -79,7 +80,7 @@
                             </div>
                             <div class="auth__body-form--register d-flex flex-row justify-content-center">
                                 <p class="auth__body-form--register-content">Bạn mới biết đến Shopee?</p>
-                                <a href="http://127.0.0.1:8000/register" class="auth__body-form--register-link">Đăng ký</a>
+                                <a href="./register" class="auth__body-form--register-link">Đăng ký</a>
                             </div>
                         </form>
                     </div>

@@ -1,11 +1,12 @@
 const registerForm = document.querySelector("#register-form");
 const loginForm = document.querySelector("#login-form");
+const forgotForm = document.querySelector("#forgot-password-form");
 const successAlert = document.querySelector(".auth-alert__success");
 const errorAlert = document.querySelector(".auth-alert__error");
 registerForm &&
     registerForm.addEventListener("submit", async e => {
         e.preventDefault();
-        successAlert.style.display = "none";
+        resetNotify();
 
         let formData = new FormData(registerForm);
         const registerData = {
@@ -34,7 +35,7 @@ registerForm &&
 loginForm &&
     loginForm.addEventListener("submit", async e => {
         e.preventDefault();
-        errorAlert.style.display = "none";
+        resetNotify();
 
         let formData = new FormData(loginForm);
         const loginData = {
@@ -72,3 +73,49 @@ loginForm &&
             });
         }
     });
+
+forgotForm &&
+    forgotForm.addEventListener("submit", async e => {
+        e.preventDefault();
+        resetNotify();
+
+        let formData = new FormData(forgotForm);
+        const forgotData = {
+            email: formData.get("email")
+        };
+
+        try {
+            const response = await axios.post("forgot-password", forgotData);
+            if (response.status === 200) {
+                successAlert.style.display = "block";
+            }
+        } catch (error) {
+            let messageObj = error?.response?.data?.data;
+            if (messageObj.error) {
+                errorAlert.innerHTML = messageObj.error;
+                errorAlert.style.display = "block";
+                return;
+            }
+
+            document.querySelector("#email").classList.add("is-invalid");
+            document.querySelector(`#email + .invalid-feedback`).innerHTML =
+                messageObj?.email;
+        }
+    });
+
+const resetNotify = () => {
+    if (successAlert) {
+        successAlert.style.display = "none";
+    }
+    if (errorAlert) {
+        errorAlert.style.display = "none";
+    }
+
+    document.querySelectorAll(".invalid-feedback").forEach(element => {
+        element.innerHTML = "";
+    });
+
+    document.querySelectorAll(".is-invalid").forEach(element => {
+        element.classList.remove("is-invalid");
+    });
+};

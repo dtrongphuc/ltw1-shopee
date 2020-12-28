@@ -8,6 +8,7 @@ use App\Models\Model;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Password;
 use Validator;
 
 class AuthController extends AuthBaseController
@@ -80,7 +81,7 @@ class AuthController extends AuthBaseController
 
     // Reset Password
     public function resetPassword(Request $request) {
-        $validator = Validator::make($request->email, [
+        $validator = Validator::make($request->all(), [
             'email' => 'required|email'
         ]);
 
@@ -96,6 +97,6 @@ class AuthController extends AuthBaseController
     
         return $status === Password::RESET_LINK_SENT
                     ? $this->sendResponse('Sent mail successfully.')
-                    : $this->sendError('Sent mail error.');
+                    : $this->sendError('Sent mail error.', ['error' => 'Lỗi gửi mail']);
     }
 }

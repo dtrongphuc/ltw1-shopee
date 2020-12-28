@@ -20127,6 +20127,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var registerForm = document.querySelector("#register-form");
 var loginForm = document.querySelector("#login-form");
+var forgotForm = document.querySelector("#forgot-password-form");
 var successAlert = document.querySelector(".auth-alert__success");
 var errorAlert = document.querySelector(".auth-alert__error");
 registerForm && registerForm.addEventListener("submit", /*#__PURE__*/function () {
@@ -20138,7 +20139,7 @@ registerForm && registerForm.addEventListener("submit", /*#__PURE__*/function ()
         switch (_context.prev = _context.next) {
           case 0:
             e.preventDefault();
-            successAlert.style.display = "none";
+            resetNotify();
             formData = new FormData(registerForm);
             registerData = {
               email: formData.get("email"),
@@ -20190,7 +20191,7 @@ loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
         switch (_context2.prev = _context2.next) {
           case 0:
             e.preventDefault();
-            errorAlert.style.display = "none";
+            resetNotify();
             formData = new FormData(loginForm);
             loginData = {
               email: formData.get("email"),
@@ -20255,6 +20256,81 @@ loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
     return _ref2.apply(this, arguments);
   };
 }());
+forgotForm && forgotForm.addEventListener("submit", /*#__PURE__*/function () {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(e) {
+    var formData, forgotData, response, _error$response3, _error$response3$data, messageObj;
+
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            e.preventDefault();
+            resetNotify();
+            formData = new FormData(forgotForm);
+            forgotData = {
+              email: formData.get("email")
+            };
+            _context3.prev = 4;
+            _context3.next = 7;
+            return axios.post("forgot-password", forgotData);
+
+          case 7:
+            response = _context3.sent;
+
+            if (response.status === 200) {
+              successAlert.style.display = "block";
+            }
+
+            _context3.next = 20;
+            break;
+
+          case 11:
+            _context3.prev = 11;
+            _context3.t0 = _context3["catch"](4);
+            messageObj = _context3.t0 === null || _context3.t0 === void 0 ? void 0 : (_error$response3 = _context3.t0.response) === null || _error$response3 === void 0 ? void 0 : (_error$response3$data = _error$response3.data) === null || _error$response3$data === void 0 ? void 0 : _error$response3$data.data;
+
+            if (!messageObj.error) {
+              _context3.next = 18;
+              break;
+            }
+
+            errorAlert.innerHTML = messageObj.error;
+            errorAlert.style.display = "block";
+            return _context3.abrupt("return");
+
+          case 18:
+            document.querySelector("#email").classList.add("is-invalid");
+            document.querySelector("#email + .invalid-feedback").innerHTML = messageObj === null || messageObj === void 0 ? void 0 : messageObj.email;
+
+          case 20:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3, null, [[4, 11]]);
+  }));
+
+  return function (_x3) {
+    return _ref3.apply(this, arguments);
+  };
+}());
+
+var resetNotify = function resetNotify() {
+  if (successAlert) {
+    successAlert.style.display = "none";
+  }
+
+  if (errorAlert) {
+    errorAlert.style.display = "none";
+  }
+
+  document.querySelectorAll(".invalid-feedback").forEach(function (element) {
+    element.innerHTML = "";
+  });
+  document.querySelectorAll(".is-invalid").forEach(function (element) {
+    element.classList.remove("is-invalid");
+  });
+};
 
 /***/ }),
 

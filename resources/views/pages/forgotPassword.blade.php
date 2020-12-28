@@ -34,8 +34,10 @@
                     <img src="https://cf.shopee.vn/file/e963a4f6d9136744cf6a888b28c31706" alt="" class="auth__body-img img-fluid" alt="Responsive image">
                     <div class="auth-body__form">
                         <h4 class="auth__body-form--header">Quên mật khẩu</h4>
+                        <div class="alert alert-success auth-alert__success" role="alert">Vui lòng kiểm tra email</div>
                         <div class="alert alert-danger auth-alert__error" role="alert"></div>
                         <form id="forgot-password-form" method="POST" action="{{route('password.reset')}}" class="auth__body-form">
+                            @csrf
                             <div class="mb-2">
                                 <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
                                 <input id="email" type="text" name="email" class="form-control auth__body-form--header-input" placeholder="Email" require>
@@ -46,7 +48,7 @@
                             <button type="submit" class="btn-register-login notlogin">Gửi</button>
                             <div class="auth__body-form--register d-flex flex-row justify-content-center">
                                 <p class="auth__body-form--register-content">Bạn mới biết đến Shopee?</p>
-                                <a href="http://127.0.0.1:8000/register" class="auth__body-form--register-link">Đăng ký</a>
+                                <a href="./register" class="auth__body-form--register-link">Đăng ký</a>
                             </div>
                         </form>
                     </div>
