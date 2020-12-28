@@ -38,6 +38,10 @@ Route::get('forgot-password', function() {
     return view('/pages/forgotPassword');
 })->middleware('guest');
 
+Route::get('/reset-password/{token}', function ($token) {
+    return view('auth.reset-password', ['token' => $token]);
+})->middleware('guest')->name('password.reset');
+
 Route::post('forgot-password', [AuthController::class, 'resetPassword'])
         ->middleware('guest')
         ->name('password.reset');
