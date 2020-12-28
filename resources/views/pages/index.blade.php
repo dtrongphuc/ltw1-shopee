@@ -39,17 +39,21 @@
                                 <div class="main-filter__right"></div>
                             </div>
                         </div>
+
                         <div class="col-12 p-6">
                             <div class="main-products">
                                 <div class="row m--6">
                                     <div class="col-2-4">
                                         <div class="product-item">
                                             <a class="product-item__link" href="">
+                                          
+                                           
                                                 <div class="product-item__img">
-                                                    <img src="https://cf.shopee.vn/file/bdec9f8272db39f28e55675ff2264796_tn"
+                                                    <img src="images/products/acer01.jpg"
                                                         alt="">
-                                                </div>
-                                                <p class="product-item__layout product-item__heading">Tai Nghe Bluetooth Chụp Tai Hoco W23 Có Khe Cắm Thẻ Nhớ</p>
+                                                </div> 
+                                  
+                                                <p class="product-item__layout product-item__heading">Tai nghe</p>
                                                 <div class="product-item__layout d-flex align-items-center justify-content-between mt-3">
                                                     <div class="d-inline-flex">
                                                         <p class="product-item__price product-item__price--small text-decoration-underline font">đ</p>
@@ -80,7 +84,7 @@
                                                 </div>
                                                 <div class="product-item__layout d-flex align-items-center justify-content-between">
                                                     <i class="far fa-heart product-item__like"></i>
-                                                    <p class="product-item__sold">Đã bán 21,8k</p>
+                                                    <p class="product-item__sold">Đã bán  21</p>
                                                 </div>
                                             </a>
                                         </div>
@@ -88,6 +92,8 @@
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
             </div>

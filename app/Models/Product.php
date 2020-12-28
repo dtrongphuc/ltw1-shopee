@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    public $product = "Products";
+    protected $product = "Products";
     public $timestamps = true;
 
     public function categories()
