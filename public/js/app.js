@@ -20128,8 +20128,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var registerForm = document.querySelector("#register-form");
 var loginForm = document.querySelector("#login-form");
 var forgotForm = document.querySelector("#forgot-password-form");
+var resetForm = document.querySelector("#reset-password-form");
 var successAlert = document.querySelector(".auth-alert__success");
 var errorAlert = document.querySelector(".auth-alert__error");
+
+var resetNotify = function resetNotify() {
+  if (!!successAlert) {
+    successAlert.style.display = "none";
+  }
+
+  if (!!errorAlert) {
+    errorAlert.style.display = "none";
+  }
+
+  document.querySelectorAll(".invalid-feedback").forEach(function (element) {
+    element.innerHTML = "";
+  });
+  document.querySelectorAll(".is-invalid").forEach(function (element) {
+    element === null || element === void 0 ? void 0 : element.classList.remove("is-invalid");
+  });
+};
+
 registerForm && registerForm.addEventListener("submit", /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
     var formData, registerData, response, _error$response, _error$response$data, messageObj, fields;
@@ -20314,23 +20333,73 @@ forgotForm && forgotForm.addEventListener("submit", /*#__PURE__*/function () {
     return _ref3.apply(this, arguments);
   };
 }());
+resetForm && resetForm.addEventListener("submit", /*#__PURE__*/function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(e) {
+    var formData, resetData, response, _error$response4, _error$response4$data, messageObj, fields;
 
-var resetNotify = function resetNotify() {
-  if (successAlert) {
-    successAlert.style.display = "none";
-  }
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            e.preventDefault();
+            resetNotify();
+            formData = new FormData(resetForm);
+            resetData = {
+              email: formData.get("email"),
+              token: formData.get("token"),
+              password: formData.get("password"),
+              r_password: formData.get("r_password")
+            };
+            _context4.prev = 4;
+            _context4.next = 7;
+            return axios.post("/reset-password", resetData);
 
-  if (errorAlert) {
-    errorAlert.style.display = "none";
-  }
+          case 7:
+            response = _context4.sent;
 
-  document.querySelectorAll(".invalid-feedback").forEach(function (element) {
-    element.innerHTML = "";
-  });
-  document.querySelectorAll(".is-invalid").forEach(function (element) {
-    element.classList.remove("is-invalid");
-  });
-};
+            if (response.status === 200) {
+              successAlert.style.display = "block";
+              setTimeout(function () {
+                window.location.href = "/login";
+              }, 3000);
+            }
+
+            _context4.next = 20;
+            break;
+
+          case 11:
+            _context4.prev = 11;
+            _context4.t0 = _context4["catch"](4);
+            messageObj = _context4.t0 === null || _context4.t0 === void 0 ? void 0 : (_error$response4 = _context4.t0.response) === null || _error$response4 === void 0 ? void 0 : (_error$response4$data = _error$response4.data) === null || _error$response4$data === void 0 ? void 0 : _error$response4$data.data;
+
+            if (!messageObj.error) {
+              _context4.next = 18;
+              break;
+            }
+
+            errorAlert.innerHTML = messageObj.error;
+            errorAlert.style.display = "block";
+            return _context4.abrupt("return");
+
+          case 18:
+            fields = Object.keys(messageObj);
+            fields.forEach(function (field) {
+              document.querySelector("#" + field).classList.add("is-invalid");
+              document.querySelector("#".concat(field, " + .invalid-feedback")).innerHTML = messageObj[field];
+            });
+
+          case 20:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, _callee4, null, [[4, 11]]);
+  }));
+
+  return function (_x4) {
+    return _ref4.apply(this, arguments);
+  };
+}());
 
 /***/ }),
 

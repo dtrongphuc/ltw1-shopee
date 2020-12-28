@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 use App\Models\Model;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Validator;
 
 class AuthController extends AuthBaseController
@@ -79,8 +81,8 @@ class AuthController extends AuthBaseController
         return redirect('login')->with(Auth::logout());
     }
 
-    // Reset Password
-    public function resetPassword(Request $request) {
+    // Forgot Password
+    public function forgotPassword(Request $request) {
         $validator = Validator::make($request->all(), [
             'email' => 'required|email'
         ]);
@@ -98,5 +100,43 @@ class AuthController extends AuthBaseController
         return $status === Password::RESET_LINK_SENT
                     ? $this->sendResponse('Sent mail successfully.')
                     : $this->sendError('Sent mail error.', ['error' => 'Lỗi gửi mail']);
+    }
+    // Reset password
+    public function resetPassword (Request $request) {
+        $validator = Validator::make($request->all(), [
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:5|max:12',
+            'r_password' => 'required|same:password',
+        ], [
+            'email.required' => 'Vui lòng điền email',
+            'email.email' => 'Email không hợp lệ',
+            'password.required' => 'Vui lòng điền mật khẩu',
+            'password.min' => 'Mật khẩu tối thiểu 5 kí tự',
+            'password.max' => 'Mật khẩu tối đa 12 kí tự',
+            'r_password.required' => 'Vui lòng điền mật khẩu',
+            'r_password.same' => 'Mật khẩu xác nhận không khớp'
+        ]);
+
+        if($validator->fails()) {
+            return $this->sendError('Validator Error.', $validator->errors());
+        }
+
+        $status = Password::reset(
+            $request->only('email', 'password', 'r_password', 'token'),
+            function ($user, $password) use ($request) {
+                $user->forceFill([
+                    'password' => Hash::make($password)
+                ])->save();
+    
+                $user->setRememberToken(Str::random(60));
+    
+                event(new PasswordReset($user));
+            }
+        );
+    
+        return $status == Password::PASSWORD_RESET
+                    ? $this->sendResponse('Sent mail successfully.')
+                    : $this->sendError('Sent mail error.', ['error' => 'Đã xảy ra lỗi']);
     }
 }

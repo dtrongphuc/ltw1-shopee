@@ -36,7 +36,7 @@
                         <h4 class="auth__body-form--header">Quên mật khẩu</h4>
                         <div class="alert alert-success auth-alert__success" role="alert">Vui lòng kiểm tra email</div>
                         <div class="alert alert-danger auth-alert__error" role="alert"></div>
-                        <form id="forgot-password-form" method="POST" action="{{route('password.reset')}}" class="auth__body-form">
+                        <form id="forgot-password-form" method="POST" action="{{route('password.forgot')}}" class="auth__body-form">
                             @csrf
                             <div class="mb-2">
                                 <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->

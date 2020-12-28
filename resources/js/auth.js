@@ -1,8 +1,27 @@
 const registerForm = document.querySelector("#register-form");
 const loginForm = document.querySelector("#login-form");
 const forgotForm = document.querySelector("#forgot-password-form");
+const resetForm = document.querySelector("#reset-password-form");
 const successAlert = document.querySelector(".auth-alert__success");
 const errorAlert = document.querySelector(".auth-alert__error");
+
+const resetNotify = () => {
+    if (!!successAlert) {
+        successAlert.style.display = "none";
+    }
+    if (!!errorAlert) {
+        errorAlert.style.display = "none";
+    }
+
+    document.querySelectorAll(".invalid-feedback").forEach(element => {
+        element.innerHTML = "";
+    });
+
+    document.querySelectorAll(".is-invalid").forEach(element => {
+        element?.classList.remove("is-invalid");
+    });
+};
+
 registerForm &&
     registerForm.addEventListener("submit", async e => {
         e.preventDefault();
@@ -103,19 +122,41 @@ forgotForm &&
         }
     });
 
-const resetNotify = () => {
-    if (successAlert) {
-        successAlert.style.display = "none";
-    }
-    if (errorAlert) {
-        errorAlert.style.display = "none";
-    }
+resetForm &&
+    resetForm.addEventListener("submit", async e => {
+        e.preventDefault();
+        resetNotify();
 
-    document.querySelectorAll(".invalid-feedback").forEach(element => {
-        element.innerHTML = "";
-    });
+        let formData = new FormData(resetForm);
+        const resetData = {
+            email: formData.get("email"),
+            token: formData.get("token"),
+            password: formData.get("password"),
+            r_password: formData.get("r_password")
+        };
 
-    document.querySelectorAll(".is-invalid").forEach(element => {
-        element.classList.remove("is-invalid");
+        try {
+            const response = await axios.post("/reset-password", resetData);
+            if (response.status === 200) {
+                successAlert.style.display = "block";
+                setTimeout(() => {
+                    window.location.href = "/login";
+                }, 3000);
+            }
+        } catch (error) {
+            let messageObj = error?.response?.data?.data;
+            if (messageObj.error) {
+                errorAlert.innerHTML = messageObj.error;
+                errorAlert.style.display = "block";
+                return;
+            }
+
+            let fields = Object.keys(messageObj);
+            fields.forEach(field => {
+                document.querySelector("#" + field).classList.add("is-invalid");
+                document.querySelector(
+                    `#${field} + .invalid-feedback`
+                ).innerHTML = messageObj[field];
+            });
+        }
     });
-};

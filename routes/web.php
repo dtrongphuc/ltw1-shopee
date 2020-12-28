@@ -34,17 +34,23 @@ Route::get('/register', function () {
     return view('/pages/register');
 })->name('register');
 
-Route::get('forgot-password', function() {
+
+// Forgot password routes
+Route::get('/forgot-password', function() {
     return view('/pages/forgotPassword');
 })->middleware('guest');
 
 Route::get('/reset-password/{token}', function ($token) {
-    return view('auth.reset-password', ['token' => $token]);
+    return view('pages/resetPassword', ['token' => $token]);
 })->middleware('guest')->name('password.reset');
 
-Route::post('forgot-password', [AuthController::class, 'resetPassword'])
+Route::post('forgot-password', [AuthController::class, 'forgotPassword'])
         ->middleware('guest')
-        ->name('password.reset');
+        ->name('password.forgot');
+
+Route::post('/reset-password',[AuthController::class, 'resetPassword'])
+        ->middleware('guest')
+        ->name('password.update'); 
 
 Route::post('register', [AuthController::class, 'register'])->name('auth.create');
 Route::post('login', [AuthController::class, 'login'])->name('auth.check');
