@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class ProductImage extends Model
 {
     use HasFactory;
-    public $product = "ProductImage";
+    protected $product = "ProductImage";
     public $timestamps = true;
-
-   public function categories(){
-       return $this->belongTo('App\Product','productId','productId');
+   
+   public function product(){
+       return $this->hasMany('App\Product','productId');
    }
 }

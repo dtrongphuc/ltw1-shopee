@@ -85,17 +85,6 @@
                                     <td>{{$od ->totalPrice}}</td>
                                     <td>{{$od ->createAt}}</td>
                                     <td>{{$od ->expectedAt}}</td>
-                                    <!-- @if($od->status == 0)
-                                    <td>Chờ Xử Lý</td>
-                                    @elseif ($od->status == 1)
-                                    <td>Hủy</td>
-                                    @elseif ($od->status == 2)
-                                    <td>Đang Xử Lý</td>
-                                    @elseif ($od->status == 3)
-                                    <td>Đang Giao Hàng</td>
-                                    @else
-                                    <td>Hoàn Thành</td>
-                                    @endif -->
                                     <td>
                                         <select name="statusOrder" id="statusOrder">
                                             <option value="0" @if($od->status == 0) selected @endif>Chờ Xử Lý</option>

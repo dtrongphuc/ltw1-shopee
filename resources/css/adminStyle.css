@@ -1,7 +1,3 @@
-ul{
-    list-style-type: none;
-    padding: 0 !important;
-}
 .left .headerleft a,
 .left .headerleft .list-item .item a,
 .right .header-right .dropdown-content a,
@@ -103,4 +99,48 @@ body{
 
 .showLeft .right{
     width: 82%;
+}
+
+.box-content .right .content-right .chart-column{
+    width: 100%;
+    background: white;
+}
+
+.box-content .right .content-right .chart-column .tittle-chart,
+.box-content .right .content-right .chart-round .chart-round-item .tittle-chart{
+    padding: 20px 30%;
+    font-size: 18px;
+    border-bottom: 1px solid #e3e6f0;
+    background-color: #f8f9fc;
+    color: #4e73df;
+}
+
+.box-content .right .content-right .chart-round{
+    margin-bottom: 29px;
+}
+
+.box-content .right .content-right .date-Statistics .total-item{
+    width: 290px;
+    color: #4e7be1;
+    height: 99px;
+    margin-bottom: 15px;
+    background-color: #f8f9fc;
+}
+
+.box-content .date-Statistics .total-item .detail-Statistics .tittle-Statistics{
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+.box-content .date-Statistics .total-item .detail-Statistics .Statistics{
+    font-size: 34px;
+    padding-left: 65px;
+}
+
+
+
+.box-content .date-Statistics .total-item .icon-statistics{
+    width: 78px;
+    height: 100%;
+    background-color: #f2f0fd;
 }

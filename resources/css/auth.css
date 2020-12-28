@@ -1,23 +1,23 @@
-.login__header {
+.auth__header {
     height: 82px;
 }
 
-.login__header-support {
+.auth__header-support {
     font-size: 14px;
     color: var(--primary-color);
 }
 
-.login__body {
+.auth__body {
     height: calc(100% - 82px);
     background-color: var(--primary-color);
 }
 
-.login__body-img {
+.auth__body-img {
     margin: auto;
     position: relative;
 }
 
-.login__body-form--header {
+.auth__body-form--header {
     font-size: 20px;
     font-weight: 400;
     padding-bottom: 26px;
@@ -32,18 +32,18 @@
     box-shadow: none;
 }
 
-.login__body-form--header-input {
+.auth__body-form--header-input {
     font-size: 12px;
     padding: 12px;
 }
 
-.login__body-form--password {
+.auth__body-form--password {
     border: 1px solid #ced4da;
     border-radius: .25rem;
     width: 340px;
 }
 
-.login__body-form--password:focus {
+.auth__body-form--password:focus {
     border: 1px solid black;
 }
 
@@ -55,7 +55,7 @@
     border: none;
 }
 
-.login__body-form--header-input-icon {
+.auth__body-form--header-input-icon {
     margin-right: 15px;
     cursor: pointer;
 }
@@ -98,7 +98,7 @@
     cursor: default;
 }
 
-.login__body-form--forgotpass {
+.auth__body-form--forgotpass {
     padding: 10px 0 0 0;
 }
 
@@ -106,17 +106,17 @@
     font-size: 12px;
 }
 
-.login__body-form--dash {
+.auth__body-form--dash {
     margin: 20px 0;
 }
 
-.login__body-form--dash-lf {
+.auth__body-form--dash-lf {
     height: 1px;
     width: 100%;
     background-color: #CCD0DB;
 }
 
-.login__body-form--dash-content {
+.auth__body-form--dash-content {
     font-size: 12px;
     color: #CCD0DB;
     padding: 0 16px;
@@ -127,45 +127,45 @@
     font-size: 18px;
 }
 
-.login__body-form--btnapp-fbook {
+.auth__body-form--btnapp-fbook {
     background-color: #1877f2;
 }
 
-.login__body-form--btnapp-google {
+.auth__body-form--btnapp-google {
     background-color: #1877f2;
 }
 
-.login__body-form--btnapp-apple {
+.auth__body-form--btnapp-apple {
     background-color: #1877f2;
 }
 
-.login__body-form--btnapp-fbook:hover,
-.login__body-form--btnapp-google:hover,
-.login__body-form--btnapp-apple:hover {
+.auth__body-form--btnapp-fbook:hover,
+.auth__body-form--btnapp-google:hover,
+.auth__body-form--btnapp-apple:hover {
     opacity: .8;
 }
 
-.login__body-form--btnappname {
+.auth__body-form--btnappname {
     font-size: 14px;
     color: white;
     padding-left: 5px;
 }
 
-.login__body-form--register {
+.auth__body-form--register {
     font-size: 12px;
     margin-top: 20px;
 }
 
-.login__body-form--register-content {
+.auth__body-form--register-content {
     color: #c5c6c9;
 }
 
-.login__body-form--register-link {
+.auth__body-form--register-link {
     padding-left: 12px;
     color: #EE4D2E;
 }
 
-.login__body-form--register-link:hover {
+.auth__body-form--register-link:hover {
     color: #EE4D2E;
     text-decoration: none;
 }
@@ -177,7 +177,7 @@
 /* register  */
 
 .register-body__form,
-.login-body__form {
+.auth-body__form {
     position: absolute;
     top: 7%;
     right: 15px;
@@ -196,7 +196,7 @@
     text-align: center;
 }
 
-.login__header-title {
+.auth__header-title {
     margin-left: 10px;
 }
 
