@@ -8,7 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,400;1,500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,400;1,500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
@@ -50,9 +52,14 @@
         $(document).ready(function() {
             $("#up").click(function() {
                 var str = (parseInt($("#quantify").val()) + 1).toString();
-                var price = (parseInt($("#price").text()) * (parseInt($("#quantify").val()) + 1)).toString();
+                var price = (parseInt($("#price").text()) * (parseInt($("#quantify").val()) + 1))
+                    .toString();
                 $("#quantify").val(str);
-                $("#toltalprice").text(price);
+                // console.log(price.length);
+                if (price.length > 3) {
+                    $("#toltalprice").text(price.substring(0, price.length - 3) + ',' + price.substring(
+                        price.length - 3, price.length) + ',000');
+                } else $("#toltalprice").text(price + ',000');
                 $('.down-default').css('cursor', 'pointer');
             });
         });
@@ -61,11 +68,16 @@
         $(document).ready(function() {
             $("#down").click(function() {
                 var str = (parseInt($("#quantify").val()) - 1).toString();
+                var price = (parseInt($("#price").text()) * (parseInt($("#quantify").val()) - 1))
+                    .toString();
                 if (parseInt(str) <= 0)
                     $('.down-default').css('cursor', 'not-allowed');
                 else {
-                    console.log(str);
                     $("#quantify").val(str);
+                    if (price.length > 3) {
+                        $("#toltalprice").text(price.substring(0, price.length - 3) + ',' + price
+                            .substring(price.length - 3, price.length) + ',000');
+                    } else $("#toltalprice").text(price + ',000');
                 }
 
             });
@@ -92,11 +104,12 @@
                 for (var i = 0; i < checkboxs.length; i++) {
                     checkboxs[i].checked = true;
                 }
-            else 
-            for (var i = 0; i < checkboxs.length; i++) {
+            else
+                for (var i = 0; i < checkboxs.length; i++) {
                     checkboxs[i].checked = false;
                 }
         }
+
     </script>
 </body>
 
