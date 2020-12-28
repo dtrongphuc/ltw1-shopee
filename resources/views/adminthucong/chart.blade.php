@@ -15,56 +15,83 @@
     <script>
         window.onload = function() {
 
-            var chart = new CanvasJS.Chart("chartContainer", {
+            var chart = new CanvasJS.Chart("chart-day", {
+                theme: "light1", // "light1", "light2", "dark1", "dark2"
                 animationEnabled: true,
-                theme: "light2",
-                title: {
-                    text: "Simple Line Chart"
+
+                axisX: {
+                    interval: 1,
+                    intervalType: "number",
+                    valueFormatString: "T #"
+                },
+                axisY: {
+                    includeZero: true,
+                    valueFormatString: "#0[VND]"
                 },
                 data: [{
                     type: "line",
-                    indexLabelFontSize: 16,
+                    markerSize: 12,
+                    // xValueFormatString: "MM",
+                    // yValueFormatString: "$###.#",
                     dataPoints: [{
-                            y: 450
+                            x: 1,
+                            y: 61,
+                            markerColor: "#6B8E23"
                         },
                         {
-                            y: 414
+                            x: 2,
+                            y: 71,
+                            markerColor: "#6B8E23"
                         },
                         {
-                            y: 520,
-                            indexLabel: "\u2191 highest",
-                            markerColor: "red",
-                            markerType: "triangle"
+                            x: 3,
+                            y: 55,
+                            markerColor: "6B8E23"
                         },
                         {
-                            y: 460
+                            x: 4,
+                            y: 50,
+                            markerColor: "6B8E23"
                         },
                         {
-                            y: 450
+                            x: 5,
+                            y: 65,
+                            markerColor: "#6B8E23"
                         },
                         {
-                            y: 500
+                            x: 6,
+                            y: 85,
+                            markerColor: "#6B8E23"
                         },
                         {
-                            y: 480
+                            x: 7,
+                            y: 68,
+                            markerColor: "6B8E23"
                         },
                         {
-                            y: 480
+                            x: 8,
+                            y: 28,
+                            markerColor: "6B8E23"
                         },
                         {
-                            y: 410,
-                            indexLabel: "\u2193 lowest",
-                            markerColor: "DarkSlateGrey",
-                            markerType: "cross"
+                            x: 9,
+                            y: 34,
+                            markerColor: "6B8E23"
                         },
                         {
-                            y: 500
+                            x: 10,
+                            y: 34,
+                            markerColor: "6B8E23"
                         },
                         {
-                            y: 480
+                            x: 11,
+                            y: 34,
+                            markerColor: "6B8E23"
                         },
                         {
-                            y: 510
+                            x: 12,
+                            y: 34,
+                            markerColor: "6B8E23"
                         }
                     ]
                 }]
@@ -119,12 +146,69 @@
                 <div class="box-content-right">
                     <p class="title">Thống Kê</p>
                 </div>
-                <div class="card-body">
-                    <div class="chart-1">
-                        <div id="piechart"></div>
-                        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                <div class="date-Statistics d-flex justify-content-between">
+                    <div class="total-item d-flex align-items-center" style="border-radius: 12px;">
+                        <div class=" icon-statistics d-flex justify-content-center align-items-center mr-2">
+                            <i class="fas fa-sort-amount-up-alt" style="font-size: 34px;"></i>
+                        </div>
+                        <div class="detail-Statistics" style="flex: 1;">
+                            <div class="tittle-Statistics">
+                                <span>Sản Phẩm Bán Được</span>
+                            </div>
+                            <div class="Statistics">
+                                <span>40</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="total-item d-flex align-items-center" style="border-radius: 12px;">
+                        <div class=" icon-statistics d-flex justify-content-center align-items-center mr-2">
+                            <i class="fas fa-sort-amount-up-alt" style="font-size: 34px;"></i>
+                        </div>
+                        <div class="detail-Statistics" style="flex: 1;">
+                            <div class="tittle-Statistics" style="font-size: 14px;">
+                                <span>Sản Phẩm Bán Được</span>
+                            </div>
+                            <div class="Statistics">
+                                <span>40</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="total-item d-flex align-items-center" style="border-radius: 12px;">
+                        <div class=" icon-statistics d-flex justify-content-center align-items-center mr-2">
+                            <i class="fas fa-sort-amount-up-alt" style="font-size: 34px;"></i>
+                        </div>
+                        <div class="detail-Statistics" style="flex: 1;">
+                            <div class="tittle-Statistics" style="font-size: 14px;">
+                                <span>Sản Phẩm Bán Được</span>
+                            </div>
+                            <div class="Statistics">
+                                <span>40</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-round d-flex justify-content-between">
+                    <div class="chart-round-item">
+                        <div class="tittle-chart">
+                            <span>Doanh Thu Theo Quý</span>
+                        </div>
+                        <div id="chart-Quarter1"></div>
                     </div>
 
+                    <div class="chart-round-item">
+                        <div class="tittle-chart">
+                            <span>Doanh Thu Theo Quý</span>
+                        </div>
+                        <div id="chart-Quarter2"></div>
+                    </div>
+                </div>
+
+                <div class="chart-column">
+                    <div class="tittle-chart" style="padding-left: 41% !important;">
+                        <span>Doanh Thu Theo Tháng</span>
+                    </div>
+                    <div id="chart-day" style="height: 300px; width: 100%;"></div>
                 </div>
             </div>
         </div>
@@ -158,23 +242,24 @@
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
                 ['Task', 'Hours per Day'],
-                ['Work', 8],
-                ['Eat', 2],
-                ['TV', 4],
-                ['Gym', 2],
-                ['Sleep', 8]
+                ['Quý 1', 8],
+                ['Quý 2', 2],
+                ['Quý 3', 4],
+                ['Quý 4', 2],
             ]);
 
             // Optional; add a title and set the width and height of the chart
             var options = {
-                'title': 'My Average Day',
-                'width': 550,
-                'height': 400
+                'width': 500,
+                'height': 300
             };
 
-            // Display the chart inside the <div> element with id="piechart"
-            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-            chart.draw(data, options);
+            // Display the chart inside the <div> element with id="chart-Quarter"
+            // var chart = new google.visualization.PieChart(document.getElementById('chart-Quarter'));
+            var chart1 = new google.visualization.PieChart(document.querySelector('#chart-Quarter1'));
+            var chart2 = new google.visualization.PieChart(document.querySelector('#chart-Quarter2'));
+            chart1.draw(data, options);
+            chart2.draw(data, options);
         }
     </script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
