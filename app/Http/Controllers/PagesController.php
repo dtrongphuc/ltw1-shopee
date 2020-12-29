@@ -15,12 +15,12 @@ class PagesController extends Controller
     public function ListCategories()
     {
         $category = Categories::all();
-        $products = Product::all();
+        //$products = Product::all()->paginate(15);
+        $products = DB::table('Product')->paginate(15);
         $image = DB::table('product_images')
                 ->join('products', 'product_images.productId','=','products.productId')
                 ->select('productImage')
                 ->first();
         return view('pages.index',['category' => $category,'image' => $image,'products' => $products]);
     }
-
 }
