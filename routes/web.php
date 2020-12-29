@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\FileUploadController;
@@ -56,9 +57,8 @@ Route::post('/reset-password', [AuthController::class, 'resetPassword'])
 Route::post('register', [AuthController::class, 'register'])->name('auth.create');
 Route::post('login', [AuthController::class, 'login'])->name('auth.check');
 
-Route::get('/product', function () {
-    return view('/pages/product');
-});
+// Product routes
+Route::get('/product/{id}', [ProductController::class, '__invoke']);
 
 // Protected routes
 Route::middleware(['auth', 'verified'])->group(function () {

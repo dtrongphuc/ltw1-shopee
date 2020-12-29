@@ -1661,6 +1661,10 @@ a:hover {
     width: 30%;
 }
 
+.product-right__footer--text {
+    font-size: 0.9rem;
+}
+
 .mall-icon {
     background-repeat: no-repeat;
     background-image: url('../images/icons/mall-icons.png');
@@ -1708,6 +1712,7 @@ a:hover {
     line-height: 1.8rem;
     font-size: .95rem;
     color: rgba(0,0,0,.8);
+    white-space: pre-wrap;
 }
 
 .product-review__heading {

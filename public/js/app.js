@@ -20101,8 +20101,9 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // require("./product");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./product */ "./resources/js/product.js");
 
 __webpack_require__(/*! ./auth */ "./resources/js/auth.js");
 
@@ -20505,6 +20506,57 @@ $(document).ready(function () {
         $("#toltalprice").text(price.substring(0, price.length - 3) + ',' + price.substring(price.length - 3, price.length) + ',000');
       } else $("#toltalprice").text(price + ',000');
     }
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/product.js":
+/*!*********************************!*\
+  !*** ./resources/js/product.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  var maxItems = $(".product-images__slider").children("div").length;
+  $(".product-images__slider").slick({
+    dots: false,
+    infinite: false,
+    speed: 300,
+    slidesToShow: maxItems >= 5 ? 5 : maxItems,
+    adaptiveHeight: true,
+    slidesToScroll: 1,
+    prevArrow: $(".product-images__ctn--left"),
+    nextArrow: $(".product-images__ctn--right") // responsive: [
+    //   {
+    //     breakpoint: 1024,
+    //     settings: {
+    //       slidesToShow: 3,
+    //       slidesToScroll: 3,
+    //       infinite: true,
+    //       dots: true
+    //     }
+    //   },
+    //   {
+    //     breakpoint: 600,
+    //     settings: {
+    //       slidesToShow: 2,
+    //       slidesToScroll: 2
+    //     }
+    //   },
+    //   {
+    //     breakpoint: 480,
+    //     settings: {
+    //       slidesToShow: 1,
+    //       slidesToScroll: 1
+    //     }
+    //   }
+    //   // You can unslick at a given breakpoint now by adding:
+    //   // settings: "unslick"
+    //   // instead of a settings object
+    // ]
+
   });
 });
 
