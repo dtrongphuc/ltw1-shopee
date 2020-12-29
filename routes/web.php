@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\FileUploadController;
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -100,10 +101,6 @@ Route::get('/UserManagement', 'App\Http\Controllers\Admin\UserController@index')
 Route::get('/Admin', 'App\Http\Controllers\Admin\ProductController@index');
 Route::get('/OrderManagement', 'App\Http\Controllers\Admin\OrderController@index');
 
-
-
-
-// POST METHODS
 Route::get('/administrator', function () {
     return view('/pages/administrator');
 });
@@ -114,3 +111,8 @@ Route::get('/', [PagesController::class, 'ListCategories']);
 
 //giỏ hàng
 Route::get('/cart', 'App\Http\Controllers\Cart\CartController@cart');
+
+
+//TEST ROUTES
+Route::get('/upload', [FileUploadController::class, 'showUploadForm']);
+Route::post('/upload', [FileUploadController::class, 'storeUploads']);
