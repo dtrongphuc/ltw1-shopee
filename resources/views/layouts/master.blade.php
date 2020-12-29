@@ -51,10 +51,10 @@
         // nút tăng số lượng 
         $(document).ready(function() {
             $("#up").click(function() {
-                var str = (parseInt($("#quantify").val()) + 1).toString();
-                var price = (parseInt($("#price").text()) * (parseInt($("#quantify").val()) + 1))
+                var str = (parseInt($("#quantity").val()) + 1).toString();
+                var price = (parseInt($("#price").text()) * (parseInt($("#quantity").val()) + 1))
                     .toString();
-                $("#quantify").val(str);
+                $("#quantity").val(str);
                 // console.log(price.length);
                 if (price.length > 3) {
                     $("#toltalprice").text(price.substring(0, price.length - 3) + ',' + price.substring(
@@ -67,13 +67,13 @@
         //giảm số lượng
         $(document).ready(function() {
             $("#down").click(function() {
-                var str = (parseInt($("#quantify").val()) - 1).toString();
-                var price = (parseInt($("#price").text()) * (parseInt($("#quantify").val()) - 1))
+                var str = (parseInt($("#quantity").val()) - 1).toString();
+                var price = (parseInt($("#price").text()) * (parseInt($("#quantity").val()) - 1))
                     .toString();
                 if (parseInt(str) <= 0)
                     $('.down-default').css('cursor', 'not-allowed');
                 else {
-                    $("#quantify").val(str);
+                    $("#quantity").val(str);
                     if (price.length > 3) {
                         $("#toltalprice").text(price.substring(0, price.length - 3) + ',' + price
                             .substring(price.length - 3, price.length) + ',000');
