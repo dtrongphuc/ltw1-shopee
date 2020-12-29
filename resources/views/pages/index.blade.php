@@ -49,8 +49,7 @@
                                             <div class="product-item">
                                                 <a class="product-item__link" href="">
                                                     <div class="product-item__img">
-                                                        <img src="images/products/msi01.jpg"
-                                                            alt="">
+                                                        <img src="{{cloudinary()->getImage('products/'.$image->productImage)}}" alt="">
                                                     </div>
                                                     <p class="product-item__layout product-item__heading">{{$pro -> productName}}</p>
                                                     <div class="product-item__layout d-flex align-items-center justify-content-between mt-3">
