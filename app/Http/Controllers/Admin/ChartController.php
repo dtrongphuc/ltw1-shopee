@@ -25,7 +25,7 @@ class ChartController extends Controller
             ->where('status', '=', '0')
             ->count();
         $statistical = new QuantityStatistics($quantity, $total, $orderwait);
-        return view('adminthucong/chart', ['statisticalToday' => $statistical]);
-        //return response()->json($statistical->getOrderWatting(), 200);
+        //return view('adminthucong/chart', ['statisticalToday' => $statistical]);
+        return response()->json($statistical->getOrderWatting(), 200);
     }
 }

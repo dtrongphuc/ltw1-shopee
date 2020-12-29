@@ -2409,7 +2409,6 @@ body{
     display: flex;
 }
 .box-content .left{
-    height: 100vh;
     width: 0;
     background-color: #4e73df;
     background-image: linear-gradient(180deg,#4e73df 10%,#224abe 100%);
@@ -2444,7 +2443,6 @@ body{
 }
 
 .box-content .right{
-    height: 500px;
     width: 100%;
 }
 .box-content .right .header-right{
@@ -2463,7 +2461,6 @@ body{
 .box-content .right .content-right{ 
     padding: 25px 15px;
     background: #6360600f;
-    height: calc(100vh - 70px);;
 }
 .box-content .right .content-right .box-content-right .title{
     color: #5a5c69;

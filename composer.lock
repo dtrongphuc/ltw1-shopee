@@ -120,23 +120,23 @@
         },
         {
             "name": "cloudinary-labs/cloudinary-laravel",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudinary-labs/cloudinary-laravel.git",
-                "reference": "16cb7bc302ff522c3d159682da63964ad0013c05"
+                "reference": "dd3c0d679d1d09765827da7fa765e8288a191178"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudinary-labs/cloudinary-laravel/zipball/16cb7bc302ff522c3d159682da63964ad0013c05",
-                "reference": "16cb7bc302ff522c3d159682da63964ad0013c05",
+                "url": "https://api.github.com/repos/cloudinary-labs/cloudinary-laravel/zipball/dd3c0d679d1d09765827da7fa765e8288a191178",
+                "reference": "dd3c0d679d1d09765827da7fa765e8288a191178",
                 "shasum": ""
             },
             "require": {
                 "cloudinary/cloudinary_php": "2.0.0-beta7",
                 "ext-json": "*",
                 "illuminate/support": "~6|~7|~8",
-                "php": "^7.2"
+                "php": ">=7.2"
             },
             "require-dev": {
                 "mockery/mockery": "^1.1",
@@ -186,9 +186,9 @@
             ],
             "support": {
                 "issues": "https://github.com/cloudinary-labs/cloudinary-laravel/issues",
-                "source": "https://github.com/cloudinary-labs/cloudinary-laravel/tree/1.0.2"
+                "source": "https://github.com/cloudinary-labs/cloudinary-laravel/tree/1.0.3"
             },
-            "time": "2020-11-27T19:56:31+00:00"
+            "time": "2020-12-04T07:51:31+00:00"
         },
         {
             "name": "cloudinary/cloudinary_php",
@@ -6239,16 +6239,16 @@
         },
         {
             "name": "facade/ignition",
-            "version": "2.5.5",
+            "version": "2.5.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "2b6fd8b7b630e5c6a04440f7ed358e8753229509"
+                "reference": "8e907d81244649c5ea746e2ec30c32c5f59df472"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/2b6fd8b7b630e5c6a04440f7ed358e8753229509",
-                "reference": "2b6fd8b7b630e5c6a04440f7ed358e8753229509",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/8e907d81244649c5ea746e2ec30c32c5f59df472",
+                "reference": "8e907d81244649c5ea746e2ec30c32c5f59df472",
                 "shasum": ""
             },
             "require": {
@@ -6312,7 +6312,7 @@
                 "issues": "https://github.com/facade/ignition/issues",
                 "source": "https://github.com/facade/ignition"
             },
-            "time": "2020-12-28T23:56:45+00:00"
+            "time": "2020-12-29T09:12:55+00:00"
         },
         {
             "name": "facade/ignition-contracts",

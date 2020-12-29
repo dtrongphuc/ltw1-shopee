@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\FileUploadController;
+
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -92,9 +93,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 //     return view('/adminthucong/User');
 // });
 
-// Route::get('/Chart', function () {
-//     return view('/adminthucong/chart');
-// });
+Route::get('/chart', function () {
+    return view('/adminthucong/chart');
+});
 
 Route::get('/UserManagement', 'App\Http\Controllers\Admin\UserController@index');
 Route::get('/Admin', 'App\Http\Controllers\Admin\ProductController@index');
