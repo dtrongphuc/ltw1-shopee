@@ -19,7 +19,7 @@ class CreateReviewsTable extends Migration
             $table->foreign('userId')->references('id')->on('users');
             $table->integer('productId');
             $table->foreign('productId')->references('productId')->on('products');
-            $table->string('text');
+            $table->text('text');
             $table->float('rate');
         });
     }

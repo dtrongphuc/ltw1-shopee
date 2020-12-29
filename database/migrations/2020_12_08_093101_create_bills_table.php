@@ -15,9 +15,9 @@ class CreateBillsTable extends Migration
     {
         Schema::create('bills', function (Blueprint $table) {
             $table->id();
-            $table->string('customerName');
+            $table->text('customerName');
             $table->string('phoneNumber');
-            $table->string('address');
+            $table->text('address');
             $table->decimal('totalPrice', 10, 2);
             $table->date('createAt');
             $table->date('expectedAt');
