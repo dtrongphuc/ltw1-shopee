@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\View;
 use App\Models\Categories;
 use App\Models\Product;
 use App\Models\ProductImage;
+use Illuminate\Support\Facades\DB;
 
 class PagesController extends Controller
 {
@@ -15,12 +16,11 @@ class PagesController extends Controller
     {
         $category = Categories::all();
         $products = Product::all();
-        $images = ProductImage::all();
-        // $images = DB::table('productImage')
-        //         ->join('Product', 'productImage.productId','=','Product.productId')
-        //         ->select('productImage.productId','productImage')
-        //         ->get();
-        return view('pages.index',['category' => $category,'images' => $images,'products' => $products]);
+        $image = DB::table('product_images')
+                ->join('products', 'product_images.productId','=','products.productId')
+                ->select('productImage')
+                ->first();
+        return view('pages.index',['category' => $category,'image' => $image,'products' => $products]);
     }
 
 }
