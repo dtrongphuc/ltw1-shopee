@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->foreign('categoryId')->references('categoryId')->on('categories');
             $table->text('productName');
             $table->text('description');
-            $table->decimal('price', 10, 0);
+            $table->decimal('price', 10);
             $table->integer('quantity');
             $table->integer('likeCount');
             $table->float('rate');

@@ -48,40 +48,7 @@
             }
         }
 
-        // nút tăng số lượng 
-        $(document).ready(function() {
-            $("#up").click(function() {
-                var str = (parseInt($("#quantity").val()) + 1).toString();
-                var price = (parseInt($("#price").text()) * (parseInt($("#quantity").val()) + 1))
-                    .toString();
-                $("#quantity").val(str);
-                // console.log(price.length);
-                if (price.length > 3) {
-                    $("#toltalprice").text(price.substring(0, price.length - 3) + ',' + price.substring(
-                        price.length - 3, price.length) + ',000');
-                } else $("#toltalprice").text(price + ',000');
-                $('.down-default').css('cursor', 'pointer');
-            });
-        });
 
-        //giảm số lượng
-        $(document).ready(function() {
-            $("#down").click(function() {
-                var str = (parseInt($("#quantity").val()) - 1).toString();
-                var price = (parseInt($("#price").text()) * (parseInt($("#quantity").val()) - 1))
-                    .toString();
-                if (parseInt(str) <= 0)
-                    $('.down-default').css('cursor', 'not-allowed');
-                else {
-                    $("#quantity").val(str);
-                    if (price.length > 3) {
-                        $("#toltalprice").text(price.substring(0, price.length - 3) + ',' + price
-                            .substring(price.length - 3, price.length) + ',000');
-                    } else $("#toltalprice").text(price + ',000');
-                }
-
-            });
-        });
 
         //click trái tim yêu thích
         $(document).ready(function() {
@@ -96,6 +63,8 @@
             });
         });
 
+        // GHI Tạm
+
         //check tất cả trong giở hàng
         document.getElementById("check-all").onclick = function() {
             //lấy ds checkbox
@@ -108,6 +77,22 @@
                 for (var i = 0; i < checkboxs.length; i++) {
                     checkboxs[i].checked = false;
                 }
+        }
+        //button tăng
+        function UpQuantity(product) {
+            var productName = product.getAttribute("data-cart");
+            var quantity = document.getElementById("quantity_" + productName).value;
+            document.getElementById("quantity_" + productName).value = parseInt(quantity) + 1;
+            var price = document.getElementById("price_" + productName).innerHTML;
+            console.log(price);
+        }
+        //giảm số lượng
+        function DownQuantity(product) {
+            var animalType = product.getAttribute("data-cart");
+            var quantity = document.getElementById("quantity_" + animalType).value;
+            if (parseInt(quantity) > 1) {
+                document.getElementById("quantity_" + animalType).value = parseInt(quantity) - 1;
+            }
         }
 
     </script>

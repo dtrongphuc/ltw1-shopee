@@ -1,4 +1,4 @@
-@extends('../layouts/master', ['title' => 'Trang chủ'])
+@extends('../layouts/master', ['title' => 'Giỏ hàng'])
 @section('body')
 @parent
 <div class="cart">
@@ -85,16 +85,16 @@
                         <div class="container">
                             <div class="row d-flex align-items-center" style="text-align: center;">
                                 <div class="col-3 d-flex justify-content-center">
-                                    <p class="cartbody__productsinfo-unitprice" id="price">{{number_format(floatval($product->price), 2)}}</p>
+                                    <p class="cartbody__productsinfo-unitprice" id="price_{{$product->productName}}">{{number_format(floatval($product->price), 2)}}</p>
                                     <p class="cartbody__productsinfo-unitprice">đ</p>
                                 </div>
                                 <div class="col-3">
                                     <div class="cartbody__productsinfo-amount">
-                                        <button class="cartbody__productsinfo-amount--downup down-default" id="down">
+                                        <button class="cartbody__productsinfo-amount--downup down-default" id="down" data-cart="{{$product->productName}}" onclick="DownQuantity(this)">
                                             <span>&#8722</span>
                                         </button>
-                                        <input class="cartbody__productsinfo-amount--content" value="{{$product->quatity}}" id="quantity" readonly>
-                                        <button class="cartbody__productsinfo-amount--downup" id="up">
+                                        <input class="cartbody__productsinfo-amount--content" value="{{$product->quatity}}" id="quantity_{{$product->productName}}" readonly>
+                                        <button class="cartbody__productsinfo-amount--downup" id="up" data-cart="{{$product->productName}}" onclick="UpQuantity(this)">
                                             <span>&#43</span>
                                         </button>
                                     </div>
@@ -144,4 +144,5 @@
     </div>
 </div>
 @include('../layouts/footer')
+
 @stop
