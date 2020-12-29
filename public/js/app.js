@@ -20107,6 +20107,8 @@ __webpack_require__(/*! ./product */ "./resources/js/product.js");
 
 __webpack_require__(/*! ./auth */ "./resources/js/auth.js");
 
+__webpack_require__(/*! ./cart */ "./resources/js/cart.js");
+
 /***/ }),
 
 /***/ "./resources/js/auth.js":
@@ -20458,6 +20460,54 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/cart.js":
+/*!******************************!*\
+  !*** ./resources/js/cart.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+document.getElementById("check-all").onclick = function () {
+  //lấy ds checkbox
+  var checkboxs = document.getElementsByName("check-one");
+  if (document.getElementById("check-all").checked == true) for (var i = 0; i < checkboxs.length; i++) {
+    checkboxs[i].checked = true;
+  } else for (var i = 0; i < checkboxs.length; i++) {
+    checkboxs[i].checked = false;
+  }
+}; // nút tăng số lượng 
+
+
+$(document).ready(function () {
+  $("#up").click(function () {
+    var str = (parseInt($("#quantity").val()) + 1).toString();
+    var price = (parseInt($("#price").text()) * (parseInt($("#quantity").val()) + 1)).toString();
+    $("#quantity").val(str); // console.log(price.length);
+
+    if (price.length > 3) {
+      $("#toltalprice").text(price.substring(0, price.length - 3) + ',' + price.substring(price.length - 3, price.length) + ',000');
+    } else $("#toltalprice").text(price + ',000');
+
+    $('.down-default').css('cursor', 'pointer');
+  });
+}); //giảm số lượng
+
+$(document).ready(function () {
+  $("#down").click(function () {
+    var str = (parseInt($("#quantity").val()) - 1).toString();
+    var price = (parseInt($("#price").text()) * (parseInt($("#quantity").val()) - 1)).toString();
+    if (parseInt(str) <= 0) $('.down-default').css('cursor', 'not-allowed');else {
+      $("#quantity").val(str);
+
+      if (price.length > 3) {
+        $("#toltalprice").text(price.substring(0, price.length - 3) + ',' + price.substring(price.length - 3, price.length) + ',000');
+      } else $("#toltalprice").text(price + ',000');
+    }
+  });
+});
 
 /***/ }),
 
