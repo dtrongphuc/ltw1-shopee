@@ -37,7 +37,7 @@ Route::get('/register', function () {
 
 
 // Forgot password routes
-Route::get('/forgot-password', function() {
+Route::get('/forgot-password', function () {
     return view('/pages/forgotPassword');
 })->middleware('guest');
 
@@ -46,12 +46,12 @@ Route::get('/reset-password/{token}', function ($token) {
 })->middleware('guest')->name('password.reset');
 
 Route::post('forgot-password', [AuthController::class, 'forgotPassword'])
-        ->middleware('guest')
-        ->name('password.forgot');
+    ->middleware('guest')
+    ->name('password.forgot');
 
-Route::post('/reset-password',[AuthController::class, 'resetPassword'])
-        ->middleware('guest')
-        ->name('password.update'); 
+Route::post('/reset-password', [AuthController::class, 'resetPassword'])
+    ->middleware('guest')
+    ->name('password.update');
 
 Route::post('register', [AuthController::class, 'register'])->name('auth.create');
 Route::post('login', [AuthController::class, 'login'])->name('auth.check');
@@ -67,7 +67,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/account', function () {
             return view('/pages/profile');
         });
-    
+
         Route::get('/purchase', function () {
             return view('/pages/cart');
         });
@@ -89,17 +89,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
 //     return view('/adminthucong/index');
 // });
 
-Route::get('/User', function () {
-    return view('/adminthucong/User');
-});
+// Route::get('/User', function () {
+//     return view('/adminthucong/User');
+// });
 
-Route::get('/Chart', function () {
-    return view('/adminthucong/chart');
-});
+// Route::get('/Chart', function () {
+//     return view('/adminthucong/chart');
+// });
 
 Route::get('/UserManagement', 'App\Http\Controllers\Admin\UserController@index');
 Route::get('/Admin', 'App\Http\Controllers\Admin\ProductController@index');
 Route::get('/OrderManagement', 'App\Http\Controllers\Admin\OrderController@index');
+Route::get('/chartstatistical', 'App\Http\Controllers\Admin\ChartController@index');
 
 Route::get('/administrator', function () {
     return view('/pages/administrator');
