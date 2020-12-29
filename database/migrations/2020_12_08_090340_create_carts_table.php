@@ -20,7 +20,7 @@ class CreateCartsTable extends Migration
             $table->unsignedBigInteger('productId');
             $table->foreign('productId')->references('productId')->on('products');
             $table->integer('quantity');
-            $table->string('type');
+            $table->text('type');
         });
     }
 
