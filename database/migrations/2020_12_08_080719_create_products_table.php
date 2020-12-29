@@ -19,7 +19,6 @@ class CreateProductsTable extends Migration
             $table->foreign('categoryId')->references('categoryId')->on('categories');
             $table->text('productName');
             $table->text('description');
-            $table->text('type');
             $table->decimal('price', 10, 2);
             $table->integer('quantity');
             $table->integer('likeCount');
