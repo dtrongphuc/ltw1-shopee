@@ -89,7 +89,9 @@
                         <div class="col-md-6">
                             <button type="submit" class="btn btn-success">Upload a File</button>
                         </div>
-
+                        <div class="col-md-6">
+                            <img src={{cloudinary()->getImage("gsbnh6wgkv81wwfnnjdn")}} alt="" srcset="" width="200" height="200" />
+                        </div>
                     </div>
                 </form>
             </div>
