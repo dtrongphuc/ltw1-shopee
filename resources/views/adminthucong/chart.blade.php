@@ -145,6 +145,7 @@
             <div class="content-right">
                 <div class="box-content-right">
                     <p class="title">Thống Kê</p>
+
                 </div>
                 <div class="date-Statistics d-flex justify-content-between">
                     <div class="total-item d-flex align-items-center" style="border-radius: 12px;">
@@ -156,7 +157,7 @@
                                 <span>Sản Phẩm Bán Được</span>
                             </div>
                             <div class="Statistics">
-                                <span>40</span>
+                                <span>{{$statisticalToday->getQuantityProduct()}}</span>
                             </div>
                         </div>
                     </div>
@@ -166,10 +167,10 @@
                         </div>
                         <div class="detail-Statistics" style="flex: 1;">
                             <div class="tittle-Statistics" style="font-size: 14px;">
-                                <span>Sản Phẩm Bán Được</span>
+                                <span>Tổng Tiền Kiếm Được</span>
                             </div>
                             <div class="Statistics">
-                                <span>40</span>
+                                <span>{{$statisticalToday->getTotalOrder()}}</span>
                             </div>
                         </div>
                     </div>
@@ -179,10 +180,10 @@
                         </div>
                         <div class="detail-Statistics" style="flex: 1;">
                             <div class="tittle-Statistics" style="font-size: 14px;">
-                                <span>Sản Phẩm Bán Được</span>
+                                <span>Đơn Hàng Chưa Xác Nhận</span>
                             </div>
                             <div class="Statistics">
-                                <span>40</span>
+                                <span>{{$statisticalToday->getOrderWatting()}}</span>
                             </div>
                         </div>
                     </div>
