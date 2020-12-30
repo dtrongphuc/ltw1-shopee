@@ -14,6 +14,11 @@ class CartController extends Controller
             ->join('carts', 'carts.productId', '=', 'products.productId')
             ->select('products.productName', 'carts.type', 'products.price', 'carts.quatity')
             ->get();
-        return view('pages/cart', ['products' => $productsofcart]);
+        $sum = 0;
+        foreach($productsofcart as $sp)
+        {
+            $sum = $sum + ($sp->quatity * $sp->price);
+        }
+        return view('pages/cart', ['products' => $productsofcart], ['payall' => $sum]);
     }
 }
