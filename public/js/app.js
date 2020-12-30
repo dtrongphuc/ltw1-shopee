@@ -20497,6 +20497,26 @@ $(document).ready(function () {
       }
     });
   });
+  var btnTypes = document.querySelectorAll(".product-types__btn");
+  btnTypes && btnTypes.forEach(function (btnType) {
+    btnType.addEventListener("click", function () {
+      removeActiveBtn();
+      btnType.classList.add("product-types__btn--active");
+    });
+  });
+
+  var removeActiveBtn = function removeActiveBtn() {
+    btnTypes.forEach(function (btnType) {
+      if (btnType.classList.contains("product-types__btn--active")) {
+        btnType.classList.remove("product-types__btn--active");
+      }
+    });
+  };
+
+  var rateStars = document.querySelectorAll(".new-review__rate--wrapper");
+  rateStars && rateStars.forEach(function (star) {
+    star.addEventListener("mouseover", function () {});
+  });
 });
 
 /***/ }),

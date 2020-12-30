@@ -27,4 +27,26 @@ $(document).ready(function() {
             }
         });
     });
+
+    const btnTypes = document.querySelectorAll(".product-types__btn");
+    btnTypes &&
+        btnTypes.forEach(btnType => {
+            btnType.addEventListener("click", () => {
+                removeActiveBtn();
+                btnType.classList.add("product-types__btn--active");
+            });
+        });
+    const removeActiveBtn = () => {
+        btnTypes.forEach(btnType => {
+            if (btnType.classList.contains("product-types__btn--active")) {
+                btnType.classList.remove("product-types__btn--active");
+            }
+        });
+    };
+
+    const rateStars = document.querySelectorAll(".new-review__rate--wrapper");
+    rateStars &&
+        rateStars.forEach(star => {
+            star.addEventListener("mouseover", () => {});
+        });
 });

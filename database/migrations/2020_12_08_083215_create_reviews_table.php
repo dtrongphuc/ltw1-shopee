@@ -21,6 +21,7 @@ class CreateReviewsTable extends Migration
             $table->foreign('productId')->references('productId')->on('products');
             $table->text('text');
             $table->float('rate');
+            $table->date('postAt');
         });
     }
 

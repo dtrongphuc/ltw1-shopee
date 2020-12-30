@@ -1384,8 +1384,8 @@ a:hover {
 }
 
 .statistic-item__number--red {
-    color: var(--red);
-    border-bottom: 1px solid var(--red);
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
 }
 
 .statistic-item__star {
@@ -1409,15 +1409,16 @@ a:hover {
 }
 
 .product-right__price--unit {
-    color: var(--red);
+    color: var(--primary-color);
     font-size: 1.3rem;
     line-height: 1;
     margin-bottom: 6px;
-    border-bottom: 1px solid var(--red);
+    border-bottom: 1px solid var(--primary-color);
+    margin-right: 2px;
 }
 
 .product-right__price--currency {
-    color: var(--red);
+    color: var(--primary-color);
     font-size: 2rem;
     line-height: 1;
     font-weight: 400;
@@ -1441,6 +1442,7 @@ a:hover {
     border-radius: 2px;
     margin-right: 8px;
     outline: none;
+    font-size: 0.9rem;
 }
 
 .product-types__btn--disable:disabled {
@@ -1452,8 +1454,8 @@ a:hover {
 .product-types__btn--active,
 .product-types__btn--active:focus,
 .product-types__btn--active:active {
-    color: var(--red);
-    border: 1px solid var(--red);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
     outline: none;
 }
 
@@ -1474,7 +1476,7 @@ a:hover {
     right: -2px;
     border-top: 12px solid transparent;
     border-bottom: 12px solid transparent;
-    border-left: 12px solid var(--red);
+    border-left: 12px solid var(--primary-color);
     transform: rotate(45deg);
     z-index: -1;
 }
@@ -1520,7 +1522,7 @@ a:hover {
     width: 183px;
     height: 48px;
     font-size: 0.9rem;
-    border: 1px solid var(--red);
+    border: 1px solid var(--primary-color);
     outline: none;
     margin-right: 1.2rem;
     border-radius: 2px;
@@ -1530,7 +1532,7 @@ a:hover {
 .product-cart__btn--outline:focus,
 .product-cart__btn--outline:active {
     background-color: rgba(208,1,27,.08);
-    color: var(--red);
+    color: var(--primary-color);
     outline: none;
 }
 
@@ -1538,16 +1540,16 @@ a:hover {
     background-color: rgba(208,1,27,.1);
 }
 
-.product-cart__btn--fullred,
-.product-cart__btn--fullred:focus,
-.product-cart__btn--fullred:active  {
-    background-color: var(--red);
+.product-cart__btn--primary,
+.product-cart__btn--primary:focus,
+.product-cart__btn--primary:active  {
+    background-color: var(--primary-color);
     color: rgba(255, 255, 255, 1);
     outline: none;
 }
 
-.product-cart__btn--fullred:hover {
-    background-color: #d41830;
+.product-cart__btn--primary:hover {
+    background-color: #f05d40;
 }
 
 .product-left__images {
@@ -1750,16 +1752,22 @@ a:hover {
     margin-top: 0.8rem;
 }
 
-.star-icon__wrapper {
+.star-icon__wrapper,
+.rate-icon__wrapper,
+.new-review__rate--wrapper {
     position: relative;
     margin-right: 2px;
 }
 
-.star-icon__wrapper > svg {
+.star-icon__wrapper > svg,
+.rate-icon__wrapper > svg,
+.new-review__rate--wrapper > svg {
     overflow: hidden;
 }
 
-.star-icon__wrapper > div {
+.star-icon__wrapper > div,
+.rate-icon__wrapper > div,
+.new-review__rate--wrapper > div {
     position: absolute;
     top: 0;
     left: 0;
@@ -1775,6 +1783,7 @@ a:hover {
     border-radius: 50%;
     width: 40px;
     height: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .review-item__name,
@@ -1784,10 +1793,13 @@ a:hover {
     font-size: 0.86rem;
 }
 
-.review-item__rate > i {
-    color: var(--primary-color);
-    font-size: 0.78rem;
+.review-item__rate,
+.new-review__rate {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
 }
+
 
 .review-item__text {
     margin-top: 0.8rem;
@@ -1800,6 +1812,53 @@ a:hover {
 .review-item__footer {
     font-size: 0.84rem;
     color: rgba(0, 0, 0, 0.6);
+}
+
+.new-review {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.new-review > img {
+    margin-right: 8px;
+}
+
+.new-review__form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.review__input {
+    width: 90%;
+    height: 50px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    outline: none;
+    font-size: 1rem;
+    padding: 4px;
+}
+
+.review__btn-submit {
+    background-color: var(--primary-color);
+    color: #fff;
+    min-width: 80px;
+    height: 40px;
+}
+
+.review__btn-submit:hover {
+    background-color: #f05d40;
+    color: #fff;
+}
+
+.new-review__wrapper {
+    width: 100%;
+}
+
+.new-review__rate--wrapper:hover {
+    cursor: pointer;
 }
 .cart {
     margin-top: 20px;
