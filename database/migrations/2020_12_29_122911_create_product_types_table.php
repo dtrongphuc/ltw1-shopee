@@ -19,6 +19,7 @@ class CreateProductTypesTable extends Migration
             $table->foreign('productId')->references('productId')->on('products');
             $table->text('name');
             $table->integer('quantity');
+            $table->decimal('price', 10, 0);
         });
     }
 

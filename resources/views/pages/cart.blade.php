@@ -65,6 +65,7 @@
 
         <div class="cartbody__products">
             @if(isset($products))
+            
                 @foreach( $products as $product)
                 <div class="row d-flex justify-content-around" style="border-bottom: #f5f5f5 solid 1px; padding-bottom: 15px">
                     <div class="col-md-5">
@@ -81,6 +82,7 @@
                             <span class="cartbody__products-classify ml-auto">Phân loại: {{$product->type}}</span>
                         </div>
                     </div>
+                    
                     <div class="col-md-7 d-flex align-items-center">
                         <div class="container">
                             <div class="row d-flex align-items-center" style="text-align: center;">
@@ -131,9 +133,10 @@
                 <div class="col-md-6">
                     <div class="cartfooter__buyproduct d-flex align-items-center justify-content-end">
                         <div class="cartfooter__buyproduct-totalmoney d-flex align-items-center">
-                            <p class="cartfooter__buyproduct-totalmoney--content">Tổng tiền hàng (0 sản phẩm):</p>
-                            <div class="cartfooter__buyproduct-totalmoney--money">
-                                <h3>đ0</h1>
+                            <p class="cartfooter__buyproduct-totalmoney--content">Tổng tiền hàng:</p>
+                            <div class="cartfooter__buyproduct-totalmoney--money d-flex">
+                                <h3>đ</h3>
+                                <h3 id="payall">{{number_format(floatval($payall))}}</h3>
                             </div>
                         </div>
                         <button class="btn btn-primary cartfooter__buyproduct-btnbuy">Mua hàng</button>

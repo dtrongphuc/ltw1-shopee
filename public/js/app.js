@@ -20105,9 +20105,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./product */ "./resources/js/product.js");
 
-__webpack_require__(/*! ./auth */ "./resources/js/auth.js");
-
-__webpack_require__(/*! ./cart */ "./resources/js/cart.js");
+__webpack_require__(/*! ./auth */ "./resources/js/auth.js"); // require("./cart");
 
 /***/ }),
 
@@ -20463,6 +20461,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./resources/js/cart.js":
 /*!******************************!*\
   !*** ./resources/js/cart.js ***!
@@ -20482,6 +20481,8 @@ document.getElementById("check-all").onclick = function () {
 
 /***/ }),
 
+=======
+>>>>>>> ad053d4841d5bc6c91d543806ab9758e562b888b
 /***/ "./resources/js/product.js":
 /*!*********************************!*\
   !*** ./resources/js/product.js ***!
@@ -20499,35 +20500,44 @@ $(document).ready(function () {
     adaptiveHeight: true,
     slidesToScroll: 1,
     prevArrow: $(".product-images__ctn--left"),
-    nextArrow: $(".product-images__ctn--right") // responsive: [
-    //   {
-    //     breakpoint: 1024,
-    //     settings: {
-    //       slidesToShow: 3,
-    //       slidesToScroll: 3,
-    //       infinite: true,
-    //       dots: true
-    //     }
-    //   },
-    //   {
-    //     breakpoint: 600,
-    //     settings: {
-    //       slidesToShow: 2,
-    //       slidesToScroll: 2
-    //     }
-    //   },
-    //   {
-    //     breakpoint: 480,
-    //     settings: {
-    //       slidesToShow: 1,
-    //       slidesToScroll: 1
-    //     }
-    //   }
-    //   // You can unslick at a given breakpoint now by adding:
-    //   // settings: "unslick"
-    //   // instead of a settings object
-    // ]
+    nextArrow: $(".product-images__ctn--right")
+  });
+  var bigImage = document.querySelector(".product-left__img--big");
+  var firstImage = document.querySelector(".image-item__bg");
 
+  if (!!bigImage) {
+    bigImage.style.backgroundImage = firstImage && firstImage.style.backgroundImage;
+  }
+
+  document.querySelectorAll(".product-image__item").forEach(function (item) {
+    item.addEventListener("mouseover", function (event) {
+      var parent = event.currentTarget;
+      var children = parent.querySelector(".image-item__bg");
+
+      if (!!bigImage) {
+        bigImage.style.backgroundImage = bigImage && children.style.backgroundImage;
+      }
+    });
+  });
+  var btnTypes = document.querySelectorAll(".product-types__btn");
+  btnTypes && btnTypes.forEach(function (btnType) {
+    btnType.addEventListener("click", function () {
+      removeActiveBtn();
+      btnType.classList.add("product-types__btn--active");
+    });
+  });
+
+  var removeActiveBtn = function removeActiveBtn() {
+    btnTypes.forEach(function (btnType) {
+      if (btnType.classList.contains("product-types__btn--active")) {
+        btnType.classList.remove("product-types__btn--active");
+      }
+    });
+  };
+
+  var rateStars = document.querySelectorAll(".new-review__rate--wrapper");
+  rateStars && rateStars.forEach(function (star) {
+    star.addEventListener("mouseover", function () {});
   });
 });
 
@@ -20540,7 +20550,11 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! E:\CSS_HTML_JS_ME\LTWed-1-LT\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
+=======
+module.exports = __webpack_require__(/*! Z:\Code\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
+>>>>>>> ad053d4841d5bc6c91d543806ab9758e562b888b
 
 
 /***/ })
