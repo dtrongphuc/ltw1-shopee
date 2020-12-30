@@ -21,6 +21,11 @@ class PagesController extends Controller
                 ->join('products', 'product_images.productId','=','products.productId')
                 ->select('productImage')
                 ->first();
-        return view('pages.index',['category' => $category,'image' => $image,'products' => $products]);
+        
+        return view('pages.index',[
+            'category' => $category,
+            'image' => $image,
+            'products' => $products
+        ]);
     }
 }

@@ -6,8 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductType;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -21,10 +22,23 @@ class ProductController extends Controller
                 ->get();
         $types = ProductType::where('productId', '=', $productId)
                     ->select('id', 'name', 'quantity')->get();
+        
+        $reviews = DB::table('reviews')
+                    ->join('products', 'reviews.productId','=', 'products.productId')
+                    ->join('users', 'reviews.userId', '=', 'users.id')
+                    ->where('products.productId', '=', $productId)
+                    ->select('avatar', 'email', 'reviews.rate', 'text', 'reviews.postAt')
+                    ->get()->toArray();
+        $userId = Auth::id();
+        if(isset($userId)){
+            $currentUserAvatar = User::find($userId)->avatar;
+        } 
         return view('pages.product', [
             'product' => $product,
             'images' => $images,
             'types' => $types,
-         ]);
+            'reviews' => $reviews,
+            'currentUserAvatar' => $currentUserAvatar
+        ]);
     }
 }
