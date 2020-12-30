@@ -124,7 +124,6 @@
             </section>
         </div>
 
-        
         <div class="main-product__intro">
             <div class="product-intro__heading">Mô tả sản phẩm</div>
             <div class="product-intro__wrapper">
