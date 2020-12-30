@@ -35,27 +35,27 @@
                     // yValueFormatString: "$###.#",
                     dataPoints: [{
                             x: 1,
-                            y: 61,
+                            y: 2030000.00,
                             markerColor: "#6B8E23"
                         },
                         {
                             x: 2,
-                            y: 71,
+                            y: 3030000.00,
                             markerColor: "#6B8E23"
                         },
                         {
                             x: 3,
-                            y: 55,
+                            y: 0,
                             markerColor: "6B8E23"
                         },
                         {
                             x: 4,
-                            y: 50,
+                            y: 0,
                             markerColor: "6B8E23"
                         },
                         {
                             x: 5,
-                            y: 65,
+                            y: 0,
                             markerColor: "#6B8E23"
                         },
                         {
@@ -65,32 +65,32 @@
                         },
                         {
                             x: 7,
-                            y: 68,
+                            y: 0,
                             markerColor: "6B8E23"
                         },
                         {
                             x: 8,
-                            y: 28,
+                            y: 0,
                             markerColor: "6B8E23"
                         },
                         {
                             x: 9,
-                            y: 34,
+                            y: 0,
                             markerColor: "6B8E23"
                         },
                         {
                             x: 10,
-                            y: 34,
+                            y: 0,
                             markerColor: "6B8E23"
                         },
                         {
                             x: 11,
-                            y: 34,
+                            y: 0,
                             markerColor: "6B8E23"
                         },
                         {
                             x: 12,
-                            y: 34,
+                            y: 200000.00,
                             markerColor: "6B8E23"
                         }
                     ]

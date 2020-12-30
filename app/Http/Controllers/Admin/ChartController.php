@@ -64,9 +64,15 @@ class ChartController extends Controller
     }
 
     public function StatisticalMonth(){
-        $nam = DB::table('bills')
-        ->select(DB::raw('YEAR(createAt) year'),DB::raw('sum(totalPrice) total'))
-        ->groupBy(DB::raw('YEAR(createAt)'))->get();
+        $ArrayMonth = array();
+        for($i=1;$i<=12;$i++)
+        {
+            $total = DB::table('bills')
+            ->whereMonth('createAt', '=', i)
+            ->sum('totalPrice');
+            $total = $total /1000;
+            array_push($ArrayMonth,$total);
+        }
         return response()->json($nam, 200);
     }
 }
