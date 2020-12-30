@@ -1661,6 +1661,10 @@ a:hover {
     width: 30%;
 }
 
+.product-right__footer--text {
+    font-size: 0.9rem;
+}
+
 .mall-icon {
     background-repeat: no-repeat;
     background-image: url('../images/icons/mall-icons.png');
@@ -1708,6 +1712,7 @@ a:hover {
     line-height: 1.8rem;
     font-size: .95rem;
     color: rgba(0,0,0,.8);
+    white-space: pre-wrap;
 }
 
 .product-review__heading {
@@ -2409,7 +2414,6 @@ body{
     display: flex;
 }
 .box-content .left{
-    height: 100vh;
     width: 0;
     background-color: #4e73df;
     background-image: linear-gradient(180deg,#4e73df 10%,#224abe 100%);
@@ -2444,7 +2448,6 @@ body{
 }
 
 .box-content .right{
-    height: 500px;
     width: 100%;
 }
 .box-content .right .header-right{
@@ -2463,7 +2466,6 @@ body{
 .box-content .right .content-right{ 
     padding: 25px 15px;
     background: #6360600f;
-    height: calc(100vh - 70px);;
 }
 .box-content .right .content-right .box-content-right .title{
     color: #5a5c69;

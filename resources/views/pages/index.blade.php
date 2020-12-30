@@ -47,7 +47,7 @@
                                     <div class="row m--6">
                                         <div class="col-2-4">
                                             <div class="product-item">
-                                                <a class="product-item__link" href="">
+                                                <a class="product-item__link" href="{{'/product/'.$pro->productId.'/'}}">
                                                     <div class="product-item__img">
                                                         <img src="{{cloudinary()->getImage('products/'.$image->productImage)}}" alt="">
                                                     </div>
@@ -82,7 +82,7 @@
                                                     </div>
                                                     <div class="product-item__layout d-flex align-items-center justify-content-between">
                                                         <i class="far fa-heart product-item__like"></i>
-                                                        <p class="product-item__sold">Đã bán  {{$pro -> sold}}</p>
+                                                        <p class="product-item__sold">Đã bán {{$pro -> sold}}</p>
                                                     </div>
                                                 </a>
                                             </div>

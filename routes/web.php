@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\FileUploadController;
+
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -55,9 +57,8 @@ Route::post('/reset-password', [AuthController::class, 'resetPassword'])
 Route::post('register', [AuthController::class, 'register'])->name('auth.create');
 Route::post('login', [AuthController::class, 'login'])->name('auth.check');
 
-Route::get('/product', function () {
-    return view('/pages/product');
-});
+// Product routes
+Route::get('/product/{id}', [ProductController::class, '__invoke']);
 
 // Protected routes
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -92,9 +93,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 //     return view('/adminthucong/User');
 // });
 
-// Route::get('/Chart', function () {
-//     return view('/adminthucong/chart');
-// });
+Route::get('/chart', function () {
+    return view('/adminthucong/chart');
+});
 
 Route::get('/UserManagement', 'App\Http\Controllers\Admin\UserController@index');
 Route::get('/Admin', 'App\Http\Controllers\Admin\ProductController@index');
