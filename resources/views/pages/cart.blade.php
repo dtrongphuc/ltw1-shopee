@@ -85,7 +85,7 @@
                         <div class="container">
                             <div class="row d-flex align-items-center" style="text-align: center;">
                                 <div class="col-3 d-flex justify-content-center">
-                                    <p class="cartbody__productsinfo-unitprice" id="price_{{$product->productName}}">{{number_format(floatval($product->price), 2)}}</p>
+                                    <p class="cartbody__productsinfo-unitprice" id="price_{{$product->productName}}">{{number_format(floatval($product->price))}}</p>
                                     <p class="cartbody__productsinfo-unitprice">đ</p>
                                 </div>
                                 <div class="col-3">
@@ -101,7 +101,7 @@
                                 </div>
                                 <div class="col-3 d-flex justify-content-center">
                                     <p class="cartbody__productsinfo-price">đ</p>
-                                    <p class="cartbody__productsinfo-price" id="toltalprice">{{number_format(floatval($product->price * $product->quatity), 2)}}</p>
+                                    <p class="cartbody__productsinfo-price" id="toltalprice_{{$product->productName}}">{{number_format(floatval($product->price * $product->quatity))}}</p>
                                 </div>
                                 <div class="col-3">
                                     <span class="cartbody__productsinfo-manipulation">Xóa</span>

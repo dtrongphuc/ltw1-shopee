@@ -84,14 +84,22 @@
             var quantity = document.getElementById("quantity_" + productName).value;
             document.getElementById("quantity_" + productName).value = parseInt(quantity) + 1;
             var price = document.getElementById("price_" + productName).innerHTML;
-            console.log(price);
+            // toltalprice_
+            console.log(price.substring(0, price.length - 4));
+            var totalprice = parseInt(price.substring(0, price.length - 4)) * (parseInt(quantity) + 1);
+            document.getElementById("toltalprice_" + productName).innerHTML = totalprice + ",000";
         }
         //giảm số lượng
         function DownQuantity(product) {
-            var animalType = product.getAttribute("data-cart");
-            var quantity = document.getElementById("quantity_" + animalType).value;
+            var productName = product.getAttribute("data-cart");
+            var quantity = document.getElementById("quantity_" + productName).value;
             if (parseInt(quantity) > 1) {
-                document.getElementById("quantity_" + animalType).value = parseInt(quantity) - 1;
+                document.getElementById("quantity_" + productName).value = parseInt(quantity) - 1;
+                var price = document.getElementById("price_" + productName).innerHTML;
+                // toltalprice_
+                var totalprice = parseInt(price.substring(0, price.length - 4)) * (parseInt(quantity) - 1);
+                console.log(totalprice);
+                document.getElementById("toltalprice_" + productName).innerHTML = totalprice + ",000";
             }
         }
 
