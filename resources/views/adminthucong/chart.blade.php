@@ -200,7 +200,7 @@
 
                     <div class="chart-round-item">
                         <div class="tittle-chart">
-                            <span>Doanh Thu Theo Quý</span>
+                            <span>Doanh Thu Theo Năm</span>
                         </div>
                         <div id="chart-Quarter2"></div>
                     </div>
@@ -239,41 +239,105 @@
             'packages': ['corechart']
         });
         google.charts.setOnLoadCallback(drawChart);
-        let response;
-        const test = async () => {
-            try {
-                response = await axios.get('/api/chartstatis')
-                console.log(response);
-            } catch (error) {
-                console.log(error);
-            }
+        
+        
+        // const test = async () => {
+        //     try {
+        //         response = await axios.get('/api/statisticalMonth')
+        //         data = response.data;
+                
+        //         console.log(data[0]);
 
-        }
+        //     } catch (error) {
+        //         console.log(error);
+        //     }
+        // }
 
-        test();
-
+        // test();
+        
+        
+            
         // Draw the chart and set the chart values
         function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Task', 'Hours per Day'],
-                ['Quý 1', response.data],
-                ['Quý 2', 2],
-                ['Quý 3', 4],
-                ['Quý 4', 2],
-            ]);
+            let datachart;
+            const test = async () => {
+                try {
+                    response = await axios.get('/api/statisticalquarter')
+                    let datacall = response.data;
+                    datachart = google.visualization.arrayToDataTable([
+                    ['Task', 'Hours per Day'],
+                    ['Quý 1', datacall[0]],
+                    ['Quý 2', datacall[1]],
+                    ['Quý 3', datacall[2]],
+                    ['Quý 4', 2],
+                ]);
+                    //console.log(data);
 
-            // Optional; add a title and set the width and height of the chart
-            var options = {
-                'width': 500,
-                'height': 300
-            };
+                } catch (error) {
+                    console.log(error);
+                }
+            
+            
+                test();
+                // Optional; add a title and set the width and height of the chart
+                var options = {
+                    'width': 500,
+                    'height': 300
+                };
 
-            // Display the chart inside the <div> element with id="chart-Quarter"
-            // var chart = new google.visualization.PieChart(document.getElementById('chart-Quarter'));
-            var chart1 = new google.visualization.PieChart(document.querySelector('#chart-Quarter1'));
-            var chart2 = new google.visualization.PieChart(document.querySelector('#chart-Quarter2'));
-            chart1.draw(data, options);
-            chart2.draw(data, options);
+                // Display the chart inside the <div> element with id="chart-Quarter"
+                // var chart = new google.visualization.PieChart(document.getElementById('chart-Quarter'));
+                var chart1 = new google.visualization.PieChart(document.getElementById('chart-Quarter1'));
+                // var chart2 = new google.visualization.PieChart(document.querySelector('#chart-Quarter2'));
+                // chart1.draw(data, options);
+                chart1.draw(datachart, options);
+            }
+            test();
+        }
+    </script>
+
+    <script type="text/javascript">
+        // Load google charts
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+        // Draw the chart and set the chart values
+        function drawChart() {
+            
+            const test = async () => {
+                try {
+                    response = await axios.get('/api/statisticalyear')
+                    let datacall = response.data;
+                    datachart = google.visualization.arrayToDataTable([
+                    ['Task', 'Hours per Day'],
+                    ['Quý 1', 0],
+                    ['Quý 2', 0],
+                    ['Quý 3', 2],
+                    ['Quý 4', 2],
+                ]);
+                    console.log(datacall);
+
+                } catch (error) {
+                    console.log(error);
+                }
+            
+            
+                test();
+                // Optional; add a title and set the width and height of the chart
+                var options = {
+                    'width': 500,
+                    'height': 300
+                };
+
+                // Display the chart inside the <div> element with id="chart-Quarter"
+                // var chart = new google.visualization.PieChart(document.getElementById('chart-Quarter'));
+                var chart = new google.visualization.PieChart(document.getElementById('chart-Quarter2'));
+                // var chart2 = new google.visualization.PieChart(document.querySelector('#chart-Quarter2'));
+                // chart1.draw(data, options);
+                chart.draw(datachart, options);
+            }
+            test();
         }
     </script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>

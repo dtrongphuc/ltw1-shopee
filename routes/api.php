@@ -18,4 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/chartstatis', [ChartController::class, 'index']);
+// Route::get('/chartstatis', [ChartController::class, 'index']);
+Route::get('/statisticalquarter', [ChartController::class, 'StatisticalQuarter']);
+Route::get('/statisticalyear', [ChartController::class, 'StatisticalYear']);

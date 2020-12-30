@@ -7,7 +7,7 @@ use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\FileUploadController;
-
+use App\Http\Controllers\Admin\ChartController;
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -93,14 +93,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
 //     return view('/adminthucong/User');
 // });
 
-Route::get('/chart', function () {
-    return view('/adminthucong/chart');
-});
+// Route::get('/chart', function () {
+//     return view('/adminthucong/chart');
+// });
 
-Route::get('/UserManagement', 'App\Http\Controllers\Admin\UserController@index');
-Route::get('/Admin', 'App\Http\Controllers\Admin\ProductController@index');
-Route::get('/OrderManagement', 'App\Http\Controllers\Admin\OrderController@index');
+Route::get('/userManagement', 'App\Http\Controllers\Admin\UserController@index');
+Route::get('/admin', 'App\Http\Controllers\Admin\ProductController@index');
+Route::get('/orderManagement', 'App\Http\Controllers\Admin\OrderController@index');
 Route::get('/chartstatistical', 'App\Http\Controllers\Admin\ChartController@index');
+
 
 Route::get('/administrator', function () {
     return view('/pages/administrator');

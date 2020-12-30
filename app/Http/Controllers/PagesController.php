@@ -16,7 +16,7 @@ class PagesController extends Controller
     {
         $category = Categories::all();
         //$products = Product::all()->paginate(15);
-        $products = DB::table('Product')->paginate(15);
+        $products = DB::table('products')->paginate(15);
         $image = DB::table('product_images')
                 ->join('products', 'product_images.productId','=','products.productId')
                 ->select('productImage')
