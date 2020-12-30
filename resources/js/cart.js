@@ -9,4 +9,4 @@ document.getElementById("check-all").onclick = function() {
         for (var i = 0; i < checkboxs.length; i++) {
             checkboxs[i].checked = false;
         }
-}
+};

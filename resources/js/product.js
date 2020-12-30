@@ -9,33 +9,22 @@ $(document).ready(function() {
         slidesToScroll: 1,
         prevArrow: $(".product-images__ctn--left"),
         nextArrow: $(".product-images__ctn--right")
-        // responsive: [
-        //   {
-        //     breakpoint: 1024,
-        //     settings: {
-        //       slidesToShow: 3,
-        //       slidesToScroll: 3,
-        //       infinite: true,
-        //       dots: true
-        //     }
-        //   },
-        //   {
-        //     breakpoint: 600,
-        //     settings: {
-        //       slidesToShow: 2,
-        //       slidesToScroll: 2
-        //     }
-        //   },
-        //   {
-        //     breakpoint: 480,
-        //     settings: {
-        //       slidesToShow: 1,
-        //       slidesToScroll: 1
-        //     }
-        //   }
-        //   // You can unslick at a given breakpoint now by adding:
-        //   // settings: "unslick"
-        //   // instead of a settings object
-        // ]
+    });
+
+    const bigImage = document.querySelector(".product-left__img--big");
+    let firstImage = document.querySelector(".image-item__bg");
+    if (!!bigImage) {
+        bigImage.style.backgroundImage =
+            firstImage && firstImage.style.backgroundImage;
+    }
+    document.querySelectorAll(".product-image__item").forEach(item => {
+        item.addEventListener("mouseover", event => {
+            let parent = event.currentTarget;
+            let children = parent.querySelector(".image-item__bg");
+            if (!!bigImage) {
+                bigImage.style.backgroundImage =
+                    bigImage && children.style.backgroundImage;
+            }
+        });
     });
 });
