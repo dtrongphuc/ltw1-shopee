@@ -1822,6 +1822,8 @@ a:hover {
 
 .new-review > img {
     margin-right: 8px;
+    position: relative;
+    bottom: 18px;
 }
 
 .new-review__form {

@@ -38,7 +38,7 @@ class ProductController extends Controller
             'images' => $images,
             'types' => $types,
             'reviews' => $reviews,
-            'currentUserAvatar' => $currentUserAvatar
+            'currentUserAvatar' => $currentUserAvatar ?? null
         ]);
     }
 }
