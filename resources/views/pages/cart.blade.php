@@ -106,7 +106,9 @@
                                     <p class="cartbody__productsinfo-price" id="toltalprice_{{$product->productName}}">{{number_format(floatval($product->price * $product->quatity))}}</p>
                                 </div>
                                 <div class="col-3">
-                                    <span class="cartbody__productsinfo-manipulation">Xóa</span>
+                                    <a href="{{'/cart/delete/'.$product->id}}">
+                                        <span class="cartbody__productsinfo-manipulation">Xóa</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
