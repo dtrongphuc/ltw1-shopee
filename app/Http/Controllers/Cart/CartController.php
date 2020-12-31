@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Cart;
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
@@ -24,6 +25,12 @@ class CartController extends Controller
     public function deleteCartById($cartId)
     {
         $cart = Cart::find($cartId)->delete();
+        //trở lại trang trước đó
         return redirect()->back(); 
     }
+    public function upQuantityProduct(Request $request){
+        // echo $request + 1;
+        return response()->json($request->quantity + 1, 200);
+    }
+    
 }

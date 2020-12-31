@@ -114,8 +114,8 @@ Route::get('/', [PagesController::class, 'ListCategories']);
 
 //giỏ hàng
 Route::get('/cart', 'App\Http\Controllers\Cart\CartController@cart');
-
 Route::get('/cart/delete/{cartid}', [CartController::class, 'deleteCartById'])->name('cart.delete');
+// Route::post('/cart/UpQuantity', [CartController::class, 'upQuantityProduct'])->name('cart.upquantify');
 
 //TEST ROUTES
 Route::get('/upload', [FileUploadController::class, 'showUploadForm']);

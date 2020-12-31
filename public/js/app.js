@@ -20105,7 +20105,9 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./product */ "./resources/js/product.js");
 
-__webpack_require__(/*! ./auth */ "./resources/js/auth.js"); // require("./cart");
+__webpack_require__(/*! ./auth */ "./resources/js/auth.js");
+
+__webpack_require__(/*! ./cart */ "./resources/js/cart.js");
 
 /***/ }),
 
@@ -20461,7 +20463,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./resources/js/cart.js":
 /*!******************************!*\
   !*** ./resources/js/cart.js ***!
@@ -20469,20 +20470,107 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-document.getElementById("check-all").onclick = function () {
-  //lấy ds checkbox
-  var checkboxs = document.getElementsByName("check-one");
-  if (document.getElementById("check-all").checked == true) for (var i = 0; i < checkboxs.length; i++) {
-    checkboxs[i].checked = true;
-  } else for (var i = 0; i < checkboxs.length; i++) {
-    checkboxs[i].checked = false;
-  }
-};
+//  //check tất cả trong giở hàng
+//  document.getElementById("check-all").onclick = function() {
+//          //lấy ds checkbox
+//          var checkboxs = document.getElementsByName("check-one");
+//          if (document.getElementById("check-all").checked == true)
+//              for (var i = 0; i < checkboxs.length; i++) {
+//                  checkboxs[i].checked = true;
+//              }
+//          else
+//              for (var i = 0; i < checkboxs.length; i++) {
+//                  checkboxs[i].checked = false;
+//              }
+//      }
+//button tăng
+// function UpQuantity(product) {
+//     var productName = product.getAttribute("data-cart");
+//     var quantity = document.getElementById("quantity_" + productName).value;
+//     document.getElementById("quantity_" + productName).value = parseInt(quantity) + 1;
+//     var price = document.getElementById("price_" + productName).innerHTML;
+//     // toltalprice_
+//     var totalprice = parseInt(price.substring(0, price.length - 4)) * (parseInt(quantity) + 1);
+//     //giá tổng
+//     var payall = document.getElementById("payall").innerHTML;
+//     var temp = payall.substring(0, payall.length - 4);
+//     var price_all = parseInt(temp.replace(/,/i, ''));
+//     var payallprice = price_all + parseInt(price.substring(0, price.length - 4));
+//     if (totalprice > 999) {
+//         totalprice = totalprice.toString().substring(0, totalprice.toString().length - 3) + "," + totalprice
+//             .toString().substring(1);
+//     }
+//     if (payallprice > 999) {
+//         payallprice = payallprice.toString().substring(0, payallprice.toString().length - 3) + "," + payallprice
+//             .toString().substring(1);
+//     }
+//     document.getElementById("payall").innerHTML = payallprice + ",000";
+//     document.getElementById("toltalprice_" + productName).innerHTML = totalprice + ",000";
+// }
+// //giảm số lượng
+// function DownQuantity(product) {
+//     var productName = product.getAttribute("data-cart");
+//     var quantity = document.getElementById("quantity_" + productName).value;
+//     if (parseInt(quantity) > 1) {
+//         document.getElementById("quantity_" + productName).value = parseInt(quantity) - 1;
+//         var price = document.getElementById("price_" + productName).innerHTML;
+//         // toltalprice_
+//         var totalprice = parseInt(price.substring(0, price.length - 4)) * (parseInt(quantity) - 1);
+//         var payall = document.getElementById("payall").innerHTML;
+//         var temp = payall.substring(0, payall.length - 4);
+//         var price_all = parseInt(temp.replace(/,/i, ''));
+//         var payallprice = price_all - parseInt(price.substring(0, price.length - 4));
+//         if (totalprice > 999) {
+//             totalprice = totalprice.toString().substring(0, totalprice.toString().length - 3) + "," + totalprice
+//                 .toString().substring(1);
+//         }
+//         if (payallprice > 999) {
+//             payallprice = payallprice.toString().substring(0, payallprice.toString().length - 3) + "," +
+//                 payallprice.toString().substring(1);
+//         }
+//         document.getElementById("payall").innerHTML = payallprice + ",000";
+//         document.getElementById("toltalprice_" + productName).innerHTML = totalprice + ",000";
+//     }
+// }
+$(document).ready(function () {
+  $("button").on("click", function (event) {
+    event.preventDefault();
+    var id = $(this).attr("id");
+    var productname = id.substring(3);
+    var quantity = $("#quantity_" + productname).val(); // var _token = $('input[name="_token"]').val();
+    // $.ajax({
+    //     url: "{{ route('cart.upquantify') }}",
+    //     method: "POST",
+    //     data: {
+    //         quantity: quantity,
+    //     },
+    //     success: function(data) { //dữ liệu nhận về
+    //         alert(data);
+    //     }
+    // });
+    // $.ajaxSetup({
+    //     headers: {
+    //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //     }
+    // });
+
+    $.ajax({
+      url: "api/cart/UpQuantity",
+      type: "POST",
+      data: {
+        quantity: quantity
+      },
+      success: function success(response) {
+        alert(response);
+      }
+    });
+  });
+}); // function printdata(data) {
+//     alert(data);
+// }
 
 /***/ }),
 
-=======
->>>>>>> ad053d4841d5bc6c91d543806ab9758e562b888b
 /***/ "./resources/js/product.js":
 /*!*********************************!*\
   !*** ./resources/js/product.js ***!
@@ -20550,11 +20638,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-module.exports = __webpack_require__(/*! E:\CSS_HTML_JS_ME\LTWed-1-LT\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
-=======
-module.exports = __webpack_require__(/*! Z:\Code\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
->>>>>>> ad053d4841d5bc6c91d543806ab9758e562b888b
+module.exports = __webpack_require__(/*! F:\2020-2021-HK1\LTWeb 1\Project\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })

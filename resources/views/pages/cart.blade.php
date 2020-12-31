@@ -71,7 +71,7 @@
                     <div class="col-md-5">
                         <div class="cartbody__checkall d-flex align-items-center ">
                             <div class="cartbody__products-check">
-                                <input type="checkbox" name="check-one">
+                                {{-- <input type="checkbox" name="check-one"> --}}
                             </div>
                             <div class="cartbody__products-img">
                                 <img src="images/products/hoodie_cart.jpg" alt="" style="width: 80px; height: 80px;">
@@ -92,11 +92,11 @@
                                 </div>
                                 <div class="col-3">
                                     <div class="cartbody__productsinfo-amount">
-                                        <button class="cartbody__productsinfo-amount--downup down-default" id="down" data-cart="{{$product->productName}}" onclick="DownQuantity(this)">
+                                        <button class="cartbody__productsinfo-amount--downup down-default" id="down_{{$product->productName}}" data-cart="{{$product->productName}}" >
                                             <span>&#8722</span>
                                         </button>
                                         <input class="cartbody__productsinfo-amount--content" value="{{$product->quatity}}" id="quantity_{{$product->productName}}" readonly>
-                                        <button class="cartbody__productsinfo-amount--downup" id="up" data-cart="{{$product->productName}}" onclick="UpQuantity(this)">
+                                        <button class="cartbody__productsinfo-amount--downup" id="up_{{$product->productName}}" data-cart="{{$product->productName}}" >
                                             <span>&#43</span>
                                         </button>
                                     </div>
@@ -122,13 +122,7 @@
             <div class="row d-flex justify-content-between align-items-center">
                 <div class="col-md-6">
                     <div class="cartfooter__selectproduct d-flex align-items-center">
-                        <div class="cartfooter__selectproduct-checkall d-flex align-items-center">
-                            <div class="cartbody__products-check cartfooter__selectproduct-checkall--check">
-                                <input type="checkbox" id="check-all">
-                            </div>
-                            <p class="cartfooter__selectproduct-checkall--content">Chọn tất cả (12)</p>
-                        </div>
-                        <button class="btn cartfooter__selectproduct-deleteall">Xóa</button>
+                        {{-- <button class="btn cartfooter__selectproduct-deleteall">Xóa</button> --}}
                         <button class="btn cartfooter__selectproduct-favoriteall">Lưu vào mục đã thích</button>
                     </div>
                 </div>
