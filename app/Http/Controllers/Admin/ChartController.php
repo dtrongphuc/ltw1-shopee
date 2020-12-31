@@ -27,12 +27,25 @@ class ChartController extends Controller
             ->count();
         $statistical = new QuantityStatistics($quantity, $total, $orderwait);
 
-        ///Thống Kê Theo Quý
         
-        return view('adminthucong/chart', ['statisticalToday' => $statistical]);
-        //return response()->json($statistical, 200);
+        // return view('adminthucong/chart', ['statisticalToday' => $statistical]);
+        // //return response()->json($statistical, 200);
+
+        //thống kê theo năm
+        $data = DB::table('bills')
+        ->select(DB::raw('YEAR(createAt) year'),DB::raw('sum(totalPrice) total'))
+        ->groupBy(DB::raw('YEAR(createAt)'))->get();
+
+        $array[] = ['year', 'total'];
+        foreach($data as $key => $value)
+        {
+            $array[++$key] = [(string)$value->year, (float)$value->total];
+        }
+        return view('adminthucong/chart')->with('year',json_encode($array)) ->with('statisticalToday', $statistical);
+        //return response()->json($nam, 200);
     }
 
+    //thống kê theo quý
     public function StatisticalQuarter(){
         $quy1 = DB::table('bills')
             ->whereMonth('createAt', '>=', '1')
@@ -56,10 +69,18 @@ class ChartController extends Controller
         return response()->json($ArrayQuy, 200);
     }
 
+    //thống kê theo năm
     public function StatisticalYear(){
-        $nam = DB::table('bills')
+        $data = DB::table('bills')
         ->select(DB::raw('YEAR(createAt) year'),DB::raw('sum(totalPrice) total'))
         ->groupBy(DB::raw('YEAR(createAt)'))->get();
+
+        $array[] = ['year', 'number'];
+        foreach($data as $key => $value)
+        {
+            $array[++$key] = [$value->year, $value -> number];
+        }
+
         return response()->json($nam, 200);
     }
 
@@ -68,11 +89,11 @@ class ChartController extends Controller
         for($i=1;$i<=12;$i++)
         {
             $total = DB::table('bills')
-            ->whereMonth('createAt', '=', i)
+            ->whereMonth('createAt', '=', $i)
             ->sum('totalPrice');
             $total = $total /1000;
             array_push($ArrayMonth,$total);
         }
-        return response()->json($nam, 200);
+        return response()->json($ArrayMonth, 200);
     }
 }

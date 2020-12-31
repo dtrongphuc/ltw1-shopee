@@ -29,4 +29,8 @@ class ProductController extends Controller
         return view('adminthucong/index', ['sanpham' => $product]);
         //return response()->json($product, 200);
     }
+
+    public function AddProduct(){
+        
+    }
 }

@@ -21,3 +21,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // Route::get('/chartstatis', [ChartController::class, 'index']);
 Route::get('/statisticalquarter', [ChartController::class, 'StatisticalQuarter']);
 Route::get('/statisticalyear', [ChartController::class, 'StatisticalYear']);
+Route::get('/statisticalmonth', [ChartController::class, 'StatisticalMonth']);

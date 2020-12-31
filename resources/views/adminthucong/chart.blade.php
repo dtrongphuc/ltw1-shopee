@@ -14,8 +14,11 @@
 
     <script>
         window.onload = function() {
-
-            var chart = new CanvasJS.Chart("chart-day", {
+           const test = async () => {
+            try {
+                response = await axios.get('/api/statisticalmonth')
+                data = response.data;
+                var chart = new CanvasJS.Chart("chart-day", {
                 theme: "light1", // "light1", "light2", "dark1", "dark2"
                 animationEnabled: true,
 
@@ -26,7 +29,7 @@
                 },
                 axisY: {
                     includeZero: true,
-                    valueFormatString: "#0[VND]"
+                    valueFormatString: "#0[Ngàn VND]"
                 },
                 data: [{
                     type: "line",
@@ -35,62 +38,62 @@
                     // yValueFormatString: "$###.#",
                     dataPoints: [{
                             x: 1,
-                            y: 2030000.00,
+                            y: data[0],
                             markerColor: "#6B8E23"
                         },
                         {
                             x: 2,
-                            y: 3030000.00,
+                            y: data[1],
                             markerColor: "#6B8E23"
                         },
                         {
                             x: 3,
-                            y: 0,
+                            y: data[2],
                             markerColor: "6B8E23"
                         },
                         {
                             x: 4,
-                            y: 0,
+                            y: data[3],
                             markerColor: "6B8E23"
                         },
                         {
                             x: 5,
-                            y: 0,
+                            y: data[4],
                             markerColor: "#6B8E23"
                         },
                         {
                             x: 6,
-                            y: 85,
+                            y: data[5],
                             markerColor: "#6B8E23"
                         },
                         {
                             x: 7,
-                            y: 0,
+                            y: data[6],
                             markerColor: "6B8E23"
                         },
                         {
                             x: 8,
-                            y: 0,
+                            y: data[7],
                             markerColor: "6B8E23"
                         },
                         {
                             x: 9,
-                            y: 0,
+                            y: data[8],
                             markerColor: "6B8E23"
                         },
                         {
                             x: 10,
-                            y: 0,
+                            y: data[9],
                             markerColor: "6B8E23"
                         },
                         {
                             x: 11,
-                            y: 0,
+                            y: data[10],
                             markerColor: "6B8E23"
                         },
                         {
                             x: 12,
-                            y: 200000.00,
+                            y: data[11],
                             markerColor: "6B8E23"
                         }
                     ]
@@ -98,6 +101,11 @@
             });
             chart.render();
 
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        test(); 
         }
     </script>
 </head>
@@ -233,15 +241,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        // Load google charts
-        google.charts.load('current', {
-            'packages': ['corechart']
-        });
-        google.charts.setOnLoadCallback(drawChart);
-        
-        
-        // const test = async () => {
+    <!-- // const test = async () => {
         //     try {
         //         response = await axios.get('/api/statisticalMonth')
         //         data = response.data;
@@ -253,94 +253,60 @@
         //     }
         // }
 
-        // test();
+        // test(); -->
         
-        
-            
-        // Draw the chart and set the chart values
-        function drawChart() {
-            let datachart;
-            const test = async () => {
-                try {
-                    response = await axios.get('/api/statisticalquarter')
-                    let datacall = response.data;
-                    datachart = google.visualization.arrayToDataTable([
-                    ['Task', 'Hours per Day'],
-                    ['Quý 1', datacall[0]],
-                    ['Quý 2', datacall[1]],
-                    ['Quý 3', datacall[2]],
-                    ['Quý 4', 2],
-                ]);
-                    //console.log(data);
+        <script type="text/javascript">
+            // Load google charts
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
 
-                } catch (error) {
-                    console.log(error);
+            // Draw the chart and set the chart values
+            function drawChart() {
+                const test = async () => {
+                    try {
+                        let response = await axios.get('/api/statisticalquarter')
+                        let datastatis = response.data;
+                       //let quy1 = datastatis[0];
+                        var data = google.visualization.arrayToDataTable([
+                        ['Task', 'Hours per Day'],
+                        ['Quý 1', parseFloat(datastatis[0])],
+                        ['Quý 2', parseFloat(datastatis[1])],
+                        ['Quý 3', parseFloat(datastatis[2])],
+                        ['Quý 4', parseFloat(datastatis[3])]
+                        ]); 
+                        // Optional; add a title and set the width and height of the chart
+                        var options = {'width':500, 'height':400, sliceVisibilityThreshold: 0};
+
+                        // Display the chart inside the <div> element with id="piechart"
+                        var chart = new google.visualization.PieChart(document.getElementById('chart-Quarter1'));
+                        chart.draw(data, options);
+                    } catch (error) {
+                            console.log(error);
+                        }
                 }
-            
-            
                 test();
-                // Optional; add a title and set the width and height of the chart
-                var options = {
-                    'width': 500,
-                    'height': 300
-                };
-
-                // Display the chart inside the <div> element with id="chart-Quarter"
-                // var chart = new google.visualization.PieChart(document.getElementById('chart-Quarter'));
-                var chart1 = new google.visualization.PieChart(document.getElementById('chart-Quarter1'));
-                // var chart2 = new google.visualization.PieChart(document.querySelector('#chart-Quarter2'));
-                // chart1.draw(data, options);
-                chart1.draw(datachart, options);
             }
-            test();
+        </script>
+ <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+ 
+ <script type="text/javascript">
+            var analytics = <?php echo $year; ?>
+            
+            // Load google charts
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            // Draw the chart and set the chart values
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable(
+                    analytics
+                );
+                var options = {'width':500, 'height':400};
+               var chart = new google.visualization.PieChart(document.getElementById('chart-Quarter2'));         
+               chart.draw(data, options);  
         }
-    </script>
-
-    <script type="text/javascript">
-        // Load google charts
-        google.charts.load('current', {
-            'packages': ['corechart']
-        });
-        google.charts.setOnLoadCallback(drawChart);
-        // Draw the chart and set the chart values
-        function drawChart() {
-            
-            const test = async () => {
-                try {
-                    response = await axios.get('/api/statisticalyear')
-                    let datacall = response.data;
-                    datachart = google.visualization.arrayToDataTable([
-                    ['Task', 'Hours per Day'],
-                    ['Quý 1', 0],
-                    ['Quý 2', 0],
-                    ['Quý 3', 2],
-                    ['Quý 4', 2],
-                ]);
-                    console.log(datacall);
-
-                } catch (error) {
-                    console.log(error);
-                }
-            
-            
-                test();
-                // Optional; add a title and set the width and height of the chart
-                var options = {
-                    'width': 500,
-                    'height': 300
-                };
-
-                // Display the chart inside the <div> element with id="chart-Quarter"
-                // var chart = new google.visualization.PieChart(document.getElementById('chart-Quarter'));
-                var chart = new google.visualization.PieChart(document.getElementById('chart-Quarter2'));
-                // var chart2 = new google.visualization.PieChart(document.querySelector('#chart-Quarter2'));
-                // chart1.draw(data, options);
-                chart.draw(datachart, options);
-            }
-            test();
-        }
-    </script>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        </script>
+   
 
 </body>
 
