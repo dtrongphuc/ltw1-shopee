@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Product\ProductController;
+use App\Http\Controllers\Product\PostReviewController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\FileUploadController;
@@ -82,6 +83,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/pay', function () {
         return view('/pages/pay');
     });
+
+    Route::post('/product/post-review', [PostReviewController::class, 'post'])->name('post.review');
 });
 
 

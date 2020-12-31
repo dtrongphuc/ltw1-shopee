@@ -55,6 +55,7 @@ $(document).ready(function() {
                     let star = rateStars[i].querySelector("div");
                     star.style.width = "100%";
                 }
+                document.querySelector("#post-rate").value = index + 1;
             });
         });
 });
