@@ -69,7 +69,6 @@ loginForm &&
         try {
             btnSubmit.disabled = true;
             const response = await axios.post("login", loginData);
-            console.log(response);
             if (response.status === 200) {
                 window.location.href = "/";
             }

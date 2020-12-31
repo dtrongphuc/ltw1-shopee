@@ -1,4 +1,5 @@
 require("./bootstrap");
-require("./product");
 require("./auth");
 require("./cart");
+require("./product");
+// require("./cart");

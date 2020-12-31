@@ -27,7 +27,7 @@ class ProductController extends Controller
                     ->join('products', 'reviews.productId','=', 'products.productId')
                     ->join('users', 'reviews.userId', '=', 'users.id')
                     ->where('products.productId', '=', $productId)
-                    ->select('avatar', 'email', 'reviews.rate', 'text', 'reviews.postAt')
+                    ->select('avatar', 'email', 'reviews.rate', 'text', 'reviews.created_at')
                     ->get()->toArray();
         $userId = Auth::id();
         if(isset($userId)){
@@ -38,7 +38,7 @@ class ProductController extends Controller
             'images' => $images,
             'types' => $types,
             'reviews' => $reviews,
-            'currentUserAvatar' => $currentUserAvatar
+            'currentUserAvatar' => $currentUserAvatar ?? null
         ]);
     }
 }

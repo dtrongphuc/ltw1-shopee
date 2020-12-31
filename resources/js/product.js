@@ -46,7 +46,16 @@ $(document).ready(function() {
 
     const rateStars = document.querySelectorAll(".new-review__rate--wrapper");
     rateStars &&
-        rateStars.forEach(star => {
-            star.addEventListener("mouseover", () => {});
+        rateStars.forEach((starWrapper, index) => {
+            starWrapper.addEventListener("click", () => {
+                document
+                    .querySelectorAll(".new-review__rate--wrapper > div")
+                    .forEach(star => (star.style.width = "0%"));
+                for (let i = 0; i <= index; i++) {
+                    let star = rateStars[i].querySelector("div");
+                    star.style.width = "100%";
+                }
+                document.querySelector("#post-rate").value = index + 1;
+            });
         });
 });

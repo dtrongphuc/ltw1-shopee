@@ -385,18 +385,30 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="mt-2">
                 @auth
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                     <div class="new-review">
                         @if(isset($currentUserAvatar))
                             <img src="{{cloudinary()->getImage('avatars/'.$currentUserAvatar)}}" alt="" class="review-item__avatar">
                         @endif
-                        <form action="" method="POST" class="new-review__form">
+                        <form action="{{route('post.review')}}" method="POST" class="new-review__form">
+                            @csrf
                             <div class="new-review__wrapper">
-                                <textarea name="new-review" class="review__input"></textarea>
+                                <input type="text" name="productId" hidden value="{{$product->productId}}">
+                                <input type="text" name="rate" hidden id="post-rate" value="1">
+                                <textarea name="text" class="review__input" value="{{old('text')}}"></textarea>
                                 <div class="new-review__rate">
                                     <div class="new-review__rate--wrapper">
-                                        <div style="width: 0%">
+                                        <div style="width: 100%">
                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                                 xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="0.9rem" height="0.9rem" x="0" y="0"
                                                 viewBox="0 0 511.98685 511" style="enable-background:new 0 0 512 512"
@@ -522,7 +534,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn review__btn-submit">Đăng</button>
+                            <button type="submit" class="review__btn-submit">Đăng</button>
                         </form>
                     </div>
                 @endauth
@@ -666,7 +678,7 @@
                                             </div>
                                         </div>
                                         <div class="review-item__text">{{$review->text}}</div>
-                                        <div class="review-item__footer">{{$review->postAt}}</div>
+                                        <div class="review-item__footer">{{$review->created_at}}</div>
                                     </div>
                                 </div>
                             </li>

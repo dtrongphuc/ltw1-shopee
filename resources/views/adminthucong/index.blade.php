@@ -16,24 +16,24 @@
     <div class="box-content showLeft" id="box-content">
         <div class="left">
             <div class="headerleft">
-                <a class="text-light" href="#">ADMIN</a>
+                <a class="text-light" href="./admin">ADMIN</a>
             </div>
             <ul class="list-item">
                 <li class="item active">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="./Admin">Quản lý sản phẩm</a>
+                    <a href="./admin">Quản lý sản phẩm</a>
                 </li>
                 <li class="item">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="./Chart">Quản lý thống kê</a>
+                    <a href="./chartstatistical">Quản lý thống kê</a>
                 </li>
                 <li class="item">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="/UserManagement">Quản lý người dùng</a>
+                    <a href="/userManagement">Quản lý người dùng</a>
                 </li>
                 <li class="item">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="./OrderManagement">Quản lý Đơn Hàng</a>
+                    <a href="./orderManagement">Quản lý Đơn Hàng</a>
                 </li>
             </ul>
         </div>
@@ -68,7 +68,6 @@
                                     <th>STT</th>
                                     <th>Tên Sản Phẩm</th>
                                     <th>Loại Danh Mục</th>
-                                    <th>Loại</th>
                                     <th>Giá</th>
                                     <th>Số Lượng</th>
                                     <th>Lược thích</th>
@@ -86,7 +85,6 @@
                                     <td>{{$sp->productId}}</td>
                                     <td>{{$sp->productName}}</td>
                                     <td>{{$sp->categoryName}}</td>
-                                    <td>{{$sp->type}}</td>
                                     <td>{{$sp->price}}</td>
                                     <td>{{$sp->quantity}}</td>
                                     <td>{{$sp->likeCount}}</td>
