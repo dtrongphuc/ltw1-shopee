@@ -18,9 +18,11 @@ class ChartController extends Controller
         $quantity = DB::table('detail_bills')
             ->join('bills', 'billId', '=', 'id')
             ->where('createAt', '=', $strTime)
+            ->where('status', '=', '4')
             ->count();
         $total = DB::table('bills')
             ->where('createAt', '=', $strTime)
+            ->where('status', '=', '4')
             ->sum('totalPrice');
         $orderwait = DB::table('bills')
             ->where('status', '=', '0')
@@ -34,6 +36,7 @@ class ChartController extends Controller
         //thống kê theo năm
         $data = DB::table('bills')
         ->select(DB::raw('YEAR(createAt) year'),DB::raw('sum(totalPrice) total'))
+        ->where('status', '=', '4')
         ->groupBy(DB::raw('YEAR(createAt)'))->get();
 
         $array[] = ['year', 'total'];
@@ -50,18 +53,22 @@ class ChartController extends Controller
         $quy1 = DB::table('bills')
             ->whereMonth('createAt', '>=', '1')
             ->whereMonth('createAt', '<=', '3')
+            ->where('status', '=', '4')
             ->sum('totalPrice');
         $quy2 = DB::table('bills')
             ->whereMonth('createAt', '>=', '4')
             ->whereMonth('createAt', '<=', '6')
+            ->where('status', '=', '4')
             ->sum('totalPrice');
         $quy3 = DB::table('bills')
             ->whereMonth('createAt', '>=', '7')
             ->whereMonth('createAt', '<=', '9')
+            ->where('status', '=', '4')
             ->sum('totalPrice');
         $quy4 = DB::table('bills')
             ->whereMonth('createAt', '>=', '10')
             ->whereMonth('createAt', '<=', '12')
+            ->where('status', '=', '4')
             ->sum('totalPrice');
 
         $ArrayQuy = array(0 => $quy1, 1 => $quy2, 2 => $quy3, 3 => $quy4);
@@ -73,6 +80,7 @@ class ChartController extends Controller
     public function StatisticalYear(){
         $data = DB::table('bills')
         ->select(DB::raw('YEAR(createAt) year'),DB::raw('sum(totalPrice) total'))
+        ->where('status', '=', '4')
         ->groupBy(DB::raw('YEAR(createAt)'))->get();
 
         $array[] = ['year', 'number'];
@@ -90,6 +98,7 @@ class ChartController extends Controller
         {
             $total = DB::table('bills')
             ->whereMonth('createAt', '=', $i)
+            ->where('status', '=', '4')
             ->sum('totalPrice');
             $total = $total /1000;
             array_push($ArrayMonth,$total);
