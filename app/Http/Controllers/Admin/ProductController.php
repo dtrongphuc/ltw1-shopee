@@ -15,7 +15,6 @@ class ProductController extends Controller
                 'products.productId',
                 'products.productName',
                 'products.description',
-                'products.type',
                 'products.price',
                 'products.quantity',
                 'products.likeCount',
