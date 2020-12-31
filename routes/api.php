@@ -24,3 +24,4 @@ Route::get('/statisticalquarter', [ChartController::class, 'StatisticalQuarter']
 Route::get('/statisticalyear', [ChartController::class, 'StatisticalYear']);
 //giỏ hàng
 Route::post('/cart/UpQuantity', [CartController::class, 'upQuantityProduct'])->name('cart.upquantify');
+Route::post('/cart/DownQuantity', [CartController::class, 'DownQuantityProduct'])->name('cart.downquantify');

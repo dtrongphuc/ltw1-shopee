@@ -29,8 +29,20 @@ class CartController extends Controller
         return redirect()->back(); 
     }
     public function upQuantityProduct(Request $request){
-        // echo $request + 1;
-        return response()->json($request->quantity + 1, 200);
+        if($request->updown == "dw"){
+            // DB::table('carts')->where('id', $request->productid)->update(['quatity' => ($request->quantity + 1)]);
+            $tt = intval($request->quantity) - 1;
+            return response()->json($tt, 200);
+        }
+        if($request->updown == "up"){
+            // DB::table('carts')->where('id', $request->productid)->update(['quatity' => ($request->quantity - 1)]);
+            $tt = intval($request->quantity) + 1;
+            return response()->json($tt, 200);
+        }
     }
-    
+    // public function DownQuantityProduct(Request $request){
+        
+    //     // DB::table('carts')->where('id', $request->productid)->update(['quatity' => ($request->quantity - 1)]);
+    //     return response()->json($request->quantity - 1, 200);
+    // }
 }
