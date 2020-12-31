@@ -15,7 +15,6 @@ class ProductController extends Controller
                 'products.productId',
                 'products.productName',
                 'products.description',
-                'products.type',
                 'products.price',
                 'products.quantity',
                 'products.likeCount',
@@ -28,5 +27,9 @@ class ProductController extends Controller
         //$product = Product::all();
         return view('adminthucong/index', ['sanpham' => $product]);
         //return response()->json($product, 200);
+    }
+
+    public function AddProduct(){
+        
     }
 }
