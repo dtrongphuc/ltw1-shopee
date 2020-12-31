@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\Admin\ChartController;
+use App\Http\Controllers\Cart\CartController;
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -114,6 +115,7 @@ Route::get('/', [PagesController::class, 'ListCategories']);
 //giỏ hàng
 Route::get('/cart', 'App\Http\Controllers\Cart\CartController@cart');
 
+Route::get('/cart/delete/{cartid}', [CartController::class, 'deleteCartById'])->name('cart.delete');
 
 //TEST ROUTES
 Route::get('/upload', [FileUploadController::class, 'showUploadForm']);

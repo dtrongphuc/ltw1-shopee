@@ -20461,6 +20461,28 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+<<<<<<< HEAD
+/***/ "./resources/js/cart.js":
+/*!******************************!*\
+  !*** ./resources/js/cart.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+document.getElementById("check-all").onclick = function () {
+  //lấy ds checkbox
+  var checkboxs = document.getElementsByName("check-one");
+  if (document.getElementById("check-all").checked == true) for (var i = 0; i < checkboxs.length; i++) {
+    checkboxs[i].checked = true;
+  } else for (var i = 0; i < checkboxs.length; i++) {
+    checkboxs[i].checked = false;
+  }
+};
+
+/***/ }),
+
+=======
+>>>>>>> ad053d4841d5bc6c91d543806ab9758e562b888b
 /***/ "./resources/js/product.js":
 /*!*********************************!*\
   !*** ./resources/js/product.js ***!
@@ -20528,7 +20550,11 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
+module.exports = __webpack_require__(/*! E:\CSS_HTML_JS_ME\LTWed-1-LT\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
+=======
 module.exports = __webpack_require__(/*! Z:\Code\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
+>>>>>>> ad053d4841d5bc6c91d543806ab9758e562b888b
 
 
 /***/ })

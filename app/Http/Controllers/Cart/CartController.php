@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Cart;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Cart;
 use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
@@ -12,7 +12,7 @@ class CartController extends Controller
     {
         $productsofcart = DB::table('products')
             ->join('carts', 'carts.productId', '=', 'products.productId')
-            ->select('products.productName', 'carts.type', 'products.price', 'carts.quatity')
+            ->select('carts.id', 'products.productName', 'carts.type', 'products.price', 'carts.quatity')
             ->get();
         $sum = 0;
         foreach($productsofcart as $sp)
@@ -20,5 +20,10 @@ class CartController extends Controller
             $sum = $sum + ($sp->quatity * $sp->price);
         }
         return view('pages/cart', ['products' => $productsofcart], ['payall' => $sum]);
+    }
+    public function deleteCartById($cartId)
+    {
+        $cart = Cart::find($cartId)->delete();
+        return redirect()->back(); 
     }
 }

@@ -19,6 +19,7 @@
                                 </li>
                                 @endforeach
                             @endif
+
                         </ul>
                     </div>
                     <div class="col-10 p-6">
@@ -47,10 +48,17 @@
                                     <div class="row m--6">
                                         <div class="col-2-4">
                                             <div class="product-item">
+                                           
                                                 <a class="product-item__link" href="{{'/product/'.$pro->productId.'/'}}">
-                                                    <div class="product-item__img">
-                                                        <img src="{{cloudinary()->getImage('products/'.$image->productImage)}}" alt="">
-                                                    </div>
+                                                @for($i = 0; $i < count($image) ; $i++)
+                                                    @if($image[$i]-> productId == $pro ->productId)
+                                                        <div class="product-item__img">
+                                                            <img src="{{cloudinary()->getImage('products/'.$image[$i]->productImage)}}" alt="">
+                                                        </div>
+                                                        @break;
+                                                    @endif
+                                                @endfor
+                                                   
                                                     <p class="product-item__layout product-item__heading">{{$pro -> productName}}</p>
                                                     <div class="product-item__layout d-flex align-items-center justify-content-between mt-3">
                                                         <div class="d-inline-flex">
@@ -91,15 +99,15 @@
                                 </div>
                             </div>
                         @endforeach
-                    @endif
+                    @endif 
 
                     </div>
                 </div>
             </div>
 
         <!-- Phân trang -->
-        <div class="shopee-page-controller">
-            <button class="shopee-icon-button shopee-icon-button--left ">
+        <div class="shopee-page-controller" ">
+            <button class="shopee-icon-button shopee-icon-button--left " >
                 <svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon icon-arrow-left">
                     <g>
                         <path d="m8.5 11c-.1 0-.2 0-.3-.1l-6-5c-.1-.1-.2-.3-.2-.4s.1-.3.2-.4l6-5c .2-.2.5-.1.7.1s.1.5-.1.7l-5.5 4.6 5.5 4.6c.2.2.2.5.1.7-.1.1-.3.2-.4.2z">
@@ -120,5 +128,6 @@
                 </svg>
             </button>
         </div>
+        
     </main>
 @stop
