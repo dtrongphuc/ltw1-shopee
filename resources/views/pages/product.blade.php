@@ -26,7 +26,7 @@
                     </button>
                 </div>
             </div>
-            <section class="main-product__right">
+            <section class="main-product__right product" data-id="{{$product->productId}}">
                 <div>
                     <h4 class="product-right__title">{{$product->productName}}</h4>
                     <div class="product-right__statistic">
@@ -211,8 +211,8 @@
                     <div class="mt-4">
                         <div class="product-favorite">
                             <div id="change-heart">
-                                <i class="far fa-heart heart-icon" id="heart-hollow"></i>
-                                <i class="fas fa-heart heart-icon heart-icon--full" id="heart"></i>
+                                <i class="far fa-heart heart-icon" id="heart-hollow" style="display: {{$favorited ? 'none' : 'block'}}"></i>
+                                <i class="fas fa-heart heart-icon heart-icon--full" id="heart" style="display: {{$favorited ? 'block' : 'none'}}"></i>
                             </div>
                             <p>Đã thích ({{$product->likeCount}})</p>
                         </div>

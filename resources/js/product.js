@@ -61,13 +61,63 @@ $(document).ready(function() {
 
     //click trái tim yêu thích
     $(document).ready(function() {
+        const productId = document.querySelector("section.product");
+        const likeCount = document.querySelector(".product-favorite > p");
         $("#change-heart").click(function() {
             if ($("#heart").css("display") == "none") {
-                $("#heart").css("display", "block");
-                $("#heart-hollow").css("display", "none");
+                axios
+                    .post(
+                        "/product/add-favorite",
+                        {
+                            productId: productId.dataset.id
+                        },
+                        {
+                            headers: {
+                                "X-CSRF-TOKEN": $(
+                                    'meta[name="csrf-token"]'
+                                ).attr("content")
+                            }
+                        }
+                    )
+                    .then(res => {
+                        if (res.status === 200) {
+                            $("#heart").css("display", "block");
+                            $("#heart-hollow").css("display", "none");
+                            if (!!likeCount) {
+                                likeCount.innerHTML = `Đã thích (${res.data?.count})`;
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.log(err.response);
+                    });
             } else {
-                $("#heart-hollow").css("display", "block");
-                $("#heart").css("display", "none");
+                axios
+                    .post(
+                        "/product/remove-favorite",
+                        {
+                            productId: productId.dataset.id
+                        },
+                        {
+                            headers: {
+                                "X-CSRF-TOKEN": $(
+                                    'meta[name="csrf-token"]'
+                                ).attr("content")
+                            }
+                        }
+                    )
+                    .then(res => {
+                        if (res.status === 200) {
+                            $("#heart-hollow").css("display", "block");
+                            $("#heart").css("display", "none");
+                            if (!!likeCount) {
+                                likeCount.innerHTML = `Đã thích (${res.data?.count})`;
+                            }
+                        }
+                    })
+                    .catch(err => {
+                        console.log(err.response);
+                    });
             }
         });
     });

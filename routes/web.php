@@ -11,6 +11,7 @@ use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\Admin\ChartController;
 use App\Http\Controllers\Cart\CartController;
 use App\Http\Controllers\Pay\PayController;
+use App\Http\Controllers\Product\FavoriteController;
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -81,6 +82,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+    Route::post('/product/add-favorite', [FavoriteController::class, 'add']);
+    Route::post('/product/remove-favorite', [FavoriteController::class, 'remove']);
 
    
     Route::post('/product/post-review', [PostReviewController::class, 'post'])->name('post.review');

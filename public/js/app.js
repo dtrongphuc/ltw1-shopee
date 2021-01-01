@@ -20530,13 +20530,51 @@ $(document).ready(function () {
   }); //click trái tim yêu thích
 
   $(document).ready(function () {
+    var productId = document.querySelector("section.product");
+    var likeCount = document.querySelector(".product-favorite > p");
     $("#change-heart").click(function () {
       if ($("#heart").css("display") == "none") {
-        $("#heart").css("display", "block");
-        $("#heart-hollow").css("display", "none");
+        axios.post("/product/add-favorite", {
+          productId: productId.dataset.id
+        }, {
+          headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+          }
+        }).then(function (res) {
+          if (res.status === 200) {
+            $("#heart").css("display", "block");
+            $("#heart-hollow").css("display", "none");
+
+            if (!!likeCount) {
+              var _res$data;
+
+              likeCount.innerHTML = "\u0110\xE3 th\xEDch (".concat((_res$data = res.data) === null || _res$data === void 0 ? void 0 : _res$data.count, ")");
+            }
+          }
+        })["catch"](function (err) {
+          console.log(err.response);
+        });
       } else {
-        $("#heart-hollow").css("display", "block");
-        $("#heart").css("display", "none");
+        axios.post("/product/remove-favorite", {
+          productId: productId.dataset.id
+        }, {
+          headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+          }
+        }).then(function (res) {
+          if (res.status === 200) {
+            $("#heart-hollow").css("display", "block");
+            $("#heart").css("display", "none");
+
+            if (!!likeCount) {
+              var _res$data2;
+
+              likeCount.innerHTML = "\u0110\xE3 th\xEDch (".concat((_res$data2 = res.data) === null || _res$data2 === void 0 ? void 0 : _res$data2.count, ")");
+            }
+          }
+        })["catch"](function (err) {
+          console.log(err.response);
+        });
       }
     });
   });
