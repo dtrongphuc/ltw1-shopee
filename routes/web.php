@@ -10,6 +10,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\Admin\ChartController;
 use App\Http\Controllers\Cart\CartController;
+use App\Http\Controllers\Pay\PayController;
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -81,12 +82,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::get('/pay', function () {
-        return view('/pages/pay');
-    });
-
+   
     Route::post('/product/post-review', [PostReviewController::class, 'post'])->name('post.review');
 });
+
 
 
 // Route::get('/admin', function () {
@@ -97,9 +96,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 //     return view('/adminthucong/User');
 // });
 
-// Route::get('/chart', function () {
-//     return view('/adminthucong/chart');
-// });
+Route::get('/chart', function () {
+    return view('/adminthucong/chart');
+});
 
 Route::get('/userManagement', 'App\Http\Controllers\Admin\UserController@index');
 Route::get('/admin', 'App\Http\Controllers\Admin\ProductController@index');
@@ -118,9 +117,11 @@ Route::get('/', [PagesController::class, 'ListCategories']);
 //giỏ hàng
 Route::get('/cart', 'App\Http\Controllers\Cart\CartController@cart');
 Route::get('/cart/delete/{cartid}', [CartController::class, 'deleteCartById'])->name('cart.delete');
-Route::get('/cart/to_product/{cartid}', [CartController::class, 'CartRedirectDetailProduct'])->name('cart.to_product');
-Route::get('/cart/to_pay/{cartid}', [CartController::class, 'CartRedirectPay'])->name('cart.to_pay');
 // Route::post('/cart/UpQuantity', [CartController::class, 'upQuantityProduct'])->name('cart.upquantify');
+
+//thánh toán
+Route::get('/pay', 'App\Http\Controllers\Pay\PayController@pay');
+
 
 //TEST ROUTES
 Route::get('/upload', [FileUploadController::class, 'showUploadForm']);

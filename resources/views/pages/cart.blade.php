@@ -137,7 +137,7 @@
                                 <h3 id="payall">{{number_format(floatval($payall))}}</h3>
                             </div>
                         </div>
-                        <a href="{{'/cart/to_pay/'}}">
+                        <a href="{{'/pay'}}">
                             <button class="btn btn-primary cartfooter__buyproduct-btnbuy">Mua hàng</button>
                         </a>
                     </div>
