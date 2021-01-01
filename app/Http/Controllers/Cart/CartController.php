@@ -40,9 +40,11 @@ class CartController extends Controller
             return response()->json($tt, 200);
         }
     }
-    // public function DownQuantityProduct(Request $request){
+    public function CartRedirectDetailProduct($cartId){
+        // return
+    }
+    public function CartRedirectPay(){
         
-    //     // DB::table('carts')->where('id', $request->productid)->update(['quatity' => ($request->quantity - 1)]);
-    //     return response()->json($request->quantity - 1, 200);
-    // }
+        // return 
+    }
 }

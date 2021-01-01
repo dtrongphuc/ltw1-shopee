@@ -69,18 +69,20 @@
                 @foreach( $products as $product)
                 <div class="row d-flex justify-content-around" style="border-bottom: #f5f5f5 solid 1px; padding-bottom: 15px">
                     <div class="col-md-5">
-                        <div class="cartbody__checkall d-flex align-items-center ">
-                            <div class="cartbody__products-check">
-                                {{-- <input type="checkbox" name="check-one"> --}}
+                        <a href="{{'/cart/to_product/'.$product->id}}">
+                            <div class="cartbody__checkall d-flex align-items-center ">
+                                <div class="cartbody__products-check">
+                                    {{-- <input type="checkbox" name="check-one"> --}}
+                                </div>
+                                <div class="cartbody__products-img">
+                                    <img src="images/products/hoodie_cart.jpg" alt="" style="width: 80px; height: 80px;">
+                                </div>
+                                <h5 class="cartbody__products-productname">
+                                    {{$product->productName}}
+                                </h5>
+                                <span class="cartbody__products-classify ml-auto">Phân loại: {{$product->type}}</span>
                             </div>
-                            <div class="cartbody__products-img">
-                                <img src="images/products/hoodie_cart.jpg" alt="" style="width: 80px; height: 80px;">
-                            </div>
-                            <h5 class="cartbody__products-productname">
-                                {{$product->productName}}
-                            </h5>
-                            <span class="cartbody__products-classify ml-auto">Phân loại: {{$product->type}}</span>
-                        </div>
+                        </a>
                     </div>
                     
                     <div class="col-md-7 d-flex align-items-center">
@@ -135,7 +137,9 @@
                                 <h3 id="payall">{{number_format(floatval($payall))}}</h3>
                             </div>
                         </div>
-                        <button class="btn btn-primary cartfooter__buyproduct-btnbuy">Mua hàng</button>
+                        <a href="{{'/cart/to_pay/'}}">
+                            <button class="btn btn-primary cartfooter__buyproduct-btnbuy">Mua hàng</button>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -2003,9 +2003,11 @@ input[type=checkbox]:checked:after {
 }
 
 .cartbody__products-productname {
+    color: black;
     font-size: 13px;
     font-weight: 400;
     width: 230px;
+    padding-left: 8px;
 }
 
 .cartbody__productsinfo-unitprice {
@@ -2030,6 +2032,10 @@ input[type=checkbox]:checked:after {
 
 .cartbody__productsinfo-amount--content:focus {
     outline: 0;
+}
+
+.cartbody__products-classify {
+    color: #adadad;
 }
 
 .cartbody__productsinfo-amount--downup {
