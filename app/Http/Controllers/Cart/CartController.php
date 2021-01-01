@@ -30,12 +30,12 @@ class CartController extends Controller
     }
     public function upQuantityProduct(Request $request){
         if($request->updown == "dw"){
-            // DB::table('carts')->where('id', $request->productid)->update(['quatity' => ($request->quantity + 1)]);
+            DB::table('carts')->where('id', $request->productid)->update(['quatity' => ($request->quantity + 1)]);
             $tt = intval($request->quantity) - 1;
             return response()->json($tt, 200);
         }
         if($request->updown == "up"){
-            // DB::table('carts')->where('id', $request->productid)->update(['quatity' => ($request->quantity - 1)]);
+            DB::table('carts')->where('id', $request->productid)->update(['quatity' => ($request->quantity - 1)]);
             $tt = intval($request->quantity) + 1;
             return response()->json($tt, 200);
         }
@@ -44,7 +44,15 @@ class CartController extends Controller
         // return
     }
     public function CartRedirectPay(){
-        
-        // return 
+        $productsofcart = DB::table('products')
+            ->join('carts', 'carts.productId', '=', 'products.productId')
+            ->select('carts.id', 'products.productName', 'carts.type', 'products.price', 'carts.quatity')
+            ->get();
+        $sum = 0;
+        foreach($productsofcart as $sp)
+        {
+            $sum = $sum + ($sp->quatity * $sp->price);
+        }
+        return view('pages/pay', ['products' => $productsofcart], ['payall' => $sum]);
     }
 }
