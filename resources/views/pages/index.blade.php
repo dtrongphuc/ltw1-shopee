@@ -63,7 +63,7 @@
                                                     <div class="product-item__layout d-flex align-items-center justify-content-between mt-3">
                                                         <div class="d-inline-flex">
                                                             <p class="product-item__price product-item__price--small text-decoration-underline font">đ</p>
-                                                            <p class="product-item__price">{{$pro -> price}}</p>
+                                                            <p class="product-item__price">{{number_format($pro->price , 0, ',', '.')}}</p>
                                                         </div>
                                                         <svg height="12" viewBox="0 0 20 12" width="20"
                                                             class="shopee-svg-icon icon-free-shipping">
