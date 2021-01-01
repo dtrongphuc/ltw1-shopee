@@ -13,11 +13,13 @@ class PayController extends Controller
         ->join('carts', 'carts.productId', '=', 'products.productId')
         ->select('carts.id', 'products.productName', 'carts.type', 'products.price', 'carts.quatity')
         ->get();
-    $sum = 0;
-    foreach($productsofcart as $sp)
-    {
-        $sum = $sum + ($sp->quatity * $sp->price);
-    }
-    return view('pages/pay', ['products' => $productsofcart], ['payall' => $sum]);
+        $sum = 0;
+        foreach($productsofcart as $sp)
+        {
+            $sum = $sum + ($sp->quatity * $sp->price);
+        }
+
+        $userinfo = DB::table('users')->where('id', 1)->get();
+        return view('pages/pay', ['products' => $productsofcart, 'payall' => $sum, 'userinfo' => $userinfo]);
     }
 }

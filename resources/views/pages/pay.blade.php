@@ -37,13 +37,13 @@
                     <div class="pay__addressship-infouser  d-flex align-items-center">
 
                         <div class="pay__addressship-info--username">
-                            <strong>Nguyễn hiếu nghĩa</strong>
+                            <strong>{{$userinfo[0]->name}}</strong>
                         </div>
                         <div class="pay__addressship-info--phone" style="margin: 0 10px;">
-                            <strong>(+84) 947094472</strong>
+                            <strong>(+84) {{substr($userinfo[0]->phoneNumber, 1)}}</strong>
                         </div>
                         <div class="pay__addressship-info--address">
-                            L22 cư xá Phú Lâm A, Phường 12, Quận 6, TP. Hồ Chí Minh
+                            {{$userinfo[0]->address}}
 
                         </div>
                     </div>
@@ -169,7 +169,6 @@
 
             <div class="cartbody__products">
                 @if (isset($products))
-                    {{$products}}
                     @foreach ($products as $product)
                         <div class="row d-flex justify-content-around" style="border-bottom: #f5f5f5 solid 1px; padding-bottom: 15px">
                             <div class="col-md-5">
@@ -181,7 +180,7 @@
                                     <h5 class="cartbody__products-productname">
                                         {{$product->productName}}
                                     </h5>
-                                    <span class="cartbody__products-classify ml-auto">{{$product->type}}</span>
+                                    <span class="cartbody__products-classify ml-auto">Phân loại:{{$product->type}}</span>
                                 </div>
                             </div>
                             <div class="col-md-7 d-flex align-items-center ">

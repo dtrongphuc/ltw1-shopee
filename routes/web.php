@@ -117,8 +117,6 @@ Route::get('/', [PagesController::class, 'ListCategories']);
 //giỏ hàng
 Route::get('/cart', 'App\Http\Controllers\Cart\CartController@cart');
 Route::get('/cart/delete/{cartid}', [CartController::class, 'deleteCartById'])->name('cart.delete');
-Route::get('/cart/to_product/{cartid}', [CartController::class, 'CartRedirectDetailProduct'])->name('cart.to_product');
-Route::get('/cart/to_pay/{cartid}', [CartController::class, 'CartRedirectPay'])->name('cart.to_pay');
 // Route::post('/cart/UpQuantity', [CartController::class, 'upQuantityProduct'])->name('cart.upquantify');
 
 //thánh toán

@@ -40,19 +40,4 @@ class CartController extends Controller
             return response()->json($tt, 200);
         }
     }
-    public function CartRedirectDetailProduct($cartId){
-        // return
-    }
-    public function CartRedirectPay(){
-        $productsofcart = DB::table('products')
-            ->join('carts', 'carts.productId', '=', 'products.productId')
-            ->select('carts.id', 'products.productName', 'carts.type', 'products.price', 'carts.quatity')
-            ->get();
-        $sum = 0;
-        foreach($productsofcart as $sp)
-        {
-            $sum = $sum + ($sp->quatity * $sp->price);
-        }
-        return view('pages/pay', ['products' => $productsofcart], ['payall' => $sum]);
-    }
 }
