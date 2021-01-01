@@ -94,9 +94,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 //     return view('/adminthucong/User');
 // });
 
-// Route::get('/chart', function () {
-//     return view('/adminthucong/chart');
-// });
+Route::get('/Category', function () {
+    return view('/adminthucong/Category');
+});
 
 Route::get('/userManagement', 'App\Http\Controllers\Admin\UserController@index');
 Route::get('/admin', 'App\Http\Controllers\Admin\ProductController@index');

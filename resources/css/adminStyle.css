@@ -68,15 +68,40 @@ body{
 .box-content .right .content-right{ 
     padding: 25px 15px;
     background: #6360600f;
+    
+    
+}
+.box-content .right .content-right .box-content-right {
+    display: flex;
+    justify-content: space-between;
 }
 .box-content .right .content-right .box-content-right .title{
     color: #5a5c69;
     font-size: 1.75em;
+    
 }
+
+.box-content .right .content-right .card-body-DM{ 
+    padding: 15px 9px;
+    background: white;
+}
+
 
 .box-content .right .content-right .card-body{ 
     padding: 15px 9px;
     background: white;
+}
+
+.box-content .right .content-right .card-body-SP{ 
+    padding: 15px 9px;
+    background: white;
+    margin-top: 20px;
+}
+
+
+.box-content .right .content-right .card-body-SP .pag{ 
+    display: flex;
+    flex-direction: row-reverse;
 }
 
 .box-content .right .content-right .card-body .pag{ 
@@ -92,6 +117,7 @@ body{
 .showLeft .left{
     width: 18% !important;
     padding: 0 20px;
+    min-height: 100vh;
 }
 
 .showLeft .right{
@@ -140,4 +166,22 @@ body{
     width: 78px;
     height: 100%;
     background-color: #f2f0fd;
+}
+
+.modal-dialog .itemadd{
+    margin-bottom: 12px;
+}
+
+.modal-dialog .itemadd .labelitem{
+    padding: 0;
+}
+.modal-dialog .itemadd .inputitem{
+    padding: 6px 10px;
+}
+
+.card-body-DM .category,
+.card-body-SP .category{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
 }

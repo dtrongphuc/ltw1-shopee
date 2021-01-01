@@ -19,9 +19,10 @@
                 <a class="text-light" href="./admin">ADMIN</a>
             </div>
             <ul class="list-item">
+               
                 <li class="item active">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="./admin">Quản lý sản phẩm</a>
+                    <a href="./admin">Quản Lý Danh Mục / Sản Phẩm</a>
                 </li>
                 <li class="item">
                     <i class="fas fa-fw fa-table"></i>
@@ -57,23 +58,21 @@
             </div>
 
             <div class="content-right">
-                <div class="box-content-right">
-                    <p class="title">Quản lý sản phẩm</p>
-                </div>
-                <div class="card-body">
+                <div class="card-body-DM">
+                    <div class='category'>
+                        <div><h5>Quản Lý Danh Mục</h5></div>
+                        <div style='display: flex;'>
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#themDM">Thêm Danh Mục</button>
+                        </div>
+                    </div>
+
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>STT</th>
+                                    <th>Mã Danh Mục</th>
                                     <th>Tên Sản Phẩm</th>
-                                    <th>Loại Danh Mục</th>
-                                    <th>Giá</th>
-                                    <th>Số Lượng</th>
-                                    <th>Lược thích</th>
-                                    <th>Đánh Giá</th>
-                                    <th>Đã bán</th>
-                                    <th>Thời Gian Đăng</th>
                                     <th>Mô tả</th>
                                     <th>Xóa</th>
                                     <th>Sửa</th>
@@ -82,6 +81,51 @@
                             <tbody>
                                 @foreach( $sanpham as $sp)
                                 <tr>
+                                    <td style='text-align: center; width: 50px;'>1</td>
+                                    <td style='text-align: center; width: 125px;'>{{$sp->productId}}</td>
+                                    <td style='width: 300px;'>{{$sp->categoryName}}</td>
+                                    <td>{{$sp->description}}</td>
+                                    <td style='text-align: center; center; width: 80px;'><i class="fas fa-trash-alt"></i></td>
+                                    <td style='text-align: center; center; width: 80px;'>
+                                    <button type="button"  data-toggle="modal" data-target="#suaDM"><i class="fas fa-edit"></i></button>
+                                    </td>    
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Quản lÝ Sản Phẩm -->
+                <div class="card-body-SP">
+                    <div class='category'>
+                        <div><h5>Quản Lý Sản Phẩm</h5></div>
+                        <div>
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#themSP">Thêm Sản Phẩm</button>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã Sản Phẩm</th>
+                                    <th>Tên Sản Phẩm</th>
+                                    <th>Loại Danh Mục</th>
+                                    <th>Giá</th>
+                                    <th>Số Lượng</th>
+                                    <th>Lược thích</th>
+                                    <th>Đánh Giá</th>
+                                    <th>Đã bán</th>
+                                    <th>Thời Gian Đăng</th>
+                                    <th>Xóa</th>
+                                    <th>Sửa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach( $sanpham as $sp)
+                                <tr>
+                                    <td>1</td>
                                     <td>{{$sp->productId}}</td>
                                     <td>{{$sp->productName}}</td>
                                     <td>{{$sp->categoryName}}</td>
@@ -91,9 +135,10 @@
                                     <td>{{$sp->rate}}</td>
                                     <td>{{$sp->sold}}</td>
                                     <td>{{$sp->postAt}}</td>
-                                    <td>{{$sp->description}}</td>
-                                    <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                                    <td><a href="#"><i class="fas fa-edit"></i></a></td>
+                                    <td><i class="fas fa-trash-alt"></i></td>
+                                    <td>
+                                    <button type="button"  data-toggle="modal" data-target="#suaSP"><i class="fas fa-edit"></i></button>
+                                    </td>    
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -114,6 +159,166 @@
     </div>
 
 
+
+    <!-- Modal sua san pham -->
+    <div id="suaSP" class="modal fade" role="dialog">
+        <div class="modal-dialog" style="max-width: 1000px !important;">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Sửa Thông Tin Sản Phẩm</h4><button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body row">
+                    <div class="col-md-12 itemadd">
+                        <label class="col-md-2 labelitem" for="">Tên Sản Phẩm</label>
+                        <input class="col-md-9 inputitem" type="text" placeholder='Nhập tên Sản Phẩm'>
+                    </div>
+                    
+                    <div class="col-md-12 itemadd">
+                        <label class="col-md-2 labelitem" for="">Giá</label>
+                        <input class="col-md-9 inputitem" type="text" placeholder='Nhập Giá Sản Phẩm'>
+                    </div>
+
+                    <div class="col-md-12 itemadd">
+                        <label class="col-md-2 labelitem" for="">Số Lượng</label>
+                        <input class="col-md-9 inputitem" type="text" placeholder='Nhập Số Lượng Sản Phẩm'>
+                    </div>
+
+                    <div class="col-md-12 itemadd">
+                        <label class="col-md-2 labelitem" for="">Mô tả</label>
+                        <textarea class="col-md-9 inputitem" id="w3review" name="w3review" rows="4" cols="50">asdas</textarea>
+                    </div>
+
+                    <div class="col-md-12 itemadd">
+                        <label class="col-md-2 labelitem" for="">Danh Mục Sản Phẩm</label>
+                        <select name="cars" id="cars" class="col-md-9 inputitem">
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="mercedes">Mercedes</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                    </div>  
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-success" style="width:100px;" data-dismiss="modal" onclick="checkForm()">Sửa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Thêm san pham -->
+    <div id="themSP" class="modal fade" role="dialog">
+        <div class="modal-dialog" style="max-width: 1000px !important;">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Thêm Sản Phẩm</h4><button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body row">
+                    <div class="col-md-12 itemadd">
+                        <label class="col-md-2 labelitem" for="">Tên Sản Phẩm</label>
+                        <input class="col-md-9 inputitem" type="text" placeholder='Nhập tên Sản Phẩm'>
+                    </div>
+                    
+                    <div class="col-md-12 itemadd">
+                        <label class="col-md-2 labelitem" for="">Giá</label>
+                        <input class="col-md-9 inputitem" type="text" placeholder='Nhập Giá Sản Phẩm'>
+                    </div>
+
+                    <div class="col-md-12 itemadd">
+                        <label class="col-md-2 labelitem" for="">Số Lượng</label>
+                        <input class="col-md-9 inputitem" type="text" placeholder='Nhập Số Lượng Sản Phẩm'>
+                    </div>
+
+                    <div class="col-md-12 itemadd">
+                        <label class="col-md-2 labelitem" for="">Mô tả</label>
+                        <textarea class="col-md-9 inputitem" id="w3review" name="w3review" rows="4" cols="50">asdas</textarea>
+                    </div>
+
+                    <div class="col-md-12 itemadd">
+                        <label class="col-md-2 labelitem" for="">Danh Mục Sản Phẩm</label>
+                        <select name="cars" id="cars" class="col-md-9 inputitem">
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="mercedes">Mercedes</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                    </div>  
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-success" style="width:100px;" data-dismiss="modal" onclick="checkForm()">Thêm</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+<!-- Modal Thêm Danh Mục -->
+    <div id="themDM" class="modal fade" role="dialog">
+        <div class="modal-dialog" style="max-width: 1000px !important;">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Thêm Danh Mục</h4><button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body row">
+                    <div class="col-md-12 itemadd">
+                        <label class="col-md-2 labelitem" for="">Tên Danh Mục</label>
+                        <input class="col-md-9 inputitem" type="text" placeholder='Nhập tên Danh Mục'>
+                    </div>
+
+                    <div class="col-md-12 itemadd">
+                        <label class="col-md-2 labelitem" for="">Mô tả</label>
+                        <textarea class="col-md-9 inputitem" id="w3review" name="w3review" rows="4" cols="50">asdas</textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-success" style="width:100px;" data-dismiss="modal" onclick="checkForm()">Thêm</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Modal Sửa Danh Mục -->
+    <div id="suaDM" class="modal fade" role="dialog">
+        <div class="modal-dialog" style="max-width: 1000px !important;">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Sửa Danh Mục</h4><button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body row">
+                    <div class="col-md-12 itemadd">
+                        <label class="col-md-2 labelitem" for="">Tên Danh Mục</label>
+                        <input class="col-md-9 inputitem" type="text" placeholder='Nhập tên Danh Mục'>
+                    </div>
+
+                    <div class="col-md-12 itemadd">
+                        <label class="col-md-2 labelitem" for="">Mô tả</label>
+                        <textarea class="col-md-9 inputitem" id="w3review" name="w3review" rows="4" cols="50">asdas</textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-success" style="width:100px;" data-dismiss="modal" onclick="checkForm()">Sửa</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
     <script>
         $(document).ready(function() {
             $("#btnReposiveLeft").click(function() {
