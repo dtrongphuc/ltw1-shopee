@@ -1334,7 +1334,6 @@ a:hover {
 
 .product-left__img--big {
     padding-top: 100%;
-    background-image: url('../images/products/banphim.jfif');
 }
 
 .product-right__title {
@@ -1878,6 +1877,30 @@ a:hover {
 
 .new-review__rate--wrapper > div {
     transition: all linear 0.15s;
+}
+
+#reviews nav > .pagination {
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.page-link {
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.page-link:hover,
+.page-link:active,
+.page-link:focus {
+    color: rgba(0, 0, 0, 0.85);
+    background-color: #fff;
+    box-shadow: none;
+    outline: none;
+}
+
+.page-item.active .page-link {
+    color: #fff;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 .cart {
     margin-top: 20px;

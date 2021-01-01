@@ -27,8 +27,9 @@ class ProductController extends Controller
                     ->join('products', 'reviews.productId','=', 'products.productId')
                     ->join('users', 'reviews.userId', '=', 'users.id')
                     ->where('products.productId', '=', $productId)
+                    ->orderBy('reviews.created_at', 'desc')
                     ->select('avatar', 'email', 'reviews.rate', 'text', 'reviews.created_at')
-                    ->get()->toArray();
+                    ->paginate(5)->fragment('reviews');
         $userId = Auth::id();
         if(isset($userId)){
             $currentUserAvatar = User::find($userId)->avatar;

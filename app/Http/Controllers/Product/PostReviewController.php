@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\URL;
 use Validator;
 
 class PostReviewController extends Controller
@@ -33,6 +35,6 @@ class PostReviewController extends Controller
             'rate' => $request->rate,
         ]);
 
-        return back();
+        return Redirect::to(URL::previous() . "#reviews");
     }
 }
