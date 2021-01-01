@@ -106,7 +106,7 @@
             </div>
 
         <!-- Phân trang -->
-        <div class="shopee-page-controller" ">
+        <div class="shopee-page-controller" >
             <button class="shopee-icon-button shopee-icon-button--left " >
                 <svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon icon-arrow-left">
                     <g>

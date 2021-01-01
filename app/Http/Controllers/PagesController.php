@@ -28,6 +28,11 @@ class PagesController extends Controller
             'image' => $image,
             'products' => $products
         ]);
-
     }
+
+    public function searchProduct(Request $request)
+    {
+        return view('pages.search-results');
+    }
+
 }

@@ -123,3 +123,6 @@ Route::get('/cart/delete/{cartid}', [CartController::class, 'deleteCartById'])->
 //TEST ROUTES
 Route::get('/upload', [FileUploadController::class, 'showUploadForm']);
 Route::post('/upload', [FileUploadController::class, 'storeUploads']);
+
+// Search Product
+Route::get('/search', [PagesController::class, 'searchProduct']);
