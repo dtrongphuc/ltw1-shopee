@@ -63,13 +63,15 @@
                                 alt="logo shoppe" class="logo">
                         </a>
                         <div class="d-flex align-items-center justify-content-between flex-grow-1">
+                        
                             <div class="search-keyword">
-                                <div class="search">
+                                
+                                <div class="search" >
                                     <input class="input-search" type="text"
                                         placeholder="Tìm sản Phẩm, Thương Hiệu, và tên shoppe">
                                     <span class="button-search d-flex align-items-center justify-content-center"><i
                                             class="fas fa-search search-icon"></i></span>
-
+                              
                                 </div>
                                 <div class="bottom-header">
                                     <ul class="bottom-items">
