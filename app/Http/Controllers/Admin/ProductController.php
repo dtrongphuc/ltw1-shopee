@@ -5,11 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\categories;
 
 class ProductController extends Controller
 {
     public function index()
     {
+        $category = categories::All();
+        
         $product = DB::table('products')
             ->select(
                 'products.productId',
@@ -25,8 +28,8 @@ class ProductController extends Controller
             )
             ->join('categories', 'products.categoryId', 'categories.categoryId')->get();
         //$product = Product::all();
-        return view('adminthucong/index', ['sanpham' => $product]);
-        //return response()->json($product, 200);
+        return view('adminthucong/index', ['sanpham' => $product, 'category' => $category]);
+        //return response()->json($category->count(), 200);
     }
 
     public function AddProduct(){

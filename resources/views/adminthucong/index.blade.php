@@ -72,25 +72,25 @@
                                 <tr>
                                     <th>STT</th>
                                     <th>Mã Danh Mục</th>
-                                    <th>Tên Sản Phẩm</th>
+                                    <th>Tên Danh Mục</th>
                                     <th>Mô tả</th>
                                     <th>Xóa</th>
                                     <th>Sửa</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach( $sanpham as $sp)
+                                @for($i = 0 ; $i < $category->count(); $i++)
                                 <tr>
-                                    <td style='text-align: center; width: 50px;'>1</td>
-                                    <td style='text-align: center; width: 125px;'>{{$sp->productId}}</td>
-                                    <td style='width: 300px;'>{{$sp->categoryName}}</td>
-                                    <td>{{$sp->description}}</td>
+                                    <td style='text-align: center; width: 50px;'>{{$i+1}}</td>
+                                    <td style='text-align: center; width: 125px;'>{{$category[$i]->categoryId}}</td>
+                                    <td style='width: 300px;'>{{$category[$i]->categoryName}}</td>
+                                    <td></td>
                                     <td style='text-align: center; center; width: 80px;'><i class="fas fa-trash-alt"></i></td>
                                     <td style='text-align: center; center; width: 80px;'>
                                     <button type="button"  data-toggle="modal" data-target="#suaDM"><i class="fas fa-edit"></i></button>
                                     </td>    
                                 </tr>
-                                @endforeach
+                                @endfor
                             </tbody>
                         </table>
                     </div>
@@ -123,24 +123,24 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach( $sanpham as $sp)
+                                @for($i = 0 ; $i < $sanpham->count(); $i++)
                                 <tr>
-                                    <td>1</td>
-                                    <td>{{$sp->productId}}</td>
-                                    <td>{{$sp->productName}}</td>
-                                    <td>{{$sp->categoryName}}</td>
-                                    <td>{{$sp->price}}</td>
-                                    <td>{{$sp->quantity}}</td>
-                                    <td>{{$sp->likeCount}}</td>
-                                    <td>{{$sp->rate}}</td>
-                                    <td>{{$sp->sold}}</td>
-                                    <td>{{$sp->postAt}}</td>
+                                    <td>{{$i+1}}</td>
+                                    <td>{{$sanpham[$i]->productId}}</td>
+                                    <td>{{$sanpham[$i]->productName}}</td>
+                                    <td>{{$sanpham[$i]->categoryName}}</td>
+                                    <td>{{$sanpham[$i]->price}}</td>
+                                    <td>{{$sanpham[$i]->quantity}}</td>
+                                    <td>{{$sanpham[$i]->likeCount}}</td>
+                                    <td>{{$sanpham[$i]->rate}}</td>
+                                    <td>{{$sanpham[$i]->sold}}</td>
+                                    <td>{{$sanpham[$i]->postAt}}</td>
                                     <td><i class="fas fa-trash-alt"></i></td>
                                     <td>
                                     <button type="button"  data-toggle="modal" data-target="#suaSP"><i class="fas fa-edit"></i></button>
                                     </td>    
                                 </tr>
-                                @endforeach
+                                @endfor
                             </tbody>
                         </table>
                     </div>
