@@ -190,7 +190,7 @@
                         <div class="d-flex align-items-center product-types">
                             @if(isset($types))
                                 @foreach($types as $type)
-                                    <button {{$type->quantity == 0 ? 'disabled' : ''}} class="product-types__btn {{$type->quantity == 0 ? 'product-types__btn--disable' : ''}}">
+                                    <button {{$type->quantity == 0 ? 'disabled' : ''}} class="product-types__btn {{$type->quantity == 0 ? 'product-types__btn--disable' : ''}}" data-type-id="{{$type->id}}">
                                         {{$type->name}}
                                         <i class="fas fa-check product-types__check"></i>
                                     </button>
@@ -198,15 +198,19 @@
                             @endif
                         </div>
                     </div>
+                    
                     <div class="d-flex align-items-center mt-4">
                         <p class="product-right__subtitle">Số lượng</p>
                         <div class="d-flex align-items-center product-quantity">
                             <button class="product-quantity__btn down-default" id="down">-</button>
-                            <input type="text" class="product-quantity__input" name="product-quantity" value="1"
-                                pattern="[0-9]+" id="quantify">
+                            <input type="text" class="product-quantity__input" name="product-quantity" min="{{1}}" value="1"
+                                pattern="[0-9]+" id="quantify" max="{{$product->quantity}}">
                             <button class="product-quantity__btn" id="up">+</button>
                         </div>
                         <p class="product-right__quantity--text">{{$product->quantity}} sản phẩm có sẵn</p>
+                    </div>
+                    <div class="product-validator__notification">
+                        <p></p>
                     </div>
                     <div class="mt-4">
                         <div class="product-favorite">
@@ -218,11 +222,11 @@
                         </div>
                     </div>
                     <div class="d-flex align-items-center mt-4">
-                        <button class="product-cart__btn product-cart__btn--outline">
+                        <button class="product-cart__btn product-cart__btn--outline" id="addToCart">
                             <i class="fas fa-cart-plus"></i>
                             Thêm Vào Giỏ Hàng
                         </button>
-                        <button class="product-cart__btn product-cart__btn--primary">Mua Ngay</button>
+                        <button class="product-cart__btn product-cart__btn--primary" id="buyNow">Mua Ngay</button>
                     </div>
                     <div class="mt-4">
                         <div class="product-right__footer">

@@ -1,4 +1,4 @@
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", function() {
     let maxItems = $(".product-images__slider").children("div").length;
     $(".product-images__slider").slick({
         dots: false,
@@ -60,65 +60,96 @@ $(document).ready(function() {
         });
 
     //click trái tim yêu thích
-    $(document).ready(function() {
-        const productId = document.querySelector("section.product");
-        const likeCount = document.querySelector(".product-favorite > p");
-        $("#change-heart").click(function() {
-            if ($("#heart").css("display") == "none") {
-                axios
-                    .post(
-                        "/product/add-favorite",
-                        {
-                            productId: productId.dataset.id
-                        },
-                        {
-                            headers: {
-                                "X-CSRF-TOKEN": $(
-                                    'meta[name="csrf-token"]'
-                                ).attr("content")
-                            }
+    const productId = document.querySelector("section.product");
+    const likeCount = document.querySelector(".product-favorite > p");
+    $("#change-heart")?.click(function() {
+        if ($("#heart").css("display") == "none") {
+            axios
+                .post(
+                    "/product/add-favorite",
+                    {
+                        productId: productId.dataset.id
+                    },
+                    {
+                        headers: {
+                            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                                "content"
+                            )
                         }
-                    )
-                    .then(res => {
-                        if (res.status === 200) {
-                            $("#heart").css("display", "block");
-                            $("#heart-hollow").css("display", "none");
-                            if (!!likeCount) {
-                                likeCount.innerHTML = `Đã thích (${res.data?.count})`;
-                            }
+                    }
+                )
+                .then(res => {
+                    if (res.status === 200) {
+                        $("#heart").css("display", "block");
+                        $("#heart-hollow").css("display", "none");
+                        if (!!likeCount) {
+                            likeCount.innerHTML = `Đã thích (${res.data?.count})`;
                         }
-                    })
-                    .catch(err => {
-                        console.log(err.response);
-                    });
-            } else {
-                axios
-                    .post(
-                        "/product/remove-favorite",
-                        {
-                            productId: productId.dataset.id
-                        },
-                        {
-                            headers: {
-                                "X-CSRF-TOKEN": $(
-                                    'meta[name="csrf-token"]'
-                                ).attr("content")
-                            }
+                    }
+                })
+                .catch(err => {
+                    console.log(err.response);
+                });
+        } else {
+            axios
+                .post(
+                    "/product/remove-favorite",
+                    {
+                        productId: productId.dataset.id
+                    },
+                    {
+                        headers: {
+                            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                                "content"
+                            )
                         }
-                    )
-                    .then(res => {
-                        if (res.status === 200) {
-                            $("#heart-hollow").css("display", "block");
-                            $("#heart").css("display", "none");
-                            if (!!likeCount) {
-                                likeCount.innerHTML = `Đã thích (${res.data?.count})`;
-                            }
+                    }
+                )
+                .then(res => {
+                    if (res.status === 200) {
+                        $("#heart-hollow").css("display", "block");
+                        $("#heart").css("display", "none");
+                        if (!!likeCount) {
+                            likeCount.innerHTML = `Đã thích (${res.data?.count})`;
                         }
-                    })
-                    .catch(err => {
-                        console.log(err.response);
-                    });
-            }
-        });
+                    }
+                })
+                .catch(err => {
+                    console.log(err.response);
+                });
+        }
+    });
+
+    //Mua hàng
+    const btnAddToCart = document.querySelector("#addToCart");
+    const btnBuyNow = document.querySelector("#addToCart");
+
+    btnAddToCart?.addEventListener("click", async () => {
+        document.querySelector(
+            ".product-validator__notification > p"
+        ).innerHTML = "";
+        document.querySelector(
+            ".product-validator__notification"
+        ).style.display = "none";
+
+        let cartData = {
+            productId: productId?.dataset.id,
+            quantity: document.querySelector(".product-quantity__input").value,
+            type: document.querySelector(".product-types__btn--active")?.dataset
+                .typeId
+        };
+
+        try {
+            const response = await axios.post("/product/add-to-cart", cartData);
+            console.log(response);
+        } catch (e) {
+            let messageObj = e?.response?.data?.errors;
+            document.querySelector(
+                ".product-validator__notification > p"
+            ).innerHTML = Object.values(messageObj)[0];
+            document.querySelector(
+                ".product-validator__notification"
+            ).style.display = "block";
+        }
     });
 });

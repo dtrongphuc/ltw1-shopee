@@ -1902,6 +1902,17 @@ a:hover {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
 }
+
+.product-validator__notification {
+    display: none;
+    margin: 8px 0;
+}
+
+.product-validator__notification > p {
+    color: var(--primary-color);
+    font-size: 1rem;
+    
+}
 .cart {
     margin-top: 20px;
 }
@@ -2274,8 +2285,6 @@ input[type=checkbox]:checked:after {
     border-color: #ff424f;
     background-color: rgba(255, 66, 79, .05);
 }
-
-element.style {}
 
 
 .address-modal__form_input_name_nameuser {

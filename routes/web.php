@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Product\PostReviewController;
+use App\Http\Controllers\Product\AddToCartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\FileUploadController;
@@ -81,12 +82,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
         });
     });
 
+    Route::prefix('product')->group(function () {
+        Route::post('/add-favorite', [FavoriteController::class, 'add']);
+        Route::post('/remove-favorite', [FavoriteController::class, 'remove']);
+        Route::post('/add-to-cart', [AddToCartController::class, 'addToCart']);
+        Route::post('/post-review', [PostReviewController::class, 'post'])->name('post.review');
+    });
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-    Route::post('/product/add-favorite', [FavoriteController::class, 'add']);
-    Route::post('/product/remove-favorite', [FavoriteController::class, 'remove']);
-
-   
-    Route::post('/product/post-review', [PostReviewController::class, 'post'])->name('post.review');
 });
 
 
