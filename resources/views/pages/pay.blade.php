@@ -17,12 +17,6 @@
             </div>
         </div>
     </div>
-
-    <div class="payfooter_btnpay d-flex justify-content-end" style="margin-right: 90px;">
-        <button class="btn btn-primary cartfooter__buyproduct-btnbuy" data-toggle="modal" data-target="#exampleModal">+ Thêm
-            địa chỉ mới</button>
-    </div>
-
     <div class="cartbody">
         <div class="container" style="padding-bottom: 70px;">
             <div class="pay__addressship">
@@ -37,13 +31,13 @@
                     <div class="pay__addressship-infouser  d-flex align-items-center">
 
                         <div class="pay__addressship-info--username">
-                            <strong>{{$userinfo[0]->name}}</strong>
+                            <strong>{{ $userinfo[0]->name }}</strong>
                         </div>
                         <div class="pay__addressship-info--phone" style="margin: 0 10px;">
-                            <strong>(+84) {{substr($userinfo[0]->phoneNumber, 1)}}</strong>
+                            <strong>(+84) {{ substr($userinfo[0]->phoneNumber, 1) }}</strong>
                         </div>
                         <div class="pay__addressship-info--address">
-                            {{$userinfo[0]->address}}
+                            {{ $userinfo[0]->address }}
 
                         </div>
                     </div>
@@ -63,7 +57,7 @@
                                 <div>
                                     <div class="shopee-popup-form address-modal">
                                         <div class="shopee-popup-form__header">
-                                            <div class="shopee-popup-form__title">Thêm 1 địa chỉ mới</div>
+                                            <div class="shopee-popup-form__title">Chỉnh Sửa Địa Chỉ Giao Hàng</div>
                                         </div>
                                         <div class="shopee-popup-form__main">
                                             <div class="shopee-popup-form__main-container">
@@ -73,11 +67,7 @@
                                                     <div class="_3gunFW">
                                                         <div class="voN2GT _28onW4">
                                                             <input class="_3uWB5R" type="text" placeholder="Họ &amp; Tên"
-                                                                maxlength="64" value="">
-                                                        </div>
-                                                        <div>
-                                                            <span class="_1ERb2l shopee-modal__transition-enter-done">Vui
-                                                                lòng điền Tên</span>
+                                                                maxlength="64" value="{{ $userinfo[0]->name }}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -85,11 +75,7 @@
                                                     <div class="_3gunFW">
                                                         <div class="voN2GT _28onW4">
                                                             <input class="_3uWB5R" type="text" placeholder="Số điện thoại"
-                                                                value="">
-                                                        </div>
-                                                        <div>
-                                                            <span class="_1ERb2l shopee-modal__transition-enter-done">Vui
-                                                                lòng điền Số điện thoại</span>
+                                                                value="(+84) {{ substr($userinfo[0]->phoneNumber, 1) }}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -98,45 +84,23 @@
                                                     <div class="_3gunFW">
                                                         <div class="voN2GT _28onW4">
                                                             <input class="_3uWB5R" type="text" placeholder="Địa chỉ"
-                                                                maxlength="200" value="">
-                                                        </div>
-                                                        <div>
-                                                            <span class="_1ERb2l shopee-modal__transition-enter-done">Vui
-                                                                lòng điền Địa chỉ</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="address-modal__form_input">
-                                                    <div class="_3gunFW">
-                                                        <div class="voN2GT">
-                                                            <input class="_3uWB5R" type="text"
-                                                                placeholder="Toà nhà, Tên Đường..." maxlength="128"
-                                                                value="">
-                                                        </div>
-                                                        <div>
-
+                                                                maxlength="200" value="{{ $userinfo[0]->address }}">
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="shopee-popup-form__footer">
-                                                <button class="cancel-btn" type="button" data-dismiss="modal">Trở
-                                                    Lại</button>
+                                                <button class="cancel-btn" type="button" data-dismiss="modal">Trở Lại</button>
                                                 <button type="button"
-                                                    class="btn btn-solid-primary btn--s btn--inline khi9AY">Hoàn
-                                                    thành</button>
+                                                    class="btn btn-solid-primary btn--s btn--inline khi9AY">Hoàn thành</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Kết thúc thêm địa chỉ mới -->
-
                         </div>
                     </div>
                 </div>
-
 
             </div>
 
@@ -170,7 +134,8 @@
             <div class="cartbody__products">
                 @if (isset($products))
                     @foreach ($products as $product)
-                        <div class="row d-flex justify-content-around" style="border-bottom: #f5f5f5 solid 1px; padding-bottom: 15px">
+                        <div class="row d-flex justify-content-around"
+                            style="border-bottom: #f5f5f5 solid 1px; padding-bottom: 15px">
                             <div class="col-md-5">
                                 <div class="cartbody__checkall d-flex align-items-center ">
                                     <div class="cartbody__products-img">
@@ -178,9 +143,9 @@
                                             style="width: 80px; height: 80px;">
                                     </div>
                                     <h5 class="cartbody__products-productname">
-                                        {{$product->productName}}
+                                        {{ $product->productName }}
                                     </h5>
-                                    <span class="cartbody__products-classify ml-auto">Phân loại:{{$product->type}}</span>
+                                    <span class="cartbody__products-classify ml-auto">Phân loại:{{ $product->type }}</span>
                                 </div>
                             </div>
                             <div class="col-md-7 d-flex align-items-center ">
@@ -188,13 +153,15 @@
                                     <div class="row d-flex align-items-center justify-content-end"
                                         style="text-align: center;">
                                         <div class="col-3">
-                                            <p class="cartbody__productsinfo-unitprice">đ{{number_format(floatval($product->price))}}</p>
+                                            <p class="cartbody__productsinfo-unitprice">
+                                                đ{{ number_format(floatval($product->price)) }}</p>
                                         </div>
                                         <div class="col-3">
-                                            <div class="pay__amount">{{$product->quatity}}</div>
+                                            <div class="pay__amount">{{ $product->quatity }}</div>
                                         </div>
                                         <div class="col-3">
-                                            <p class="cartbody__productsinfo-price">đ{{number_format(floatval($product->price * $product->quatity))}}</p>
+                                            <p class="cartbody__productsinfo-price">
+                                                đ{{ number_format(floatval($product->price * $product->quatity)) }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -208,7 +175,7 @@
                 <div class="payfooter__totalpay d-flex align-items-center justify-content-end">
                     <p class="payfooter__totalpay-content">Tổng thanh toán:</p>
                     <div class="payfooter__totalpay-price">
-                        <h3>đ{{number_format(floatval($payall))}}</h1>
+                        <h3>đ{{ number_format(floatval($payall)) }}</h1>
                     </div>
                 </div>
                 <div class="payfooter_btnpay d-flex justify-content-end">
