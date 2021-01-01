@@ -26,7 +26,7 @@
                     </button>
                 </div>
             </div>
-            <section class="main-product__right">
+            <section class="main-product__right product" data-id="{{$product->productId}}">
                 <div>
                     <h4 class="product-right__title">{{$product->productName}}</h4>
                     <div class="product-right__statistic">
@@ -190,7 +190,7 @@
                         <div class="d-flex align-items-center product-types">
                             @if(isset($types))
                                 @foreach($types as $type)
-                                    <button {{$type->quantity == 0 ? 'disabled' : ''}} class="product-types__btn {{$type->quantity == 0 ? 'product-types__btn--disable' : ''}}">
+                                    <button {{$type->quantity == 0 ? 'disabled' : ''}} class="product-types__btn {{$type->quantity == 0 ? 'product-types__btn--disable' : ''}}" data-type-id="{{$type->id}}">
                                         {{$type->name}}
                                         <i class="fas fa-check product-types__check"></i>
                                     </button>
@@ -198,31 +198,35 @@
                             @endif
                         </div>
                     </div>
+                    
                     <div class="d-flex align-items-center mt-4">
                         <p class="product-right__subtitle">Số lượng</p>
                         <div class="d-flex align-items-center product-quantity">
                             <button class="product-quantity__btn down-default" id="down">-</button>
-                            <input type="text" class="product-quantity__input" name="product-quantity" value="1"
-                                pattern="[0-9]+" id="quantify">
+                            <input type="text" class="product-quantity__input" name="product-quantity" min="{{1}}" value="1"
+                                pattern="[0-9]+" id="quantify" max="{{$product->quantity}}">
                             <button class="product-quantity__btn" id="up">+</button>
                         </div>
                         <p class="product-right__quantity--text">{{$product->quantity}} sản phẩm có sẵn</p>
                     </div>
+                    <div class="product-validator__notification">
+                        <p></p>
+                    </div>
                     <div class="mt-4">
                         <div class="product-favorite">
                             <div id="change-heart">
-                                <i class="far fa-heart heart-icon" id="heart-hollow"></i>
-                                <i class="fas fa-heart heart-icon heart-icon--full" id="heart"></i>
+                                <i class="far fa-heart heart-icon" id="heart-hollow" style="display: {{$favorited ? 'none' : 'block'}}"></i>
+                                <i class="fas fa-heart heart-icon heart-icon--full" id="heart" style="display: {{$favorited ? 'block' : 'none'}}"></i>
                             </div>
                             <p>Đã thích ({{$product->likeCount}})</p>
                         </div>
                     </div>
                     <div class="d-flex align-items-center mt-4">
-                        <button class="product-cart__btn product-cart__btn--outline">
+                        <button class="product-cart__btn product-cart__btn--outline" id="addToCart">
                             <i class="fas fa-cart-plus"></i>
                             Thêm Vào Giỏ Hàng
                         </button>
-                        <button class="product-cart__btn product-cart__btn--primary">Mua Ngay</button>
+                        <button class="product-cart__btn product-cart__btn--primary" id="buyNow">Mua Ngay</button>
                     </div>
                     <div class="mt-4">
                         <div class="product-right__footer">
@@ -385,18 +389,30 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="mt-2" id="reviews">
                 @auth
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="new-review">
                         @if(isset($currentUserAvatar))
                             <img src="{{cloudinary()->getImage('avatars/'.$currentUserAvatar)}}" alt="" class="review-item__avatar">
                         @endif
-                        <form action="" method="POST" class="new-review__form">
+                        <form action="{{route('post.review')}}" method="POST" class="new-review__form">
+                            @csrf
                             <div class="new-review__wrapper">
-                                <textarea name="new-review" class="review__input"></textarea>
+                                <input type="text" name="productId" hidden value="{{$product->productId}}">
+                                <input type="text" name="rate" hidden id="post-rate" value="1">
+                                <textarea name="text" class="review__input" value="{{old('text')}}"></textarea>
                                 <div class="new-review__rate">
                                     <div class="new-review__rate--wrapper">
-                                        <div style="width: 0%">
+                                        <div style="width: 100%">
                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                                 xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="0.9rem" height="0.9rem" x="0" y="0"
                                                 viewBox="0 0 511.98685 511" style="enable-background:new 0 0 512 512"
@@ -522,7 +538,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn review__btn-submit">Đăng</button>
+                            <button type="submit" class="review__btn-submit">Đăng</button>
                         </form>
                     </div>
                 @endauth
@@ -666,13 +682,14 @@
                                             </div>
                                         </div>
                                         <div class="review-item__text">{{$review->text}}</div>
-                                        <div class="review-item__footer">{{$review->postAt}}</div>
+                                        <div class="review-item__footer">{{$review->created_at}}</div>
                                     </div>
                                 </div>
                             </li>
                         @endforeach
-                    @endif
-                </ul>
+                        @endif
+                    </ul>
+                {{ $reviews->links() }}
             </div>
         </div>
     </div>

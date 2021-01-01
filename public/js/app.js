@@ -20103,9 +20103,10 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! ./product */ "./resources/js/product.js");
-
 __webpack_require__(/*! ./auth */ "./resources/js/auth.js"); // require("./cart");
+
+
+__webpack_require__(/*! ./product */ "./resources/js/product.js"); // require("./cart");
 
 /***/ }),
 
@@ -20231,21 +20232,20 @@ loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
 
           case 8:
             response = _context2.sent;
-            console.log(response);
 
             if (response.status === 200) {
               window.location.href = "/";
             }
 
-            _context2.next = 26;
+            _context2.next = 25;
             break;
 
-          case 13:
-            _context2.prev = 13;
+          case 12:
+            _context2.prev = 12;
             _context2.t0 = _context2["catch"](4);
 
             if (!(_context2.t0.response.status === 401)) {
-              _context2.next = 19;
+              _context2.next = 18;
               break;
             }
 
@@ -20253,11 +20253,11 @@ loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
             errorAlert.style.display = "block";
             return _context2.abrupt("return");
 
-          case 19:
+          case 18:
             messageObj = _context2.t0 === null || _context2.t0 === void 0 ? void 0 : (_error$response2 = _context2.t0.response) === null || _error$response2 === void 0 ? void 0 : (_error$response2$data = _error$response2.data) === null || _error$response2$data === void 0 ? void 0 : _error$response2$data.data;
 
             if (!messageObj.error) {
-              _context2.next = 24;
+              _context2.next = 23;
               break;
             }
 
@@ -20265,24 +20265,24 @@ loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
             errorAlert.style.display = "block";
             return _context2.abrupt("return");
 
-          case 24:
+          case 23:
             fields = Object.keys(messageObj);
             fields.forEach(function (field) {
               document.querySelector("#" + field).classList.add("is-invalid");
               document.querySelector("#".concat(field, " + .invalid-feedback")).innerHTML = messageObj[field];
             });
 
-          case 26:
-            _context2.prev = 26;
+          case 25:
+            _context2.prev = 25;
             btnSubmit.disabled = false;
-            return _context2.finish(26);
+            return _context2.finish(25);
 
-          case 29:
+          case 28:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[4, 13, 26, 29]]);
+    }, _callee2, null, [[4, 12, 25, 28]]);
   }));
 
   return function (_x2) {
@@ -20461,36 +20461,26 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ "./resources/js/cart.js":
-/*!******************************!*\
-  !*** ./resources/js/cart.js ***!
-  \******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-document.getElementById("check-all").onclick = function () {
-  //lấy ds checkbox
-  var checkboxs = document.getElementsByName("check-one");
-  if (document.getElementById("check-all").checked == true) for (var i = 0; i < checkboxs.length; i++) {
-    checkboxs[i].checked = true;
-  } else for (var i = 0; i < checkboxs.length; i++) {
-    checkboxs[i].checked = false;
-  }
-};
-
-/***/ }),
-
-=======
->>>>>>> ad053d4841d5bc6c91d543806ab9758e562b888b
 /***/ "./resources/js/product.js":
 /*!*********************************!*\
   !*** ./resources/js/product.js ***!
   \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-$(document).ready(function () {
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+document.addEventListener("DOMContentLoaded", function () {
+  var _$;
+
   var maxItems = $(".product-images__slider").children("div").length;
   $(".product-images__slider").slick({
     dots: false,
@@ -20536,9 +20526,111 @@ $(document).ready(function () {
   };
 
   var rateStars = document.querySelectorAll(".new-review__rate--wrapper");
-  rateStars && rateStars.forEach(function (star) {
-    star.addEventListener("mouseover", function () {});
-  });
+  rateStars && rateStars.forEach(function (starWrapper, index) {
+    starWrapper.addEventListener("click", function () {
+      document.querySelectorAll(".new-review__rate--wrapper > div").forEach(function (star) {
+        return star.style.width = "0%";
+      });
+
+      for (var i = 0; i <= index; i++) {
+        var star = rateStars[i].querySelector("div");
+        star.style.width = "100%";
+      }
+
+      document.querySelector("#post-rate").value = index + 1;
+    });
+  }); //click trái tim yêu thích
+
+  var productId = document.querySelector("section.product");
+  var likeCount = document.querySelector(".product-favorite > p");
+  (_$ = $("#change-heart")) === null || _$ === void 0 ? void 0 : _$.click(function () {
+    if ($("#heart").css("display") == "none") {
+      axios.post("/product/add-favorite", {
+        productId: productId.dataset.id
+      }, {
+        headers: {
+          "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+        }
+      }).then(function (res) {
+        if (res.status === 200) {
+          $("#heart").css("display", "block");
+          $("#heart-hollow").css("display", "none");
+
+          if (!!likeCount) {
+            var _res$data;
+
+            likeCount.innerHTML = "\u0110\xE3 th\xEDch (".concat((_res$data = res.data) === null || _res$data === void 0 ? void 0 : _res$data.count, ")");
+          }
+        }
+      })["catch"](function (err) {
+        console.log(err.response);
+      });
+    } else {
+      axios.post("/product/remove-favorite", {
+        productId: productId.dataset.id
+      }, {
+        headers: {
+          "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+        }
+      }).then(function (res) {
+        if (res.status === 200) {
+          $("#heart-hollow").css("display", "block");
+          $("#heart").css("display", "none");
+
+          if (!!likeCount) {
+            var _res$data2;
+
+            likeCount.innerHTML = "\u0110\xE3 th\xEDch (".concat((_res$data2 = res.data) === null || _res$data2 === void 0 ? void 0 : _res$data2.count, ")");
+          }
+        }
+      })["catch"](function (err) {
+        console.log(err.response);
+      });
+    }
+  }); //Mua hàng
+
+  var btnAddToCart = document.querySelector("#addToCart");
+  var btnBuyNow = document.querySelector("#addToCart");
+  btnAddToCart === null || btnAddToCart === void 0 ? void 0 : btnAddToCart.addEventListener("click", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+    var _document$querySelect;
+
+    var cartData, response, _e$response, _e$response$data, messageObj;
+
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            document.querySelector(".product-validator__notification > p").innerHTML = "";
+            document.querySelector(".product-validator__notification").style.display = "none";
+            cartData = {
+              productId: productId === null || productId === void 0 ? void 0 : productId.dataset.id,
+              quantity: document.querySelector(".product-quantity__input").value,
+              type: (_document$querySelect = document.querySelector(".product-types__btn--active")) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.dataset.typeId
+            };
+            _context.prev = 3;
+            _context.next = 6;
+            return axios.post("/product/add-to-cart", cartData);
+
+          case 6:
+            response = _context.sent;
+            console.log(response);
+            _context.next = 15;
+            break;
+
+          case 10:
+            _context.prev = 10;
+            _context.t0 = _context["catch"](3);
+            messageObj = _context.t0 === null || _context.t0 === void 0 ? void 0 : (_e$response = _context.t0.response) === null || _e$response === void 0 ? void 0 : (_e$response$data = _e$response.data) === null || _e$response$data === void 0 ? void 0 : _e$response$data.errors;
+            document.querySelector(".product-validator__notification > p").innerHTML = Object.values(messageObj)[0];
+            document.querySelector(".product-validator__notification").style.display = "block";
+
+          case 15:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, null, [[3, 10]]);
+  })));
 });
 
 /***/ }),
@@ -20550,11 +20642,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-module.exports = __webpack_require__(/*! E:\CSS_HTML_JS_ME\LTWed-1-LT\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
-=======
 module.exports = __webpack_require__(/*! Z:\Code\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
->>>>>>> ad053d4841d5bc6c91d543806ab9758e562b888b
 
 
 /***/ })

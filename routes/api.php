@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ChartController;
+use App\Http\Controllers\Cart\CartController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,12 +14,11 @@ use App\Http\Controllers\Admin\ChartController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 // Route::get('/chartstatis', [ChartController::class, 'index']);
 Route::get('/statisticalquarter', [ChartController::class, 'StatisticalQuarter']);
 Route::get('/statisticalyear', [ChartController::class, 'StatisticalYear']);
-Route::get('/statisticalmonth', [ChartController::class, 'StatisticalMonth']);
+//giỏ hàng
+Route::post('/cart/UpQuantity', [CartController::class, 'upQuantityProduct'])->name('cart.upquantify');
+Route::post('/cart/DownQuantity', [CartController::class, 'DownQuantityProduct'])->name('cart.downquantify');
+
+// Product

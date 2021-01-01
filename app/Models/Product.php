@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-
+    const UPDATED_AT=NULL;
      /**
      * The primary key associated with the table.
      *

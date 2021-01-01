@@ -1,12 +1,133 @@
-document.getElementById("check-all").onclick = function() {
-    //lấy ds checkbox
-    var checkboxs = document.getElementsByName("check-one");
-    if (document.getElementById("check-all").checked == true)
-        for (var i = 0; i < checkboxs.length; i++) {
-            checkboxs[i].checked = true;
-        }
-    else
-        for (var i = 0; i < checkboxs.length; i++) {
-            checkboxs[i].checked = false;
-        }
-};
+//  //check tất cả trong giở hàng
+//  document.getElementById("check-all").onclick = function() {
+//          //lấy ds checkbox
+//          var checkboxs = document.getElementsByName("check-one");
+//          if (document.getElementById("check-all").checked == true)
+//              for (var i = 0; i < checkboxs.length; i++) {
+//                  checkboxs[i].checked = true;
+//              }
+//          else
+//              for (var i = 0; i < checkboxs.length; i++) {
+//                  checkboxs[i].checked = false;
+//              }
+//      }
+
+const {
+    startCase,
+    padStart
+} = require("lodash");
+const {
+    compile
+} = require("vue-template-compiler");
+
+//button tăng
+// function UpQuantity(product) {
+//     var productName = product.getAttribute("data-cart");
+//     var quantity = document.getElementById("quantity_" + productName).value;
+//     document.getElementById("quantity_" + productName).value = parseInt(quantity) + 1;
+//     var price = document.getElementById("price_" + productName).innerHTML;
+//     // toltalprice_
+//     var totalprice = parseInt(price.substring(0, price.length - 4)) * (parseInt(quantity) + 1);
+//     //giá tổng
+//     var payall = document.getElementById("payall").innerHTML;
+//     var temp = payall.substring(0, payall.length - 4);
+//     var price_all = parseInt(temp.replace(/,/i, ''));
+//     var payallprice = price_all + parseInt(price.substring(0, price.length - 4));
+//     if (totalprice > 999) {
+//         totalprice = totalprice.toString().substring(0, totalprice.toString().length - 3) + "," + totalprice
+//             .toString().substring(1);
+//     }
+//     if (payallprice > 999) {
+//         payallprice = payallprice.toString().substring(0, payallprice.toString().length - 3) + "," + payallprice
+//             .toString().substring(1);
+//     }
+//     document.getElementById("payall").innerHTML = payallprice + ",000";
+//     document.getElementById("toltalprice_" + productName).innerHTML = totalprice + ",000";
+// }
+
+// //giảm số lượng
+// function DownQuantity(product) {
+//     var productName = product.getAttribute("data-cart");
+//     var quantity = document.getElementById("quantity_" + productName).value;
+//     if (parseInt(quantity) > 1) {
+//         document.getElementById("quantity_" + productName).value = parseInt(quantity) - 1;
+//         var price = document.getElementById("price_" + productName).innerHTML;
+//         // toltalprice_
+//         var totalprice = parseInt(price.substring(0, price.length - 4)) * (parseInt(quantity) - 1);
+
+//         var payall = document.getElementById("payall").innerHTML;
+//         var temp = payall.substring(0, payall.length - 4);
+//         var price_all = parseInt(temp.replace(/,/i, ''));
+//         var payallprice = price_all - parseInt(price.substring(0, price.length - 4));
+//         if (totalprice > 999) {
+//             totalprice = totalprice.toString().substring(0, totalprice.toString().length - 3) + "," + totalprice
+//                 .toString().substring(1);
+//         }
+//         if (payallprice > 999) {
+//             payallprice = payallprice.toString().substring(0, payallprice.toString().length - 3) + "," +
+//                 payallprice.toString().substring(1);
+//         }
+//         document.getElementById("payall").innerHTML = payallprice + ",000";
+//         document.getElementById("toltalprice_" + productName).innerHTML = totalprice + ",000";
+//     }
+
+
+// }
+
+//tăng số lượng
+$(document).ready(function() {
+    $("button").on("click", function(event) {
+        event.preventDefault();
+        let id = $(this).attr("id");
+        let productid = $(this).attr("data-id");
+        let productname = id.substring(3);
+        let quantity = $("#quantity_" + productname).val();
+        if (parseInt(quantity) == 1 && id.substring(0, 2) == "dw")
+            return;
+        // if (id.substring(0, 2) == "up")
+        //     url = "api/cart/UpQuantity";
+        // else
+        //     url = "api/cart/DownQuantity";
+        // alert(url);
+        $.ajax({
+            url: "api/cart/UpQuantity",
+            type: "POST",
+            data: {
+                quantity: parseInt(quantity), // nếu id là up thì tăng 1 - id là down giảm 1
+                productid: productid,
+                updown: id.substring(0, 2),
+            },
+            success: function(response) { //trả ra giá đã tăng or đã giảm
+                //alert(response);
+                $("#quantity_" + productname).val(response);
+                UpPriceFromQuantity(productname, response, id.substring(0, 2));
+
+            }
+        });
+
+    });
+});
+
+function UpPriceFromQuantity(productname, quantity, statusid) {
+    let price = $("#price_" + productname).text();
+    let price_after = parseInt(price.substring(0, price.length - 3)) * quantity;
+    $("#toltalprice_" + productname).text(StringToMoney(price_after.toString()) + ",000");
+    let pay = $("#payall").text();
+    var price_all = parseInt(pay.substring(0, pay.length - 4).replace(/,/i, ''));
+    let payprice = 0;
+    if (statusid == "dw")
+        payprice = parseInt(price_all) - parseInt(price.substring(0, price.length - 3));
+    else payprice = parseInt(price_all) + parseInt(price.substring(0, price.length - 3));
+    $("#payall").text(StringToMoney(payprice.toString()) + ",000");
+}
+
+function StringToMoney(str) {
+    if (str.length > 6)
+        str = str.substring(0, str.length - 3) + "," + str.substring(0, str.length - 6) + "," + str.substring(1);
+    if (str.length > 3)
+        str = str.substring(0, str.length - 3) + "," + str.substring(1);
+    return str;
+}
+// function printdata(data) {
+//     alert(data);
+// }

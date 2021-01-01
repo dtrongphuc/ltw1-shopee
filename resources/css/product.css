@@ -30,7 +30,6 @@
 
 .product-left__img--big {
     padding-top: 100%;
-    background-image: url('../images/products/banphim.jfif');
 }
 
 .product-right__title {
@@ -514,10 +513,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    padding: 0.6rem 0 1rem 0;
 }
 
 .new-review > img {
     margin-right: 8px;
+    position: relative;
+    bottom: 18px;
 }
 
 .new-review__form {
@@ -528,7 +531,7 @@
 }
 
 .review__input {
-    width: 90%;
+    width: 95%;
     height: 50px;
     border-radius: 4px;
     border: 1px solid rgba(0, 0, 0, 0.3);
@@ -537,11 +540,18 @@
     padding: 4px;
 }
 
-.review__btn-submit {
+.review__btn-submit,
+.review__btn-submit:focus,
+.review__btn-submit:active {
+    position: relative;
+    bottom: 14px;
     background-color: var(--primary-color);
     color: #fff;
     min-width: 80px;
     height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
 }
 
 .review__btn-submit:hover {
@@ -553,6 +563,49 @@
     width: 100%;
 }
 
-.new-review__rate--wrapper:hover {
+.new-review__rate {
+    margin-top: 8px;
+}
+
+.new-review__rate--wrapper {
     cursor: pointer;
+}
+
+.new-review__rate--wrapper > div {
+    transition: all linear 0.15s;
+}
+
+#reviews nav > .pagination {
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.page-link {
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.page-link:hover,
+.page-link:active,
+.page-link:focus {
+    color: rgba(0, 0, 0, 0.85);
+    background-color: #fff;
+    box-shadow: none;
+    outline: none;
+}
+
+.page-item.active .page-link {
+    color: #fff;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.product-validator__notification {
+    display: none;
+    margin: 8px 0;
+}
+
+.product-validator__notification > p {
+    color: var(--primary-color);
+    font-size: 1rem;
+    
 }

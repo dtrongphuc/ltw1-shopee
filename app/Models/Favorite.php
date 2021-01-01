@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Review extends Model
+class Favorite extends Model
 {
     use HasFactory;
+    const UPDATED_AT=NULL;
     public $timestamps = true;
 
     /**
@@ -15,5 +16,5 @@ class Review extends Model
      *
      * @var array
      */
-    protected $fillable = ['userId', 'productId', 'text', 'rate'];
+    protected $fillable = ['userId', 'productId'];
 }
