@@ -49,23 +49,6 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
-
-
-
-        //click trái tim yêu thích
-        $(document).ready(function() {
-            $("#change-heart").click(function() {
-                if ($('#heart').css('display') == 'none') {
-                    $("#heart").css("display", "block");
-                    $("#heart-hollow").css("display", "none");
-                } else {
-                    $("#heart-hollow").css("display", "block");
-                    $("#heart").css("display", "none");
-                }
-            });
-        });
-
-        // GHI Tạm
     </script>
 </body>
 

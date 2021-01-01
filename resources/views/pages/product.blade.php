@@ -385,17 +385,17 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-2">
+            <div class="mt-2" id="reviews">
                 @auth
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="new-review">
                         @if(isset($currentUserAvatar))
                             <img src="{{cloudinary()->getImage('avatars/'.$currentUserAvatar)}}" alt="" class="review-item__avatar">
@@ -683,8 +683,9 @@
                                 </div>
                             </li>
                         @endforeach
-                    @endif
-                </ul>
+                        @endif
+                    </ul>
+                {{ $reviews->links() }}
             </div>
         </div>
     </div>
