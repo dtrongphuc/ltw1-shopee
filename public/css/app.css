@@ -2265,24 +2265,20 @@ input[type=checkbox]:checked:after {
     width: 100%;
 }
 
-._3gunFW {
+.address-modal__form_input_name {
     position: relative;
     margin-bottom: 15px;
 }
 
-._28onW4 {
+.address-modal__form_input_name_nameuser-model {
     border-color: #ff424f;
     background-color: rgba(255, 66, 79, .05);
 }
 
 element.style {}
 
-._28onW4 {
-    border-color: #ff424f;
-    background-color: rgba(255, 66, 79, .05);
-}
 
-.voN2GT {
+.address-modal__form_input_name_nameuser {
     display: block;
     display: -webkit-box;
     display: -webkit-flex;
@@ -2304,7 +2300,7 @@ element.style {}
     transition: border-color .3s ease-in-out, box-shadow .3s ease-in-out, background-color .3s ease-in-out;
 }
 
-._3uWB5R {
+.address-modal__form_input_name_nameuser_model_input {
     height: 38px;
     -moz-box-sizing: border-box;
     box-sizing: border-box;

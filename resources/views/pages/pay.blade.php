@@ -64,26 +64,26 @@
                                                 <div>
                                                 </div>
                                                 <div class="address-modal__form_input">
-                                                    <div class="_3gunFW">
-                                                        <div class="voN2GT _28onW4">
-                                                            <input class="_3uWB5R" type="text" placeholder="Họ &amp; Tên"
+                                                    <div class="address-modal__form_input_name">
+                                                        <div class="address-modal__form_input_name_nameuser address-modal__form_input_name_nameuser-model">
+                                                            <input class="address-modal__form_input_name_nameuser_model_input" type="text" placeholder="Họ &amp; Tên"
                                                                 maxlength="64" value="{{ $userinfo[0]->name }}">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="address-modal__form_input">
-                                                    <div class="_3gunFW">
-                                                        <div class="voN2GT _28onW4">
-                                                            <input class="_3uWB5R" type="text" placeholder="Số điện thoại"
+                                                    <div class="address-modal__form_input_name">
+                                                        <div class="address-modal__form_input_name_nameuser address-modal__form_input_name_nameuser_model">
+                                                            <input class="address-modal__form_input_name_nameuser_model_input" type="text" placeholder="Số điện thoại"
                                                                 value="(+84) {{ substr($userinfo[0]->phoneNumber, 1) }}">
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div class="address-modal__form_input">
-                                                    <div class="_3gunFW">
-                                                        <div class="voN2GT _28onW4">
-                                                            <input class="_3uWB5R" type="text" placeholder="Địa chỉ"
+                                                    <div class="address-modal__form_input_name">
+                                                        <div class="address-modal__form_input_name_nameuser address-modal__form_input_name_nameuser_model">
+                                                            <input class="address-modal__form_input_name_nameuser_model_input" type="text" placeholder="Địa chỉ"
                                                                 maxlength="200" value="{{ $userinfo[0]->address }}">
                                                         </div>
                                                     </div>
