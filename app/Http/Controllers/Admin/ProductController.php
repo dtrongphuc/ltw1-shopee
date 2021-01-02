@@ -15,6 +15,7 @@ class ProductController extends Controller
         $category = categories::All();
 
         $product = DB::table('products')
+            ->where('products.status', '=', '1')
             ->select(
                 'products.productId',
                 'products.productName',
@@ -27,15 +28,19 @@ class ProductController extends Controller
                 'products.postAt',
                 'categories.categoryName'
             )
-            ->join('categories', 'products.categoryId', 'categories.categoryId')->get();
+            ->join('categories', 'products.categoryId', 'categories.categoryId')
+            ->get();
         //$product = Product::all();
         return view('adminthucong/index', ['sanpham' => $product, 'category' => $category]);
-        //return response()->json($category->count(), 200);
+        //return response()->json($product, 200);
     }
 
-    public function deleteCategorytById($categoryId)
+    public function deleteProducttById($id)
     {
-        $cart = categories::find($categoryId)->delete();
+        $product = Product::where('productId', '=', (int)$id)
+            ->update([
+                'status' => '0'
+            ]);
         return redirect()->back(); //quay lai trang truoc
     }
 

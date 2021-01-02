@@ -170,7 +170,7 @@
                                         <td>{{$sanpham[$i]->rate}}</td>
                                         <td>{{$sanpham[$i]->sold}}</td>
                                         <td>{{$sanpham[$i]->postAt}}</td>
-                                        <td><i class="fas fa-trash-alt"></i></td>
+                                        <td><a href="{{'/delete-product/'.$sanpham[$i]->productId}}"><i class="fas fa-trash-alt"></i></a></td>
                                         <td>
                                             <button type="button" data-toggle="modal" data-target="#suaSP"><i class="fas fa-edit"></i></button>
                                             <!-- Modal sua san pham -->

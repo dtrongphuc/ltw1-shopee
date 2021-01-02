@@ -16,6 +16,7 @@ use App\Http\Controllers\Product\FavoriteController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\User\AccountController;
+use App\Http\Controllers\Admin;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -122,6 +123,7 @@ Route::get('/categorymanagement/delete/{id}', [CartController::class, 'deleteCar
 Route::post('/add-category', [CategoryController::class, 'AddCategory'])->name('add.category');
 Route::get('/delete-category/{id}', [CategoryController::class, 'deleteCategorytById'])->name('category.delete');
 Route::post('/edit-category', [CategoryController::class, 'EditCategory'])->name('edit.category');
+Route::get('/delete-product/{id}', [Admin\ProductController::class, 'deleteProducttById'])->name('product.delete');
 
 Route::get('/administrator', function () {
     return view('/pages/administrator');
