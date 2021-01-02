@@ -893,6 +893,26 @@ a:hover {
 .user-menu__item:hover > a {
     color: rgb(29, 185, 159);
 }
+
+.header-cart {
+    position: relative;
+}
+
+.header-cart__count {
+    display: none;
+    position: absolute;
+    top: -7px;
+    right: -12px;
+    width: 24px;
+    height: 18px;
+    line-height: 18px;
+    background-color: #fff;
+    border: 1px solid var(--primary-color);
+    font-size: 12px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.85);
+    border-radius: 50%;
+}
 .main-filter {
     background-color: rgba(0, 0, 0, 0.03);
     height: 60px;

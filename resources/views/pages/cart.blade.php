@@ -72,10 +72,9 @@
                         <a href="{{'/cart/to_product/'.$product->id}}">
                             <div class="cartbody__checkall d-flex align-items-center ">
                                 <div class="cartbody__products-check">
-                                    {{-- <input type="checkbox" name="check-one"> --}}
                                 </div>
                                 <div class="cartbody__products-img">
-                                    <img src="images/products/hoodie_cart.jpg" alt="" style="width: 80px; height: 80px;">
+                                    <img src="{{cloudinary()->getImage('products/'.$product->productImage)}}" alt="" style="width: 80px; height: 80px;">
                                 </div>
                                 <h5 class="cartbody__products-productname">
                                     {{$product->productName}}
@@ -105,7 +104,7 @@
                                 </div>
                                 <div class="col-3 d-flex justify-content-center">
                                     <p class="cartbody__productsinfo-price">đ</p>
-                                    <p class="cartbody__productsinfo-price" id="toltalprice_{{$product->productName}}">{{number_format(floatval($product->price * $product->quatity))}}</p>
+                                    <p class="cartbody__productsinfo-price" id="toltalprice_{{$product->productName}}">{{number_format(floatval($product->price * $product->quantity))}}</p>
                                 </div>
                                 <div class="col-3">
                                     <a href="{{'/cart/delete/'.$product->id}}">

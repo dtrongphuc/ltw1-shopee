@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->id('categoryId');
             $table->text('categoryName');
             $table->text('description');
+            $table->enum('status', [0, 1])->default(1);
         });
     }
 

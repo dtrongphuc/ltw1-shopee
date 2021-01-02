@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     //Mua hàng
     const btnAddToCart = document.querySelector("#addToCart");
-    const btnBuyNow = document.querySelector("#addToCart");
+    const btnBuyNow = document.querySelector("#buyNow");
 
     btnAddToCart?.addEventListener("click", async () => {
         document.querySelector(
@@ -142,6 +142,37 @@ document.addEventListener("DOMContentLoaded", function() {
         try {
             const response = await axios.post("/product/add-to-cart", cartData);
             console.log(response);
+        } catch (e) {
+            let messageObj = e?.response?.data?.errors;
+            document.querySelector(
+                ".product-validator__notification > p"
+            ).innerHTML = Object.values(messageObj)[0];
+            document.querySelector(
+                ".product-validator__notification"
+            ).style.display = "block";
+        }
+    });
+
+    btnBuyNow?.addEventListener("click", async () => {
+        document.querySelector(
+            ".product-validator__notification > p"
+        ).innerHTML = "";
+        document.querySelector(
+            ".product-validator__notification"
+        ).style.display = "none";
+
+        let cartData = {
+            productId: productId?.dataset.id,
+            quantity: document.querySelector(".product-quantity__input").value,
+            type: document.querySelector(".product-types__btn--active")?.dataset
+                .typeId
+        };
+
+        try {
+            const response = await axios.post("/product/add-to-cart", cartData);
+            if (response.status === 200) {
+                window.location.href = "/cart";
+            }
         } catch (e) {
             let messageObj = e?.response?.data?.errors;
             document.querySelector(

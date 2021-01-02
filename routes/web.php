@@ -87,9 +87,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/add-favorite', [FavoriteController::class, 'add']);
         Route::post('/remove-favorite', [FavoriteController::class, 'remove']);
         Route::post('/add-to-cart', [AddToCartController::class, 'addToCart']);
+        Route::post('/buy', [AddToCartController::class, 'addToCart']);
         Route::post('/post-review', [PostReviewController::class, 'post'])->name('post.review');
     });
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/cart', 'App\Http\Controllers\Cart\CartController@cart');
 });
 
 
@@ -122,7 +124,6 @@ Route::get('/', [PagesController::class, 'ListCategories']);
 //Route::get('/', [PagesController::class, 'ProductImages']);
 
 //giỏ hàng
-Route::get('/cart', 'App\Http\Controllers\Cart\CartController@cart');
 Route::get('/cart/delete/{cartid}', [CartController::class, 'deleteCartById'])->name('cart.delete');
 // Route::post('/cart/UpQuantity', [CartController::class, 'upQuantityProduct'])->name('cart.upquantify');
 
