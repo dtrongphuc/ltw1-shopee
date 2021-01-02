@@ -15,6 +15,7 @@ use App\Http\Controllers\PurchaseOrder\PurchaseOrderController;
 use App\Http\Controllers\Product\FavoriteController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\User\AccountController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -76,9 +77,7 @@ Route::get('/category/{categoryId}', [HomeController::class, 'category'])->name(
 Route::middleware(['auth', 'verified'])->group(function () {
     // Routes user
     Route::prefix('user')->group(function () {
-        Route::get('/account', function () {
-            return view('/pages/profile');
-        });
+        Route::get('/account', [AccountController::class, 'account']);
 
         Route::get('/purchase', function () {
             return view('/pages/cart');
