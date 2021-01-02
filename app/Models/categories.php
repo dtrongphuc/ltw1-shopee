@@ -11,4 +11,10 @@ class Categories extends Model
 
     protected $table = "categories";
     public $timestamps = false;
+    protected $fillable = ['categoryName', 'description'];
+
+    public function product()
+    {
+        return $this->hasMany('App\Product', 'categoryId', 'categoryId');
+    }
 }
