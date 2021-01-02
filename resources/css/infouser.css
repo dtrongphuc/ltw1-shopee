@@ -258,7 +258,9 @@
 }
 
 .order__footer {
+    padding-bottom: 10px;
     margin-bottom: 40px;
+    border-bottom: #f2f2f2 solid 1px;
 }
 
 .order__footer-totalprice--price {
