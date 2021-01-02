@@ -899,7 +899,6 @@ a:hover {
 }
 
 .header-cart__count {
-    display: none;
     position: absolute;
     top: -7px;
     right: -12px;
@@ -2732,6 +2731,10 @@ body{
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
+}
+
+.modal-body .itemadd .inputitem-icon{
+    margin-left: 42px;
 }
 .main-info {
     margin: 40px 0;

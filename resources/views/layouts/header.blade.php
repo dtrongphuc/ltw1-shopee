@@ -94,10 +94,10 @@
                                 </div>
                             </div>
                             <div class="cart-button">
-                                <span class="header-cart">
+                                <a class="header-cart" href="/cart">
                                     <i class="fas fa-shopping-cart" style="color: white; margin-top: 10px;"></i>
-                                    <div class="header-cart__count">1</div>
-                                </span>
+                                    <div class="header-cart__count" style="display: {{isset($cartQuantity) ? "block" : "none"}};">{{isset($cartQuantity) ? $cartQuantity : 0}}</div>
+                                </a>
                             </div>
                         </div>
                     </div>

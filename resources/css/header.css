@@ -241,7 +241,6 @@
 }
 
 .header-cart__count {
-    display: none;
     position: absolute;
     top: -7px;
     right: -12px;

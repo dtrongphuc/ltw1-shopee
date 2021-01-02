@@ -1,5 +1,6 @@
 require("./bootstrap");
 require("./auth");
+require("./home");
 require("./cart");
 require("./product");
 axios.interceptors.response.use(
