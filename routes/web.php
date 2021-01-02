@@ -121,6 +121,7 @@ Route::get('/categorymanagement/delete/{id}', [CartController::class, 'deleteCar
 
 Route::post('/add-category', [CategoryController::class, 'AddCategory'])->name('add.category');
 Route::get('/delete-category/{id}', [CategoryController::class, 'deleteCategorytById'])->name('category.delete');
+Route::post('/edit-category', [CategoryController::class, 'EditCategory'])->name('edit.category');
 
 Route::get('/administrator', function () {
     return view('/pages/administrator');
