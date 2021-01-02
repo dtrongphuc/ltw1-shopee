@@ -70,9 +70,7 @@ Route::get('/product/{id}', [ProductController::class, '__invoke']);
 Route::get('/category/{categoryId}', [HomeController::class, 'category'])->name('filter.category');
 
 // Sort
-Route::get('/sort/{option}', [HomeController::class, 'sort'])->name('sort.products');
-
-
+// Route::get('/sort/{option}', [HomeController::class, 'sort'])->name('sort.products');
 
 // Protected routes
 Route::middleware(['auth', 'verified'])->group(function () {

@@ -11,13 +11,13 @@
                                 <i class="fas fa-list"></i>
                                 <p class="ms-2">Tất cả danh mục</p>
                             </li>
-                            <li class="category-item {{Request::is('/') ? "category-item--active" : ""}}">
+                            <li class="category-item {{Request::has('category') ? "" : "category-item--active"}}">
                                 <a href="/">Tất cả</a>
                             </li>
                             @if(isset($category))
                                 @foreach($category as $cate)
-                                <li class="category-item {{Request::is('category/'.$cate->categoryId) ? "category-item--active" : ""}}">
-                                    <a href="{{route('filter.category', ['categoryId' => $cate->categoryId])}}">{{$cate -> categoryName}}</a>
+                                <li class="category-item {{Request::has('category') && Request::get('category') == $cate->categoryId ? "category-item--active" : ""}}">
+                                    <a href="{{request()->fullUrlWithQuery(['category' => $cate->categoryId])}}">{{$cate -> categoryName}}</a>
                                 </li>
                                 @endforeach
                             @endif
@@ -30,9 +30,15 @@
                                 <div class="main-filter__left d-flex align-items-center">
                                     <p class="main-filter__left--title">Sắp xếp theo</p>
                                     <ul class="main-filter__left--list">
-                                        <li class="filter-list__item filter-list__item--active" id="sort-popular">Phổ biến</li>
-                                        <li class="filter-list__item" id="sort-new">Mới nhất</li>
-                                        <li class="filter-list__item" id="sort-selling">Bán chạy</li>
+                                        <li class="filter-list__item {{!Request::has('filter') || Request::has('filter') && Request::get('filter') == 'popular' ? "filter-list__item--active" : ""}}" id="sort-popular">
+                                            <a href="{{request()->fullUrlWithQuery(['filter' => 'popular'])}}">Phổ biến</a>
+                                        </li>
+                                        <li class="filter-list__item {{Request::has('filter') && Request::get('filter') == 'new' ? "filter-list__item--active" : ""}}" id="sort-new">
+                                            <a href="{{request()->fullUrlWithQuery(['filter' => 'new'])}}">Mới nhất</a>
+                                        </li>
+                                        <li class="filter-list__item {{Request::has('filter') && Request::get('filter') == 'selling' ? "filter-list__item--active" : ""}}" id="sort-selling">
+                                            <a href="{{request()->fullUrlWithQuery(['filter' => 'selling'])}}">Bán chạy</a>
+                                        </li>
                                         <li class="filter-list__item filter-list__item--select">
                                             Giá
                                             <i class="fas fa-chevron-down"></i>

@@ -12,11 +12,16 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $category = Categories::all();
-        $products = Product::all();
-        
+        $isHasCategory = $request->has('category');
+        $isHasFilter = $request->has('filter');
+        $products = ($isHasCategory && $isHasFilter) ? 
+                    (self::productsWithCategoryAndFilter($request->category, $request->filter)) :
+                    ($isHasCategory ? self::productsWithCategory($request->category) :
+                    ($isHasFilter ? self::productsWithFilter($request->filter) :
+                    Product::orderBy('likeCount', 'desc')->get()));
         return view('pages.index',[
             'category' => $category,
             'products' => $products
@@ -33,23 +38,13 @@ class HomeController extends Controller
         return view('pages.search-results');
     }
 
-    public function category($categoryId) {
-        $category = Categories::all();
-        $products = Product::where('categoryId', '=', $categoryId)->get();
-        $image = Product::where('categoryId', '=', $categoryId)
-                ->select(DB::raw('(select productImage from product_images where productId = products.productId limit 1) as productImage'))
-                ->first();
-        
-        return view('pages.index',[
-            'category' => $category,
-            'image' => $image,
-            'products' => $products
-        ]);
+    public function productsWithCategory($categoryId) {
+        return Product::where('categoryId', '=', $categoryId)->get();
     }
 
-    public function sort($option) {
+    public function productsWithFilter($filter) {
         $orderBy = '';
-        switch($option) {
+        switch($filter) {
             case "popular":
                 $orderBy = 'likeCount';
                 break;
@@ -60,20 +55,28 @@ class HomeController extends Controller
                 $orderBy = 'sold';
                 break;
             default:
-                break;
+                $orderBy = 'likeCount';
         }
-        $category = Categories::all();
-        $products = Product::where('categoryId', '=', $categoryId)
-                            ->orderBy($orderBy, 'desc')
-                            ->get();
-        $image = Product::where('categoryId', '=', $categoryId)
-        ->select(DB::raw('(select productImage from product_images where productId = products.productId limit 1) as productImage'))
-        ->first();
-                    
-        return view('pages.index',[
-            'category' => $category,
-            'image' => $image,
-            'products' => $products
-        ]);                    
+        return Product::orderBy($orderBy, 'desc')->get();
+    }
+
+    public function productsWithCategoryAndFilter($category, $filter) {
+        $orderBy = '';
+        switch($filter) {
+            case "popular":
+                $orderBy = 'likeCount';
+                break;
+            case "new":
+                $orderBy = 'postAt';
+                break;
+            case "selling":
+                $orderBy = 'sold';
+                break;
+            default:
+                $orderBy = 'likeCount';
+        }
+
+        return Product::where('categoryId', '=', $category)
+                        ->orderBy($orderBy, 'desc')->get();
     }
 }
