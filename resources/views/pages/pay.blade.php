@@ -31,12 +31,12 @@
                     <div class="pay__addressship-infouser  d-flex align-items-center">
 
                         <div class="pay__addressship-info--username">
-                            <strong>{{ $userinfo[0]->name }}</strong>
+                            <strong id="username">{{ $userinfo[0]->name }}</strong>
                         </div>
                         <div class="pay__addressship-info--phone" style="margin: 0 10px;">
-                            <strong>(+84) {{ substr($userinfo[0]->phoneNumber, 1) }}</strong>
+                            <strong id="phonenumber">(+84) {{ substr($userinfo[0]->phoneNumber, 1) }}</strong>
                         </div>
-                        <div class="pay__addressship-info--address">
+                        <div class="pay__addressship-info--address" id="address">
                             {{ $userinfo[0]->address }}
 
                         </div>
@@ -65,34 +65,46 @@
                                                 </div>
                                                 <div class="address-modal__form_input">
                                                     <div class="address-modal__form_input_name">
-                                                        <div class="address-modal__form_input_name_nameuser address-modal__form_input_name_nameuser-model">
-                                                            <input class="address-modal__form_input_name_nameuser_model_input" type="text" placeholder="Họ &amp; Tên"
-                                                                maxlength="64" value="{{ $userinfo[0]->name }}">
+                                                        <div
+                                                            class="address-modal__form_input_name_nameuser address-modal__form_input_name_nameuser-model">
+                                                            <input
+                                                                class="address-modal__form_input_name_nameuser_model_input"
+                                                                type="text" placeholder="Họ và tên" id="username_change"
+                                                                value="{{ $userinfo[0]->name }}" required>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="address-modal__form_input">
                                                     <div class="address-modal__form_input_name">
-                                                        <div class="address-modal__form_input_name_nameuser address-modal__form_input_name_nameuser_model">
-                                                            <input class="address-modal__form_input_name_nameuser_model_input" type="text" placeholder="Số điện thoại"
-                                                                value="(+84) {{ substr($userinfo[0]->phoneNumber, 1) }}">
+                                                        <div
+                                                            class="address-modal__form_input_name_nameuser address-modal__form_input_name_nameuser_model">
+                                                            <input
+                                                                class="address-modal__form_input_name_nameuser_model_input"
+                                                                type="text" placeholder="Số điện thoại"
+                                                                id="phonenumber_change"
+                                                                value="(+84) {{ substr($userinfo[0]->phoneNumber, 1) }}"
+                                                                required>
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div class="address-modal__form_input">
                                                     <div class="address-modal__form_input_name">
-                                                        <div class="address-modal__form_input_name_nameuser address-modal__form_input_name_nameuser_model">
-                                                            <input class="address-modal__form_input_name_nameuser_model_input" type="text" placeholder="Địa chỉ"
-                                                                maxlength="200" value="{{ $userinfo[0]->address }}">
+                                                        <div
+                                                            class="address-modal__form_input_name_nameuser address-modal__form_input_name_nameuser_model">
+                                                            <input
+                                                                class="address-modal__form_input_name_nameuser_model_input"
+                                                                type="text" placeholder="Địa chỉ" id="address_change"
+                                                                value="{{ $userinfo[0]->address }}" required>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="shopee-popup-form__footer">
-                                                <button class="cancel-btn" type="button" data-dismiss="modal">Trở Lại</button>
-                                                <button type="button"
-                                                    class="btn btn-solid-primary btn--s btn--inline khi9AY">Hoàn thành</button>
+                                                <button class="cancel-btn" type="button" data-dismiss="modal">Trở
+                                                    Lại</button>
+                                                <button class="cancel-btn completed" type="button" data-dismiss="modal"
+                                                    id="coplete_change">Hoàn thành</button>
                                             </div>
                                         </div>
                                     </div>
@@ -179,7 +191,9 @@
                     </div>
                 </div>
                 <div class="payfooter_btnpay d-flex justify-content-end">
-                    <button class="btn btn-primary cartfooter__buyproduct-btnbuy">Dặt hàng</button>
+                    <a href="{{'/purchaseorder'}}">
+                        <button class="btn btn-primary cartfooter__buyproduct-btnbuy">Đặt hàng</button>
+                    </a>
                 </div>
 
             </div>

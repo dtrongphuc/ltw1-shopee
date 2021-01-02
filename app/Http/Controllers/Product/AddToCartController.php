@@ -12,6 +12,10 @@ class AddToCartController extends Controller
 {
     // Add to cart
     public function addToCart(Request $request) {
+        if(!Auth::check()) {
+            return response()->json(['success' => false, 'errors' => 'Unauthenticated'], 401);
+        }
+
         $userId = Auth::id();
         $validator = Validator::make($request->all(),[
             "productId" => "required",

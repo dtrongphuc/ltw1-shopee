@@ -12,6 +12,7 @@ use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\Admin\ChartController;
 use App\Http\Controllers\Cart\CartController;
 use App\Http\Controllers\Pay\PayController;
+use App\Http\Controllers\PurchaseOrder\PurchaseOrderController;
 use App\Http\Controllers\Product\FavoriteController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\CategoryController;
@@ -87,9 +88,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/add-favorite', [FavoriteController::class, 'add']);
         Route::post('/remove-favorite', [FavoriteController::class, 'remove']);
         Route::post('/add-to-cart', [AddToCartController::class, 'addToCart']);
+        Route::post('/buy', [AddToCartController::class, 'addToCart']);
         Route::post('/post-review', [PostReviewController::class, 'post'])->name('post.review');
     });
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/cart', 'App\Http\Controllers\Cart\CartController@cart');
 });
 
 
@@ -121,7 +124,6 @@ Route::get('/', [PagesController::class, 'ListCategories']);
 //Route::get('/', [PagesController::class, 'ProductImages']);
 
 //giỏ hàng
-Route::get('/cart', 'App\Http\Controllers\Cart\CartController@cart');
 Route::get('/cart/delete/{cartid}', [CartController::class, 'deleteCartById'])->name('cart.delete');
 // Route::post('/cart/UpQuantity', [CartController::class, 'upQuantityProduct'])->name('cart.upquantify');
 
@@ -135,3 +137,7 @@ Route::post('/upload', [FileUploadController::class, 'storeUploads']);
 
 // Search Product
 Route::get('/search', [PagesController::class, 'searchProduct']);
+
+//đơn mua hàng
+// Route::get('/purchaseorder', [PurchaseOrderController::class], 'purchaseorder');
+Route::get('/purchaseorder', 'App\Http\Controllers\PurchaseOrder\PurchaseOrderController@purchaseorder');
