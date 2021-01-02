@@ -26157,9 +26157,6 @@ __webpack_require__(/*! ./cart */ "./resources/js/cart.js");
 
 __webpack_require__(/*! ./product */ "./resources/js/product.js");
 
-__webpack_require__(/*! ./pay */ "./resources/js/pay.js");
-
-
 axios.interceptors.response.use(function (response) {
   // Any status code that lie within the range of 2xx cause this function to trigger
   // Do something with response data
@@ -26173,6 +26170,8 @@ axios.interceptors.response.use(function (response) {
 
   return Promise.reject(error);
 });
+
+__webpack_require__(/*! ./pay */ "./resources/js/pay.js");
 
 /***/ }),
 
