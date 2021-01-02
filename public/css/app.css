@@ -2281,12 +2281,6 @@ input[type=checkbox]:checked:after {
     margin-bottom: 15px;
 }
 
-.address-modal__form_input_name_nameuser-model {
-    border-color: #ff424f;
-    background-color: rgba(255, 66, 79, .05);
-}
-
-
 .address-modal__form_input_name_nameuser {
     display: block;
     display: -webkit-box;
@@ -2525,6 +2519,12 @@ input[type=checkbox]:checked:after {
     text-transform: capitalize;
     outline: 0;
     cursor: pointer;
+}
+
+.completed {
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    color: black;
 }
 .left .headerleft a,
 .left .headerleft .list-item .item a,
