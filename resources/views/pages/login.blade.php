@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vn">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
     <title>Đăng nhập</title>
 </head>
+
 <body>
     <div class="auth__header d-flex align-items-center">
         <div class="container">
@@ -17,7 +19,7 @@
                 <div class="col d-flex justify-content-between align-items-center">
                     <div class="auth__titlelogo d-flex align-items-center">
                         <a href="">
-                            <img src="images/logo/shopee-color.png" alt="" class="auth-img"> 
+                            <img src="images/logo/shopee-color.png" alt="" class="auth-img">
                         </a>
                         <h4 class="auth__header-title">Đăng Nhập</h4>
                     </div>
@@ -42,7 +44,7 @@
                                 <input id="email" type="text" name="email" class="form-control auth__body-form--header-input" placeholder="Email" require>
                                 <div class="invalid-feedback"></div>
                             </div>
-    
+
                             <div class="mb-2">
                                 <div class="auth__body-form--password d-flex align-items-center">
                                     <input type="password" name="password" class="form-control auth__body-form--header-input input-password" id="password" placeholder="Mật khẩu" require>
@@ -53,7 +55,7 @@
                                 </div>
                                 <div class="input-error" style="display: none;"></div>
                             </div>
-    
+
                             <!-- khi điền đủ thong tin bỏ class notlogin -->
                             <button type="submit" class="btn-auth__submit btn-register-login notlogin">
                                 <span class="spinner-border spinner-border-sm spinner-loading" role="status" aria-hidden="true"></span>

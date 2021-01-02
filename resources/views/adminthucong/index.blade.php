@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="./myStyle.css"> -->
     <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Quản Lý Sản Phẩm</title>
 </head>
 
@@ -87,8 +86,8 @@
                                         <td style='text-align: center; width: 125px;'>{{$category[$i]->categoryId}}</td>
                                         <td style='width: 300px;'>{{$category[$i]->categoryName}}</td>
                                         <td></td>
-                                        <td style='text-align: center; center; width: 80px;'><i class="fas fa-trash-alt"></i></td>
-                                        <td style='text-align: center; center; width: 80px;'>
+                                        <td style='text-align: center; width: 80px;'><i class="fas fa-trash-alt"></i></td>
+                                        <td style='text-align: center; width: 80px;'>
                                             <button type="button" data-toggle="modal" data-target="#suaDM"><i class="fas fa-edit"></i></button>
                                             <!-- Modal Sửa Danh Mục -->
                                             <div id="suaDM" class="modal fade" role="dialog">
@@ -116,7 +115,6 @@
                                                             <button type="button" class="btn btn-success" style="width:100px;" data-dismiss="modal" onclick="checkForm()">Sửa</button>
                                                         </div>
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </td>
@@ -201,7 +199,13 @@
                                                                 <label class="col-md-2 labelitem" for="">Mô tả</label>
                                                                 <textarea class="col-md-9 inputitem" id="w3review" name="w3review" rows="4" cols="50">{{$sanpham[$i]->description}}</textarea>
                                                             </div>
-
+                                                            <div class="col-md-12 itemadd">
+                                                                <label class="col-md-2 labelitem" for="">Phân Nhóm</label>
+                                                                <input class="col-md-3 inputitem" type="text" placeholder='Nhập tên Phân Nhóm'>
+                                                                <input class="col-md-3 inputitem" type="text" placeholder='Nhập Số Lượng'>
+                                                                <input class="col-md-2 inputitem" type="text" placeholder='Nhập Giá'>
+                                                                <button class='inputitem-icon'><i class="fas fa-plus"></i></button>
+                                                            </div>
                                                             <div class="col-md-12 itemadd">
                                                                 <label class="col-md-2 labelitem" for="">Danh Mục Sản Phẩm</label>
                                                                 <select name="cars" id="cars" class="col-md-9 inputitem">
@@ -272,6 +276,13 @@
                         <label class="col-md-2 labelitem" for="">Mô tả</label>
                         <textarea class="col-md-9 inputitem" id="w3review" name="w3review" rows="4" cols="50">asdas</textarea>
                     </div>
+                    <div class="col-md-12 itemadd">
+                        <label class="col-md-2 labelitem" for="">Phân Nhóm</label>
+                        <input class="col-md-3 inputitem" type="text" placeholder='Nhập tên Phân Nhóm'>
+                        <input class="col-md-3 inputitem" type="text" placeholder='Nhập Số Lượng'>
+                        <input class="col-md-2 inputitem" type="text" placeholder='Nhập Giá'>
+                        <button class='inputitem-icon'><i class="fas fa-plus"></i></button>
+                    </div>
 
                     <div class="col-md-12 itemadd">
                         <label class="col-md-2 labelitem" for="">Danh Mục Sản Phẩm</label>
@@ -300,24 +311,25 @@
                 <div class="modal-header">
                     <h4 class="modal-title">Thêm Danh Mục</h4><button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
+                <form action="{{route('add.category')}}" method="POST">
+                    @csrf
+                    <div class="modal-body row">
+                        <div class="col-md-12 itemadd">
+                            <label class="col-md-2 labelitem" for="">Tên Danh Mục</label>
+                            <input class="col-md-9 inputitem" type="text" name="tenDM" placeholder='Nhập tên Danh Mục'>
+                        </div>
 
-                <div class="modal-body row">
-                    <div class="col-md-12 itemadd">
-                        <label class="col-md-2 labelitem" for="">Tên Danh Mục</label>
-                        <input class="col-md-9 inputitem" type="text" placeholder='Nhập tên Danh Mục'>
+                        <div class="col-md-12 itemadd">
+                            <label class="col-md-2 labelitem" for="">Mô tả</label>
+                            <textarea class="col-md-9 inputitem" rows="4" cols="50" name="motaDM"></textarea>
+                        </div>
                     </div>
-
-                    <div class="col-md-12 itemadd">
-                        <label class="col-md-2 labelitem" for="">Mô tả</label>
-                        <textarea class="col-md-9 inputitem" id="w3review" name="w3review" rows="4" cols="50">asdas</textarea>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
+                        <button type="submit" class="btn btn-success" style="width:100px;">Thêm</button>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
-                    <button type="button" class="btn btn-success" style="width:100px;" data-dismiss="modal" onclick="checkForm()">Thêm</button>
-                </div>
+                </form>
             </div>
-
         </div>
     </div>
 

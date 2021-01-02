@@ -14,6 +14,7 @@ use App\Http\Controllers\Cart\CartController;
 use App\Http\Controllers\Pay\PayController;
 use App\Http\Controllers\Product\FavoriteController;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Admin\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -109,8 +110,7 @@ Route::get('/usermanagement', 'App\Http\Controllers\Admin\UserController@index')
 Route::get('/admin', 'App\Http\Controllers\Admin\ProductController@index');
 Route::get('/ordermanagement', 'App\Http\Controllers\Admin\OrderController@index');
 Route::get('/chartstatistical', 'App\Http\Controllers\Admin\ChartController@index');
-Route::get('/categorymanagement/delete/{id}', [CartController::class, 'deleteCartById'])->name('cart.delete');
-
+Route::post('/add-category', [CategoryController::class, 'AddCategory'])->name('add.category');
 
 Route::get('/administrator', function () {
     return view('/pages/administrator');

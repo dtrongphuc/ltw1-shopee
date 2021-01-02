@@ -17,8 +17,9 @@ use Validator;
 class AuthController extends AuthBaseController
 {
     // Login
-    public function login(Request $request) {
-        $validator = Validator::make($request->all(),[
+    public function login(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required',
         ], [
@@ -26,17 +27,17 @@ class AuthController extends AuthBaseController
             'password.required' => 'Vui lòng điền mật khẩu',
         ]);
 
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return $this->sendError('Validator Error.', $validator->errors());
         }
 
-        if(Auth::attempt([
-            'email' => $request->email, 
-            'password' => $request->password,     
+        if (Auth::attempt([
+            'email' => $request->email,
+            'password' => $request->password,
         ])) {
             $user = Auth::user();
-            
-            if(!Auth::user()->hasVerifiedEmail()) {
+
+            if (!Auth::user()->hasVerifiedEmail()) {
                 return $this->sendError('Verify Error.', ['verify' => 'Tài khoản chưa được xác thực'], 401);
             }
             Auth::login($user);
@@ -47,8 +48,9 @@ class AuthController extends AuthBaseController
     }
 
     // Register
-    public function register(Request $request) {
-        $validator = Validator::make($request->all(),[
+    public function register(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
             'email' => 'required|email|unique:users',
             'password' => 'required|min:5|max:12',
             'r_password' => 'required|same:password',
@@ -63,7 +65,7 @@ class AuthController extends AuthBaseController
             'r_password.same' => 'Mật khẩu xác nhận không khớp'
         ]);
 
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return $this->sendError('Validator Error.', $validator->errors());
         }
 
@@ -83,12 +85,13 @@ class AuthController extends AuthBaseController
     }
 
     // Forgot Password
-    public function forgotPassword(Request $request) {
+    public function forgotPassword(Request $request)
+    {
         $validator = Validator::make($request->all(), [
             'email' => 'required|email'
         ]);
 
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return $this->sendError('Validator Error.', $validator->errors());
         }
 
@@ -97,13 +100,14 @@ class AuthController extends AuthBaseController
         $status = Password::sendResetLink(
             $request->only('email')
         );
-    
+
         return $status === Password::RESET_LINK_SENT
-                    ? $this->sendResponse('Sent mail successfully.')
-                    : $this->sendError('Sent mail error.', ['error' => 'Lỗi gửi mail']);
+            ? $this->sendResponse('Sent mail successfully.')
+            : $this->sendError('Sent mail error.', ['error' => 'Lỗi gửi mail']);
     }
     // Reset password
-    public function resetPassword (Request $request) {
+    public function resetPassword(Request $request)
+    {
         $validator = Validator::make($request->all(), [
             'token' => 'required',
             'email' => 'required|email',
@@ -119,7 +123,7 @@ class AuthController extends AuthBaseController
             'r_password.same' => 'Mật khẩu xác nhận không khớp'
         ]);
 
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return $this->sendError('Validator Error.', $validator->errors());
         }
 
@@ -129,15 +133,15 @@ class AuthController extends AuthBaseController
                 $user->forceFill([
                     'password' => Hash::make($password)
                 ])->save();
-    
+
                 $user->setRememberToken(Str::random(60));
-    
+
                 event(new PasswordReset($user));
             }
         );
-    
+
         return $status == Password::PASSWORD_RESET
-                    ? $this->sendResponse('Sent mail successfully.')
-                    : $this->sendError('Sent mail error.', ['error' => 'Đã xảy ra lỗi']);
+            ? $this->sendResponse('Sent mail successfully.')
+            : $this->sendError('Sent mail error.', ['error' => 'Đã xảy ra lỗi']);
     }
 }

@@ -185,3 +185,7 @@ body{
     justify-content: space-between;
     margin-bottom: 15px;
 }
+
+.modal-body .itemadd .inputitem-icon{
+    margin-left: 42px;
+}
