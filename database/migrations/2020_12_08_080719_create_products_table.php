@@ -25,6 +25,7 @@ class CreateProductsTable extends Migration
             $table->float('rate');
             $table->integer('sold');
             $table->date('postAt');
+            $table->enum('status', [0, 1])->default(1);
         });
     }
 
