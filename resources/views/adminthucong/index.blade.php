@@ -19,7 +19,7 @@
                 <a class="text-light" href="./admin">ADMIN</a>
             </div>
             <ul class="list-item">
-               
+
                 <li class="item active">
                     <i class="fas fa-fw fa-table"></i>
                     <a href="./admin">Quản Lý Danh Mục / Sản Phẩm</a>
@@ -60,7 +60,9 @@
             <div class="content-right">
                 <div class="card-body-DM">
                     <div class='category'>
-                        <div><h5>Quản Lý Danh Mục</h5></div>
+                        <div>
+                            <h5>Quản Lý Danh Mục</h5>
+                        </div>
                         <div style='display: flex;'>
                             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#themDM">Thêm Danh Mục</button>
                         </div>
@@ -80,17 +82,46 @@
                             </thead>
                             <tbody>
                                 @for($i = 0 ; $i < $category->count(); $i++)
-                                <tr>
-                                    <td style='text-align: center; width: 50px;'>{{$i+1}}</td>
-                                    <td style='text-align: center; width: 125px;'>{{$category[$i]->categoryId}}</td>
-                                    <td style='width: 300px;'>{{$category[$i]->categoryName}}</td>
-                                    <td></td>
-                                    <td style='text-align: center; center; width: 80px;'><i class="fas fa-trash-alt"></i></td>
-                                    <td style='text-align: center; center; width: 80px;'>
-                                    <button type="button"  data-toggle="modal" data-target="#suaDM"><i class="fas fa-edit"></i></button>
-                                    </td>    
-                                </tr>
-                                @endfor
+                                    <tr>
+                                        <td style='text-align: center; width: 50px;'>{{$i+1}}</td>
+                                        <td style='text-align: center; width: 125px;'>{{$category[$i]->categoryId}}</td>
+                                        <td style='width: 300px;'>{{$category[$i]->categoryName}}</td>
+                                        <td></td>
+                                        <td style='text-align: center; center; width: 80px;'><i class="fas fa-trash-alt"></i></td>
+                                        <td style='text-align: center; center; width: 80px;'>
+                                            <button type="button" data-toggle="modal" data-target="#suaDM"><i class="fas fa-edit"></i></button>
+                                            <!-- Modal Sửa Danh Mục -->
+                                            <div id="suaDM" class="modal fade" role="dialog">
+                                                <div class="modal-dialog" style="max-width: 1000px !important;">
+
+                                                    <!-- Modal content-->
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Sửa Danh Mục</h4><button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+
+                                                        <div class="modal-body row">
+                                                            <div class="col-md-12 itemadd">
+                                                                <label class="col-md-2 labelitem" for="">Tên Danh Mục</label>
+                                                                <input class="col-md-9 inputitem" type="text" placeholder='Nhập tên Danh Mục' value="{{$category[$i]->categoryName}}">
+                                                            </div>
+
+                                                            <div class="col-md-12 itemadd">
+                                                                <label class="col-md-2 labelitem" for="">Mô tả</label>
+                                                                <textarea class="col-md-9 inputitem" id="w3review" name="w3review" rows="4" cols="50">{{$category[$i]->description}}</textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
+                                                            <button type="button" class="btn btn-success" style="width:100px;" data-dismiss="modal" onclick="checkForm()">Sửa</button>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    @endfor
                             </tbody>
                         </table>
                     </div>
@@ -99,7 +130,9 @@
                 <!-- Quản lÝ Sản Phẩm -->
                 <div class="card-body-SP">
                     <div class='category'>
-                        <div><h5>Quản Lý Sản Phẩm</h5></div>
+                        <div>
+                            <h5>Quản Lý Sản Phẩm</h5>
+                        </div>
                         <div>
                             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#themSP">Thêm Sản Phẩm</button>
                         </div>
@@ -124,23 +157,70 @@
                             </thead>
                             <tbody>
                                 @for($i = 0 ; $i < $sanpham->count(); $i++)
-                                <tr>
-                                    <td>{{$i+1}}</td>
-                                    <td>{{$sanpham[$i]->productId}}</td>
-                                    <td>{{$sanpham[$i]->productName}}</td>
-                                    <td>{{$sanpham[$i]->categoryName}}</td>
-                                    <td>{{$sanpham[$i]->price}}</td>
-                                    <td>{{$sanpham[$i]->quantity}}</td>
-                                    <td>{{$sanpham[$i]->likeCount}}</td>
-                                    <td>{{$sanpham[$i]->rate}}</td>
-                                    <td>{{$sanpham[$i]->sold}}</td>
-                                    <td>{{$sanpham[$i]->postAt}}</td>
-                                    <td><i class="fas fa-trash-alt"></i></td>
-                                    <td>
-                                    <button type="button"  data-toggle="modal" data-target="#suaSP"><i class="fas fa-edit"></i></button>
-                                    </td>    
-                                </tr>
-                                @endfor
+                                    <tr>
+                                        <td>{{$i+1}}</td>
+                                        <td>{{$sanpham[$i]->productId}}</td>
+                                        <td>{{$sanpham[$i]->productName}}</td>
+                                        <td>{{$sanpham[$i]->categoryName}}</td>
+                                        <td>{{$sanpham[$i]->price}}</td>
+                                        <td>{{$sanpham[$i]->quantity}}</td>
+                                        <td>{{$sanpham[$i]->likeCount}}</td>
+                                        <td>{{$sanpham[$i]->rate}}</td>
+                                        <td>{{$sanpham[$i]->sold}}</td>
+                                        <td>{{$sanpham[$i]->postAt}}</td>
+                                        <td><i class="fas fa-trash-alt"></i></td>
+                                        <td>
+                                            <button type="button" data-toggle="modal" data-target="#suaSP"><i class="fas fa-edit"></i></button>
+                                            <!-- Modal sua san pham -->
+                                            <div id="suaSP" class="modal fade" role="dialog">
+                                                <div class="modal-dialog" style="max-width: 1000px !important;">
+
+                                                    <!-- Modal content-->
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Sửa Thông Tin Sản Phẩm</h4><button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+
+                                                        <div class="modal-body row">
+                                                            <div class="col-md-12 itemadd">
+                                                                <label class="col-md-2 labelitem" for="">Tên Sản Phẩm</label>
+                                                                <input class="col-md-9 inputitem" type="text" placeholder='Nhập tên Sản Phẩm' value="{{$sanpham[$i]->productName}}">
+                                                            </div>
+
+                                                            <div class="col-md-12 itemadd">
+                                                                <label class="col-md-2 labelitem" for="">Giá</label>
+                                                                <input class="col-md-9 inputitem" type="text" placeholder='Nhập Giá Sản Phẩm' value="{{$sanpham[$i]->price}}">
+                                                            </div>
+
+                                                            <div class="col-md-12 itemadd">
+                                                                <label class="col-md-2 labelitem" for="">Số Lượng</label>
+                                                                <input class="col-md-9 inputitem" type="text" placeholder='Nhập Số Lượng Sản Phẩm' value="{{$sanpham[$i]->quantity}}">
+                                                            </div>
+
+                                                            <div class="col-md-12 itemadd">
+                                                                <label class="col-md-2 labelitem" for="">Mô tả</label>
+                                                                <textarea class="col-md-9 inputitem" id="w3review" name="w3review" rows="4" cols="50">{{$sanpham[$i]->description}}</textarea>
+                                                            </div>
+
+                                                            <div class="col-md-12 itemadd">
+                                                                <label class="col-md-2 labelitem" for="">Danh Mục Sản Phẩm</label>
+                                                                <select name="cars" id="cars" class="col-md-9 inputitem">
+                                                                    @foreach($category as $cate)
+                                                                    <option value={{$cate->categoryId}}>{{$cate->categoryName}}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
+                                                            <button type="button" class="btn btn-success" style="width:100px;" data-dismiss="modal" onclick="checkForm()">Sửa</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    @endfor
                             </tbody>
                         </table>
                     </div>
@@ -160,54 +240,7 @@
 
 
 
-    <!-- Modal sua san pham -->
-    <div id="suaSP" class="modal fade" role="dialog">
-        <div class="modal-dialog" style="max-width: 1000px !important;">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Sửa Thông Tin Sản Phẩm</h4><button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <div class="modal-body row">
-                    <div class="col-md-12 itemadd">
-                        <label class="col-md-2 labelitem" for="">Tên Sản Phẩm</label>
-                        <input class="col-md-9 inputitem" type="text" placeholder='Nhập tên Sản Phẩm'>
-                    </div>
-                    
-                    <div class="col-md-12 itemadd">
-                        <label class="col-md-2 labelitem" for="">Giá</label>
-                        <input class="col-md-9 inputitem" type="text" placeholder='Nhập Giá Sản Phẩm'>
-                    </div>
-
-                    <div class="col-md-12 itemadd">
-                        <label class="col-md-2 labelitem" for="">Số Lượng</label>
-                        <input class="col-md-9 inputitem" type="text" placeholder='Nhập Số Lượng Sản Phẩm'>
-                    </div>
-
-                    <div class="col-md-12 itemadd">
-                        <label class="col-md-2 labelitem" for="">Mô tả</label>
-                        <textarea class="col-md-9 inputitem" id="w3review" name="w3review" rows="4" cols="50">asdas</textarea>
-                    </div>
-
-                    <div class="col-md-12 itemadd">
-                        <label class="col-md-2 labelitem" for="">Danh Mục Sản Phẩm</label>
-                        <select name="cars" id="cars" class="col-md-9 inputitem">
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="mercedes">Mercedes</option>
-                            <option value="audi">Audi</option>
-                        </select>
-                    </div>  
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
-                    <button type="button" class="btn btn-success" style="width:100px;" data-dismiss="modal" onclick="checkForm()">Sửa</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Modal Thêm san pham -->
     <div id="themSP" class="modal fade" role="dialog">
@@ -224,7 +257,7 @@
                         <label class="col-md-2 labelitem" for="">Tên Sản Phẩm</label>
                         <input class="col-md-9 inputitem" type="text" placeholder='Nhập tên Sản Phẩm'>
                     </div>
-                    
+
                     <div class="col-md-12 itemadd">
                         <label class="col-md-2 labelitem" for="">Giá</label>
                         <input class="col-md-9 inputitem" type="text" placeholder='Nhập Giá Sản Phẩm'>
@@ -243,12 +276,11 @@
                     <div class="col-md-12 itemadd">
                         <label class="col-md-2 labelitem" for="">Danh Mục Sản Phẩm</label>
                         <select name="cars" id="cars" class="col-md-9 inputitem">
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="mercedes">Mercedes</option>
-                            <option value="audi">Audi</option>
+                            @foreach($category as $cate)
+                            <option value={{$cate->categoryId}}>{{$cate->categoryName}}</option>
+                            @endforeach
                         </select>
-                    </div>  
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
@@ -259,7 +291,7 @@
         </div>
     </div>
 
-<!-- Modal Thêm Danh Mục -->
+    <!-- Modal Thêm Danh Mục -->
     <div id="themDM" class="modal fade" role="dialog">
         <div class="modal-dialog" style="max-width: 1000px !important;">
 
@@ -290,35 +322,7 @@
     </div>
 
 
-    <!-- Modal Sửa Danh Mục -->
-    <div id="suaDM" class="modal fade" role="dialog">
-        <div class="modal-dialog" style="max-width: 1000px !important;">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Sửa Danh Mục</h4><button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <div class="modal-body row">
-                    <div class="col-md-12 itemadd">
-                        <label class="col-md-2 labelitem" for="">Tên Danh Mục</label>
-                        <input class="col-md-9 inputitem" type="text" placeholder='Nhập tên Danh Mục'>
-                    </div>
-
-                    <div class="col-md-12 itemadd">
-                        <label class="col-md-2 labelitem" for="">Mô tả</label>
-                        <textarea class="col-md-9 inputitem" id="w3review" name="w3review" rows="4" cols="50">asdas</textarea>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
-                    <button type="button" class="btn btn-success" style="width:100px;" data-dismiss="modal" onclick="checkForm()">Sửa</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
     <script>
         $(document).ready(function() {
             $("#btnReposiveLeft").click(function() {

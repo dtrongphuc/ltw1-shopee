@@ -8,9 +8,10 @@ use App\Models\categories;
 
 class CategoryController extends Controller
 {
-    public function index(){
-
-        $category = categories::All();
-        return view('adminthucong/User', ['users' => $users]);
+    public function deleteCategorytById($categoryId)
+    {
+        $cart = categories::find($categoryId)->delete();
+        //chuyện gì xãy ra nếu danh mục xóa, sản phẩm -> đơn hàng có sản phẩm
+        return redirect()->back(); //quay lai trang truoc
     }
 }
