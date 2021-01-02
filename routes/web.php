@@ -111,7 +111,7 @@ Route::get('/usermanagement', 'App\Http\Controllers\Admin\UserController@index')
 Route::get('/admin', 'App\Http\Controllers\Admin\ProductController@index');
 Route::get('/ordermanagement', 'App\Http\Controllers\Admin\OrderController@index');
 Route::get('/chartstatistical', 'App\Http\Controllers\Admin\ChartController@index');
-Route::get('/categorymanagement/delete/{id}', [CartController::class, 'deleteCartById'])->name('cart.delete');
+Route::get('/categorymanagement/delete/{id}', [CartController::class, 'deleteCartById']);
 
 
 Route::get('/administrator', function () {

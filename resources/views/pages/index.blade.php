@@ -13,8 +13,7 @@
 
                             @if(isset($category))
                                 @foreach($category as $cate)
-                                <li class="category-item category-item--active">
-                                    <!-- <option value="{{$cate -> categoryId}}">{{$cate -> categoryName}}</option> -->
+                                <li class="category-item category-item--active" data-category-id={{$cate -> categoryId}}>
                                     <a href="">{{$cate -> categoryName}}</a>
                                 </li>
                                 @endforeach
@@ -28,9 +27,9 @@
                                 <div class="main-filter__left d-flex align-items-center">
                                     <p class="main-filter__left--title">Sắp xếp theo</p>
                                     <ul class="main-filter__left--list">
-                                        <li class="filter-list__item filter-list__item--active">Phổ biến</li>
-                                        <li class="filter-list__item">Mới nhất</li>
-                                        <li class="filter-list__item">Bán chạy</li>
+                                        <li class="filter-list__item filter-list__item--active" id="sort-popular">Phổ biến</li>
+                                        <li class="filter-list__item" id="sort-new">Mới nhất</li>
+                                        <li class="filter-list__item" id="sort-selling">Bán chạy</li>
                                         <li class="filter-list__item filter-list__item--select">
                                             Giá
                                             <i class="fas fa-chevron-down"></i>

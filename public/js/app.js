@@ -26157,9 +26157,6 @@ __webpack_require__(/*! ./cart */ "./resources/js/cart.js");
 
 __webpack_require__(/*! ./product */ "./resources/js/product.js");
 
-__webpack_require__(/*! ./pay */ "./resources/js/pay.js");
-
-
 axios.interceptors.response.use(function (response) {
   // Any status code that lie within the range of 2xx cause this function to trigger
   // Do something with response data
@@ -26173,6 +26170,8 @@ axios.interceptors.response.use(function (response) {
 
   return Promise.reject(error);
 });
+
+__webpack_require__(/*! ./pay */ "./resources/js/pay.js");
 
 /***/ }),
 
@@ -26848,7 +26847,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! F:\2020-2021-HK1\LTWeb 1\Project\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! Z:\Code\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })
