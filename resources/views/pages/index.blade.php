@@ -10,12 +10,12 @@
                                 <i class="fas fa-list"></i>
                                 <p class="ms-2">Tất cả danh mục</p>
                             </li>
-                            <li class="category-item {{Request::is('/') ? "category-item--active" : ""}}" data-category-id="0">
+                            <li class="category-item {{Request::is('/') ? "category-item--active" : ""}}">
                                 <a href="/">Tất cả</a>
                             </li>
                             @if(isset($category))
                                 @foreach($category as $cate)
-                                <li class="category-item {{Request::is('category/'.$cate->categoryId) ? "category-item--active" : ""}}" data-category-id={{$cate -> categoryId}}>
+                                <li class="category-item {{Request::is('category/'.$cate->categoryId) ? "category-item--active" : ""}}">
                                     <a href="{{route('filter.category', ['categoryId' => $cate->categoryId])}}">{{$cate -> categoryName}}</a>
                                 </li>
                                 @endforeach
@@ -49,12 +49,9 @@
                                     <div class="row m--6">
                                         <div class="col-2-4">
                                             <div class="product-item">
-                                           
                                                 <a class="product-item__link" href="{{'/product/'.$pro->productId.'/'}}">
                                                     <div class="product-item__img">
-                                                        @if(isset($image))
-                                                            <img src="{{cloudinary()->getImage('products/'.$image->productImage)}}" alt="">
-                                                        @endif
+                                                        <img src="{{cloudinary()->getImage('products/'.$pro->productImage)}}" alt="">
                                                     </div>
                                                     <p class="product-item__layout product-item__heading">{{$pro -> productName}}</p>
                                                     <div class="product-item__layout d-flex align-items-center justify-content-between mt-3">
@@ -103,7 +100,7 @@
             </div>
 
         <!-- Phân trang -->
-        <div class="shopee-page-controller" >
+        {{-- <div class="shopee-page-controller" >
             <button class="shopee-icon-button shopee-icon-button--left " >
                 <svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon icon-arrow-left">
                     <g>
@@ -124,7 +121,7 @@
                     </path>
                 </svg>
             </button>
-        </div>
+        </div> --}}
         
     </main>
 @stop
