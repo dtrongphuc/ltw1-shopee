@@ -10,10 +10,12 @@
                                 <i class="fas fa-list"></i>
                                 <p class="ms-2">Tất cả danh mục</p>
                             </li>
-
+                            <li class="category-item category-item--active" data-category-id="0">
+                                <a href="/">Tất cả</a>
+                            </li>
                             @if(isset($category))
                                 @foreach($category as $cate)
-                                <li class="category-item category-item--active" data-category-id={{$cate -> categoryId}}>
+                                <li class="category-item" data-category-id={{$cate -> categoryId}}>
                                     <a href="">{{$cate -> categoryName}}</a>
                                 </li>
                                 @endforeach

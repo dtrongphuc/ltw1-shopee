@@ -7,7 +7,6 @@ use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Product\PostReviewController;
 use App\Http\Controllers\Product\AddToCartController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PagesController;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\Admin\ChartController;
 use App\Http\Controllers\Cart\CartController;
@@ -67,6 +66,9 @@ Route::post('login', [AuthController::class, 'login'])->name('auth.check');
 // Product routes
 Route::get('/product/{id}', [ProductController::class, '__invoke']);
 
+// Category routes
+Route::get('/category/{categoryId}', [HomeController::class, 'category']);
+
 // Protected routes
 Route::middleware(['auth', 'verified'])->group(function () {
     // Routes user
@@ -121,9 +123,9 @@ Route::get('/administrator', function () {
     return view('/pages/administrator');
 });
 
-Route::get('/', [PagesController::class, 'ListCategories']);
-//Route::get('/', [PagesController::class, 'ListProducts']);
-//Route::get('/', [PagesController::class, 'ProductImages']);
+Route::get('/', [HomeController::class, 'index']);
+//Route::get('/', [HomeController::class, 'ListProducts']);
+//Route::get('/', [HomeController::class, 'ProductImages']);
 
 //giỏ hàng
 Route::get('/cart/delete/{cartid}', [CartController::class, 'deleteCartById'])->name('cart.delete');
@@ -138,7 +140,7 @@ Route::get('/upload', [FileUploadController::class, 'showUploadForm']);
 Route::post('/upload', [FileUploadController::class, 'storeUploads']);
 
 // Search Product
-Route::get('/search', [PagesController::class, 'searchProduct']);
+Route::get('/search', [HomeController::class, 'searchProduct']);
 
 //đơn mua hàng
 // Route::get('/purchaseorder', [PurchaseOrderController::class], 'purchaseorder');

@@ -26153,6 +26153,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./auth */ "./resources/js/auth.js");
 
+__webpack_require__(/*! ./home */ "./resources/js/home.js");
+
 __webpack_require__(/*! ./cart */ "./resources/js/cart.js");
 
 __webpack_require__(/*! ./product */ "./resources/js/product.js");
@@ -26598,6 +26600,54 @@ function StringToMoney(str) {
   if (str.length > 3) str = str.substring(0, str.length - 3) + "," + str.substring(1);
   return str;
 }
+
+/***/ }),
+
+/***/ "./resources/js/home.js":
+/*!******************************!*\
+  !*** ./resources/js/home.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var _document$querySelect;
+
+// Products sort
+var btnSortPopular = document.querySelector("#sort-popular");
+var btnSortNew = document.querySelector("#sort-new");
+var btnSortSelling = document.querySelector("#sort-selling"); // Reset active sort class
+
+var removeActiveSorting = function removeActiveSorting() {
+  var parent = document.querySelector(".main-filter__left--list");
+
+  if (!!parent) {
+    var _parent$querySelector;
+
+    (_parent$querySelector = parent.querySelector(".filter-list__item--active")) === null || _parent$querySelector === void 0 ? void 0 : _parent$querySelector.classList.remove("filter-list__item--active");
+  }
+};
+
+btnSortPopular === null || btnSortPopular === void 0 ? void 0 : btnSortPopular.addEventListener("click", function () {
+  removeActiveSorting();
+  btnSortPopular.classList.add("filter-list__item--active");
+});
+btnSortNew === null || btnSortNew === void 0 ? void 0 : btnSortNew.addEventListener("click", function () {
+  removeActiveSorting();
+  btnSortNew.classList.add("filter-list__item--active");
+});
+btnSortSelling === null || btnSortSelling === void 0 ? void 0 : btnSortSelling.addEventListener("click", function () {
+  removeActiveSorting();
+  btnSortSelling.classList.add("filter-list__item--active");
+}); // Category
+
+(_document$querySelect = document.querySelectorAll(".category-item")) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.forEach(function (category) {
+  category.addEventListener("click", function () {
+    var _document$querySelect2;
+
+    (_document$querySelect2 = document.querySelector(".category-item--active")) === null || _document$querySelect2 === void 0 ? void 0 : _document$querySelect2.classList.remove("category-item--active");
+    category.classList.add("category-item--active");
+  });
+});
 
 /***/ }),
 
