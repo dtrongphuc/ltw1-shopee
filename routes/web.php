@@ -12,8 +12,10 @@ use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\Admin\ChartController;
 use App\Http\Controllers\Cart\CartController;
 use App\Http\Controllers\Pay\PayController;
+use App\Http\Controllers\PurchaseOrder\PurchaseOrderController;
 use App\Http\Controllers\Product\FavoriteController;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Admin\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -113,6 +115,7 @@ Route::get('/ordermanagement', 'App\Http\Controllers\Admin\OrderController@index
 Route::get('/chartstatistical', 'App\Http\Controllers\Admin\ChartController@index');
 Route::get('/categorymanagement/delete/{id}', [CartController::class, 'deleteCartById']);
 
+Route::post('/add-category', [CategoryController::class, 'AddCategory'])->name('add.category');
 
 Route::get('/administrator', function () {
     return view('/pages/administrator');
@@ -138,6 +141,5 @@ Route::post('/upload', [FileUploadController::class, 'storeUploads']);
 Route::get('/search', [PagesController::class, 'searchProduct']);
 
 //đơn mua hàng
-Route::get('/purchaseorder', function () {
-    return view('/pages/purchaseorder');
-});
+// Route::get('/purchaseorder', [PurchaseOrderController::class], 'purchaseorder');
+Route::get('/purchaseorder', 'App\Http\Controllers\PurchaseOrder\PurchaseOrderController@purchaseorder');

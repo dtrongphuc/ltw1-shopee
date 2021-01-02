@@ -26555,18 +26555,14 @@ var _require2 = __webpack_require__(/*! vue-template-compiler */ "./node_modules
 
 
 $(document).ready(function () {
-  $("button").on("click", function (event) {
+  $("[name=btnupdown]").on("click", function (event) {
     event.preventDefault();
     var id = $(this).attr("id");
     var productid = $(this).attr("data-id");
-    var productname = id.substring(3);
-    var quantity = $("#quantity_" + productname).val();
-    if (parseInt(quantity) == 1 && id.substring(0, 2) == "dw") return; // if (id.substring(0, 2) == "up")
-    //     url = "api/cart/UpQuantity";
-    // else
-    //     url = "api/cart/DownQuantity";
-    // alert(url);
+    var productname = $(this).attr("data-productname"); //id.substring(3);
 
+    var quantity = $("#quantity_" + productname).val();
+    if (parseInt(quantity) == 1 && id.substring(0, 2) == "dw") return;
     $.ajax({
       url: "api/cart/UpQuantity",
       type: "POST",

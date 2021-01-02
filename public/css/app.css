@@ -2732,6 +2732,10 @@ body{
     justify-content: space-between;
     margin-bottom: 15px;
 }
+
+.modal-body .itemadd .inputitem-icon{
+    margin-left: 42px;
+}
 .main-info {
     margin: 40px 0;
 }

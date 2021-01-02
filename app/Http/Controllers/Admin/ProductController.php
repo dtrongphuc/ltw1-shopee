@@ -13,7 +13,7 @@ class ProductController extends Controller
     public function index()
     {
         $category = categories::All();
-        
+
         $product = DB::table('products')
             ->select(
                 'products.productId',
@@ -39,7 +39,7 @@ class ProductController extends Controller
         return redirect()->back(); //quay lai trang truoc
     }
 
-    public function AddProduct(){
-        
+    public function AddProduct()
+    {
     }
 }
