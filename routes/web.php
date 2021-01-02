@@ -101,14 +101,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
 //     return view('/adminthucong/User');
 // });
 
-Route::get('/Category', function () {
-    return view('/adminthucong/Category');
-});
+// Route::get('/Category', function () {
+//     return view('/adminthucong/Category');
+// });
 
-Route::get('/userManagement', 'App\Http\Controllers\Admin\UserController@index');
+Route::get('/usermanagement', 'App\Http\Controllers\Admin\UserController@index');
 Route::get('/admin', 'App\Http\Controllers\Admin\ProductController@index');
-Route::get('/orderManagement', 'App\Http\Controllers\Admin\OrderController@index');
+Route::get('/ordermanagement', 'App\Http\Controllers\Admin\OrderController@index');
 Route::get('/chartstatistical', 'App\Http\Controllers\Admin\ChartController@index');
+Route::get('/categorymanagement/delete/{id}', [CartController::class, 'deleteCartById'])->name('cart.delete');
 
 
 Route::get('/administrator', function () {

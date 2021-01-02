@@ -243,10 +243,9 @@
                     <div class="col-md-12 itemadd">
                         <label class="col-md-2 labelitem" for="">Danh Mục Sản Phẩm</label>
                         <select name="cars" id="cars" class="col-md-9 inputitem">
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="mercedes">Mercedes</option>
-                            <option value="audi">Audi</option>
+                        @foreach($category as $cate)
+                            <option value={{$cate->categoryId}}>{{$cate->categoryName}}</option>
+                        @endforeach
                         </select>
                     </div>  
                 </div>
