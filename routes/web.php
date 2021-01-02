@@ -12,6 +12,7 @@ use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\Admin\ChartController;
 use App\Http\Controllers\Cart\CartController;
 use App\Http\Controllers\Pay\PayController;
+use App\Http\Controllers\PurchaseOrder\PurchaseOrderController;
 use App\Http\Controllers\Product\FavoriteController;
 use Illuminate\Http\Request;
 /*
@@ -137,6 +138,5 @@ Route::post('/upload', [FileUploadController::class, 'storeUploads']);
 Route::get('/search', [PagesController::class, 'searchProduct']);
 
 //đơn mua hàng
-Route::get('/purchaseorder', function () {
-    return view('/pages/purchaseorder');
-});
+// Route::get('/purchaseorder', [PurchaseOrderController::class], 'purchaseorder');
+Route::get('/purchaseorder', 'App\Http\Controllers\PurchaseOrder\PurchaseOrderController@purchaseorder');

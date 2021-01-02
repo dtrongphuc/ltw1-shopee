@@ -191,7 +191,9 @@
                     </div>
                 </div>
                 <div class="payfooter_btnpay d-flex justify-content-end">
-                    <button class="btn btn-primary cartfooter__buyproduct-btnbuy">Đặt hàng</button>
+                    <a href="{{'/purchaseorder'}}">
+                        <button class="btn btn-primary cartfooter__buyproduct-btnbuy">Đặt hàng</button>
+                    </a>
                 </div>
 
             </div>

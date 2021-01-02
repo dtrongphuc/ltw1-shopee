@@ -22,19 +22,14 @@ const {
 
 //tăng số lượng
 $(document).ready(function() {
-    $("button").on("click", function(event) {
+    $("[name=btnupdown]").on("click", function(event) {
         event.preventDefault();
         let id = $(this).attr("id");
         let productid = $(this).attr("data-id");
-        let productname = id.substring(3);
+        let productname = $(this).attr("data-productname"); //id.substring(3);
         let quantity = $("#quantity_" + productname).val();
         if (parseInt(quantity) == 1 && id.substring(0, 2) == "dw")
             return;
-        // if (id.substring(0, 2) == "up")
-        //     url = "api/cart/UpQuantity";
-        // else
-        //     url = "api/cart/DownQuantity";
-        // alert(url);
         $.ajax({
             url: "api/cart/UpQuantity",
             type: "POST",
