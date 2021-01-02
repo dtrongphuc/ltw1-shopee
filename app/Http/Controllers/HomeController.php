@@ -35,9 +35,8 @@ class HomeController extends Controller
 
     public function category($categoryId) {
         $category = Categories::all();
-        $products = Product::where('categoryId', '=', $categoryId);
-        $image = DB::table('product_images')
-                ->join('products', 'product_images.productId','=','products.productId')
+        $products = Product::where('categoryId', '=', $categoryId)->get();
+        $image = Product::where('categoryId', '=', $categoryId)
                 ->select(DB::raw('(select productImage from product_images where productId = products.productId limit 1) as productImage'))
                 ->first();
         

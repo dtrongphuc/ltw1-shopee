@@ -67,7 +67,7 @@ Route::post('login', [AuthController::class, 'login'])->name('auth.check');
 Route::get('/product/{id}', [ProductController::class, '__invoke']);
 
 // Category routes
-Route::get('/category/{categoryId}', [HomeController::class, 'category']);
+Route::get('/category/{categoryId}', [HomeController::class, 'category'])->name('filter.category');
 
 // Protected routes
 Route::middleware(['auth', 'verified'])->group(function () {
