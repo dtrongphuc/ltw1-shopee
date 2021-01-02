@@ -8,11 +8,12 @@ use App\Models\Categories;
 
 class CategoryController extends Controller
 {
-    public function deleteCategorytById($categoryId)
+    public function deleteCategorytById($id)
     {
-        $cart = categories::find($categoryId)->delete();
+        $cate = categories::where('categoryId', '=', (int)$id)->delete();
         //chuyện gì xãy ra nếu danh mục xóa, sản phẩm -> đơn hàng có sản phẩm
-        return redirect()->back(); //quay lai trang truoc
+        //return response()->json((int)$id, 200);
+        return redirect('/admin')->with('success', 'Data Saved'); //quay lai trang truoc
     }
 
     public function AddCategory(Request $req)

@@ -86,7 +86,7 @@
                                         <td style='text-align: center; width: 125px;'>{{$category[$i]->categoryId}}</td>
                                         <td style='width: 300px;'>{{$category[$i]->categoryName}}</td>
                                         <td></td>
-                                        <td style='text-align: center; width: 80px;'><i class="fas fa-trash-alt"></i></td>
+                                        <td style='text-align: center; width: 80px;'><a href="{{'/delete-category/'.$category[$i]->categoryId}}"><i class="fas fa-trash-alt"></i></a></td>
                                         <td style='text-align: center; width: 80px;'>
                                             <button type="button" data-toggle="modal" data-target="#suaDM"><i class="fas fa-edit"></i></button>
                                             <!-- Modal Sửa Danh Mục -->
@@ -98,7 +98,6 @@
                                                         <div class="modal-header">
                                                             <h4 class="modal-title">Sửa Danh Mục</h4><button type="button" class="close" data-dismiss="modal">&times;</button>
                                                         </div>
-
                                                         <div class="modal-body row">
                                                             <div class="col-md-12 itemadd">
                                                                 <label class="col-md-2 labelitem" for="">Tên Danh Mục</label>
@@ -112,7 +111,7 @@
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
-                                                            <button type="button" class="btn btn-success" style="width:100px;" data-dismiss="modal" onclick="checkForm()">Sửa</button>
+                                                            <button type="button" class="btn btn-success" style="width:100px;">Sửa</button>
                                                         </div>
                                                     </div>
                                                 </div>

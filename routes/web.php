@@ -114,6 +114,7 @@ Route::get('/admin', 'App\Http\Controllers\Admin\ProductController@index');
 Route::get('/ordermanagement', 'App\Http\Controllers\Admin\OrderController@index');
 Route::get('/chartstatistical', 'App\Http\Controllers\Admin\ChartController@index');
 Route::post('/add-category', [CategoryController::class, 'AddCategory'])->name('add.category');
+Route::get('/delete-category/{id}', [CategoryController::class, 'deleteCategorytById'])->name('category.delete');
 
 Route::get('/administrator', function () {
     return view('/pages/administrator');
