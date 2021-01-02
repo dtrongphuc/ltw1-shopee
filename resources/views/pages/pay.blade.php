@@ -169,11 +169,11 @@
                                                 đ{{ number_format(floatval($product->price)) }}</p>
                                         </div>
                                         <div class="col-3">
-                                            <div class="pay__amount">{{ $product->quatity }}</div>
+                                            <div class="pay__amount">{{ $product->quantity }}</div>
                                         </div>
                                         <div class="col-3">
                                             <p class="cartbody__productsinfo-price">
-                                                đ{{ number_format(floatval($product->price * $product->quatity)) }}</p>
+                                                đ{{ number_format(floatval($product->price * $product->quantity)) }}</p>
                                         </div>
                                     </div>
                                 </div>

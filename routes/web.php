@@ -7,7 +7,6 @@ use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Product\PostReviewController;
 use App\Http\Controllers\Product\AddToCartController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PagesController;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\Admin\ChartController;
 use App\Http\Controllers\Cart\CartController;
@@ -16,6 +15,7 @@ use App\Http\Controllers\PurchaseOrder\PurchaseOrderController;
 use App\Http\Controllers\Product\FavoriteController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\User\AccountController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,13 +67,17 @@ Route::post('login', [AuthController::class, 'login'])->name('auth.check');
 // Product routes
 Route::get('/product/{id}', [ProductController::class, '__invoke']);
 
+// Category routes
+Route::get('/category/{categoryId}', [HomeController::class, 'category'])->name('filter.category');
+
+// Sort
+// Route::get('/sort/{option}', [HomeController::class, 'sort'])->name('sort.products');
+
 // Protected routes
 Route::middleware(['auth', 'verified'])->group(function () {
     // Routes user
     Route::prefix('user')->group(function () {
-        Route::get('/account', function () {
-            return view('/pages/profile');
-        });
+        Route::get('/account', [AccountController::class, 'account']);
 
         Route::get('/purchase', function () {
             return view('/pages/cart');
@@ -113,6 +117,8 @@ Route::get('/usermanagement', 'App\Http\Controllers\Admin\UserController@index')
 Route::get('/admin', 'App\Http\Controllers\Admin\ProductController@index');
 Route::get('/ordermanagement', 'App\Http\Controllers\Admin\OrderController@index');
 Route::get('/chartstatistical', 'App\Http\Controllers\Admin\ChartController@index');
+Route::get('/categorymanagement/delete/{id}', [CartController::class, 'deleteCartById']);
+
 Route::post('/add-category', [CategoryController::class, 'AddCategory'])->name('add.category');
 Route::get('/delete-category/{id}', [CategoryController::class, 'deleteCategorytById'])->name('category.delete');
 
@@ -120,9 +126,9 @@ Route::get('/administrator', function () {
     return view('/pages/administrator');
 });
 
-Route::get('/', [PagesController::class, 'ListCategories']);
-//Route::get('/', [PagesController::class, 'ListProducts']);
-//Route::get('/', [PagesController::class, 'ProductImages']);
+Route::get('/', [HomeController::class, 'index']);
+//Route::get('/', [HomeController::class, 'ListProducts']);
+//Route::get('/', [HomeController::class, 'ProductImages']);
 
 //giỏ hàng
 Route::get('/cart/delete/{cartid}', [CartController::class, 'deleteCartById'])->name('cart.delete');
@@ -137,7 +143,7 @@ Route::get('/upload', [FileUploadController::class, 'showUploadForm']);
 Route::post('/upload', [FileUploadController::class, 'storeUploads']);
 
 // Search Product
-Route::get('/search', [PagesController::class, 'searchProduct']);
+Route::get('/search', [HomeController::class, 'searchProduct']);
 
 //đơn mua hàng
 // Route::get('/purchaseorder', [PurchaseOrderController::class], 'purchaseorder');

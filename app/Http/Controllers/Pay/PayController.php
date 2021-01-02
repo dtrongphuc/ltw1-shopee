@@ -11,12 +11,12 @@ class PayController extends Controller
     public function pay(){
         $productsofcart = DB::table('products')
         ->join('carts', 'carts.productId', '=', 'products.productId')
-        ->select('carts.id', 'products.productName', 'carts.type', 'products.price', 'carts.quatity')
+        ->select('carts.id', 'products.productName', 'carts.type', 'products.price', 'carts.quantity')
         ->get();
         $sum = 0;
         foreach($productsofcart as $sp)
         {
-            $sum = $sum + ($sp->quatity * $sp->price);
+            $sum = $sum + ($sp->quantity * $sp->price);
         }
 
         $userinfo = DB::table('users')->where('id', 1)->get();

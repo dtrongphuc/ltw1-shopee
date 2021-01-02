@@ -1,6 +1,7 @@
 @extends('../layouts/master', ['title' => 'Trang chủ'])
     @section('body')
     @parent
+    @inject('helper', 'App\Http\Controllers\HomeController')
         <main class="main main-home">
             <div class="container p-6">
                 <div class="row m--6">
@@ -10,12 +11,13 @@
                                 <i class="fas fa-list"></i>
                                 <p class="ms-2">Tất cả danh mục</p>
                             </li>
-
+                            <li class="category-item {{Request::has('category') ? "" : "category-item--active"}}">
+                                <a href="/">Tất cả</a>
+                            </li>
                             @if(isset($category))
                                 @foreach($category as $cate)
-                                <li class="category-item category-item--active">
-                                    <!-- <option value="{{$cate -> categoryId}}">{{$cate -> categoryName}}</option> -->
-                                    <a href="">{{$cate -> categoryName}}</a>
+                                <li class="category-item {{Request::has('category') && Request::get('category') == $cate->categoryId ? "category-item--active" : ""}}">
+                                    <a href="{{request()->fullUrlWithQuery(['category' => $cate->categoryId])}}">{{$cate -> categoryName}}</a>
                                 </li>
                                 @endforeach
                             @endif
@@ -28,9 +30,15 @@
                                 <div class="main-filter__left d-flex align-items-center">
                                     <p class="main-filter__left--title">Sắp xếp theo</p>
                                     <ul class="main-filter__left--list">
-                                        <li class="filter-list__item filter-list__item--active">Phổ biến</li>
-                                        <li class="filter-list__item">Mới nhất</li>
-                                        <li class="filter-list__item">Bán chạy</li>
+                                        <li class="filter-list__item {{!Request::has('filter') || Request::has('filter') && Request::get('filter') == 'popular' ? "filter-list__item--active" : ""}}" id="sort-popular">
+                                            <a href="{{request()->fullUrlWithQuery(['filter' => 'popular'])}}">Phổ biến</a>
+                                        </li>
+                                        <li class="filter-list__item {{Request::has('filter') && Request::get('filter') == 'new' ? "filter-list__item--active" : ""}}" id="sort-new">
+                                            <a href="{{request()->fullUrlWithQuery(['filter' => 'new'])}}">Mới nhất</a>
+                                        </li>
+                                        <li class="filter-list__item {{Request::has('filter') && Request::get('filter') == 'selling' ? "filter-list__item--active" : ""}}" id="sort-selling">
+                                            <a href="{{request()->fullUrlWithQuery(['filter' => 'selling'])}}">Bán chạy</a>
+                                        </li>
                                         <li class="filter-list__item filter-list__item--select">
                                             Giá
                                             <i class="fas fa-chevron-down"></i>
@@ -41,25 +49,22 @@
                             </div>
                         </div>
 
-                        @if(isset($products))
-                            @foreach($products as $pro)
-                            <div class="col-12 p-6">
-                                <div class="main-products">
-                                    <div class="row m--6">
+                        <div class="col-12 p-6">
+                            <div class="main-products">
+                                <div class="row m--6">
+                                    @if(isset($products))
+                                        @foreach($products as $product)
                                         <div class="col-2-4">
                                             <div class="product-item">
-                                           
-                                                <a class="product-item__link" href="{{'/product/'.$pro->productId.'/'}}">
+                                                <a class="product-item__link" href="{{'/product/'.$product->productId.'/'}}">
                                                     <div class="product-item__img">
-                                                        @if(isset($image))
-                                                            <img src="{{cloudinary()->getImage('products/'.$image->productImage)}}" alt="">
-                                                        @endif
+                                                        <img src="{{$helper->getFirstImageProduct($product->productId)}}" alt="">
                                                     </div>
-                                                    <p class="product-item__layout product-item__heading">{{$pro -> productName}}</p>
+                                                    <p class="product-item__layout product-item__heading">{{$product -> productName}}</p>
                                                     <div class="product-item__layout d-flex align-items-center justify-content-between mt-3">
                                                         <div class="d-inline-flex">
                                                             <p class="product-item__price product-item__price--small text-decoration-underline font">đ</p>
-                                                            <p class="product-item__price">{{number_format($pro->price , 0, ',', '.')}}</p>
+                                                            <p class="product-item__price">{{number_format($product->price , 0, ',', '.')}}</p>
                                                         </div>
                                                         <svg height="12" viewBox="0 0 20 12" width="20"
                                                             class="shopee-svg-icon icon-free-shipping">
@@ -86,23 +91,22 @@
                                                     </div>
                                                     <div class="product-item__layout d-flex align-items-center justify-content-between">
                                                         <i class="far fa-heart product-item__like"></i>
-                                                        <p class="product-item__sold">Đã bán {{$pro -> sold}}</p>
+                                                        <p class="product-item__sold">Đã bán {{$product -> sold}}</p>
                                                     </div>
                                                 </a>
                                             </div>
                                         </div>
-                                    </div>
+                                        @endforeach
+                                    @endif 
                                 </div>
                             </div>
-                        @endforeach
-                    @endif 
-
+                        </div>
                     </div>
                 </div>
             </div>
 
         <!-- Phân trang -->
-        <div class="shopee-page-controller" >
+        {{-- <div class="shopee-page-controller" >
             <button class="shopee-icon-button shopee-icon-button--left " >
                 <svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon icon-arrow-left">
                     <g>
@@ -123,7 +127,7 @@
                     </path>
                 </svg>
             </button>
-        </div>
+        </div> --}}
         
     </main>
 @stop

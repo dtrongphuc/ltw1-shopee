@@ -96,7 +96,7 @@
                                         <button class="cartbody__productsinfo-amount--downup down-default" name="btnupdown" data-id={{$product->id}} id="dw_{{$product->productName}}" data-cart="{{$product->productName}}" >
                                             <span>&#8722</span>
                                         </button>
-                                        <input class="cartbody__productsinfo-amount--content" value="{{$product->quatity}}" id="quantity_{{$product->productName}}" readonly>
+                                        <input class="cartbody__productsinfo-amount--content" value="{{$product->quantity}}" id="quantity_{{$product->productName}}" readonly>
                                         <button class="cartbody__productsinfo-amount--downup" name="btnupdown" data-productname="{{$product->productName}}" data-id={{$product->id}} id="up_{{$product->productName}}" data-cart="{{$product->productName}}" >
                                             <span>&#43</span>
                                         </button>
