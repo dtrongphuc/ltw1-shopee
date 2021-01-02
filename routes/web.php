@@ -15,6 +15,8 @@ use App\Http\Controllers\PurchaseOrder\PurchaseOrderController;
 use App\Http\Controllers\Product\FavoriteController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\User\AccountController;
+use App\Http\Controllers\Admin;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,15 +69,16 @@ Route::post('login', [AuthController::class, 'login'])->name('auth.check');
 Route::get('/product/{id}', [ProductController::class, '__invoke']);
 
 // Category routes
-Route::get('/category/{categoryId}', [HomeController::class, 'category']);
+Route::get('/category/{categoryId}', [HomeController::class, 'category'])->name('filter.category');
+
+// Sort
+// Route::get('/sort/{option}', [HomeController::class, 'sort'])->name('sort.products');
 
 // Protected routes
 Route::middleware(['auth', 'verified'])->group(function () {
     // Routes user
     Route::prefix('user')->group(function () {
-        Route::get('/account', function () {
-            return view('/pages/profile');
-        });
+        Route::get('/account', [AccountController::class, 'account']);
 
         Route::get('/purchase', function () {
             return view('/pages/cart');
@@ -118,6 +121,9 @@ Route::get('/chartstatistical', 'App\Http\Controllers\Admin\ChartController@inde
 Route::get('/categorymanagement/delete/{id}', [CartController::class, 'deleteCartById']);
 
 Route::post('/add-category', [CategoryController::class, 'AddCategory'])->name('add.category');
+Route::get('/delete-category/{id}', [CategoryController::class, 'deleteCategorytById'])->name('category.delete');
+Route::post('/edit-category', [CategoryController::class, 'EditCategory'])->name('edit.category');
+Route::get('/delete-product/{id}', [Admin\ProductController::class, 'deleteProducttById'])->name('product.delete');
 
 Route::get('/administrator', function () {
     return view('/pages/administrator');

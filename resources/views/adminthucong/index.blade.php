@@ -85,8 +85,8 @@
                                         <td style='text-align: center; width: 50px;'>{{$i+1}}</td>
                                         <td style='text-align: center; width: 125px;'>{{$category[$i]->categoryId}}</td>
                                         <td style='width: 300px;'>{{$category[$i]->categoryName}}</td>
-                                        <td></td>
-                                        <td style='text-align: center; width: 80px;'><i class="fas fa-trash-alt"></i></td>
+                                        <td style='width: 300px;'>{{$category[$i]->description}}</td>
+                                        <td style='text-align: center; width: 80px;'><a href="{{'/delete-category/'.$category[$i]->categoryId}}"><i class="fas fa-trash-alt"></i></a></td>
                                         <td style='text-align: center; width: 80px;'>
                                             <button type="button" data-toggle="modal" data-target="#suaDM"><i class="fas fa-edit"></i></button>
                                             <!-- Modal Sửa Danh Mục -->
@@ -99,21 +99,25 @@
                                                             <h4 class="modal-title">Sửa Danh Mục</h4><button type="button" class="close" data-dismiss="modal">&times;</button>
                                                         </div>
 
-                                                        <div class="modal-body row">
-                                                            <div class="col-md-12 itemadd">
-                                                                <label class="col-md-2 labelitem" for="">Tên Danh Mục</label>
-                                                                <input class="col-md-9 inputitem" type="text" placeholder='Nhập tên Danh Mục' value="{{$category[$i]->categoryName}}">
-                                                            </div>
+                                                        <form action="{{route('edit.category')}}" method="POST">
+                                                            @csrf
+                                                            <div class="modal-body row">
+                                                                <div class="col-md-12 itemadd">
+                                                                    <label class="col-md-2 labelitem" for="">Tên Danh Mục</label>
+                                                                    <input class="col-md-9 inputitem" name="tenDM" type="text" placeholder='Nhập tên Danh Mục' value="{{$category[$i]->categoryName}}">
+                                                                    <input type="hidden" name="IdDM" value="{{$category[$i]->categoryId}}">
+                                                                </div>
 
-                                                            <div class="col-md-12 itemadd">
-                                                                <label class="col-md-2 labelitem" for="">Mô tả</label>
-                                                                <textarea class="col-md-9 inputitem" id="w3review" name="w3review" rows="4" cols="50">{{$category[$i]->description}}</textarea>
+                                                                <div class="col-md-12 itemadd">
+                                                                    <label class="col-md-2 labelitem" for="">Mô tả</label>
+                                                                    <textarea class="col-md-9 inputitem" id="w3review" name="motaDM" cols="50">{{$category[$i]->description}}</textarea>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
-                                                            <button type="button" class="btn btn-success" style="width:100px;" data-dismiss="modal" onclick="checkForm()">Sửa</button>
-                                                        </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
+                                                                <button type="submit" class="btn btn-success" style="width:100px;">Sửa</button>
+                                                            </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -166,7 +170,7 @@
                                         <td>{{$sanpham[$i]->rate}}</td>
                                         <td>{{$sanpham[$i]->sold}}</td>
                                         <td>{{$sanpham[$i]->postAt}}</td>
-                                        <td><i class="fas fa-trash-alt"></i></td>
+                                        <td><a href="{{'/delete-product/'.$sanpham[$i]->productId}}"><i class="fas fa-trash-alt"></i></a></td>
                                         <td>
                                             <button type="button" data-toggle="modal" data-target="#suaSP"><i class="fas fa-edit"></i></button>
                                             <!-- Modal sua san pham -->

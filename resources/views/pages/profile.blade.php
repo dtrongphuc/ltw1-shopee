@@ -8,10 +8,10 @@
                 <div class="main-info__left">
                     <div class="info__left-header d-flex align-items-center">
                         <div class="info__left-header--img">
-                            <img src="images/products/hoodie_cart.jpg" alt="" class="info__left-imguser">
+                            <img src="{{cloudinary()->getImage('avatars/'.$user->avatar)}}" alt="" class="info__left-imguser">
                         </div>
                         <div class="info__left-header--updatename">
-                            <p class="info__left-header--name">Nguyễn Hiếu Nghĩa</p>
+                            <p class="info__left-header--name">{{$user->name}}</p>
                             <div class="info__left-header--updtae d-flex align-items-center">
                                 <i class="fas fa-pencil-alt"></i>
                                 <p class="info__left-header--content">Sửa hồ sơ</p>
@@ -43,31 +43,31 @@
                     </div>
                     <div class="main__right-body row">
                         <div class="right__info col-8">
-                            <form>
+                            <form autocomplete="off">
                                 <div class="form-group row">
-                                    <label for="inputEmail3" class="col-sm-4 col-form-label ">Tên đăng nhập/Email</label>
-                                    <input type="email" class="col-sm-8 form-control" id="inputEmail3" placeholder="Email">
+                                    <label for="email" class="col-sm-4 col-form-label ">Tên đăng nhập/Email</label>
+                                    <input type="email" class="col-sm-8 form-control" name="email" value="{{$user->email}}" placeholder="Email">
 
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="inputEmail3" class="col-sm-4 col-form-label">Tên người dùng</label>
-                                    <input type="email" class="col-sm-8 form-control" id="inputEmail3" placeholder="Tên người dùng">
+                                    <label for="fullname" class="col-sm-4 col-form-label">Tên người dùng</label>
+                                    <input type="text" class="col-sm-8 form-control" name="fullname" value="{{$user->name}}" placeholder="Tên người dùng">
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="inputEmail3" class="col-sm-4 col-form-label">Số điện thoại</label>
-                                    <input type="email" class="col-sm-8 form-control" id="inputEmail3" placeholder="Số điện thoại">
+                                    <label for="phone" class="col-sm-4 col-form-label">Số điện thoại</label>
+                                    <input type="text" class="col-sm-8 form-control" name="phone" value="{{$user->phone}}" placeholder="Số điện thoại">
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="inputEmail3" class="col-sm-4 col-form-label">Địa chỉ</label>
-                                    <input type="email" class="col-sm-8 form-control" id="inputEmail3" placeholder="Địa chỉ">
+                                    <label for="address" class="col-sm-4 col-form-label">Địa chỉ</label>
+                                    <input type="text" class="col-sm-8 form-control" name="address" value="{{$user->address}}" placeholder="Địa chỉ">
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="inputPassword3" class="col-sm-4 col-form-label">Password</label>
-                                    <input type="password" class="col-sm-6 form-control" id="inputPassword3" placeholder="Password">
+                                    <label for="password" class="col-sm-4 col-form-label">Mật khẩu</label>
+                                    <input type="password" class="col-sm-6 form-control" name="password" placeholder="Mật khẩu" autocomplete="new-password">
                                     <button type="button" class="col-sm-2 info__btn-changepass" data-toggle="modal" data-target="#exampleModal">
                                         <u>Thay đổi</u>
                                     </button>
@@ -85,21 +85,21 @@
                                                     <form action="" class="register__body-form">
                                                         <div class="form-group">
                                                             <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                                                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Mật khẩu cũ" require>
+                                                            <input type="text" class="form-control" placeholder="Mật khẩu cũ" require>
                                                             <div class="invalid-feedback">
                                                                 *Mật khẩu phải 8 kí tự trở lên
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                                                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Mật khẩu mới" require>
+                                                            <input type="text" class="form-control" placeholder="Mật khẩu mới" require>
                                                             <div class="invalid-feedback">
                                                                 *Mật khẩu phải 8 kí tự trở lên
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                                                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="nhập lại mật khẩu" require>
+                                                            <input type="text" class="form-control" placeholder="nhập lại mật khẩu" require>
                                                             <div class="invalid-feedback">
                                                                 *nhập lại mật khẩu không khớp
                                                             </div>
@@ -114,23 +114,23 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="inputEmail3" class="col-sm-4 col-form-label">Giới tính</label>
+                                    <label for="gender" class="col-sm-4 col-form-label">Giới tính</label>
                                     <div class="col-sm-8 form-radio d-flex align-items-center">
                                         <div class="custom-control custom-radio d-flex align-items-center">
-                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio1">Nam</label>
+                                            <input id="male" type="radio" {{$user->gender == 'male' ? 'checked' : ""}} name="gender" class="custom-control-input">
+                                            <label class="custom-control-label" for="male">Nam</label>
                                         </div>
                                         <div class="custom-control custom-radio d-flex align-items-center" style="margin-left: 20px;">
-                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                            <label class="custom-control-label" for="customRadio2">Nữ</label>
+                                            <input type="radio" id="female" {{$user->gender == 'female' ? 'checked' : ""}} name="gender" class="custom-control-input">
+                                            <label class="custom-control-label" for="female">Nữ</label>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Ngày tháng năm sinh -->
                                 <div class="form-group row">
-                                    <label for="inputEmail3" class="col-sm-4 col-form-label">Ngày sinh</label>
-                                    <input type="email" class="col-sm-8 form-control" id="inputEmail3" placeholder="Ngày sinh">
+                                    <label for="birthday" class="col-sm-4 col-form-label">Ngày sinh</label>
+                                    <input type="text" class="col-sm-8 form-control" name="birthday" placeholder="Ngày sinh">
                                 </div>
                                 <!-- End Ngày tháng năm sinh -->
 
@@ -142,7 +142,7 @@
                         <div class="col-4">
                             <div class="info__right-uploadimg">
                                 <div class="d-flex justify-content-center">
-                                    <img id="img-info" src="images/products/hoodie_cart.jpg" alt="" class="info__right-uploadimgimg" width="100px" height="100px">
+                                    <img id="img-info" src="{{cloudinary()->getImage('avatars/'.$user->avatar)}}" alt="" class="info__right-uploadimgimg" width="100px" height="100px">
                                 </div>
                                 <div class="d-flex justify-content-center">
                                     <label for="apply" class="lable-upload">
@@ -163,6 +163,4 @@
         </div>
     </div>
 </div>
-
-@include('../layouts/footer')
 @stop

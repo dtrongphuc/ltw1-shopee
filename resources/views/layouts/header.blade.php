@@ -40,13 +40,13 @@
                             @auth
                             <li class="header__navbar-item header__navbar-item--strong header__navbar-item--user">
                                 <div class="header__avatar">
-                                    <img src="https://cf.shopee.vn/file/637148902990db27d54ec6d27841f7db_tn" alt="" >
+                                    <img src="{{cloudinary()->getImage('avatars/'.\Auth::user()->avatar)}}" alt="" >
                                 </div>
-                                <a href="/profile">{{explode('@',\Auth::user()->email)[0]}}</a>
+                                <a href="/user/account">{{explode('@',\Auth::user()->email)[0]}}</a>
                                 <div class="header__user-menu">
                                     <ul class="user-menu__list">
                                         <li class="user-menu__item">
-                                            <a href="/profile">Tài khoản của tôi</a>
+                                            <a href="/user/account">Tài khoản của tôi</a>
                                         </li>
                                         <li class="user-menu__item">
                                             <a href="{{route('logout')}}">Đăng xuất</a>
