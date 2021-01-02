@@ -15,15 +15,17 @@ class HomeController extends Controller
     public function index()
     {
         $category = Categories::all();
-        $products = Product::leftJoin('product_images', function($join) {
-            $join->on('products.productId' , '=', 'product_images.productId')
-                ->limit(1);
-        })->get();
+        $products = Product::all();
         
         return view('pages.index',[
             'category' => $category,
             'products' => $products
         ]);
+    }
+
+    public static function getFirstImageProduct($productId) {
+        $image = productImage::where('productId', '=', $productId)->first();
+        return cloudinary()->getImage('products/'.$image->productImage);
     }
 
     public function searchProduct(Request $request)
@@ -33,14 +35,14 @@ class HomeController extends Controller
 
     public function category($categoryId) {
         $category = Categories::all();
-        $products = Product::where('categoryId', '=', $categoryId)
-                            ->select('*', DB::raw('(select productImage from product_images where productId = products.productId limit 1) as productImage'));
-        // $image = Product::where('categoryId', '=', $categoryId)
-        //         ->select(DB::raw('(select productImage from product_images where productId = products.productId limit 1) as productImage'))
-        //         ->first();
+        $products = Product::where('categoryId', '=', $categoryId)->get();
+        $image = Product::where('categoryId', '=', $categoryId)
+                ->select(DB::raw('(select productImage from product_images where productId = products.productId limit 1) as productImage'))
+                ->first();
         
         return view('pages.index',[
             'category' => $category,
+            'image' => $image,
             'products' => $products
         ]);
     }

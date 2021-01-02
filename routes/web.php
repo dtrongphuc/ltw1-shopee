@@ -72,6 +72,8 @@ Route::get('/category/{categoryId}', [HomeController::class, 'category'])->name(
 // Sort
 Route::get('/sort/{option}', [HomeController::class, 'sort'])->name('sort.products');
 
+
+
 // Protected routes
 Route::middleware(['auth', 'verified'])->group(function () {
     // Routes user
