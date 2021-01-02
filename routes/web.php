@@ -146,7 +146,7 @@ Route::get('/upload', [FileUploadController::class, 'showUploadForm']);
 Route::post('/upload', [FileUploadController::class, 'storeUploads']);
 
 // Search Product
-Route::get('/search', [HomeController::class, 'searchProduct']);
+Route::get('/search', [HomeController::class, 'searchProduct'])->name('search');
 
 //đơn mua hàng
 // Route::get('/purchaseorder', [PurchaseOrderController::class], 'purchaseorder');
