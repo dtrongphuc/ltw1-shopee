@@ -16,12 +16,10 @@ class PagesController extends Controller
     {
         $category = Categories::all();
         $products = Product::all();
-        $image = DB::table('product_images')->select('productImage','productId')->get();
-        return view('pages.index',['category' => $category,'image' => $image,'products' => $products]);
-        // $image = DB::table('product_images')
-        //         ->join('products', 'product_images.productId','=','products.productId')
-        //         ->select('productImage')
-        //         ->first();
+        $image = DB::table('product_images')
+                ->join('products', 'product_images.productId','=','products.productId')
+                ->select('productImage')
+                ->first();
         
         return view('pages.index',[
             'category' => $category,

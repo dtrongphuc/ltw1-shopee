@@ -50,15 +50,11 @@
                                             <div class="product-item">
                                            
                                                 <a class="product-item__link" href="{{'/product/'.$pro->productId.'/'}}">
-                                                @for($i = 0; $i < count($image) ; $i++)
-                                                    @if($image[$i]-> productId == $pro ->productId)
-                                                        <div class="product-item__img">
-                                                            <img src="{{cloudinary()->getImage('products/'.$image[$i]->productImage)}}" alt="">
-                                                        </div>
-                                                        @break;
-                                                    @endif
-                                                @endfor
-                                                   
+                                                    <div class="product-item__img">
+                                                        @if(isset($image))
+                                                            <img src="{{cloudinary()->getImage('products/'.$image->productImage)}}" alt="">
+                                                        @endif
+                                                    </div>
                                                     <p class="product-item__layout product-item__heading">{{$pro -> productName}}</p>
                                                     <div class="product-item__layout d-flex align-items-center justify-content-between mt-3">
                                                         <div class="d-inline-flex">

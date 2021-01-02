@@ -94,8 +94,10 @@
                                 </div>
                             </div>
                             <div class="cart-button">
-                                <span><i class="fas fa-shopping-cart"
-                                        style="color: white; margin-top: 10px;"></i></span>
+                                <span class="header-cart">
+                                    <i class="fas fa-shopping-cart" style="color: white; margin-top: 10px;"></i>
+                                    <div class="header-cart__count">1</div>
+                                </span>
                             </div>
                         </div>
                     </div>

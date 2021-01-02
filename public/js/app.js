@@ -20108,6 +20108,21 @@ __webpack_require__(/*! ./auth */ "./resources/js/auth.js"); // require("./cart"
 
 __webpack_require__(/*! ./product */ "./resources/js/product.js"); // require("./cart");
 
+
+axios.interceptors.response.use(function (response) {
+  // Any status code that lie within the range of 2xx cause this function to trigger
+  // Do something with response data
+  return response;
+}, function (error) {
+  // Any status codes that falls outside the range of 2xx cause this function to trigger
+  // Do something with response error
+  if (error.response.status === 401) {
+    window.location.href = "/login";
+  }
+
+  return Promise.reject(error);
+});
+
 /***/ }),
 
 /***/ "./resources/js/auth.js":
@@ -20590,7 +20605,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }); //Mua hàng
 
   var btnAddToCart = document.querySelector("#addToCart");
-  var btnBuyNow = document.querySelector("#addToCart");
+  var btnBuyNow = document.querySelector("#buyNow");
   btnAddToCart === null || btnAddToCart === void 0 ? void 0 : btnAddToCart.addEventListener("click", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
     var _document$querySelect;
 
@@ -20630,6 +20645,50 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
     }, _callee, null, [[3, 10]]);
+  })));
+  btnBuyNow === null || btnBuyNow === void 0 ? void 0 : btnBuyNow.addEventListener("click", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+    var _document$querySelect2;
+
+    var cartData, response, _e$response2, _e$response2$data, messageObj;
+
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            document.querySelector(".product-validator__notification > p").innerHTML = "";
+            document.querySelector(".product-validator__notification").style.display = "none";
+            cartData = {
+              productId: productId === null || productId === void 0 ? void 0 : productId.dataset.id,
+              quantity: document.querySelector(".product-quantity__input").value,
+              type: (_document$querySelect2 = document.querySelector(".product-types__btn--active")) === null || _document$querySelect2 === void 0 ? void 0 : _document$querySelect2.dataset.typeId
+            };
+            _context2.prev = 3;
+            _context2.next = 6;
+            return axios.post("/product/add-to-cart", cartData);
+
+          case 6:
+            response = _context2.sent;
+
+            if (response.status === 200) {
+              window.location.href = "/cart";
+            }
+
+            _context2.next = 15;
+            break;
+
+          case 10:
+            _context2.prev = 10;
+            _context2.t0 = _context2["catch"](3);
+            messageObj = _context2.t0 === null || _context2.t0 === void 0 ? void 0 : (_e$response2 = _context2.t0.response) === null || _e$response2 === void 0 ? void 0 : (_e$response2$data = _e$response2.data) === null || _e$response2$data === void 0 ? void 0 : _e$response2$data.errors;
+            document.querySelector(".product-validator__notification > p").innerHTML = Object.values(messageObj)[0];
+            document.querySelector(".product-validator__notification").style.display = "block";
+
+          case 15:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2, null, [[3, 10]]);
   })));
 });
 
