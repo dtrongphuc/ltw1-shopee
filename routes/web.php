@@ -135,3 +135,8 @@ Route::post('/upload', [FileUploadController::class, 'storeUploads']);
 
 // Search Product
 Route::get('/search', [PagesController::class, 'searchProduct']);
+
+//đơn mua hàng
+Route::get('/purchaseorder', function () {
+    return view('/pages/purchaseorder');
+});
