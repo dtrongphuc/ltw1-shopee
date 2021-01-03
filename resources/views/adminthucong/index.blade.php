@@ -130,7 +130,7 @@
                 </div>
 
                 <!-- Quản lÝ Sản Phẩm -->
-                <div class="card-body-SP">
+                <div class="card-body-SP" id="productadmin">
                     <div class='category'>
                         <div>
                             <h5>Quản Lý Sản Phẩm</h5>
@@ -148,7 +148,7 @@
                                     <th>Tên Sản Phẩm</th>
                                     <th>Loại Danh Mục</th>
                                     <th>Giá</th>
-                                    <th>Số Lượng</th>
+                                    <th>SL</th>
                                     <th>Lược thích</th>
                                     <th>Đánh Giá</th>
                                     <th>Đã bán</th>
@@ -162,7 +162,7 @@
                                     <tr>
                                         <td>{{$i+1}}</td>
                                         <td>{{$sanpham[$i]->productId}}</td>
-                                        <td>{{$sanpham[$i]->productName}}</td>
+                                        <td style="width: 300px;">{{$sanpham[$i]->productName}}</td>
                                         <td>{{$sanpham[$i]->categoryName}}</td>
                                         <td>{{$sanpham[$i]->price}}</td>
                                         <td>{{$sanpham[$i]->quantity}}</td>
@@ -172,7 +172,7 @@
                                         <td>{{$sanpham[$i]->postAt}}</td>
                                         <td><a href="{{'/delete-product/'.$sanpham[$i]->productId}}"><i class="fas fa-trash-alt"></i></a></td>
                                         <td>
-                                            <button type="button" data-toggle="modal" data-target="#suaSP"><i class="fas fa-edit"></i></button>
+                                            <button type="button" data-toggle="modal" data-target="#suaSP" onclick="editsp(<?php echo $sanpham[$i]->productId ?>);"><i class="fas fa-edit"></i></button>
                                             <!-- Modal sua san pham -->
                                             <div id="suaSP" class="modal fade" role="dialog">
                                                 <div class="modal-dialog" style="max-width: 1000px !important;">
@@ -182,47 +182,40 @@
                                                         <div class="modal-header">
                                                             <h4 class="modal-title">Sửa Thông Tin Sản Phẩm</h4><button type="button" class="close" data-dismiss="modal">&times;</button>
                                                         </div>
+                                                        <form name="editSPForm">
+                                                            <div class="modal-body row">
+                                                                <div class="col-md-12 itemadd">
+                                                                    <label class="col-md-2 labelitem" for="">Tên Sản Phẩm</label>
+                                                                    <input class="col-md-9 inputitem" type="text" placeholder='Nhập tên Sản Phẩm' value="{{$sanpham[$i]->productName}}">
+                                                                </div>
 
-                                                        <div class="modal-body row">
-                                                            <div class="col-md-12 itemadd">
-                                                                <label class="col-md-2 labelitem" for="">Tên Sản Phẩm</label>
-                                                                <input class="col-md-9 inputitem" type="text" placeholder='Nhập tên Sản Phẩm' value="{{$sanpham[$i]->productName}}">
+                                                                <div class="col-md-12 itemadd" style="display: flex;">
+                                                                    <label class="col-md-2 labelitem" for="">Mô tả</label>
+                                                                    <textarea class="col-md-9 inputitem" id="w3review" name="w3review" rows="10" cols="50">{{$sanpham[$i]->description}}</textarea>
+                                                                </div>
+                                                                <div class="col-md-12 itemadd" id="themPhanNhom">
+                                                                    <label class="col-md-2 labelitem" for="">Phân Nhóm</label>
+                                                                    <div class='col-md-8' id="content-phanNhom">
+                                                                        <input class="col-md-3 inputitem" type="text" name="tenNhom0" placeholder='Nhập tên Phân Nhóm'>
+                                                                        <input class="col-md-3 inputitem" type="text" name="SLNhom0" placeholder='Nhập Số Lượng'>
+                                                                        <input class="col-md-2 inputitem" type="text" name="GiaNhom0" placeholder='Nhập Giá'>
+                                                                        <button type="button" class='inputitem-icon btn ' id="btnAddInput" onclick="addinput()" style="display: inline-block;"><i class="fas fa-plus"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12 itemadd">
+                                                                    <label class="col-md-2 labelitem" for="">Danh Mục Sản Phẩm</label>
+                                                                    <select name="cars" id="cars" class="col-md-9 inputitem">
+                                                                        @foreach($category as $cate)
+                                                                        <option value={{$cate->categoryId}}>{{$cate->categoryName}}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
                                                             </div>
-
-                                                            <div class="col-md-12 itemadd">
-                                                                <label class="col-md-2 labelitem" for="">Giá</label>
-                                                                <input class="col-md-9 inputitem" type="text" placeholder='Nhập Giá Sản Phẩm' value="{{$sanpham[$i]->price}}">
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
+                                                                <button type="submit" class="btn btn-success" style="width:100px;">Sửa</button>
                                                             </div>
-
-                                                            <div class="col-md-12 itemadd">
-                                                                <label class="col-md-2 labelitem" for="">Số Lượng</label>
-                                                                <input class="col-md-9 inputitem" type="text" placeholder='Nhập Số Lượng Sản Phẩm' value="{{$sanpham[$i]->quantity}}">
-                                                            </div>
-
-                                                            <div class="col-md-12 itemadd">
-                                                                <label class="col-md-2 labelitem" for="">Mô tả</label>
-                                                                <textarea class="col-md-9 inputitem" id="w3review" name="w3review" rows="4" cols="50">{{$sanpham[$i]->description}}</textarea>
-                                                            </div>
-                                                            <div class="col-md-12 itemadd">
-                                                                <label class="col-md-2 labelitem" for="">Phân Nhóm</label>
-                                                                <input class="col-md-3 inputitem" type="text" placeholder='Nhập tên Phân Nhóm'>
-                                                                <input class="col-md-3 inputitem" type="text" placeholder='Nhập Số Lượng'>
-                                                                <input class="col-md-2 inputitem" type="text" placeholder='Nhập Giá'>
-                                                                <button class='inputitem-icon'><i class="fas fa-plus"></i></button>
-                                                            </div>
-                                                            <div class="col-md-12 itemadd">
-                                                                <label class="col-md-2 labelitem" for="">Danh Mục Sản Phẩm</label>
-                                                                <select name="cars" id="cars" class="col-md-9 inputitem">
-                                                                    @foreach($category as $cate)
-                                                                    <option value={{$cate->categoryId}}>{{$cate->categoryName}}</option>
-                                                                    @endforeach
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
-                                                            <button type="button" class="btn btn-success" style="width:100px;" data-dismiss="modal" onclick="checkForm()">Sửa</button>
-                                                        </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -232,77 +225,11 @@
                             </tbody>
                         </table>
                     </div>
-                    <nav aria-label="Page navigation example" class="pag">
-                        <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                        </ul>
-                    </nav>
+                    <div>
+                        {{$sanpham->links()}}
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-
-
-
-
-    <!-- Modal Thêm san pham -->
-    <div id="themSP" class="modal fade" role="dialog">
-        <div class="modal-dialog" style="max-width: 1000px !important;">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Thêm Sản Phẩm</h4><button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <div class="modal-body row">
-                    <div class="col-md-12 itemadd">
-                        <label class="col-md-2 labelitem" for="">Tên Sản Phẩm</label>
-                        <input class="col-md-9 inputitem" type="text" placeholder='Nhập tên Sản Phẩm'>
-                    </div>
-
-                    <div class="col-md-12 itemadd">
-                        <label class="col-md-2 labelitem" for="">Giá</label>
-                        <input class="col-md-9 inputitem" type="text" placeholder='Nhập Giá Sản Phẩm'>
-                    </div>
-
-                    <div class="col-md-12 itemadd">
-                        <label class="col-md-2 labelitem" for="">Số Lượng</label>
-                        <input class="col-md-9 inputitem" type="text" placeholder='Nhập Số Lượng Sản Phẩm'>
-                    </div>
-
-                    <div class="col-md-12 itemadd">
-                        <label class="col-md-2 labelitem" for="">Mô tả</label>
-                        <textarea class="col-md-9 inputitem" id="w3review" name="w3review" rows="4" cols="50">asdas</textarea>
-                    </div>
-                    <div class="col-md-12 itemadd">
-                        <label class="col-md-2 labelitem" for="">Phân Nhóm</label>
-                        <input class="col-md-3 inputitem" type="text" placeholder='Nhập tên Phân Nhóm'>
-                        <input class="col-md-3 inputitem" type="text" placeholder='Nhập Số Lượng'>
-                        <input class="col-md-2 inputitem" type="text" placeholder='Nhập Giá'>
-                        <button class='inputitem-icon'><i class="fas fa-plus"></i></button>
-                    </div>
-
-                    <div class="col-md-12 itemadd">
-                        <label class="col-md-2 labelitem" for="">Danh Mục Sản Phẩm</label>
-                        <select name="cars" id="cars" class="col-md-9 inputitem">
-                            @foreach($category as $cate)
-                            <option value={{$cate->categoryId}}>{{$cate->categoryName}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
-                    <button type="button" class="btn btn-success" style="width:100px;" data-dismiss="modal" onclick="checkForm()">Thêm</button>
-                </div>
-            </div>
-
         </div>
     </div>
 
@@ -339,7 +266,136 @@
 
 
 
+    <!-- Modal Thêm san pham -->
+    <div id="themSP" class="modal fade" role="dialog">
+        <div class="modal-dialog" style="max-width: 1000px !important;">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Thêm Sản Phẩm</h4><button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <form name="formInfoAdd">
+                    <div class="modal-body row">
+                        <div class="col-md-12 itemadd">
+                            <label class="col-md-2 labelitem" for="">Tên Sản Phẩm</label>
+                            <input class="col-md-9 inputitem" name="tenSP" type="text" placeholder='Nhập tên Sản Phẩm'>
+                        </div>
+
+                        <div class="col-md-12 itemadd " style="display: flex;">
+                            <label class="col-md-2 labelitem" for="">Mô tả</label>
+                            <textarea class="col-md-9 inputitem" name="motaSP" rows="10" cols="50"></textarea>
+                        </div>
+                        <div class="col-md-12 itemadd" id="themPhanNhom">
+                            <label class="col-md-2 labelitem" for="">Phân Nhóm</label>
+                            <div class='col-md-8' id="content-phanNhom">
+                                <input class="col-md-3 inputitem" type="text" name="tenNhom0" placeholder='Nhập tên Phân Nhóm'>
+                                <input class="col-md-3 inputitem" type="text" name="SLNhom0" placeholder='Nhập Số Lượng'>
+                                <input class="col-md-2 inputitem" type="text" name="GiaNhom0" placeholder='Nhập Giá'>
+                                <button type="button" class='inputitem-icon btn ' id="btnAddInput" onclick="addinput()" style="display: inline-block;"><i class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 itemadd">
+                            <label class="col-md-2 labelitem" for="">Danh Mục Sản Phẩm</label>
+                            <select name="category" id="cars" class="col-md-9 inputitem">
+                                @foreach($category as $cate)
+                                <option value={{$cate->categoryId}}>{{$cate->categoryName}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-success" style="width:100px;" onclick="submitThemSP();">Thêm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
     <script>
+        // document.getElementById("btnAddInput").addEventListener("click", function() {
+        //     var ip = document.createElement("INPUT");
+        //     ip.setAttribute("type", "text");
+        //     document.body.appendChild(ip);
+        //     alert("asd");
+        // });
+        var i = 0;
+
+
+        function addinput() {
+            i++;
+            var inputName = document.createElement("INPUT");
+            var inputQuantity = document.createElement("INPUT");
+            var inputPrice = document.createElement("INPUT");
+            var bntRemove = document.createElement("BUTTON");
+            var icon = document.createElement("I");
+
+            //set id cho buntton
+            bntRemove.setAttribute("id", "btnremove");
+            bntRemove.setAttribute("type", "button");
+
+            //set type
+            inputName.setAttribute("type", "text");
+            inputQuantity.setAttribute("type", "text");
+            inputPrice.setAttribute("type", "text");
+
+            //Name
+            inputName.setAttribute("Name", "tenNhom" + i);
+            inputQuantity.setAttribute("Name", "SLNhom" + i);
+            inputPrice.setAttribute("Name", "GiaNhom" + i);
+
+            //style
+            inputName.setAttribute("Class", "inputitem");
+            inputQuantity.setAttribute("Class", "inputitem");
+            inputPrice.setAttribute("Class", "inputitem");
+            inputName.setAttribute("placeholder", "Nhập Tên Sản Phẩm");
+            inputQuantity.setAttribute("placeholder", "Nhập Số Lượng");
+            inputPrice.setAttribute("placeholder", "Nhập Giá");
+            bntRemove.setAttribute("Class", "icon-remove-input", "btn");
+            icon.setAttribute("Class", "fas fa-minus-circle");
+
+            //x.setAttribute("value", "asd");
+            document.getElementById("content-phanNhom").appendChild(inputName);
+            document.getElementById("content-phanNhom").appendChild(inputQuantity);
+            document.getElementById("content-phanNhom").appendChild(inputPrice);
+            document.getElementById("content-phanNhom").appendChild(bntRemove);
+            document.getElementById("btnremove").appendChild(icon);
+
+        }
+
+
+        function submitThemSP() {
+            var arrayPhanNhom = [];
+            var tensp = document.forms["formInfoAdd"]["tenSP"].value;
+            var mota = document.forms["formInfoAdd"]["motaSP"].value;
+            var cate = document.forms["formInfoAdd"]["category"].value;
+
+
+            for (var z = 0; z <= i; z++) {
+                arrayPhanNhom.push({
+                    tennhom: document.forms["formInfoAdd"]["tenNhom" + z].value,
+                    slnhom: document.forms["formInfoAdd"]["tenNhom" + z].value,
+                    gianhom: document.forms["formInfoAdd"]["tenNhom" + z].value
+                })
+            }
+            i = 0;
+            var sanpham = {
+                tensp: tensp,
+                mota: mota,
+                danhmuc: cate,
+                mangNhom: arrayPhanNhom
+            };
+        }
+
+        function editsp(id) {
+            alert(id);
+
+        }
+
         $(document).ready(function() {
             $("#btnReposiveLeft").click(function() {
                 if ($("#box-content").hasClass("showLeft")) {
@@ -350,6 +406,7 @@
             });
         });
     </script>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

@@ -176,7 +176,7 @@ body{
     padding: 0;
 }
 .modal-dialog .itemadd .inputitem{
-    padding: 6px 10px;
+    padding: 10px;
 }
 
 .card-body-DM .category,
@@ -188,4 +188,13 @@ body{
 
 .modal-body .itemadd .inputitem-icon{
     margin-left: 42px;
+}
+
+#productadmin nav > .pagination {
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.icon-remove-input{
+    display: inline-block;
 }

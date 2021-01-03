@@ -124,6 +124,7 @@ Route::post('/add-category', [CategoryController::class, 'AddCategory'])->name('
 Route::get('/delete-category/{id}', [CategoryController::class, 'deleteCategorytById'])->name('category.delete');
 Route::post('/edit-category', [CategoryController::class, 'EditCategory'])->name('edit.category');
 Route::get('/delete-product/{id}', [Admin\ProductController::class, 'deleteProducttById'])->name('product.delete');
+Route::post('/add-product', [Admin\ProductController::class, 'AddProduct'])->name('add.product');
 
 Route::get('/administrator', function () {
     return view('/pages/administrator');
