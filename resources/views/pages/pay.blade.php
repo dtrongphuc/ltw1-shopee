@@ -160,7 +160,7 @@
                                             {{ $product->productName }}
                                         </h5>
                                         <span class="cartbody__products-classify ml-auto">Phân
-                                            loại:{{ $product->type }}</span>
+                                            loại:{{ $product->name }}</span>
                                     </div>
                                 </div>
                                 <div class="col-md-7 d-flex align-items-center ">

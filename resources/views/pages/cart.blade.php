@@ -65,7 +65,6 @@
 
         <div class="cartbody__products">
             @if(isset($products))
-            
                 @foreach( $products as $product)
                 <div class="row d-flex justify-content-around" style="border-bottom: #f5f5f5 solid 1px; padding-bottom: 15px">
                     <div class="col-md-5">
@@ -79,7 +78,7 @@
                                 <h5 class="cartbody__products-productname">
                                     {{$product->productName}}
                                 </h5>
-                                <span class="cartbody__products-classify ml-auto">Phân loại: {{$product->type}}</span>
+                                <span class="cartbody__products-classify ml-auto">Phân loại: {{$product->name}}</span>
                             </div>
                         </a>
                     </div>
@@ -88,23 +87,23 @@
                         <div class="container">
                             <div class="row d-flex align-items-center" style="text-align: center;">
                                 <div class="col-3 d-flex justify-content-center">
-                                    <p class="cartbody__productsinfo-unitprice" id="price_{{$product->productName}}">{{number_format(floatval($product->price))}}</p>
+                                    <p class="cartbody__productsinfo-unitprice" id="price_{{$product->id}}">{{number_format(floatval($product->price))}}</p>
                                     <p class="cartbody__productsinfo-unitprice">đ</p>
                                 </div>
                                 <div class="col-3">
                                     <div class="cartbody__productsinfo-amount">
-                                        <button class="cartbody__productsinfo-amount--downup down-default" name="btnupdown" data-productname="{{$product->productName}}" data-id={{$product->id}} id="dw_{{$product->productName}}" data-cart="{{$product->productName}}" >
+                                        <button class="cartbody__productsinfo-amount--downup down-default" name="btnupdown" data-id={{$product->id}} id="dw_{{$product->productName}}" data-cart="{{$product->productName}}" >
                                             <span>&#8722</span>
                                         </button>
-                                        <input class="cartbody__productsinfo-amount--content" value="{{$product->quantity}}" id="quantity_{{$product->productName}}" readonly>
-                                        <button class="cartbody__productsinfo-amount--downup" name="btnupdown" data-productname="{{$product->productName}}" data-id={{$product->id}} id="up_{{$product->productName}}" data-cart="{{$product->productName}}" >
+                                        <input class="cartbody__productsinfo-amount--content" value="{{$product->quantity}}" id="quantity_{{$product->id}}" readonly>
+                                        <button class="cartbody__productsinfo-amount--downup" name="btnupdown" data-id={{$product->id}} id="up_{{$product->productName}}" data-cart="{{$product->productName}}" >
                                             <span>&#43</span>
                                         </button>
                                     </div>
                                 </div>
                                 <div class="col-3 d-flex justify-content-center">
                                     <p class="cartbody__productsinfo-price">đ</p>
-                                    <p class="cartbody__productsinfo-price" id="toltalprice_{{$product->productName}}">{{number_format(floatval($product->price * $product->quantity))}}</p>
+                                    <p class="cartbody__productsinfo-price" id="toltalprice_{{$product->id}}">{{number_format(floatval($product->price * $product->quantity))}}</p>
                                 </div>
                                 <div class="col-3">
                                     <a href="{{'/cart/delete/'.$product->id}}">

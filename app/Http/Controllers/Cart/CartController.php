@@ -14,7 +14,8 @@ class CartController extends Controller
     {
         $productsofcart = DB::table('products')
             ->join('carts', 'carts.productId', '=', 'products.productId')
-            ->select('carts.id', 'products.productName', 'carts.type', 'products.price', 'carts.quantity',
+            ->join('product_types', 'carts.type', 'product_types.id')
+            ->select('carts.id', 'products.productName', 'product_types.price', 'carts.quantity', 'product_types.name',
             DB::raw('(select productImage from product_images where productId = products.productId limit 1) as productImage'))
             ->get();
         $sum = 0;

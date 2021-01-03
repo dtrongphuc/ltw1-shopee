@@ -51,8 +51,8 @@
                                 --}}
                                 @for ($bill = count($bills); $bill >= 1; $bill--)
                                     <div class="order__body-order">
-                                        <div class="order__body-status d-flex justify-content-between">
-                                            <div class="order__body-status-stt">{{ $bill }}</div>
+                                        <div class="order__body-status d-flex justify-content-end">
+                                            {{-- <div class="order__body-status-stt">{{ $bill }}</div> --}}
                                             <div class="order__body-status-content">
                                                 @if ($statuses[$bill - 1]->status == 0)
                                                     CHỜ XỬ LÝ
@@ -78,7 +78,7 @@
                                                 <div class="infoproduct__info p-2 ">
                                                     <h5 class="infoproduct__info-name">{{ $detailbill->productName }}</h5>
                                                     <p class="infoproduct__info-type">Phân loại hàng:
-                                                        {{ $detailbill->type }}</p>
+                                                        {{ $detailbill->name }}</p>
                                                     <p class="infoproduct__info-quantity">x {{ $detailbill->quantity }}</p>
                                                 </div>
                                                 <div class="infoproduct__info-price ml-auto p-2 align-self-center">

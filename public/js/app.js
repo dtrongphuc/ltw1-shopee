@@ -26560,11 +26560,10 @@ $(document).ready(function () {
   $("[name=btnupdown]").on("click", function (event) {
     event.preventDefault();
     var id = $(this).attr("id");
-    var productid = $(this).attr("data-id");
-    var productname = $(this).attr("data-productname"); //id.substring(3);
+    var productid = $(this).attr("data-id"); // let productname = $(this).attr("data-productname"); //id.substring(3);
+    // alert(productname);
 
-    alert(productname);
-    var quantity = $("#quantity_" + productname).val(); // alert(quantity);
+    var quantity = $("#quantity_" + productid).val(); // alert(quantity);
 
     if (parseInt(quantity) == 1 && id.substring(0, 2) == "dw") return;
     $.ajax({
@@ -26579,17 +26578,17 @@ $(document).ready(function () {
       success: function success(response) {
         //trả ra giá đã tăng or đã giảm
         //alert(response);
-        $("#quantity_" + productname).val(response);
-        UpPriceFromQuantity(productname, response, id.substring(0, 2));
+        $("#quantity_" + productid).val(response);
+        UpPriceFromQuantity(productid, response, id.substring(0, 2));
       }
     });
   });
 });
 
-function UpPriceFromQuantity(productname, quantity, statusid) {
-  var price = $("#price_" + productname).text();
+function UpPriceFromQuantity(productid, quantity, statusid) {
+  var price = $("#price_" + productid).text();
   var price_after = parseInt(price.substring(0, price.length - 3)) * quantity;
-  $("#toltalprice_" + productname).text(StringToMoney(price_after.toString()) + ",000");
+  $("#toltalprice_" + productid).text(StringToMoney(price_after.toString()) + ",000");
   var pay = $("#payall").text();
   var price_all = parseInt(pay.substring(0, pay.length - 4).replace(/,/i, ''));
   var payprice = 0;
@@ -26900,7 +26899,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! Z:\Code\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! F:\2020-2021-HK1\LTWeb 1\Project\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })

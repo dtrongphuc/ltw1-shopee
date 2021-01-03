@@ -12,9 +12,11 @@ class PayController extends Controller
     public function pay(){
         if(DB::table('carts')->count() == 0)
             return redirect()->back();
+
         $productsofcart = DB::table('products')
         ->join('carts', 'carts.productId', '=', 'products.productId')
-        ->select('carts.id', 'products.productName', 'carts.type', 'products.price', 'carts.quantity')
+        ->join('product_types', 'carts.type', 'product_types.id')
+        ->select('carts.id', 'products.productName', 'product_types.price', 'carts.quantity', 'product_types.name')
         ->get();
         $sum = 0;
         foreach($productsofcart as $sp)
@@ -28,7 +30,8 @@ class PayController extends Controller
     public function ToPurchaseOrder(Request $user){
         $carts = DB::table('products')
             ->join('carts', 'carts.productId', '=', 'products.productId')
-            ->select('carts.productId', 'products.price', 'carts.quantity', 'carts.type')
+            ->join('product_types', 'carts.type', 'product_types.id')
+            ->select('carts.id', 'products.productName', 'product_types.price', 'carts.quantity', 'carts.type', 'products.productId')
             ->get();
         
         //them dữ liệu trong giỏ hàng vào bill
@@ -63,6 +66,9 @@ class PayController extends Controller
         }
 
         $tt = DB::table('carts')->truncate();  // xóa trong  giỏ hàng và id trở về 0
+        // $tt = DB::table('bills')->truncate();  // xóa trong  giỏ hàng và id trở về 0
+        // $tt = DB::table('detail_bills')->truncate();  // xóa trong  giỏ hàng và id trở về 0
+
 
        return redirect()->route( 'purchaseorder.index' );
     }
