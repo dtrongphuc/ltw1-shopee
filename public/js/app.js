@@ -26956,7 +26956,28 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
     }, _callee4, null, [[3, 10]]);
-  })));
+  }))); //tăng giảm số lượng
+
+  $("#down_dtproduct").click(function () {
+    var quantity_present = parseInt(document.getElementById('quantity').value);
+
+    if (quantity_present == 1) {
+      document.getElementById('down_dtproduct').style.cursor = "not-allowed";
+      return;
+    }
+
+    document.getElementById('quantity').value = quantity_present - 1;
+  });
+  $("#up_dtproduct").click(function () {
+    var quantity_present = parseInt(document.getElementById('quantity').value);
+    console.log(quantity_present + 1);
+
+    if (quantity_present == 1) {
+      document.getElementById('down_dtproduct').style.cursor = "pointer";
+    }
+
+    document.getElementById('quantity').value = quantity_present + 1;
+  });
 });
 
 /***/ }),

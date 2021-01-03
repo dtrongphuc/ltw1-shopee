@@ -21,19 +21,19 @@
                     <div class="info__left-category">
                         <div class="info__categor-update d-flex align-items-center">
                             <i class="fas fa-user-circle icon-user"></i>
-                            <a href="">
+                            <a href="/user/account">
                                 <p class="info__categor-update--content">Tài khoản của tôi</p>
                             </a>
                         </div>
                         <div class="info__categor-favorite d-flex align-items-center">
                             <i class="fab fa-gratipay icon-favorite"></i>
-                            <a href="">
+                            <a href="/user/favorite">
                                 <p class="info__categor-favorite--content">Sản phẩm yêu thích</p>
                             </a>
                         </div>
                         <div class="info__categor-favorite d-flex align-items-center">
                             <i class="fas fa-shopping-basket icon-purchaseorder"></i>
-                            <a href="">
+                            <a href="/user/purchase">
                                 <p class="info__categor-favorite--content">Đơn mua</p>
                             </a>
                         </div>
@@ -82,5 +82,4 @@
     </div>
 </div>
 
-@include('../layouts/footer')
 @stop

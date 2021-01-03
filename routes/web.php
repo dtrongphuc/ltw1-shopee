@@ -72,14 +72,14 @@ Route::post('/api/product/type', [ProductController::class, 'getPriceAndQuantity
 // Category routes
 Route::get('/category/{categoryId}', [HomeController::class, 'category'])->name('filter.category');
 
-// Sort
-// Route::get('/sort/{option}', [HomeController::class, 'sort'])->name('sort.products');
-
 // Protected routes
 Route::middleware(['auth', 'verified'])->group(function () {
     // Routes user
     Route::prefix('user')->group(function () {
         Route::get('/account', [AccountController::class, 'account']);
+        Route::post('/account/update', [AccountController::class, 'updateInfo'])->name('update.account');
+        Route::post('/account/change-password', [AccountController::class, 'changePassword'])
+                ->name('change.account.password');
 
         Route::get('/purchase', function () {
             return view('/pages/cart');
