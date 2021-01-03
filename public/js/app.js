@@ -26663,7 +26663,12 @@ $(document).ready(function () {
     $("#username").text($("#username_change").val());
     $("#phonenumber").text($("#phonenumber_change").val());
     $("#address").text($("#address_change").val()); // alert($("#username_change").val());
-  });
+  }); // $("#btntoorder").on("click", function(e) {
+  //     let username = $("#username").text();
+  //     let phonenumber = $("#phonenumber").text();
+  //     let address = $("#address").text();
+  //     $("#changehref").attr("href", "/pay/paytoorder/" + username + "/" + phonenumber + "/" + address);
+  // });
 });
 
 /***/ }),
@@ -26893,7 +26898,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! F:\2020-2021-HK1\LTWeb 1\Project\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! Z:\Code\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })

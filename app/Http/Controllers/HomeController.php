@@ -21,7 +21,7 @@ class HomeController extends Controller
                     (self::productsWithCategoryAndFilter($request->category, $request->filter)) :
                     ($isHasCategory ? self::productsWithCategory($request->category) :
                     ($isHasFilter ? self::productsWithFilter($request->filter) :
-                    Product::orderBy('likeCount', 'desc')->get()));
+                    Product::orderBy('likeCount', 'desc')->paginate(10)));
         return view('pages.index',[
             'category' => $category,
             'products' => $products
@@ -38,13 +38,13 @@ class HomeController extends Controller
 
         $querySearch = $request ->input('querySearch');
 
-        $productSearch = Product::where('productName', 'like', "%$querySearch%")->get();
+        $productSearch = Product::where('productName', 'like', "%$querySearch%")->paginate(10);
 
         return view('pages.searchResults',['productSearch'=> $productSearch]);
     }
 
     public function productsWithCategory($categoryId) {
-        return Product::where('categoryId', '=', $categoryId)->get();
+        return Product::where('categoryId', '=', $categoryId)->paginate(10);
     }
 
     public function productsWithFilter($filter) {
@@ -62,7 +62,7 @@ class HomeController extends Controller
             default:
                 $orderBy = 'likeCount';
         }
-        return Product::orderBy($orderBy, 'desc')->get();
+        return Product::orderBy($orderBy, 'desc')->paginate(10);
     }
 
     public function productsWithCategoryAndFilter($category, $filter) {
@@ -82,6 +82,6 @@ class HomeController extends Controller
         }
 
         return Product::where('categoryId', '=', $category)
-                        ->orderBy($orderBy, 'desc')->get();
+                        ->orderBy($orderBy, 'desc')->paginate(10);
     }
 }
