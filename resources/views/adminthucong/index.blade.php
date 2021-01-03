@@ -199,7 +199,7 @@
                                                                         <input class="col-md-3 inputitem" type="text" name="tenNhom0" placeholder='Nhập tên Phân Nhóm'>
                                                                         <input class="col-md-3 inputitem" type="text" name="SLNhom0" placeholder='Nhập Số Lượng'>
                                                                         <input class="col-md-2 inputitem" type="text" name="GiaNhom0" placeholder='Nhập Giá'>
-                                                                        <button type="button" class='inputitem-icon btn ' id="btnAddInput" onclick="addinput()" style="display: inline-block;"><i class="fas fa-plus"></i></button>
+                                                                        <button type="button" class='inputitem-icon btn' id="btnAddInput" onclick="addinput()" style="display: inline-block;"><i class="fas fa-plus"></i></button>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-12 itemadd">

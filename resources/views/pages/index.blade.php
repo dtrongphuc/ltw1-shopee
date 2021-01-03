@@ -39,10 +39,10 @@
                                     <li class="filter-list__item {{Request::has('filter') && Request::get('filter') == 'selling' ? "filter-list__item--active" : ""}}" id="sort-selling">
                                         <a href="{{request()->fullUrlWithQuery(['filter' => 'selling'])}}">Bán chạy</a>
                                     </li>
-                                    <li class="filter-list__item filter-list__item--select">
+                                    {{-- <li class="filter-list__item filter-list__item--select">
                                         Giá
                                         <i class="fas fa-chevron-down"></i>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </div>
                             <div class="main-filter__right"></div>
