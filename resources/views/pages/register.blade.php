@@ -39,17 +39,17 @@
                             @csrf
                             <div class="mb-2">
                                 <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                                <input type="text" name="email" id="email" class="form-control auth__body-form--header-input" placeholder="Email" require>
+                                <input type="email" name="email" id="email" class="form-control auth__body-form--header-input" placeholder="Email" require autocomplete="new-username">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="mb-2">
                                 <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                                <input type="password" name="password" id="password" class="form-control auth__body-form--header-input" placeholder="Mât khẩu" require>
+                                <input type="password" name="password" id="password" class="form-control auth__body-form--header-input" placeholder="Mât khẩu" require autocomplete="new-password">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="mb-2">
                                 <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                                <input type="password" name="r_password" id="r_password" class="form-control auth__body-form--header-input" placeholder="Nhập lại mật khẩu" require>
+                                <input type="password" name="r_password" id="r_password" class="form-control auth__body-form--header-input" placeholder="Nhập lại mật khẩu" require autocomplete="new-password">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <!-- khi điền đủ thong tin bỏ class notlogin -->

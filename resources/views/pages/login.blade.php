@@ -37,17 +37,17 @@
                     <div class="auth-body__form">
                         <h4 class="auth__body-form--header">Đăng Nhập</h4>
                         <div class="alert alert-danger auth-alert__error" role="alert"></div>
-                        <form id="login-form" method="POST" action="{{route('auth.check')}}" class="auth__body-form">
+                        <form id="login-form" method="POST" action="{{route('auth.check')}}" class="auth__body-form" autocomplete="off">
                             @csrf
                             <div class="mb-2">
                                 <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                                <input id="email" type="text" name="email" class="form-control auth__body-form--header-input" placeholder="Email" require>
+                                <input id="email" type="text" name="email" class="form-control auth__body-form--header-input" placeholder="Email" require autocomplete="new-username">
                                 <div class="invalid-feedback"></div>
                             </div>
 
                             <div class="mb-2">
                                 <div class="auth__body-form--password d-flex align-items-center">
-                                    <input type="password" name="password" class="form-control auth__body-form--header-input input-password" id="password" placeholder="Mật khẩu" require>
+                                    <input type="password" name="password" class="form-control auth__body-form--header-input input-password" id="password" placeholder="Mật khẩu" require autocomplete="new-password">
                                     <div class="auth__body-form--header-input-icon" onclick="hidepass()">
                                         <!-- khi hiện pass thì ẩn class 'fa-eye-slash' hiện class 'fa-eye'  -->
                                         <i class="far fa-eye-slash" id="icon-eye"></i>
