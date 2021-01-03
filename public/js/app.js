@@ -26968,11 +26968,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 module.exports = __webpack_require__(/*! C:\Users\DELL\Desktop\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
-=======
-module.exports = __webpack_require__(/*! F:\2020-2021-HK1\LTWeb 1\Project\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
->>>>>>> 6e4754c39697cbefeecba0b219393ebbca4b87f0
 
 
 /***/ })

@@ -9,16 +9,18 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    const UPDATED_AT=NULL;
-     /**
+    const UPDATED_AT = NULL;
+    /**
      * The primary key associated with the table.
      *
      * @var string
      */
     protected $primaryKey = 'productId';
+    public $timestamps = false;
+    protected $fillable = ['categoryId', 'productName', 'description', 'price', 'quantity', 'likeCount', 'rate', 'sold', 'postAt'];
 
     protected $product = "Products";
-    public $timestamps = true;
+    //public $timestamps = true;
 
     public function categories()
     {
