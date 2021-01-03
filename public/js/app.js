@@ -26720,13 +26720,82 @@ document.addEventListener("DOMContentLoaded", function () {
         bigImage.style.backgroundImage = bigImage && children.style.backgroundImage;
       }
     });
-  });
+  }); //Chọn phân loại hàng
+
+  var fetchProductType = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(typeId) {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return axios.post("/api/product/type", {
+                typeId: typeId
+              });
+
+            case 3:
+              response = _context.sent;
+
+              if (!(response.status === 200)) {
+                _context.next = 6;
+                break;
+              }
+
+              return _context.abrupt("return", response === null || response === void 0 ? void 0 : response.data);
+
+            case 6:
+              _context.next = 11;
+              break;
+
+            case 8:
+              _context.prev = 8;
+              _context.t0 = _context["catch"](0);
+              console.log(_context.t0.response);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 8]]);
+    }));
+
+    return function fetchProductType(_x) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
   var btnTypes = document.querySelectorAll(".product-types__btn");
   btnTypes && btnTypes.forEach(function (btnType) {
-    btnType.addEventListener("click", function () {
-      removeActiveBtn();
-      btnType.classList.add("product-types__btn--active");
-    });
+    btnType.addEventListener("click", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+      var _yield$fetchProductTy, price, quantity;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              removeActiveBtn();
+              btnType.classList.add("product-types__btn--active");
+              _context2.next = 4;
+              return fetchProductType(btnType.dataset.typeId);
+
+            case 4:
+              _yield$fetchProductTy = _context2.sent;
+              price = _yield$fetchProductTy.price;
+              quantity = _yield$fetchProductTy.quantity;
+              document.querySelector(".product-right__price--currency").innerHTML = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+              document.querySelector(".product-right__quantity--text").innerHTML = "".concat(quantity, " s\u1EA3n ph\u1EA9m c\xF3 s\u1EB5n");
+              document.querySelector(".product-quantity__input").max = quantity;
+
+            case 10:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    })));
   });
 
   var removeActiveBtn = function removeActiveBtn() {
@@ -26803,14 +26872,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var btnAddToCart = document.querySelector("#addToCart");
   var btnBuyNow = document.querySelector("#buyNow");
-  btnAddToCart === null || btnAddToCart === void 0 ? void 0 : btnAddToCart.addEventListener("click", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+  btnAddToCart === null || btnAddToCart === void 0 ? void 0 : btnAddToCart.addEventListener("click", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
     var _document$querySelect;
 
     var cartData, response, _e$response, _e$response$data, messageObj;
 
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
       while (1) {
-        switch (_context.prev = _context.next) {
+        switch (_context3.prev = _context3.next) {
           case 0:
             document.querySelector(".product-validator__notification > p").innerHTML = "";
             document.querySelector(".product-validator__notification").style.display = "none";
@@ -26819,38 +26888,38 @@ document.addEventListener("DOMContentLoaded", function () {
               quantity: document.querySelector(".product-quantity__input").value,
               type: (_document$querySelect = document.querySelector(".product-types__btn--active")) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.dataset.typeId
             };
-            _context.prev = 3;
-            _context.next = 6;
+            _context3.prev = 3;
+            _context3.next = 6;
             return axios.post("/product/add-to-cart", cartData);
 
           case 6:
-            response = _context.sent;
+            response = _context3.sent;
             console.log(response);
-            _context.next = 15;
+            _context3.next = 15;
             break;
 
           case 10:
-            _context.prev = 10;
-            _context.t0 = _context["catch"](3);
-            messageObj = _context.t0 === null || _context.t0 === void 0 ? void 0 : (_e$response = _context.t0.response) === null || _e$response === void 0 ? void 0 : (_e$response$data = _e$response.data) === null || _e$response$data === void 0 ? void 0 : _e$response$data.errors;
+            _context3.prev = 10;
+            _context3.t0 = _context3["catch"](3);
+            messageObj = _context3.t0 === null || _context3.t0 === void 0 ? void 0 : (_e$response = _context3.t0.response) === null || _e$response === void 0 ? void 0 : (_e$response$data = _e$response.data) === null || _e$response$data === void 0 ? void 0 : _e$response$data.errors;
             document.querySelector(".product-validator__notification > p").innerHTML = Object.values(messageObj)[0];
             document.querySelector(".product-validator__notification").style.display = "block";
 
           case 15:
           case "end":
-            return _context.stop();
+            return _context3.stop();
         }
       }
-    }, _callee, null, [[3, 10]]);
+    }, _callee3, null, [[3, 10]]);
   })));
-  btnBuyNow === null || btnBuyNow === void 0 ? void 0 : btnBuyNow.addEventListener("click", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+  btnBuyNow === null || btnBuyNow === void 0 ? void 0 : btnBuyNow.addEventListener("click", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
     var _document$querySelect2;
 
     var cartData, response, _e$response2, _e$response2$data, messageObj;
 
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
       while (1) {
-        switch (_context2.prev = _context2.next) {
+        switch (_context4.prev = _context4.next) {
           case 0:
             document.querySelector(".product-validator__notification > p").innerHTML = "";
             document.querySelector(".product-validator__notification").style.display = "none";
@@ -26859,33 +26928,33 @@ document.addEventListener("DOMContentLoaded", function () {
               quantity: document.querySelector(".product-quantity__input").value,
               type: (_document$querySelect2 = document.querySelector(".product-types__btn--active")) === null || _document$querySelect2 === void 0 ? void 0 : _document$querySelect2.dataset.typeId
             };
-            _context2.prev = 3;
-            _context2.next = 6;
+            _context4.prev = 3;
+            _context4.next = 6;
             return axios.post("/product/add-to-cart", cartData);
 
           case 6:
-            response = _context2.sent;
+            response = _context4.sent;
 
             if (response.status === 200) {
               window.location.href = "/cart";
             }
 
-            _context2.next = 15;
+            _context4.next = 15;
             break;
 
           case 10:
-            _context2.prev = 10;
-            _context2.t0 = _context2["catch"](3);
-            messageObj = _context2.t0 === null || _context2.t0 === void 0 ? void 0 : (_e$response2 = _context2.t0.response) === null || _e$response2 === void 0 ? void 0 : (_e$response2$data = _e$response2.data) === null || _e$response2$data === void 0 ? void 0 : _e$response2$data.errors;
+            _context4.prev = 10;
+            _context4.t0 = _context4["catch"](3);
+            messageObj = _context4.t0 === null || _context4.t0 === void 0 ? void 0 : (_e$response2 = _context4.t0.response) === null || _e$response2 === void 0 ? void 0 : (_e$response2$data = _e$response2.data) === null || _e$response2$data === void 0 ? void 0 : _e$response2$data.errors;
             document.querySelector(".product-validator__notification > p").innerHTML = Object.values(messageObj)[0];
             document.querySelector(".product-validator__notification").style.display = "block";
 
           case 15:
           case "end":
-            return _context2.stop();
+            return _context4.stop();
         }
       }
-    }, _callee2, null, [[3, 10]]);
+    }, _callee4, null, [[3, 10]]);
   })));
 });
 

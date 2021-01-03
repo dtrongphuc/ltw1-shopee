@@ -28,12 +28,39 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+    //Chọn phân loại hàng
+    const fetchProductType = async typeId => {
+        try {
+            const response = await axios.post("/api/product/type", { typeId });
+            if (response.status === 200) {
+                return response?.data;
+            }
+        } catch (e) {
+            console.log(e.response);
+        }
+    };
+
     const btnTypes = document.querySelectorAll(".product-types__btn");
     btnTypes &&
         btnTypes.forEach(btnType => {
-            btnType.addEventListener("click", () => {
+            btnType.addEventListener("click", async () => {
                 removeActiveBtn();
                 btnType.classList.add("product-types__btn--active");
+                let { price, quantity } = await fetchProductType(
+                    btnType.dataset.typeId
+                );
+                document.querySelector(
+                    ".product-right__price--currency"
+                ).innerHTML = price
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                document.querySelector(
+                    ".product-right__quantity--text"
+                ).innerHTML = `${quantity} sản phẩm có sẵn`;
+
+                document.querySelector(
+                    ".product-quantity__input"
+                ).max = quantity;
             });
         });
     const removeActiveBtn = () => {

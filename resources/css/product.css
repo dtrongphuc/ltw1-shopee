@@ -211,6 +211,7 @@
     color: rgba(0, 0, 0, 0.8);
     font-size: 0.9rem;
     margin-left: 1rem;
+    margin-bottom: -2px;
 }
 
 .product-cart__btn {

@@ -39,7 +39,7 @@ class ProductController extends Controller
                     ->select('avatar', 'email', 'reviews.rate', 'text', 'reviews.created_at')
                     ->paginate(5)->fragment('reviews');
 
-        if(isset($userId)){
+        if(\Auth::check()){
             $currentUserAvatar = User::find($userId)->avatar;
         } 
         return view('pages.product', [
@@ -50,5 +50,17 @@ class ProductController extends Controller
             'reviews' => $reviews,
             'currentUserAvatar' => $currentUserAvatar ?? null
         ]);
+    }
+
+    public function getPriceAndQuantityByTypeId(Request $request) {
+        if(isset($request->typeId)) {
+            $res = ProductType::find($request->typeId);
+            return response()->json([
+                'success' => true,
+                'quantity' => $res->quantity,
+                'price' => $res->price,
+            ], 200);
+        }
+        return response()->json(['success' => false], 404);
     }
 }
