@@ -29,7 +29,7 @@ class ProductController extends Controller
                 'categories.categoryName'
             )
             ->join('categories', 'products.categoryId', 'categories.categoryId')
-            ->get();
+            ->paginate(6);
         //$product = Product::all();
         return view('adminthucong/index', ['sanpham' => $product, 'category' => $category]);
         //return response()->json($product, 200);
@@ -44,7 +44,8 @@ class ProductController extends Controller
         return redirect()->back(); //quay lai trang truoc
     }
 
-    public function AddProduct()
+    public function AddProduct(Request $req)
     {
+        return response()->json($req, 200);
     }
 }
