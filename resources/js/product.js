@@ -210,22 +210,22 @@ document.addEventListener("DOMContentLoaded", function() {
             ).style.display = "block";
         }
     });
-    $("#down_product").click(function(){
-        let quantity_present = parseInt(document.getElementById('quantity_dtproduct').value);
+    $("#down").click(function(){
+        let quantity_present = parseInt(document.getElementById('quantity').value);
         if(quantity_present == 1)
         {
-            document.getElementById('down_product').style.cursor = "not-allowed";
+            document.getElementById('down').style.cursor = "not-allowed";
             return;
         }
-        document.getElementById('quantity_dtproduct').value = (quantity_present - 1).toString();
+        document.getElementById('quantity').value = (quantity_present - 1).toString();
     });
-    $("#up_product").click(function(){
-        let quantity_present = parseInt(document.getElementById('quantity_dtproduct').value);
+    $("#up").click(function(){
+        let quantity_present = parseInt(document.getElementById('quantity').value);
         if(quantity_present == 1)
         {
-            document.getElementById('down_product').style.cursor = "pointer";
+            document.getElementById('down').style.cursor = "pointer";
             return;
         }
-        document.getElementById('quantity_dtproduct').value = (quantity_present + 1).toString();
+        document.getElementById('quantity').value = (quantity_present + 1).toString();
     });
 });

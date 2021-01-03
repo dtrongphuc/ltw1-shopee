@@ -26957,25 +26957,25 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }, _callee4, null, [[3, 10]]);
   })));
-  $("#down_product").click(function () {
-    var quantity_present = parseInt(document.getElementById('quantity_dtproduct').value);
+  $("#down").click(function () {
+    var quantity_present = parseInt(document.getElementById('quantity').value);
 
     if (quantity_present == 1) {
-      document.getElementById('down_product').style.cursor = "not-allowed";
+      document.getElementById('down').style.cursor = "not-allowed";
       return;
     }
 
-    document.getElementById('quantity_dtproduct').value = (quantity_present - 1).toString();
+    document.getElementById('quantity').value = (quantity_present - 1).toString();
   });
-  $("#up_product").click(function () {
-    var quantity_present = parseInt(document.getElementById('quantity_dtproduct').value);
+  $("#up").click(function () {
+    var quantity_present = parseInt(document.getElementById('quantity').value);
 
     if (quantity_present == 1) {
-      document.getElementById('down_product').style.cursor = "pointer";
+      document.getElementById('down').style.cursor = "pointer";
       return;
     }
 
-    document.getElementById('quantity_dtproduct').value = (quantity_present + 1).toString();
+    document.getElementById('quantity').value = (quantity_present + 1).toString();
   });
 });
 
@@ -26988,11 +26988,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-module.exports = __webpack_require__(/*! C:\Users\DELL\Desktop\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
-=======
 module.exports = __webpack_require__(/*! F:\2020-2021-HK1\LTWeb 1\Project\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
->>>>>>> 6e4754c39697cbefeecba0b219393ebbca4b87f0
 
 
 /***/ })
