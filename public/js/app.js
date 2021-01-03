@@ -26563,7 +26563,9 @@ $(document).ready(function () {
     var productid = $(this).attr("data-id");
     var productname = $(this).attr("data-productname"); //id.substring(3);
 
-    var quantity = $("#quantity_" + productname).val();
+    alert(productname);
+    var quantity = $("#quantity_" + productname).val(); // alert(quantity);
+
     if (parseInt(quantity) == 1 && id.substring(0, 2) == "dw") return;
     $.ajax({
       url: "api/cart/UpQuantity",

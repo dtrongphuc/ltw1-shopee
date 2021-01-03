@@ -53,7 +53,19 @@
                                     <div class="order__body-order">
                                         <div class="order__body-status d-flex justify-content-between">
                                             <div class="order__body-status-stt">{{ $bill }}</div>
-                                            <div class="order__body-status-content">{{ $statuses[$bill - 1]->status }}</div>
+                                            <div class="order__body-status-content">
+                                                @if ($statuses[$bill - 1]->status == 0)
+                                                    CHỜ XỬ LÝ
+                                                @elseif($statuses[$bill - 1]->status == 1)
+                                                    HỦY
+                                                @elseif($statuses[$bill - 1]->status == 2)
+                                                    ĐANG XỬ LÝ
+                                                @elseif($statuses[$bill - 1]->status == 3)
+                                                    ĐANG GIAO HÀNG
+                                                @else
+                                                    HOÀN THÀNH
+                                                @endif
+                                            </div>
                                         </div>
                                         {{-- {{ $bills[$bill] }}
                                         --}}
@@ -65,7 +77,8 @@
                                                 </div>
                                                 <div class="infoproduct__info p-2 ">
                                                     <h5 class="infoproduct__info-name">{{ $detailbill->productName }}</h5>
-                                                    <p class="infoproduct__info-type">Phân loại hàng: {{$detailbill->type}}</p>
+                                                    <p class="infoproduct__info-type">Phân loại hàng:
+                                                        {{ $detailbill->type }}</p>
                                                     <p class="infoproduct__info-quantity">x {{ $detailbill->quantity }}</p>
                                                 </div>
                                                 <div class="infoproduct__info-price ml-auto p-2 align-self-center">
@@ -78,7 +91,8 @@
                                                 <p class="order__footer-content">Tổng số tiền: </p>
                                                 <div class="order__footer-totalprice d-flex">
                                                     <p>đ</p>
-                                                    <h4 class="order__footer-totalprice--price">{{ number_format(floatval($statuses[$bill - 1]->totalPrice)) }}</h4>
+                                                    <h4 class="order__footer-totalprice--price">
+                                                        {{ number_format(floatval($statuses[$bill - 1]->totalPrice)) }}</h4>
                                                 </div>
                                             </div>
                                         </div>

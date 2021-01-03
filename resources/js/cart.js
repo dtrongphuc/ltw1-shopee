@@ -27,7 +27,9 @@ $(document).ready(function() {
         let id = $(this).attr("id");
         let productid = $(this).attr("data-id");
         let productname = $(this).attr("data-productname"); //id.substring(3);
+        alert(productname);
         let quantity = $("#quantity_" + productname).val();
+        // alert(quantity);
         if (parseInt(quantity) == 1 && id.substring(0, 2) == "dw")
             return;
         $.ajax({
