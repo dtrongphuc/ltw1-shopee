@@ -67,6 +67,7 @@ Route::post('login', [AuthController::class, 'login'])->name('auth.check');
 
 // Product routes
 Route::get('/product/{id}', [ProductController::class, '__invoke']);
+Route::post('/api/product/type', [ProductController::class, 'getPriceAndQuantityByTypeId']);
 
 // Category routes
 Route::get('/category/{categoryId}', [HomeController::class, 'category'])->name('filter.category');
