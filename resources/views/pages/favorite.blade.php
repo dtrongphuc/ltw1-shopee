@@ -31,6 +31,12 @@
                                 <p class="info__categor-favorite--content">Sản phẩm yêu thích</p>
                             </a>
                         </div>
+                        <div class="info__categor-favorite d-flex align-items-center">
+                            <i class="fas fa-shopping-basket icon-purchaseorder"></i>
+                            <a href="">
+                                <p class="info__categor-favorite--content">Đơn mua</p>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

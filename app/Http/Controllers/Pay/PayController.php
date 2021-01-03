@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Pay;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\PurchaseOrder\PurchaseOrderController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class PayController extends Controller
     public function ToPurchaseOrder(Request $user){
         $carts = DB::table('products')
             ->join('carts', 'carts.productId', '=', 'products.productId')
-            ->select('carts.productId', 'products.price', 'carts.quantity')
+            ->select('carts.productId', 'products.price', 'carts.quantity', 'carts.type')
             ->get();
         
         //them dữ liệu trong giỏ hàng vào bill
@@ -54,11 +55,13 @@ class PayController extends Controller
                 ['billId' => $billmaxid,
                 'productId' => $cart->productId,
                 'quantity' => $cart->quantity,
-                'totalPrice' => $cart->quantity * $cart->price]
+                'totalPrice' => $cart->quantity * $cart->price,
+                'type' => $cart->type]
             );
         }
 
-        // DB::table('carts')->truncate();  // xóa trong  giỏ hàng và id trở về 0
-        return view('pages/purchaseorder');
+        $tt = DB::table('carts')->truncate();  // xóa trong  giỏ hàng và id trở về 0
+
+       return redirect()->route( 'purchaseorder.index' );
     }
 }

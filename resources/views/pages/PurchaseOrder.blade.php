@@ -49,13 +49,14 @@
                         <div class="order__body">
                             {{-- @foreach ($bills as $bill)
                                 --}}
-                                @for ($bill = 1; $bill <= count($bills); $bill++)
+                                @for ($bill = count($bills); $bill >= 1; $bill--)
                                     <div class="order__body-order">
                                         <div class="order__body-status d-flex justify-content-between">
-                                            <div class="order__body-status-stt">{{$bill}}</div>
-                                            <div class="order__body-status-content">ĐANG GIAO</div>
+                                            <div class="order__body-status-stt">{{ $bill }}</div>
+                                            <div class="order__body-status-content">{{ $statuses[$bill - 1]->status }}</div>
                                         </div>
-                                        {{-- {{ $bills[$bill] }} --}}
+                                        {{-- {{ $bills[$bill] }}
+                                        --}}
                                         @foreach ($bills[$bill] as $detailbill)
                                             <div class="order__body-infoproduct d-flex align-items-cente">
                                                 <div class="infoproduct__img p-2">
@@ -64,11 +65,11 @@
                                                 </div>
                                                 <div class="infoproduct__info p-2 ">
                                                     <h5 class="infoproduct__info-name">{{ $detailbill->productName }}</h5>
-                                                    <p class="infoproduct__info-type">Phân loại hàng: black,36</p>
-                                                    <p class="infoproduct__info-quantity">{{ $detailbill->quantity }}</p>
+                                                    <p class="infoproduct__info-type">Phân loại hàng: {{$detailbill->type}}</p>
+                                                    <p class="infoproduct__info-quantity">x {{ $detailbill->quantity }}</p>
                                                 </div>
                                                 <div class="infoproduct__info-price ml-auto p-2 align-self-center">
-                                                    <p>{{ number_format(floatval($detailbill->totalPrice)) }}</p>
+                                                    <p>{{ number_format(floatval($detailbill->totalPrice)) }}đ</p>
                                                 </div>
                                             </div>
                                         @endforeach
@@ -77,7 +78,7 @@
                                                 <p class="order__footer-content">Tổng số tiền: </p>
                                                 <div class="order__footer-totalprice d-flex">
                                                     <p>đ</p>
-                                                    <h4 class="order__footer-totalprice--price">128.000</h4>
+                                                    <h4 class="order__footer-totalprice--price">{{ number_format(floatval($statuses[$bill - 1]->totalPrice)) }}</h4>
                                                 </div>
                                             </div>
                                         </div>

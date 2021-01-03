@@ -20,6 +20,7 @@ class CreateDetailBillsTable extends Migration
             $table->foreign('productId')->references('productId')->on('products');
             $table->integer('quantity');
             $table->decimal('totalPrice', 10, 0);
+            $table->text('type');
         });
     }
 

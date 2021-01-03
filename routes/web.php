@@ -150,4 +150,4 @@ Route::get('/search', [HomeController::class, 'searchProduct'])->name('search');
 
 //đơn mua hàng
 // Route::get('/purchaseorder', [PurchaseOrderController::class], 'purchaseorder');
-Route::get('/purchaseorder', 'App\Http\Controllers\PurchaseOrder\PurchaseOrderController@purchaseorder');
+Route::get('/purchaseorder', 'App\Http\Controllers\PurchaseOrder\PurchaseOrderController@purchaseorder')->name('purchaseorder.index');
