@@ -202,10 +202,10 @@
                     <div class="d-flex align-items-center mt-4">
                         <p class="product-right__subtitle">Số lượng</p>
                         <div class="d-flex align-items-center product-quantity">
-                            <button class="product-quantity__btn down-default" id="down">-</button>
+                            <button class="product-quantity__btn down-default" id="down_product">-</button>
                             <input type="text" class="product-quantity__input" name="product-quantity" min="{{1}}" value="1"
-                                pattern="[0-9]+" id="quantify" max="{{$product->quantity}}">
-                            <button class="product-quantity__btn" id="up">+</button>
+                                pattern="[0-9]+" id="quantity_dtproduct" max="{{$product->quantity}}">
+                            <button class="product-quantity__btn" id="up_product">+</button>
                         </div>
                         <p class="product-right__quantity--text">{{$product->quantity}} sản phẩm có sẵn</p>
                     </div>

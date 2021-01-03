@@ -26957,6 +26957,26 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }, _callee4, null, [[3, 10]]);
   })));
+  $("#down_product").click(function () {
+    var quantity_present = parseInt(document.getElementById('quantity_dtproduct').value);
+
+    if (quantity_present == 1) {
+      document.getElementById('down_product').style.cursor = "not-allowed";
+      return;
+    }
+
+    document.getElementById('quantity_dtproduct').value = (quantity_present - 1).toString();
+  });
+  $("#up_product").click(function () {
+    var quantity_present = parseInt(document.getElementById('quantity_dtproduct').value);
+
+    if (quantity_present == 1) {
+      document.getElementById('down_product').style.cursor = "pointer";
+      return;
+    }
+
+    document.getElementById('quantity_dtproduct').value = (quantity_present + 1).toString();
+  });
 });
 
 /***/ }),
