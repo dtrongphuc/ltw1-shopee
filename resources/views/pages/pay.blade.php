@@ -20,6 +20,7 @@
     <div class="cartbody">
         <div class="container" style="padding-bottom: 70px;">
             <form action="{{route('pay.toorder')}}" method="POST">
+                @csrf
                 <div class="pay__addressship">
                     <div class="pay__addressship-header d-flex align-items-center">
                         <div class="pay__addressship-header--icon">
@@ -72,7 +73,7 @@
                                                                 <input
                                                                     class="address-modal__form_input_name_nameuser_model_input"
                                                                     type="text" placeholder="Họ và tên" id="username_change"
-                                                                    value="{{ $userinfo[0]->name }}" name="username" required>
+                                                                    value="{{ $userinfo[0]->name }}" name="username" >
                                                             </div>
                                                         </div>
                                                     </div>
@@ -85,7 +86,7 @@
                                                                     type="text" placeholder="Số điện thoại"
                                                                     id="phonenumber_change"
                                                                     value="(+84) {{ substr($userinfo[0]->phoneNumber, 1) }}" name="phonenumber"
-                                                                    required>
+                                                                    >
                                                             </div>
                                                         </div>
                                                     </div>
@@ -97,7 +98,7 @@
                                                                 <input
                                                                     class="address-modal__form_input_name_nameuser_model_input"
                                                                     type="text" placeholder="Địa chỉ" id="address_change"
-                                                                    value="{{ $userinfo[0]->address }}" name="address" required>
+                                                                    value="{{ $userinfo[0]->address }}" name="address" >
                                                             </div>
                                                         </div>
                                                     </div>

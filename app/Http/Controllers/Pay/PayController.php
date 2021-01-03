@@ -23,29 +23,42 @@ class PayController extends Controller
         return view('pages/pay', ['products' => $productsofcart, 'payall' => $sum, 'userinfo' => $userinfo]);
     }
     public function ToPurchaseOrder(Request $user){
-        $carts = DB::table('carts')->get();
-        //them dữ liệu trong giỏ hàng vào bill
-        $today = date("j, n, Y");
-        $expected = date('Y-m-d', strtotime($today. ' + 7 days'));
-        DB::table('bills')->insert(
-            ['customerName' => $user->username],
-            ['phoneNumber' => $user->phonenumber],
-            ['address' => $user->address],
-            ['totalPrice' => 0],
-            ['createAt' => $today],
-            ['expectedAt' => $expected],
-            ['status' => 1],
-        );
-        $billmaxid =  DB::table('bills')->max('id');
+        $carts = DB::table('products')
+            ->join('carts', 'carts.productId', '=', 'products.productId')
+            ->select('carts.productId', 'products.price', 'carts.quantity')
+            ->get();
         
+        //them dữ liệu trong giỏ hàng vào bill
+        $today = date("Y-m-d");
+        $expected = date("Y-m-d", strtotime($today. ' + 7 days'));
+        $sum = 0;
+        foreach($carts as $sp)
+        {
+            $sum = $sum + ($sp->quantity * $sp->price);
+        }
+        //dd($user->phonenumber);
+        $insertt = DB::table('bills')->insert(
+            ['customerName' => $user->username,
+            'phoneNumber' => $user->phonenumber,
+            'address' => $user->address,
+            'totalPrice' => $sum,
+            'createAt' => $today,
+            'expectedAt' => $expected,
+            'status' => 1]
+        );
+
+        $billmaxid =  DB::table('bills')->max('id');        
         foreach($carts as $cart)
         {
-            DB::table('bills')->insert(
-                ['email' => 'john@example.com', 'votes' => 0]
+            DB::table('detail_bills')->insert(
+                ['billId' => $billmaxid,
+                'productId' => $cart->productId,
+                'quantity' => $cart->quantity,
+                'totalPrice' => $cart->quantity * $cart->price]
             );
-            
         }
-        DB::table('carts')->truncate();  // xóa trong  giỏ hàng và id trở về 0
 
+        // DB::table('carts')->truncate();  // xóa trong  giỏ hàng và id trở về 0
+        return view('pages/purchaseorder');
     }
 }

@@ -139,7 +139,7 @@ Route::get('/cart/delete/{cartid}', [CartController::class, 'deleteCartById'])->
 
 //thánh toán
 Route::get('/pay', 'App\Http\Controllers\Pay\PayController@pay');
-Route::get('/pay/paytoorder/', [PayController::class, 'ToPurchaseOrder'])->name('pay.toorder');
+Route::post('/pay/paytoorder', [PayController::class, 'ToPurchaseOrder'])->name('pay.toorder');
 
 //TEST ROUTES
 Route::get('/upload', [FileUploadController::class, 'showUploadForm']);
