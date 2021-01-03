@@ -26,8 +26,10 @@ $(document).ready(function() {
         event.preventDefault();
         let id = $(this).attr("id");
         let productid = $(this).attr("data-id");
-        let productname = $(this).attr("data-productname"); //id.substring(3);
-        let quantity = $("#quantity_" + productname).val();
+        // let productname = $(this).attr("data-productname"); //id.substring(3);
+        // alert(productname);
+        let quantity = $("#quantity_" + productid).val();
+        // alert(quantity);
         if (parseInt(quantity) == 1 && id.substring(0, 2) == "dw")
             return;
         $.ajax({
@@ -40,18 +42,18 @@ $(document).ready(function() {
             },
             success: function(response) { //trả ra giá đã tăng or đã giảm
                 //alert(response);
-                $("#quantity_" + productname).val(response);
-                UpPriceFromQuantity(productname, response, id.substring(0, 2));
+                $("#quantity_" + productid).val(response);
+                UpPriceFromQuantity(productid, response, id.substring(0, 2));
 
             }
         });
     });
 });
 
-function UpPriceFromQuantity(productname, quantity, statusid) {
-    let price = $("#price_" + productname).text();
+function UpPriceFromQuantity(productid, quantity, statusid) {
+    let price = $("#price_" + productid).text();
     let price_after = parseInt(price.substring(0, price.length - 3)) * quantity;
-    $("#toltalprice_" + productname).text(StringToMoney(price_after.toString()) + ",000");
+    $("#toltalprice_" + productid).text(StringToMoney(price_after.toString()) + ",000");
     let pay = $("#payall").text();
     var price_all = parseInt(pay.substring(0, pay.length - 4).replace(/,/i, ''));
     let payprice = 0;

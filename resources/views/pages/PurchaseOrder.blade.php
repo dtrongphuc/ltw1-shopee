@@ -47,89 +47,59 @@
                             <h4 class="favorite__header-content">Đơn mua</h4>
                         </div>
                         <div class="order__body">
-                            <div class="order__body-order">
-                                <div class="order__body-status d-flex justify-content-between">
-                                    <div class="order__body-status-stt">1</div>
-                                    <div class="order__body-status-content">ĐÃ GIAO</div>
-                                </div>
-                                <div class="order__body-infoproduct d-flex align-items-cente">
-                                    <div class="infoproduct__img p-2">
-                                        <img src="images/products/hoodie_cart.jpg" alt="" width="80px" height="80px">
-                                    </div>
-                                    <div class="infoproduct__info p-2 ">
-                                        <h5 class="infoproduct__info-name">Giày Búp Bê Mũi Vuông Xinh Xắn Dành Cho Nữ</h5>
-                                        <p class="infoproduct__info-type">Phân loại hàng: black,36</p>
-                                        <p class="infoproduct__info-quantity">x10</p>
-                                    </div>
-                                    <div class="infoproduct__info-price ml-auto p-2 align-self-center">
-                                        <p>đ128.000</p>
-                                    </div>
-                                </div>
-                                <div class="order__body-infoproduct d-flex align-items-cente">
-                                    <div class="infoproduct__img p-2">
-                                        <img src="images/products/hoodie_cart.jpg" alt="" width="80px" height="80px">
-                                    </div>
-                                    <div class="infoproduct__info p-2 ">
-                                        <h5 class="infoproduct__info-name">Giày Búp Bê Mũi Vuông Xinh Xắn Dành Cho Nữ</h5>
-                                        <p class="infoproduct__info-type">Phân loại hàng: black,36</p>
-                                        <p class="infoproduct__info-quantity">x10</p>
-                                    </div>
-                                    <div class="infoproduct__info-price ml-auto p-2 align-self-center">
-                                        <p>đ128.000</p>
-                                    </div>
-                                </div>
-                                <div class="order__footer d-flex align-items-end justify-content-end">
-                                    <div class="order__footerd-border d-flex align-items-end ">
-                                        <p class="order__footer-content">Tổng số tiền: </p>
-                                        <div class="order__footer-totalprice d-flex">
-                                            <p>đ</p>
-                                            <h4 class="order__footer-totalprice--price">128.000</h4>
+                            {{-- @foreach ($bills as $bill)
+                                --}}
+                                @for ($bill = count($bills); $bill >= 1; $bill--)
+                                    <div class="order__body-order">
+                                        <div class="order__body-status d-flex justify-content-end">
+                                            {{-- <div class="order__body-status-stt">{{ $bill }}</div> --}}
+                                            <div class="order__body-status-content">
+                                                @if ($statuses[$bill - 1]->status == 0)
+                                                    CHỜ XỬ LÝ
+                                                @elseif($statuses[$bill - 1]->status == 1)
+                                                    HỦY
+                                                @elseif($statuses[$bill - 1]->status == 2)
+                                                    ĐANG XỬ LÝ
+                                                @elseif($statuses[$bill - 1]->status == 3)
+                                                    ĐANG GIAO HÀNG
+                                                @else
+                                                    HOÀN THÀNH
+                                                @endif
+                                            </div>
+                                        </div>
+                                        {{-- {{ $bills[$bill] }}
+                                        --}}
+                                        @foreach ($bills[$bill] as $detailbill)
+                                            <div class="order__body-infoproduct d-flex align-items-cente">
+                                                <div class="infoproduct__img p-2">
+                                                    <img src="images/products/hoodie_cart.jpg" alt="" width="80px"
+                                                        height="80px">
+                                                </div>
+                                                <div class="infoproduct__info p-2 ">
+                                                    <h5 class="infoproduct__info-name">{{ $detailbill->productName }}</h5>
+                                                    <p class="infoproduct__info-type">Phân loại hàng:
+                                                        {{ $detailbill->name }}</p>
+                                                    <p class="infoproduct__info-quantity">x {{ $detailbill->quantity }}</p>
+                                                </div>
+                                                <div class="infoproduct__info-price ml-auto p-2 align-self-center">
+                                                    <p>{{ number_format(floatval($detailbill->totalPrice)) }}đ</p>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                        <div class="order__footer d-flex align-items-end justify-content-end">
+                                            <div class="order__footerd-border d-flex align-items-end ">
+                                                <p class="order__footer-content">Tổng số tiền: </p>
+                                                <div class="order__footer-totalprice d-flex">
+                                                    <p>đ</p>
+                                                    <h4 class="order__footer-totalprice--price">
+                                                        {{ number_format(floatval($statuses[$bill - 1]->totalPrice)) }}</h4>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            
-                            <div class="order__body-order">
-                                <div class="order__body-status d-flex justify-content-between">
-                                    <div class="order__body-status-stt">2</div>
-                                    <div class="order__body-status-content">ĐÃ GIAO</div>
-                                </div>
-                                <div class="order__body-infoproduct d-flex align-items-cente">
-                                    <div class="infoproduct__img p-2">
-                                        <img src="images/products/hoodie_cart.jpg" alt="" width="80px" height="80px">
-                                    </div>
-                                    <div class="infoproduct__info p-2 ">
-                                        <h5 class="infoproduct__info-name">Giày Búp Bê Mũi Vuông Xinh Xắn Dành Cho Nữ</h5>
-                                        <p class="infoproduct__info-type">Phân loại hàng: black,36</p>
-                                        <p class="infoproduct__info-quantity">x10</p>
-                                    </div>
-                                    <div class="infoproduct__info-price ml-auto p-2 align-self-center">
-                                        <p>đ128.000</p>
-                                    </div>
-                                </div>
-                                <div class="order__body-infoproduct d-flex align-items-cente">
-                                    <div class="infoproduct__img p-2">
-                                        <img src="images/products/hoodie_cart.jpg" alt="" width="80px" height="80px">
-                                    </div>
-                                    <div class="infoproduct__info p-2 ">
-                                        <h5 class="infoproduct__info-name">Giày Búp Bê Mũi Vuông Xinh Xắn Dành Cho Nữ</h5>
-                                        <p class="infoproduct__info-type">Phân loại hàng: black,36</p>
-                                        <p class="infoproduct__info-quantity">x10</p>
-                                    </div>
-                                    <div class="infoproduct__info-price ml-auto p-2 align-self-center">
-                                        <p>đ128.000</p>
-                                    </div>
-                                </div>
-                                <div class="order__footer d-flex align-items-end justify-content-end">
-                                    <div class="order__footerd-border d-flex align-items-end ">
-                                        <p class="order__footer-content">Tổng số tiền: </p>
-                                        <div class="order__footer-totalprice d-flex">
-                                            <p>đ</p>
-                                            <h4 class="order__footer-totalprice--price">128.000</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                    {{--
+                                @endforeach --}}
+                            @endfor
                         </div>
                     </div>
                 </div>

@@ -67,6 +67,7 @@ Route::post('login', [AuthController::class, 'login'])->name('auth.check');
 
 // Product routes
 Route::get('/product/{id}', [ProductController::class, '__invoke']);
+Route::post('/api/product/type', [ProductController::class, 'getPriceAndQuantityByTypeId']);
 
 // Category routes
 Route::get('/category/{categoryId}', [HomeController::class, 'category'])->name('filter.category');
@@ -140,15 +141,15 @@ Route::get('/cart/delete/{cartid}', [CartController::class, 'deleteCartById'])->
 
 //thánh toán
 Route::get('/pay', 'App\Http\Controllers\Pay\PayController@pay');
-
+Route::post('/pay/paytoorder', [PayController::class, 'ToPurchaseOrder'])->name('pay.toorder');
 
 //TEST ROUTES
 Route::get('/upload', [FileUploadController::class, 'showUploadForm']);
 Route::post('/upload', [FileUploadController::class, 'storeUploads']);
 
 // Search Product
-Route::get('/search', [HomeController::class, 'searchProduct']);
+Route::get('/search', [HomeController::class, 'searchProduct'])->name('search');
 
 //đơn mua hàng
 // Route::get('/purchaseorder', [PurchaseOrderController::class], 'purchaseorder');
-Route::get('/purchaseorder', 'App\Http\Controllers\PurchaseOrder\PurchaseOrderController@purchaseorder');
+Route::get('/purchaseorder', 'App\Http\Controllers\PurchaseOrder\PurchaseOrderController@purchaseorder')->name('purchaseorder.index');

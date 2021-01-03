@@ -65,13 +65,13 @@
                         <div class="d-flex align-items-center justify-content-between flex-grow-1">
                         
                             <div class="search-keyword">
-                                
+                            <form action="{{ route('search') }}" method="GET">
                                 <div class="search" >
-                                    <input class="input-search" type="text"
+                                    <input class="input-search" type="text" name="querySearch"  
                                         placeholder="Tìm sản Phẩm, Thương Hiệu, và tên shoppe">
                                     <span class="button-search d-flex align-items-center justify-content-center"><i
                                             class="fas fa-search search-icon"></i></span>
-                              
+                            </form>
                                 </div>
                                 <div class="bottom-header">
                                     <ul class="bottom-items">
