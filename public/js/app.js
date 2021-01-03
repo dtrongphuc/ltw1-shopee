@@ -26563,7 +26563,9 @@ $(document).ready(function () {
     var productid = $(this).attr("data-id");
     var productname = $(this).attr("data-productname"); //id.substring(3);
 
-    var quantity = $("#quantity_" + productname).val();
+    alert(productname);
+    var quantity = $("#quantity_" + productname).val(); // alert(quantity);
+
     if (parseInt(quantity) == 1 && id.substring(0, 2) == "dw") return;
     $.ajax({
       url: "api/cart/UpQuantity",
@@ -26663,7 +26665,12 @@ $(document).ready(function () {
     $("#username").text($("#username_change").val());
     $("#phonenumber").text($("#phonenumber_change").val());
     $("#address").text($("#address_change").val()); // alert($("#username_change").val());
-  });
+  }); // $("#btntoorder").on("click", function(e) {
+  //     let username = $("#username").text();
+  //     let phonenumber = $("#phonenumber").text();
+  //     let address = $("#address").text();
+  //     $("#changehref").attr("href", "/pay/paytoorder/" + username + "/" + phonenumber + "/" + address);
+  // });
 });
 
 /***/ }),

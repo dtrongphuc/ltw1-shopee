@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 class PayController extends Controller
 {
     public function pay(){
+        if(DB::table('carts')->count() == 0)
+            return redirect()->back();
         $productsofcart = DB::table('products')
         ->join('carts', 'carts.productId', '=', 'products.productId')
         ->select('carts.id', 'products.productName', 'carts.type', 'products.price', 'carts.quantity')
