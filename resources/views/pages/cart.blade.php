@@ -120,13 +120,7 @@
         </div>
 
         <div class="cartfooter">
-            <div class="row d-flex justify-content-between align-items-center">
-                <div class="col-md-6">
-                    <div class="cartfooter__selectproduct d-flex align-items-center">
-                        {{-- <button class="btn cartfooter__selectproduct-deleteall">Xóa</button> --}}
-                        <button class="btn cartfooter__selectproduct-favoriteall">Lưu vào mục đã thích</button>
-                    </div>
-                </div>
+            <div class="row d-flex justify-content-end align-items-center">
                 <div class="col-md-6">
                     <div class="cartfooter__buyproduct d-flex align-items-center justify-content-end">
                         <div class="cartfooter__buyproduct-totalmoney d-flex align-items-center">

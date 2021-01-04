@@ -8,5 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Bill extends Model
 {
     use HasFactory;
-    protected $orders = "bills";
+    protected $Order = "bills";
+    protected $primaryKey = 'Id';
+
 }

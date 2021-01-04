@@ -216,7 +216,6 @@ input[type=checkbox]:checked:after {
     width: 210px;
     background-color: var(--primary-color);
     border: none;
-    margin-left: 15px;
 }
 
 .cartfooter__buyproduct-btnbuy:hover {
