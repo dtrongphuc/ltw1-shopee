@@ -186,12 +186,12 @@
                                                             <div class="modal-body row">
                                                                 <div class="col-md-12 itemadd">
                                                                     <label class="col-md-2 labelitem" for="">Tên Sản Phẩm</label>
-                                                                    <input class="col-md-9 inputitem" type="text" placeholder='Nhập tên Sản Phẩm' value="{{$sanpham[$i]->productName}}">
+                                                                    <input class="col-md-9 inputitem" Name="tensuaSP" type="text" placeholder='Nhập tên Sản Phẩm' value="{{$sanpham[$i]->productName}}">
                                                                 </div>
 
                                                                 <div class="col-md-12 itemadd" style="display: flex;">
                                                                     <label class="col-md-2 labelitem" for="">Mô tả</label>
-                                                                    <textarea class="col-md-9 inputitem" rows="10" cols="50">{{$sanpham[$i]->description}}</textarea>
+                                                                    <textarea class="col-md-9 inputitem" Name="motasuaSP" rows="10" cols="50">{{$sanpham[$i]->description}}</textarea>
                                                                 </div>
                                                                 <div class="col-md-12 itemadd" id="themPhanNhom-suaSP">
                                                                     <label class="col-md-2 labelitem" for="">Phân Nhóm</label>
@@ -206,7 +206,7 @@
                                                                 </div>
                                                                 <div class="col-md-12 itemadd">
                                                                     <label class="col-md-2 labelitem" for="">Danh Mục Sản Phẩm</label>
-                                                                    <select name="cars" class="col-md-9 inputitem">
+                                                                    <select name="categorysuaSP" class="col-md-9 inputitem">
                                                                         @foreach($category as $cate)
                                                                         <option value={{$cate->categoryId}}>{{$cate->categoryName}}</option>
                                                                         @endforeach
@@ -215,7 +215,7 @@
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
-                                                                <button type="submit" class="btn btn-success" style="width:100px;">Sửa</button>
+                                                                <button type="submit" class="btn btn-success" style="width:100px;" onclick="submitSuaSP();">Sửa</button>
                                                             </div>
                                                         </form>
                                                     </div>
@@ -468,7 +468,7 @@
                         for(var sldiv = 0; sldiv < datasp.length;sldiv++)
                         {
                             var sldivdatontai = document.getElementById("themPhanNhom-suaSP").childElementCount -1;
-                            if(sldivdatontai != datasp.length)
+                            if(sldivdatontai < datasp.length)
                             {
                                 themNhomSuaSP();
                             }
@@ -479,7 +479,11 @@
                             var inputgia = document.getElementsByName("GiaNhom-suaSP"+sldiv)[0];
                             inputgia.setAttribute("value", parseFloat(datasp[sldiv]['price']));
                         }
-                        
+                        for(var indexRemove = datasp.length; indexRemove < sldivdatontai;indexRemove++)
+                        {
+                            var divRemove = document.getElementById("content-phanNhom-suaSP"+indexRemove);
+                            divRemove.remove();
+                        }
                     }
                 } catch (e) {
                     console.log('error', e.response);
@@ -488,6 +492,43 @@
             GetGroupProduct(id);
         }
 
+        async function submitSuaSP() {
+            var arrayPhanNhom = [];
+            var tensp = document.forms["editSPForm"]["tensuaSP"].value;
+            var mota = document.forms["editSPForm"]["motasuaSP"].value;
+            var cate = document.forms["editSPForm"]["categorysuaSP"].value;
+
+
+            for (var z = 0; z <= slNhomThemSP; z++) {
+                arrayPhanNhom.push({
+                    tennhom: document.forms["editSPForm"]["tenNhom-themsp" + z].value,
+                    slnhom: document.forms["editSPForm"]["SLNhom-themsp" + z].value,
+                    gianhom: document.forms["editSPForm"]["GiaNhom-themsp" + z].value
+                })
+            }
+            slNhomThemSP = 0;
+            var sanpham = {
+                tensp: tensp,
+                mota: mota,
+                danhmuc: cate,
+                mangNhom: arrayPhanNhom
+            };
+            await postProduct(sanpham);
+        }
+
+        async function postProduct(sanpham) {
+            try {
+                const response = await axios.post('/api/admin/new-product', {
+                    sanpham
+                });
+                if (response.status === 200) {
+                    console.log(response);
+                    window.location.reload();
+                }
+            } catch (e) {
+                console.log('error', e.response);
+            }
+        }
         
         jQuery(document).ready(function($) {
             $("#btnReposiveLeft").click(function() {
