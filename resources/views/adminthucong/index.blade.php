@@ -110,7 +110,7 @@
 
                                                                 <div class="col-md-12 itemadd">
                                                                     <label class="col-md-2 labelitem" for="">Mô tả</label>
-                                                                    <textarea class="col-md-9 inputitem" id="w3review" name="motaDM" cols="50">{{$category[$i]->description}}</textarea>
+                                                                    <textarea class="col-md-9 inputitem" name="motaDM" cols="50">{{$category[$i]->description}}</textarea>
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">
@@ -191,29 +191,22 @@
 
                                                                 <div class="col-md-12 itemadd" style="display: flex;">
                                                                     <label class="col-md-2 labelitem" for="">Mô tả</label>
-                                                                    <textarea class="col-md-9 inputitem" id="w3review" name="w3review" rows="10" cols="50">{{$sanpham[$i]->description}}</textarea>
+                                                                    <textarea class="col-md-9 inputitem" rows="10" cols="50">{{$sanpham[$i]->description}}</textarea>
                                                                 </div>
-                                                                <div class="col-md-12 itemadd" id="themPhanNhom">
+                                                                <div class="col-md-12 itemadd" id="themPhanNhom-suaSP">
                                                                     <label class="col-md-2 labelitem" for="">Phân Nhóm</label>
-                                                                    <div class='col-md-8' id="content-phanNhom">
-<<<<<<< HEAD
-                                                                        @for($k=0;$k<$productType;$k++) <input class="col-md-3 inputitem" type="text" name="tenNhom0" placeholder='Nhập tên Phân Nhóm'>
-                                                                            <input class="col-md-3 inputitem" type="text" name="SLNhom0" placeholder='Nhập Số Lượng'>
-                                                                            <input class="col-md-2 inputitem" type="text" name="GiaNhom0" placeholder='Nhập Giá'>
-                                                                            <button type="button" class='inputitem-icon btn ' id="btnAddInput" onclick="addinput()" style="display: inline-block;"><i class="fas fa-plus"></i></button>
-                                                                            @endfor
+                                                                    <div class='col-md-8' id="content-phanNhom-suaSP">
 
-=======
-                                                                        <input class="col-md-3 inputitem" type="text" name="tenNhom0" placeholder='Nhập tên Phân Nhóm'>
-                                                                        <input class="col-md-3 inputitem" type="text" name="SLNhom0" placeholder='Nhập Số Lượng'>
-                                                                        <input class="col-md-2 inputitem" type="text" name="GiaNhom0" placeholder='Nhập Giá'>
-                                                                        <button type="button" class='inputitem-icon btn' id="btnAddInput" onclick="addinput()" style="display: inline-block;"><i class="fas fa-plus"></i></button>
->>>>>>> 72e8dbbdc53b5b0b30757f45a1c4019a278952db
+                                                                        <input class="col-md-3 inputitem" type="text" name="tenNhom0-suaSP" placeholder="asd">
+                                                                        <input class="col-md-3 inputitem" type="text" name="SLNhom0-suaSP" placeholder='Nhập Số Lượng'>
+                                                                        <input class="col-md-2 inputitem" type="text" name="GiaNhom0-suaSP" placeholder='Nhập Giá'>
+                                                                        <button type="button" class='inputitem-icon btn ' style="display: inline-block;"><i class="fas fa-plus"></i></button>
+
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-12 itemadd">
                                                                     <label class="col-md-2 labelitem" for="">Danh Mục Sản Phẩm</label>
-                                                                    <select name="cars" id="cars" class="col-md-9 inputitem">
+                                                                    <select name="cars" class="col-md-9 inputitem">
                                                                         @foreach($category as $cate)
                                                                         <option value={{$cate->categoryId}}>{{$cate->categoryName}}</option>
                                                                         @endforeach
@@ -295,19 +288,19 @@
                             <label class="col-md-2 labelitem" for="">Mô tả</label>
                             <textarea class="col-md-9 inputitem" name="motaSP" rows="10" cols="50"></textarea>
                         </div>
-                        <div class="col-md-12 itemadd" id="themPhanNhom">
+                        <div class="col-md-12 itemadd" id="themPhanNhom-themsp">
                             <label class="col-md-2 labelitem" for="">Phân Nhóm</label>
-                            <div class='col-md-8' id="content-phanNhom">
-                                <input class="col-md-3 inputitem" type="text" name="tenNhom0" placeholder='Nhập tên Phân Nhóm'>
-                                <input class="col-md-3 inputitem" type="text" name="SLNhom0" placeholder='Nhập Số Lượng'>
-                                <input class="col-md-2 inputitem" type="text" name="GiaNhom0" placeholder='Nhập Giá'>
-                                <button type="button" class='inputitem-icon btn ' id="btnAddInput" onclick="addinput()" style="display: inline-block;"><i class="fas fa-plus"></i></button>
+                            <div class='col-md-8' id="content-phanNhom0-themsp">
+                                <input class="col-md-3 inputitem" type="text" name="tenNhom-themsp0" placeholder='Nhập tên Phân Nhóm'>
+                                <input class="col-md-3 inputitem" type="text" name="SLNhom-themsp0" placeholder='Nhập Số Lượng'>
+                                <input class="col-md-2 inputitem" type="text" name="GiaNhom-themsp0" placeholder='Nhập Giá'>
+                                <button type="button" class='inputitem-icon btn ' name="btn-addInput-themsp" style="display: inline-block;"><i class="fas fa-plus"></i></button>
                             </div>
                         </div>
 
                         <div class="col-md-12 itemadd">
                             <label class="col-md-2 labelitem" for="">Danh Mục Sản Phẩm</label>
-                            <select name="category" id="cars" class="col-md-9 inputitem">
+                            <select name="category" class="col-md-9 inputitem">
                                 @foreach($category as $cate)
                                 <option value={{$cate->categoryId}}>{{$cate->categoryName}}</option>
                                 @endforeach
@@ -325,38 +318,35 @@
 
     <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
 
-    <script>
-        // document.getElementById("btnAddInput").addEventListener("click", function() {
-        //     var ip = document.createElement("INPUT");
-        //     ip.setAttribute("type", "text");
-        //     document.body.appendChild(ip);
-        //     alert("asd");
-        // });
-        var i = 0;
+    <script type="text/javascript">
+        var slNhomThemSP = 0;
 
 
-        function addinput() {
-            i++;
-            alert('as');
+        function addinputthemsp() {
+            slNhomThemSP++;
+            var divinput = document.createElement("div");
             var inputName = document.createElement("INPUT");
             var inputQuantity = document.createElement("INPUT");
             var inputPrice = document.createElement("INPUT");
             var bntRemove = document.createElement("BUTTON");
-            var icon = document.createElement("I");
+            var icon = document.createElement("i");
 
             //set id cho buntton
-            bntRemove.setAttribute("id", "btnremove");
-            bntRemove.setAttribute("type", "button");
+            divinput.setAttribute("id", "content-phanNhom-themsp" + slNhomThemSP);
+            bntRemove.setAttribute("id", "btnremove-themsp" + slNhomThemSP);
+
 
             //set type
             inputName.setAttribute("type", "text");
             inputQuantity.setAttribute("type", "text");
             inputPrice.setAttribute("type", "text");
+            bntRemove.setAttribute("type", "button");
+
 
             //Name
-            inputName.setAttribute("Name", "tenNhom" + i);
-            inputQuantity.setAttribute("Name", "SLNhom" + i);
-            inputPrice.setAttribute("Name", "GiaNhom" + i);
+            inputName.setAttribute("Name", "tenNhom-themsp" + slNhomThemSP);
+            inputQuantity.setAttribute("Name", "SLNhom-themsp" + slNhomThemSP);
+            inputPrice.setAttribute("Name", "GiaNhom-themsp" + slNhomThemSP);
 
             //style
             inputName.setAttribute("Class", "inputitem");
@@ -365,17 +355,17 @@
             inputName.setAttribute("placeholder", "Nhập Tên Sản Phẩm");
             inputQuantity.setAttribute("placeholder", "Nhập Số Lượng");
             inputPrice.setAttribute("placeholder", "Nhập Giá");
-            bntRemove.setAttribute("Class", "icon-remove-input", "btn");
+            bntRemove.setAttribute("Class", "icon-remove-input-themsp", "btn");
             icon.setAttribute("Class", "fas fa-minus-circle");
 
             //x.setAttribute("value", "asd");
-            document.getElementById("content-phanNhom").appendChild(inputName);
-            document.getElementById("content-phanNhom").appendChild(inputQuantity);
-            document.getElementById("content-phanNhom").appendChild(inputPrice);
-            document.getElementById("content-phanNhom").appendChild(bntRemove);
-            document.getElementById("btnremove").appendChild(icon);
-            alert('cuoi');
 
+            document.getElementById("themPhanNhom-themsp").appendChild(divinput);
+            document.getElementById("content-phanNhom-themsp" + slNhomThemSP).appendChild(inputName);
+            document.getElementById("content-phanNhom-themsp" + slNhomThemSP).appendChild(inputQuantity);
+            document.getElementById("content-phanNhom-themsp" + slNhomThemSP).appendChild(inputPrice);
+            document.getElementById("content-phanNhom-themsp" + slNhomThemSP).appendChild(bntRemove);
+            document.getElementById("btnremove-themsp" + slNhomThemSP).appendChild(icon);
         }
 
 
@@ -386,14 +376,14 @@
             var cate = document.forms["formInfoAdd"]["category"].value;
 
 
-            for (var z = 0; z <= i; z++) {
+            for (var z = 0; z <= slNhomThemSP; z++) {
                 arrayPhanNhom.push({
-                    tennhom: document.forms["formInfoAdd"]["tenNhom" + z].value,
-                    slnhom: document.forms["formInfoAdd"]["SLNhom" + z].value,
-                    gianhom: document.forms["formInfoAdd"]["GiaNhom" + z].value
+                    tennhom: document.forms["formInfoAdd"]["tenNhom-themsp" + z].value,
+                    slnhom: document.forms["formInfoAdd"]["SLNhom-themsp" + z].value,
+                    gianhom: document.forms["formInfoAdd"]["GiaNhom-themsp" + z].value
                 })
             }
-            i = 0;
+            slNhomThemSP = 0;
             var sanpham = {
                 tensp: tensp,
                 mota: mota,
@@ -417,12 +407,25 @@
             }
         }
 
-        function editsp(id) {
-            alert(id);
-
+        function editsp(id)
+        {
+            async function GetGroupProduct(id) {
+                try {
+                    const response = await axios.post('/api/admin/get-Group-product', {
+                        id
+                    });
+                    if (response.status === 200) {
+                        console.log(response);
+                    }
+                } catch (e) {
+                    console.log('error', e.response);
+                }
+            }
+            GetGroupProduct(id);
         }
 
-        $(document).ready(function() {
+        
+        jQuery(document).ready(function($) {
             $("#btnReposiveLeft").click(function() {
                 if ($("#box-content").hasClass("showLeft")) {
                     $("#box-content").removeClass("showLeft");
@@ -432,8 +435,12 @@
             });
         });
     </script>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
