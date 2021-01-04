@@ -91,7 +91,7 @@
                                 <div class="form-group row">
                                     <label for="password" class="col-sm-4 col-form-label">Mật khẩu</label>
                                     <input type="password" class="col-sm-6 form-control" name="password" placeholder="Mật khẩu" autocomplete="new-password" value="*************">
-                                    <button type="button" class="col-sm-2 info__btn-changepass" data-toggle="modal" data-target="#changePassword">
+                                    <button type="button" class="col-sm-2 info__btn-changepass" data-toggle="modal" data-target="#exampleModal">
                                         <u>Thay đổi</u>
                                     </button>
                                     <!-- Modal -->
