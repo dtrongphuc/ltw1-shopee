@@ -26142,6 +26142,425 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js/adminHome.js":
+/*!***********************************!*\
+  !*** ./resources/js/adminHome.js ***!
+  \***********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+$(document).ready(function () {
+  var slNhomThemSP = 0;
+  var slNhomSuaSP = 0;
+  document.querySelectorAll('.btn__edit-product').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      editsp(btn.dataset.productId);
+    });
+  });
+  document.querySelectorAll('.btn__AddGroup-product').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      addinputthemsp();
+    });
+  });
+  document.querySelectorAll('.btn__AddGroup-Editproduct').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      themNhomSuaSP();
+    });
+  });
+  document.querySelectorAll('.btn__submit-AddProduct').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      submitThemSP();
+    });
+  });
+  document.querySelectorAll('.btn__submit-EditProduct').forEach(function (btn) {
+    btn.addEventListener('submit', function (e) {
+      e.preventDefault();
+      submitSuaSP();
+    });
+  });
+
+  function addinputthemsp() {
+    slNhomThemSP++;
+    var divinput = document.createElement("div");
+    var inputName = document.createElement("INPUT");
+    var inputQuantity = document.createElement("INPUT");
+    var inputPrice = document.createElement("INPUT");
+    var bntRemove = document.createElement("BUTTON");
+    var icon = document.createElement("i"); //set id cho buntton
+
+    divinput.setAttribute("id", "content-phanNhom-themsp" + slNhomThemSP);
+    bntRemove.setAttribute("id", "btnremove-themsp" + slNhomThemSP); //set type
+
+    inputName.setAttribute("type", "text");
+    inputQuantity.setAttribute("type", "text");
+    inputPrice.setAttribute("type", "text");
+    bntRemove.setAttribute("type", "button"); //Name
+
+    inputName.setAttribute("Name", "tenNhom-themsp" + slNhomThemSP);
+    inputQuantity.setAttribute("Name", "SLNhom-themsp" + slNhomThemSP);
+    inputPrice.setAttribute("Name", "GiaNhom-themsp" + slNhomThemSP); //style
+
+    inputName.setAttribute("Class", "inputitem");
+    inputQuantity.setAttribute("Class", "inputitem");
+    inputPrice.setAttribute("Class", "inputitem");
+    inputName.setAttribute("placeholder", "Nhập Tên Sản Phẩm");
+    inputQuantity.setAttribute("placeholder", "Nhập Số Lượng");
+    inputPrice.setAttribute("placeholder", "Nhập Giá");
+    bntRemove.setAttribute("Class", "icon-remove-input-themsp", "btn");
+    icon.setAttribute("Class", "fas fa-minus-circle"); //x.setAttribute("value", "asd");
+
+    document.getElementById("themPhanNhom-themsp").appendChild(divinput);
+    document.getElementById("content-phanNhom-themsp" + slNhomThemSP).appendChild(inputName);
+    document.getElementById("content-phanNhom-themsp" + slNhomThemSP).appendChild(inputQuantity);
+    document.getElementById("content-phanNhom-themsp" + slNhomThemSP).appendChild(inputPrice);
+    document.getElementById("content-phanNhom-themsp" + slNhomThemSP).appendChild(bntRemove);
+    document.getElementById("btnremove-themsp" + slNhomThemSP).appendChild(icon);
+  }
+
+  function themNhomSuaSP() {
+    slNhomSuaSP++;
+    var divinput = document.createElement("div");
+    var inputName = document.createElement("INPUT");
+    var inputQuantity = document.createElement("INPUT");
+    var inputPrice = document.createElement("INPUT");
+    var bntRemove = document.createElement("BUTTON");
+    var icon = document.createElement("i"); //set id cho buntton
+
+    divinput.setAttribute("id", "content-phanNhom-suaSP" + slNhomSuaSP);
+    bntRemove.setAttribute("id", "btnremove-suaSP" + slNhomSuaSP); //set type
+
+    inputName.setAttribute("type", "text");
+    inputQuantity.setAttribute("type", "text");
+    inputPrice.setAttribute("type", "text");
+    bntRemove.setAttribute("type", "button"); //Name
+
+    inputName.setAttribute("Name", "tenNhom-suaSP" + slNhomSuaSP);
+    inputQuantity.setAttribute("Name", "SLNhom-suaSP" + slNhomSuaSP);
+    inputPrice.setAttribute("Name", "GiaNhom-suaSP" + slNhomSuaSP); //style
+
+    inputName.setAttribute("Class", "inputitem");
+    inputQuantity.setAttribute("Class", "inputitem");
+    inputPrice.setAttribute("Class", "inputitem");
+    inputName.setAttribute("placeholder", "Nhập Tên Sản Phẩm");
+    inputQuantity.setAttribute("placeholder", "Nhập Số Lượng");
+    inputPrice.setAttribute("placeholder", "Nhập Giá");
+    bntRemove.setAttribute("Class", "icon-remove-input-themsp", "btn");
+    icon.setAttribute("Class", "fas fa-minus-circle"); //x.setAttribute("value", "asd");
+
+    document.getElementById("themPhanNhom-suaSP").appendChild(divinput);
+    document.getElementById("content-phanNhom-suaSP" + slNhomSuaSP).appendChild(inputName);
+    document.getElementById("content-phanNhom-suaSP" + slNhomSuaSP).appendChild(inputQuantity);
+    document.getElementById("content-phanNhom-suaSP" + slNhomSuaSP).appendChild(inputPrice);
+    document.getElementById("content-phanNhom-suaSP" + slNhomSuaSP).appendChild(bntRemove);
+    document.getElementById("btnremove-suaSP" + slNhomSuaSP).appendChild(icon);
+  }
+
+  function submitThemSP() {
+    return _submitThemSP.apply(this, arguments);
+  }
+
+  function _submitThemSP() {
+    _submitThemSP = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+      var arrayPhanNhom, tensp, mota, cate, z, check, sanpham;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              arrayPhanNhom = [];
+              tensp = document.forms["formInfoAdd"]["tenSP"].value;
+              mota = document.forms["formInfoAdd"]["motaSP"].value;
+              cate = document.forms["formInfoAdd"]["category"].value;
+              z = 0;
+
+            case 5:
+              if (!(z <= slNhomThemSP)) {
+                _context2.next = 13;
+                break;
+              }
+
+              check = document.forms["formInfoAdd"]["tenNhom-themsp" + z].value;
+
+              if (!(check == "")) {
+                _context2.next = 9;
+                break;
+              }
+
+              return _context2.abrupt("continue", 10);
+
+            case 9:
+              arrayPhanNhom.push({
+                tennhom: document.forms["formInfoAdd"]["tenNhom-themsp" + z].value,
+                slnhom: document.forms["formInfoAdd"]["SLNhom-themsp" + z].value,
+                gianhom: document.forms["formInfoAdd"]["GiaNhom-themsp" + z].value
+              });
+
+            case 10:
+              z++;
+              _context2.next = 5;
+              break;
+
+            case 13:
+              slNhomThemSP = 0;
+              sanpham = {
+                tensp: tensp,
+                mota: mota,
+                danhmuc: cate,
+                mangNhom: arrayPhanNhom
+              };
+              _context2.next = 17;
+              return postProduct(sanpham);
+
+            case 17:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+    return _submitThemSP.apply(this, arguments);
+  }
+
+  function postProduct(_x) {
+    return _postProduct.apply(this, arguments);
+  }
+
+  function _postProduct() {
+    _postProduct = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(sanpham) {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return axios.post('/api/admin/new-product', {
+                sanpham: sanpham
+              });
+
+            case 3:
+              response = _context3.sent;
+
+              if (response.status === 200) {
+                console.log(response);
+                window.location.reload();
+              }
+
+              _context3.next = 10;
+              break;
+
+            case 7:
+              _context3.prev = 7;
+              _context3.t0 = _context3["catch"](0);
+              console.log('error', _context3.t0.response);
+
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[0, 7]]);
+    }));
+    return _postProduct.apply(this, arguments);
+  }
+
+  function editsp(id) {
+    function GetGroupProduct(_x2) {
+      return _GetGroupProduct.apply(this, arguments);
+    }
+
+    function _GetGroupProduct() {
+      _GetGroupProduct = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
+        var response, datasp, sldiv, sldivdatontai, inputTen, inputsl, inputgia, indexRemove, divRemove;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return axios.post('/api/admin/get-Group-product', {
+                  id: id
+                });
+
+              case 3:
+                response = _context.sent;
+
+                if (response.status === 200) {
+                  datasp = response.data;
+
+                  for (sldiv = 0; sldiv < datasp.length; sldiv++) {
+                    sldivdatontai = document.getElementById("themPhanNhom-suaSP").childElementCount - 1;
+
+                    if (sldivdatontai < datasp.length) {
+                      themNhomSuaSP();
+                    }
+
+                    inputTen = document.getElementsByName("tenNhom-suaSP" + sldiv)[0];
+                    inputTen.setAttribute("value", datasp[sldiv]['name']);
+                    inputsl = document.getElementsByName("SLNhom-suaSP" + sldiv)[0];
+                    inputsl.setAttribute("value", datasp[sldiv]['quantity']);
+                    inputgia = document.getElementsByName("GiaNhom-suaSP" + sldiv)[0];
+                    inputgia.setAttribute("value", parseFloat(datasp[sldiv]['price']));
+                  }
+
+                  for (indexRemove = datasp.length; indexRemove < sldivdatontai; indexRemove++) {
+                    divRemove = document.getElementById("content-phanNhom-suaSP" + indexRemove);
+                    divRemove.remove();
+                  }
+                }
+
+                _context.next = 10;
+                break;
+
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](0);
+                console.log('error', _context.t0.response);
+
+              case 10:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[0, 7]]);
+      }));
+      return _GetGroupProduct.apply(this, arguments);
+    }
+
+    GetGroupProduct(id);
+  }
+
+  function submitSuaSP(_x3) {
+    return _submitSuaSP.apply(this, arguments);
+  }
+
+  function _submitSuaSP() {
+    _submitSuaSP = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(e) {
+      var arrayPhanNhom, id, tensp, mota, cate, sldivdatontai, z, check, slNhomSuaSP, sanphamSua;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              arrayPhanNhom = [];
+              id = document.forms["editSPForm"]["idproductSua"].value;
+              tensp = document.forms["editSPForm"]["tensuaSP"].value;
+              mota = document.forms["editSPForm"]["motasuaSP"].value;
+              cate = document.forms["editSPForm"]["categorysuaSP"].value;
+              sldivdatontai = document.getElementById("themPhanNhom-suaSP").childElementCount - 1;
+              z = 0;
+
+            case 7:
+              if (!(z < sldivdatontai)) {
+                _context4.next = 15;
+                break;
+              }
+
+              check = document.forms["editSPForm"]["tenNhom-suaSP" + z].value;
+
+              if (!(check == "")) {
+                _context4.next = 11;
+                break;
+              }
+
+              return _context4.abrupt("continue", 12);
+
+            case 11:
+              arrayPhanNhom.push({
+                tennhom: document.forms["editSPForm"]["tenNhom-suaSP" + z].value,
+                slnhom: document.forms["editSPForm"]["SLNhom-suaSP" + z].value,
+                gianhom: document.forms["editSPForm"]["GiaNhom-suaSP" + z].value
+              });
+
+            case 12:
+              z++;
+              _context4.next = 7;
+              break;
+
+            case 15:
+              slNhomSuaSP = 0;
+              sanphamSua = {
+                id: id,
+                tensp: tensp,
+                mota: mota,
+                danhmuc: cate,
+                mangNhom: arrayPhanNhom
+              };
+              _context4.next = 19;
+              return postProductToEdit(sanphamSua);
+
+            case 19:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4);
+    }));
+    return _submitSuaSP.apply(this, arguments);
+  }
+
+  function postProductToEdit(_x4) {
+    return _postProductToEdit.apply(this, arguments);
+  }
+
+  function _postProductToEdit() {
+    _postProductToEdit = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(sanphamSua) {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return axios.post('/api/admin/edit-product', {
+                sanphamSua: sanphamSua
+              });
+
+            case 3:
+              response = _context5.sent;
+
+              if (response.status === 200) {
+                console.log(response);
+                window.location.reload();
+              }
+
+              _context5.next = 10;
+              break;
+
+            case 7:
+              _context5.prev = 7;
+              _context5.t0 = _context5["catch"](0);
+              console.log('error', _context5.t0.response);
+
+            case 10:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 7]]);
+    }));
+    return _postProductToEdit.apply(this, arguments);
+  }
+
+  $("#btnReposiveLeft").click(function () {
+    if ($("#box-content").hasClass("showLeft")) {
+      $("#box-content").removeClass("showLeft");
+    } else {
+      $("#box-content").addClass("showLeft");
+    }
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -26157,7 +26576,9 @@ __webpack_require__(/*! ./home */ "./resources/js/home.js");
 
 __webpack_require__(/*! ./product */ "./resources/js/product.js");
 
-__webpack_require__(/*! ./cart */ "./resources/js/cart.js");
+__webpack_require__(/*! ./adminHome */ "./resources/js/adminHome.js");
+
+__webpack_require__(/*! ./pay */ "./resources/js/pay.js");
 
 axios.interceptors.response.use(function (response) {
   // Any status code that lie within the range of 2xx cause this function to trigger
@@ -26172,8 +26593,6 @@ axios.interceptors.response.use(function (response) {
 
   return Promise.reject(error);
 });
-
-__webpack_require__(/*! ./pay */ "./resources/js/pay.js");
 
 /***/ }),
 
@@ -26989,7 +27408,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! Z:\Code\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\DELL\Desktop\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })

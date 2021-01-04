@@ -15,7 +15,7 @@ class CategoryController extends Controller
         if ($count > 0) {
             $cate = Categories::where('categoryId', '=', (int)$id)
                 ->update([
-                    'status' => 0
+                    'status' => '0'
                 ]);
         } else {
             $cate = Categories::where('categoryId', '=', (int)$id)->delete();

@@ -13,7 +13,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $category = categories::All();
+        $category = DB::table('categories')->where('categories.status', '=', '1')->get();
 
         $product = DB::table('products')
             ->where('products.status', '=', '1')
@@ -86,5 +86,36 @@ class ProductController extends Controller
             ]);
         }
         return response()->json($req->sanpham, 200);
+    }
+
+    public function EditProduct(Request $req)
+    {
+        $data = $req->sanphamSua;
+        $phanNhom = $data['mangNhom'];
+        $tongsl = 0;
+        for ($i = 0; $i < count($phanNhom); $i++) {
+            $tongsl = $tongsl + (float)$phanNhom[$i]['slnhom'];
+        }
+        $product = Product::where('productId', '=', (int)$data['id'])
+            ->update([
+                'categoryId' => $data['danhmuc'],
+                'productName' => $data['tensp'],
+                'description' => $data['mota'],
+                'price' => $phanNhom[0]['gianhom'],
+                'quantity' => $tongsl,
+                'likeCount' => 0,
+                'rate' => 0,
+                'sold' => 0,
+            ]);
+        $remove =  DB::table('product_types')->where('product_types.productId', '=', (int)$data['id'])->delete();
+        for ($p = 0; $p < count($phanNhom); $p++) {
+            $nhom = ProductType::create([
+                'productId' => (int)$data['id'],
+                'name' => $phanNhom[$p]['tennhom'],
+                'quantity' =>   $phanNhom[$p]['slnhom'],
+                'price' =>  $phanNhom[$p]['gianhom'],
+            ]);
+        }
+        return response()->json($req->sanphamSua, 200);
     }
 }
