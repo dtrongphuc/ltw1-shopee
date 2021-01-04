@@ -115,7 +115,7 @@
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
-                                                                <button type="submit" class="btn btn-success" style="width:100px;">Sửa</button>
+                                                                <button type="submit" class="btn btn-success btn__submit-EditProduct" style="width:100px;">Sửa</button>
                                                             </div>
                                                         </form>
                                                     </div>
@@ -172,7 +172,7 @@
                                         <td>{{$sanpham[$i]->postAt}}</td>
                                         <td><a href="{{'/delete-product/'.$sanpham[$i]->productId}}"><i class="fas fa-trash-alt"></i></a></td>
                                         <td>
-                                            <button type="button" data-toggle="modal" data-target="#suaSP" onclick="editsp(<?php echo $sanpham[$i]->productId ?>);"><i class="fas fa-edit"></i></button>
+                                            <button type="button" class="btn__edit-product" data-product-id="{{$sanpham[$i]->productId}}" data-toggle="modal" data-target="#suaSP"><i class="fas fa-edit"></i></button>
                                             <!-- Modal sua san pham -->
                                             <div id="suaSP" class="modal fade" role="dialog">
                                                 <div class="modal-dialog" style="max-width: 1000px !important;">
@@ -182,10 +182,11 @@
                                                         <div class="modal-header">
                                                             <h4 class="modal-title">Sửa Thông Tin Sản Phẩm</h4><button type="button" class="close" data-dismiss="modal">&times;</button>
                                                         </div>
-                                                        <form name="editSPForm">
+                                                        <form name="editSPForm" method="POST" class='btn__submit-EditProduct'>
                                                             <div class="modal-body row">
                                                                 <div class="col-md-12 itemadd">
                                                                     <label class="col-md-2 labelitem" for="">Tên Sản Phẩm</label>
+                                                                    <input Name="idproductSua" type="hidden" value="{{$sanpham[$i]->productId}}">
                                                                     <input class="col-md-9 inputitem" Name="tensuaSP" type="text" placeholder='Nhập tên Sản Phẩm' value="{{$sanpham[$i]->productName}}">
                                                                 </div>
 
@@ -200,7 +201,7 @@
                                                                         <input class="col-md-3 inputitem" type="text" name="tenNhom-suaSP0" placeholder="asd">
                                                                         <input class="col-md-3 inputitem" type="text" name="SLNhom-suaSP0" placeholder='Nhập Số Lượng'>
                                                                         <input class="col-md-2 inputitem" type="text" name="GiaNhom-suaSP0" placeholder='Nhập Giá'>
-                                                                        <button type="button" class='inputitem-icon btn' onclick="themNhomSuaSP();" style="display: inline-block;"><i class="fas fa-plus"></i></button>
+                                                                        <button type="button" class='inputitem-icon btn btn__AddGroup-Editproduct' style="display: inline-block;"><i class="fas fa-plus"></i></button>
 
                                                                     </div>
                                                                 </div>
@@ -215,7 +216,7 @@
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
-                                                                <button type="submit" class="btn btn-success" style="width:100px;" onclick="submitSuaSP();">Sửa</button>
+                                                                <button type="submit" class="btn btn-success" style="width:100px;">Sửa</button>
                                                             </div>
                                                         </form>
                                                     </div>
@@ -294,7 +295,7 @@
                                 <input class="col-md-3 inputitem" type="text" name="tenNhom-themsp0" placeholder='Nhập tên Phân Nhóm'>
                                 <input class="col-md-3 inputitem" type="text" name="SLNhom-themsp0" placeholder='Nhập Số Lượng'>
                                 <input class="col-md-2 inputitem" type="text" name="GiaNhom-themsp0" placeholder='Nhập Giá'>
-                                <button type="button" class='inputitem-icon btn ' name="btn-addInput-themsp" style="display: inline-block;"><i class="fas fa-plus"></i></button>
+                                <button type="button" class='inputitem-icon btn btn__AddGroup-product' name="btn-addInput-themsp" style="display: inline-block;"><i class="fas fa-plus"></i></button>
                             </div>
                         </div>
 
@@ -309,245 +310,18 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
-                        <button type="button" class="btn btn-success" style="width:100px;" onclick="submitThemSP();">Thêm</button>
+                        <button type="button" class="btn btn-success btn__submit-AddProduct" style="width:100px;">Thêm</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
-
-    <script type="text/javascript">
-        var slNhomThemSP = 0;
-        var slNhomSuaSP = 0;
-
-
-        function addinputthemsp() {
-            slNhomThemSP++;
-            var divinput = document.createElement("div");
-            var inputName = document.createElement("INPUT");
-            var inputQuantity = document.createElement("INPUT");
-            var inputPrice = document.createElement("INPUT");
-            var bntRemove = document.createElement("BUTTON");
-            var icon = document.createElement("i");
-
-            //set id cho buntton
-            divinput.setAttribute("id", "content-phanNhom-themsp" + slNhomThemSP);
-            bntRemove.setAttribute("id", "btnremove-themsp" + slNhomThemSP);
-
-
-            //set type
-            inputName.setAttribute("type", "text");
-            inputQuantity.setAttribute("type", "text");
-            inputPrice.setAttribute("type", "text");
-            bntRemove.setAttribute("type", "button");
-
-
-            //Name
-            inputName.setAttribute("Name", "tenNhom-themsp" + slNhomThemSP);
-            inputQuantity.setAttribute("Name", "SLNhom-themsp" + slNhomThemSP);
-            inputPrice.setAttribute("Name", "GiaNhom-themsp" + slNhomThemSP);
-
-            //style
-            inputName.setAttribute("Class", "inputitem");
-            inputQuantity.setAttribute("Class", "inputitem");
-            inputPrice.setAttribute("Class", "inputitem");
-            inputName.setAttribute("placeholder", "Nhập Tên Sản Phẩm");
-            inputQuantity.setAttribute("placeholder", "Nhập Số Lượng");
-            inputPrice.setAttribute("placeholder", "Nhập Giá");
-            bntRemove.setAttribute("Class", "icon-remove-input-themsp", "btn");
-            icon.setAttribute("Class", "fas fa-minus-circle");
-
-            //x.setAttribute("value", "asd");
-
-            document.getElementById("themPhanNhom-themsp").appendChild(divinput);
-            document.getElementById("content-phanNhom-themsp" + slNhomThemSP).appendChild(inputName);
-            document.getElementById("content-phanNhom-themsp" + slNhomThemSP).appendChild(inputQuantity);
-            document.getElementById("content-phanNhom-themsp" + slNhomThemSP).appendChild(inputPrice);
-            document.getElementById("content-phanNhom-themsp" + slNhomThemSP).appendChild(bntRemove);
-            document.getElementById("btnremove-themsp" + slNhomThemSP).appendChild(icon);
-        }
-
-        function themNhomSuaSP() {
-            slNhomSuaSP++;
-            var divinput = document.createElement("div");
-            var inputName = document.createElement("INPUT");
-            var inputQuantity = document.createElement("INPUT");
-            var inputPrice = document.createElement("INPUT");
-            var bntRemove = document.createElement("BUTTON");
-            var icon = document.createElement("i");
-
-            //set id cho buntton
-            divinput.setAttribute("id", "content-phanNhom-suaSP" + slNhomSuaSP);
-            bntRemove.setAttribute("id", "btnremove-suaSP" + slNhomSuaSP);
-
-
-            //set type
-            inputName.setAttribute("type", "text");
-            inputQuantity.setAttribute("type", "text");
-            inputPrice.setAttribute("type", "text");
-            bntRemove.setAttribute("type", "button");
-
-
-            //Name
-            inputName.setAttribute("Name", "tenNhom-suaSP" + slNhomSuaSP);
-            inputQuantity.setAttribute("Name", "SLNhom-suaSP" + slNhomSuaSP);
-            inputPrice.setAttribute("Name", "GiaNhom-suaSP" + slNhomSuaSP);
-
-            //style
-            inputName.setAttribute("Class", "inputitem");
-            inputQuantity.setAttribute("Class", "inputitem");
-            inputPrice.setAttribute("Class", "inputitem");
-            inputName.setAttribute("placeholder", "Nhập Tên Sản Phẩm");
-            inputQuantity.setAttribute("placeholder", "Nhập Số Lượng");
-            inputPrice.setAttribute("placeholder", "Nhập Giá");
-            bntRemove.setAttribute("Class", "icon-remove-input-themsp", "btn");
-            icon.setAttribute("Class", "fas fa-minus-circle");
-
-            //x.setAttribute("value", "asd");
-
-            document.getElementById("themPhanNhom-suaSP").appendChild(divinput);
-            document.getElementById("content-phanNhom-suaSP" + slNhomSuaSP).appendChild(inputName);
-            document.getElementById("content-phanNhom-suaSP" + slNhomSuaSP).appendChild(inputQuantity);
-            document.getElementById("content-phanNhom-suaSP" + slNhomSuaSP).appendChild(inputPrice);
-            document.getElementById("content-phanNhom-suaSP" + slNhomSuaSP).appendChild(bntRemove);
-            document.getElementById("btnremove-suaSP" + slNhomSuaSP).appendChild(icon);
-        }
-
-
-        async function submitThemSP() {
-            var arrayPhanNhom = [];
-            var tensp = document.forms["formInfoAdd"]["tenSP"].value;
-            var mota = document.forms["formInfoAdd"]["motaSP"].value;
-            var cate = document.forms["formInfoAdd"]["category"].value;
-
-
-            for (var z = 0; z <= slNhomThemSP; z++) {
-                arrayPhanNhom.push({
-                    tennhom: document.forms["formInfoAdd"]["tenNhom-themsp" + z].value,
-                    slnhom: document.forms["formInfoAdd"]["SLNhom-themsp" + z].value,
-                    gianhom: document.forms["formInfoAdd"]["GiaNhom-themsp" + z].value
-                })
-            }
-            slNhomThemSP = 0;
-            var sanpham = {
-                tensp: tensp,
-                mota: mota,
-                danhmuc: cate,
-                mangNhom: arrayPhanNhom
-            };
-            await postProduct(sanpham);
-        }
-
-        async function postProduct(sanpham) {
-            try {
-                const response = await axios.post('/api/admin/new-product', {
-                    sanpham
-                });
-                if (response.status === 200) {
-                    console.log(response);
-                    window.location.reload();
-                }
-            } catch (e) {
-                console.log('error', e.response);
-            }
-        }
-
-        function editsp(id)
-        {
-            async function GetGroupProduct(id) {
-                try {
-                    const response = await axios.post('/api/admin/get-Group-product', {
-                        id
-                    });
-                    if (response.status === 200) {
-                        let datasp = response.data;
-                        console.log(datasp);
-                        
-                        for(var sldiv = 0; sldiv < datasp.length;sldiv++)
-                        {
-                            var sldivdatontai = document.getElementById("themPhanNhom-suaSP").childElementCount -1;
-                            if(sldivdatontai < datasp.length)
-                            {
-                                themNhomSuaSP();
-                            }
-                            var inputTen = document.getElementsByName("tenNhom-suaSP"+sldiv)[0];
-                            inputTen.setAttribute("value", datasp[sldiv]['name']);
-                            var inputsl = document.getElementsByName("SLNhom-suaSP"+sldiv)[0];
-                            inputsl.setAttribute("value", datasp[sldiv]['quantity']);
-                            var inputgia = document.getElementsByName("GiaNhom-suaSP"+sldiv)[0];
-                            inputgia.setAttribute("value", parseFloat(datasp[sldiv]['price']));
-                        }
-                        for(var indexRemove = datasp.length; indexRemove < sldivdatontai;indexRemove++)
-                        {
-                            var divRemove = document.getElementById("content-phanNhom-suaSP"+indexRemove);
-                            divRemove.remove();
-                        }
-                    }
-                } catch (e) {
-                    console.log('error', e.response);
-                }
-            }
-            GetGroupProduct(id);
-        }
-
-        async function submitSuaSP() {
-            var arrayPhanNhom = [];
-            var tensp = document.forms["editSPForm"]["tensuaSP"].value;
-            var mota = document.forms["editSPForm"]["motasuaSP"].value;
-            var cate = document.forms["editSPForm"]["categorysuaSP"].value;
-
-
-            for (var z = 0; z <= slNhomThemSP; z++) {
-                arrayPhanNhom.push({
-                    tennhom: document.forms["editSPForm"]["tenNhom-themsp" + z].value,
-                    slnhom: document.forms["editSPForm"]["SLNhom-themsp" + z].value,
-                    gianhom: document.forms["editSPForm"]["GiaNhom-themsp" + z].value
-                })
-            }
-            slNhomThemSP = 0;
-            var sanpham = {
-                tensp: tensp,
-                mota: mota,
-                danhmuc: cate,
-                mangNhom: arrayPhanNhom
-            };
-            await postProduct(sanpham);
-        }
-
-        async function postProduct(sanpham) {
-            try {
-                const response = await axios.post('/api/admin/new-product', {
-                    sanpham
-                });
-                if (response.status === 200) {
-                    console.log(response);
-                    window.location.reload();
-                }
-            } catch (e) {
-                console.log('error', e.response);
-            }
-        }
-        
-        jQuery(document).ready(function($) {
-            $("#btnReposiveLeft").click(function() {
-                if ($("#box-content").hasClass("showLeft")) {
-                    $("#box-content").removeClass("showLeft");
-                } else {
-                    $("#box-content").addClass("showLeft");
-                }
-            });
-        });
-    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
+    <script type=" text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
 </body>
 
 </html>
