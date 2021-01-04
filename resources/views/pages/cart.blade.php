@@ -17,7 +17,7 @@
             </div>
             <div class="col-md-6">
                 <div class="cart__header-search d-flex justify-content-between">
-                    <input class="form-control cart__header-input form-control" value="1" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control cart__header-input form-control" value="" type="search" placeholder="Search" aria-label="Search">
                     <span class="cart-search d-flex align-items-center justify-content-center">
                         <i class="fas fa-search search-icon"></i>
                     </span>
@@ -74,7 +74,7 @@
                                 <div class="cartbody__products-check">
                                 </div>
                                 <div class="cartbody__products-img">
-                                    <img src="{{cloudinary()->getImage('products/'.$product->productImage)}}" alt="" style="width: 80px; height: 80px;">
+                                    <img src="{{cloudinary()->getImage($product->productImage)}}" alt="" style="width: 80px; height: 80px;">
                                 </div>
                                 <h5 class="cartbody__products-productname">
                                     {{$product->productName}}
@@ -127,7 +127,7 @@
                             <p class="cartfooter__buyproduct-totalmoney--content">Tổng tiền hàng:</p>
                             <div class="cartfooter__buyproduct-totalmoney--money d-flex">
                                 <h3>đ</h3>
-                                <h3 id="payall">{{number_format(floatval($payall))}}</h3>
+                                <h3 id="payall">{{number_format($payall , 0, ',', '.')}}</h3>
                             </div>
                         </div>
                         <a href="{{'/pay'}}">

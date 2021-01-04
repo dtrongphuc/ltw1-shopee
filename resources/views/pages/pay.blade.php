@@ -192,7 +192,7 @@
                     <div class="payfooter__totalpay d-flex align-items-center justify-content-end">
                         <p class="payfooter__totalpay-content">Tổng thanh toán:</p>
                         <div class="payfooter__totalpay-price">
-                            <h3>đ{{ number_format(floatval($payall)) }}</h1>
+                            <h3>đ{{ number_format(floatval($payall ?? 0)) }}</h1>
                         </div>
                     </div>
                     <div class="payfooter_btnpay d-flex justify-content-end">
