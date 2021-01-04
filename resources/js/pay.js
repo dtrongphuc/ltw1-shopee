@@ -6,10 +6,28 @@ $(document).ready(function() {
         // alert($("#username_change").val());
     });
 
-    // $("#btntoorder").on("click", function(e) {
-    //     let username = $("#username").text();
-    //     let phonenumber = $("#phonenumber").text();
-    //     let address = $("#address").text();
-    //     $("#changehref").attr("href", "/pay/paytoorder/" + username + "/" + phonenumber + "/" + address);
-    // });
+
+    //test
+    const btnOrder = document.querySelector("#btntoorder");
+
+    btnOrder?.addEventListener("click", async () => {
+        document.getElementById("validator-pay").innerHTML = "";
+        let OrderData = {
+            userName: document.getElementById("username").innerHTML,
+            phoneNumber: document.getElementById("phonenumber").innerHTML,
+            addRess: document.getElementById("address").innerHTML
+        };
+        console.log(OrderData);
+        try {
+            const response = await axios.post("/pay/paytoorder", OrderData);
+            //chuyể trang purchaseorder
+            window.location.href = 'user/purchaseorder';
+            // console.log(response);
+        } catch (e) {
+            let messageObj = e?.response?.data?.errors;
+            console.log(messageObj);
+            document.getElementById("validator-pay").innerHTML = Object.values(messageObj)[0];
+            // console.log(2);
+        }
+    });
 });
