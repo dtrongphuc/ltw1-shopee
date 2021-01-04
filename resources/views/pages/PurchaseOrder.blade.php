@@ -50,20 +50,22 @@
                             <h4 class="favorite__header-content">Đơn mua</h4>
                         </div>
                         <div class="order__body">
-                            @if (isset($bill) && count($bill) > 0)
-                                @for ($bill = count($bills); $bill >= 1; $bill--)
+                            @if (isset($bills) && count($bills) > 0)
+                                {{-- @for ($bill = count($bills); $bill >= 1; $bill--) --}}
+                                @foreach ($bills as $bill)
+                                    
                                     <div class="order__body-order">
                                         <div class="order__body-status d-flex justify-content-end">
                                             {{-- <div class="order__body-status-stt">
                                                 {{ $bill }}</div> --}}
                                             <div class="order__body-status-content">
-                                                @if ($statuses[$bill - 1]->status == 0)
+                                                @if ($bill[0]->status == 0)
                                                     CHỜ XỬ LÝ
-                                                @elseif($statuses[$bill - 1]->status == 1)
+                                                @elseif($bill[0]->status == 1)
                                                     HỦY
-                                                @elseif($statuses[$bill - 1]->status == 2)
+                                                @elseif($bill[0]->status == 2)
                                                     ĐANG XỬ LÝ
-                                                @elseif($statuses[$bill - 1]->status == 3)
+                                                @elseif($bill[0]->status == 3)
                                                     ĐANG GIAO HÀNG
                                                 @else
                                                     HOÀN THÀNH
@@ -72,10 +74,10 @@
                                         </div>
                                         {{-- {{ $bills[$bill] }}
                                         --}}
-                                        @foreach ($bills[$bill] as $detailbill)
+                                        @foreach ($bill as $detailbill)
                                             <div class="order__body-infoproduct d-flex align-items-cente">
                                                 <div class="infoproduct__img p-2">
-                                                    <img src="{{ cloudinary()->getImage($detailbill->productImage) }}"
+                                                    <img src="{{ cloudinary()->getImage('products/' . $detailbill->productImage) }}"
                                                         alt="" width="80px" height="80px">
                                                 </div>
                                                 <div class="infoproduct__info p-2 ">
@@ -96,15 +98,15 @@
                                                 <div class="order__footer-totalprice d-flex">
                                                     <p>đ</p>
                                                     <h4 class="order__footer-totalprice--price">
-                                                        {{ number_format(floatval($statuses[$bill - 1]->totalPrice)) }}
+                                                        {{ number_format(floatval($bill[0]->billTotalPrice)) }}
                                                     </h4>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    {{--
-                                @endforeach --}}
-                                @endfor
+                                    
+                                @endforeach
+                                {{-- @endfor --}}
                             @else
                                 <div class="notify__not-found mt-4">
                                     <img src="{{ URL::asset('images/not-found.png') }}" alt="">
