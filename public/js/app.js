@@ -26576,6 +26576,8 @@ __webpack_require__(/*! ./home */ "./resources/js/home.js");
 
 __webpack_require__(/*! ./product */ "./resources/js/product.js");
 
+__webpack_require__(/*! ./cart */ "./resources/js/cart.js");
+
 __webpack_require__(/*! ./adminHome */ "./resources/js/adminHome.js");
 
 __webpack_require__(/*! ./pay */ "./resources/js/pay.js");
@@ -27113,17 +27115,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 document.addEventListener("DOMContentLoaded", function () {
   var _$;
 
-  var maxItems = $(".product-images__slider").children("div").length;
-  $(".product-images__slider").slick({
-    dots: false,
-    infinite: false,
-    speed: 300,
-    slidesToShow: maxItems >= 5 ? 5 : maxItems,
-    adaptiveHeight: true,
-    slidesToScroll: 1,
-    prevArrow: $(".product-images__ctn--left"),
-    nextArrow: $(".product-images__ctn--right")
-  });
+  var initCarousel = function initCarousel() {
+    var maxItems = document.querySelectorAll(".product-image__item").length;
+    var mySwiper = new Swiper(".swiper-container", {
+      // Optional parameters
+      direction: "horizontal",
+      loop: false,
+      slidesPerView: maxItems >= 5 ? 5 : maxItems,
+      // Navigation arrows
+      navigation: {
+        nextEl: ".product-images__ctn--right",
+        prevEl: ".product-images__ctn--left"
+      }
+    });
+  };
+
+  if (!!document.querySelector(".product-images__slider")) {
+    initCarousel();
+  }
+
   var bigImage = document.querySelector(".product-left__img--big");
   var firstImage = document.querySelector(".image-item__bg");
 
@@ -27408,7 +27418,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\DELL\Desktop\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! Z:\Code\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })

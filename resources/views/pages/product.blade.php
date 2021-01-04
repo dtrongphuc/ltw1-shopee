@@ -6,11 +6,11 @@
         <div class="main-product__wrapper">
             <div class="main-product__left">
                 <div class="product-left__img product-left__img--big"></div>
-                <div class="product-left__images">
-                    <div class="product-images__slider">
+                <div class="product-left__images swiper-container">
+                    <div class="product-images__slider swiper-wrapper">
                         @if(isset($images))
                             @foreach($images as $image)
-                                <div class="product-image__item">
+                                <div class="product-image__item swiper-slide">
                                     <div class="image-item__bg" style="background-image: url({{cloudinary()->getImage($image->productImage)}})">
                                     </div>
                                     <div class="image-item__border"></div>
