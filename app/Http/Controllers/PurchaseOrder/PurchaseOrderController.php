@@ -15,7 +15,7 @@ class PurchaseOrderController extends Controller
         ->join('bills', 'bills.id', '=', 'detail_bills.billId')
         ->join('products', 'products.productId', '=', 'detail_bills.productId')
         ->join('product_types', 'detail_bills.type', 'product_types.id')
-        ->select('bills.id', 'products.productName', 'detail_bills.quantity', 'detail_bills.totalPrice', 'product_types.name', 'bills.status','bills.totalPrice as billTotalPrice',
+        ->select('bills.id', 'products.productName', 'products.productId', 'detail_bills.quantity', 'detail_bills.totalPrice', 'product_types.name', 'bills.status','bills.totalPrice as billTotalPrice',
         DB::raw('(select productImage from product_images where productId = products.productId limit 1) as productImage'))
         ->get();
         //dd($detail_bill);
