@@ -233,7 +233,7 @@ $(document).ready(function() {
             });
             if (response.status === 200) {
                 console.log(response);
-                //window.location.reload();
+                window.location.reload();
             }
         } catch (e) {
             console.log('error', e.response);

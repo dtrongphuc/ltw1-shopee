@@ -26528,7 +26528,8 @@ $(document).ready(function () {
               response = _context5.sent;
 
               if (response.status === 200) {
-                console.log(response); //window.location.reload();
+                console.log(response);
+                window.location.reload();
               }
 
               _context5.next = 10;

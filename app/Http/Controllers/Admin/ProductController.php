@@ -107,7 +107,7 @@ class ProductController extends Controller
                 'rate' => 0,
                 'sold' => 0,
             ]);
-        $remove =  DB::table('product_types', '=', (int)$data['id'])->delete();
+        $remove =  DB::table('product_types')->where('product_types.productId', '=', (int)$data['id'])->delete();
         for ($p = 0; $p < count($phanNhom); $p++) {
             $nhom = ProductType::create([
                 'productId' => (int)$data['id'],
