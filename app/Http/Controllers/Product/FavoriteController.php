@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Models\Favorite;
 use App\Models\Product;
 
@@ -58,5 +59,22 @@ class FavoriteController extends Controller
         $product->likeCount = $count;
         $product->save();
         return $count;
+    }
+
+    public function favorite(){
+        $iduser = Auth::id();
+        $productfavorite =  Favorite::join('products', 'favorites.productId', '=', 'products.productId')
+        ->where('favorites.userId', $iduser)
+        ->select('products.productName', 'products.price', 'favorites.productId',
+        DB::raw('(select productImage from product_images where productId = products.productId limit 1) as productImage'))
+        ->get();
+        return view('pages/favorite', ['products' => $productfavorite]);
+    }
+    public function deleteproduct($productId){
+        $userId = Auth::id();
+        $favorite = Favorite::where('userId', '=', $userId)
+                            ->where('productId', '=', $productId)
+                            ->delete();
+        return redirect()->back();
     }
 }

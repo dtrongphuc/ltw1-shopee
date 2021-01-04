@@ -85,9 +85,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
             return view('/pages/cart');
         });
 
-        Route::get('/favorite', function () {
-            return view('/pages/favorite');
-        });
+        Route::get('/favorite', [FavoriteController::class, 'favorite']);
+        Route::get('/favorite/delete/{productid}', [FavoriteController::class, 'deleteproduct']);
     });
 
     Route::prefix('product')->group(function () {
@@ -154,3 +153,5 @@ Route::get('/search', [HomeController::class, 'searchProduct'])->name('search');
 //đơn mua hàng
 // Route::get('/purchaseorder', [PurchaseOrderController::class], 'purchaseorder');
 Route::get('/purchaseorder', 'App\Http\Controllers\PurchaseOrder\PurchaseOrderController@purchaseorder')->name('purchaseorder.index');
+
+//sp yêu thích

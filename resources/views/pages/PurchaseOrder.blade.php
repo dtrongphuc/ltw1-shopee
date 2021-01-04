@@ -1,6 +1,7 @@
 @extends('../layouts/master', ['title' => 'Thông tin cá nhân'])
 @section('body')
     @parent
+    @inject('helper', 'App\Http\Controllers\HomeController')
     <div class="main-info">
         <div class="container">
             <div class="row">
@@ -52,7 +53,8 @@
                                 @for ($bill = count($bills); $bill >= 1; $bill--)
                                     <div class="order__body-order">
                                         <div class="order__body-status d-flex justify-content-end">
-                                            {{-- <div class="order__body-status-stt">{{ $bill }}</div> --}}
+                                            {{-- <div class="order__body-status-stt">
+                                                {{ $bill }}</div> --}}
                                             <div class="order__body-status-content">
                                                 @if ($statuses[$bill - 1]->status == 0)
                                                     CHỜ XỬ LÝ
@@ -72,13 +74,14 @@
                                         @foreach ($bills[$bill] as $detailbill)
                                             <div class="order__body-infoproduct d-flex align-items-cente">
                                                 <div class="infoproduct__img p-2">
-                                                    <img src="images/products/hoodie_cart.jpg" alt="" width="80px"
-                                                        height="80px">
+                                                    <img src="{{ cloudinary()->getImage('products/' . $detailbill->productImage) }}"
+                                                        alt="" width="80px" height="80px">
                                                 </div>
                                                 <div class="infoproduct__info p-2 ">
                                                     <h5 class="infoproduct__info-name">{{ $detailbill->productName }}</h5>
                                                     <p class="infoproduct__info-type">Phân loại hàng:
-                                                        {{ $detailbill->name }}</p>
+                                                        {{ $detailbill->name }}
+                                                    </p>
                                                     <p class="infoproduct__info-quantity">x {{ $detailbill->quantity }}</p>
                                                 </div>
                                                 <div class="infoproduct__info-price ml-auto p-2 align-self-center">
@@ -92,7 +95,8 @@
                                                 <div class="order__footer-totalprice d-flex">
                                                     <p>đ</p>
                                                     <h4 class="order__footer-totalprice--price">
-                                                        {{ number_format(floatval($statuses[$bill - 1]->totalPrice)) }}</h4>
+                                                        {{ number_format(floatval($statuses[$bill - 1]->totalPrice)) }}
+                                                    </h4>
                                                 </div>
                                             </div>
                                         </div>
