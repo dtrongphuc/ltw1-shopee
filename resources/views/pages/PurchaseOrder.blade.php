@@ -75,11 +75,11 @@
                                         {{-- {{ $bills[$bill] }}
                                         --}}
                                         @foreach ($bill as $detailbill)
-                                            <div class="order__body-infoproduct d-flex align-items-cente">
-                                                <div class="infoproduct__img p-2">
+                                            <div class="order__body-infoproduct d-flex align-items-center">
+                                                <a href="{{'/product/'.$detailbill->productId}}" class="infoproduct__img p-2">
                                                     <img src="{{ cloudinary()->getImage('products/' . $detailbill->productImage) }}"
                                                         alt="" width="80px" height="80px">
-                                                </div>
+                                                </a>
                                                 <div class="infoproduct__info p-2 ">
                                                     <h5 class="infoproduct__info-name">{{ $detailbill->productName }}</h5>
                                                     <p class="infoproduct__info-type">Phân loại hàng:
