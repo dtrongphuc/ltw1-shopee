@@ -85,9 +85,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             return view('/pages/cart');
         });
 
-        Route::get('/favorite', function () {
-            return view('/pages/favorite');
-        });
+        Route::get('/favorite', 'App\Http\Controllers\Favorite\FavoriteController@favorite');
     });
 
     Route::prefix('product')->group(function () {
