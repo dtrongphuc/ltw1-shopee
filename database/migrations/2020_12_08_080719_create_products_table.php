@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->decimal('price', 10, 0);
             $table->integer('quantity');
             $table->integer('likeCount');
-            $table->float('rate');
+            $table->float('rate')->default(0);
             $table->integer('sold');
             $table->date('postAt');
             $table->enum('status', [0, 1])->default(1);

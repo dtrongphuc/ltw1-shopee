@@ -30,7 +30,7 @@ class HomeController extends Controller
 
     public static function getFirstImageProduct($productId) {
         $image = productImage::where('productId', '=', $productId)->first();
-        return cloudinary()->getImage('products/'.$image->productImage);
+        return cloudinary()->getImage($image->productImage);
     }
 
     public function searchProduct(Request $request)
