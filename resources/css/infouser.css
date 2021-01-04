@@ -18,8 +18,16 @@
     margin-right: 10px;
 }
 
-.info__left-header--updtae {
+.info__left-header--update {
     color: #9b9b9b;
+}
+
+.info__left-header--update > a {
+    color: #9b9b9b;
+}
+
+.info__left-header--update > a:hover {
+    color: #7a7a7a;
 }
 
 .info__left-header--content {

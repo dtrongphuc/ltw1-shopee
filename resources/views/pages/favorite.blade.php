@@ -13,9 +13,11 @@
                             </div>
                             <div class="info__left-header--updatename">
                                 <p class="info__left-header--name">{{ explode('@', \Auth::user()->email)[0] }}</p>
-                                <div class="info__left-header--updtae d-flex align-items-center">
-                                    <i class="fas fa-pencil-alt"></i>
-                                    <p class="info__left-header--content">Sửa hồ sơ</p>
+                                <div class="info__left-header--update d-flex align-items-center">
+                                    <a href="/user/account" class="d-flex align-items-center">
+                                        <i class="fas fa-pencil-alt"></i>
+                                        <p class="info__left-header--content">Sửa hồ sơ</p>
+                                    </a>
                                 </div>
                             </div>
                         </div>

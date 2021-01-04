@@ -13,9 +13,11 @@
                             </div>
                             <div class="info__left-header--updatename">
                                 <p class="info__left-header--name">{{ explode('@', \Auth::user()->email)[0] }}</p>
-                                <div class="info__left-header--updtae d-flex align-items-center">
-                                    <i class="fas fa-pencil-alt"></i>
-                                    <p class="info__left-header--content">Sửa hồ sơ</p>
+                                <div class="info__left-header--update d-flex align-items-center">
+                                    <a href="/user/account" class="d-flex align-items-center">
+                                        <i class="fas fa-pencil-alt"></i>
+                                        <p class="info__left-header--content">Sửa hồ sơ</p>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -26,12 +28,6 @@
                                     <p class="info__categor-update--content">Tài khoản của tôi</p>
                                 </a>
                             </div>
-                            {{-- <div class="info__categor-update d-flex align-items-center">
-                                <i class="fas fa-user-circle icon-user"></i>
-                                <a href="/user/change-password">
-                                    <p class="info__categor-update--content">Đổi mật khẩu</p>
-                                </a>
-                            </div> --}}
                             <div class="info__categor-favorite d-flex align-items-center">
                                 <i class="fab fa-gratipay icon-favorite"></i>
                                 <a href="/user/favorite">
