@@ -133,7 +133,7 @@
                             <p class="cartfooter__buyproduct-totalmoney--content">Tổng tiền hàng:</p>
                             <div class="cartfooter__buyproduct-totalmoney--money d-flex">
                                 <h3>đ</h3>
-                                <h3 id="payall">{{number_format(floatval($payall))}}</h3>
+                                <h3 id="payall">{{number_format($payall , 0, ',', '.')}}</h3>
                             </div>
                         </div>
                         <a href="{{'/pay'}}">
