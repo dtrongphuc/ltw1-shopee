@@ -196,10 +196,19 @@
                                                                 <div class="col-md-12 itemadd" id="themPhanNhom">
                                                                     <label class="col-md-2 labelitem" for="">Phân Nhóm</label>
                                                                     <div class='col-md-8' id="content-phanNhom">
+<<<<<<< HEAD
+                                                                        @for($k=0;$k<$productType;$k++) <input class="col-md-3 inputitem" type="text" name="tenNhom0" placeholder='Nhập tên Phân Nhóm'>
+                                                                            <input class="col-md-3 inputitem" type="text" name="SLNhom0" placeholder='Nhập Số Lượng'>
+                                                                            <input class="col-md-2 inputitem" type="text" name="GiaNhom0" placeholder='Nhập Giá'>
+                                                                            <button type="button" class='inputitem-icon btn ' id="btnAddInput" onclick="addinput()" style="display: inline-block;"><i class="fas fa-plus"></i></button>
+                                                                            @endfor
+
+=======
                                                                         <input class="col-md-3 inputitem" type="text" name="tenNhom0" placeholder='Nhập tên Phân Nhóm'>
                                                                         <input class="col-md-3 inputitem" type="text" name="SLNhom0" placeholder='Nhập Số Lượng'>
                                                                         <input class="col-md-2 inputitem" type="text" name="GiaNhom0" placeholder='Nhập Giá'>
-                                                                        <button type="button" class='inputitem-icon btn ' id="btnAddInput" onclick="addinput()" style="display: inline-block;"><i class="fas fa-plus"></i></button>
+                                                                        <button type="button" class='inputitem-icon btn' id="btnAddInput" onclick="addinput()" style="display: inline-block;"><i class="fas fa-plus"></i></button>
+>>>>>>> 72e8dbbdc53b5b0b30757f45a1c4019a278952db
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-12 itemadd">
@@ -314,7 +323,7 @@
         </div>
     </div>
 
-
+    <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
 
     <script>
         // document.getElementById("btnAddInput").addEventListener("click", function() {
@@ -328,6 +337,7 @@
 
         function addinput() {
             i++;
+            alert('as');
             var inputName = document.createElement("INPUT");
             var inputQuantity = document.createElement("INPUT");
             var inputPrice = document.createElement("INPUT");
@@ -364,11 +374,12 @@
             document.getElementById("content-phanNhom").appendChild(inputPrice);
             document.getElementById("content-phanNhom").appendChild(bntRemove);
             document.getElementById("btnremove").appendChild(icon);
+            alert('cuoi');
 
         }
 
 
-        function submitThemSP() {
+        async function submitThemSP() {
             var arrayPhanNhom = [];
             var tensp = document.forms["formInfoAdd"]["tenSP"].value;
             var mota = document.forms["formInfoAdd"]["motaSP"].value;
@@ -378,8 +389,8 @@
             for (var z = 0; z <= i; z++) {
                 arrayPhanNhom.push({
                     tennhom: document.forms["formInfoAdd"]["tenNhom" + z].value,
-                    slnhom: document.forms["formInfoAdd"]["tenNhom" + z].value,
-                    gianhom: document.forms["formInfoAdd"]["tenNhom" + z].value
+                    slnhom: document.forms["formInfoAdd"]["SLNhom" + z].value,
+                    gianhom: document.forms["formInfoAdd"]["GiaNhom" + z].value
                 })
             }
             i = 0;
@@ -389,6 +400,21 @@
                 danhmuc: cate,
                 mangNhom: arrayPhanNhom
             };
+            await postProduct(sanpham);
+        }
+
+        async function postProduct(sanpham) {
+            try {
+                const response = await axios.post('/api/admin/new-product', {
+                    sanpham
+                });
+                if (response.status === 200) {
+                    console.log(response);
+                    window.location.reload();
+                }
+            } catch (e) {
+                console.log('error', e.response);
+            }
         }
 
         function editsp(id) {

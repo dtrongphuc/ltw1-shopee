@@ -72,14 +72,14 @@ Route::post('/api/product/type', [ProductController::class, 'getPriceAndQuantity
 // Category routes
 Route::get('/category/{categoryId}', [HomeController::class, 'category'])->name('filter.category');
 
-// Sort
-// Route::get('/sort/{option}', [HomeController::class, 'sort'])->name('sort.products');
-
 // Protected routes
 Route::middleware(['auth', 'verified'])->group(function () {
     // Routes user
     Route::prefix('user')->group(function () {
         Route::get('/account', [AccountController::class, 'account']);
+        Route::post('/account/update', [AccountController::class, 'updateInfo'])->name('update.account');
+        Route::post('/account/change-password', [AccountController::class, 'changePassword'])
+                ->name('change.account.password');
 
         Route::get('/purchase', function () {
             return view('/pages/cart');
@@ -125,7 +125,7 @@ Route::post('/add-category', [CategoryController::class, 'AddCategory'])->name('
 Route::get('/delete-category/{id}', [CategoryController::class, 'deleteCategorytById'])->name('category.delete');
 Route::post('/edit-category', [CategoryController::class, 'EditCategory'])->name('edit.category');
 Route::get('/delete-product/{id}', [Admin\ProductController::class, 'deleteProducttById'])->name('product.delete');
-Route::post('/add-product', [Admin\ProductController::class, 'AddProduct'])->name('add.product');
+Route::post('/api/admin/new-product', [Admin\ProductController::class, 'AddProduct'])->name('add.product');
 
 Route::get('/administrator', function () {
     return view('/pages/administrator');

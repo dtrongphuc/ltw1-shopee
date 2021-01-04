@@ -46,6 +46,6 @@ class CartController extends Controller
 
     // Static method get cart quantity 
     public static function getQuantity() {
-        return Auth::check() ? Cart::where('userId', '=', Auth::id())->count() : null ;
+        return Auth::check() ? Cart::where('userId', '=', Auth::id())->count() : null;
     }
 }

@@ -65,38 +65,19 @@
                         <div class="d-flex align-items-center justify-content-between flex-grow-1">
                         
                             <div class="search-keyword">
-                            <form action="{{ route('search') }}" method="GET">
-                                <div class="search" >
-                                    <input class="input-search" type="text" name="querySearch"  
-                                        placeholder="Tìm sản Phẩm, Thương Hiệu, và tên shoppe">
-                                    <span class="button-search d-flex align-items-center justify-content-center"><i
-                                            class="fas fa-search search-icon"></i></span>
-                            </form>
-                                </div>
-                                <div class="bottom-header">
-                                    <ul class="bottom-items">
-                                        <li class="category-item--header"><a href="#" class="category-item--a">vòng cổ
-                                                chữ A</a>
-                                        </li>
-                                        <li class="category-item--header"><a href="#" class="category-item--a">vòng cổ
-                                                chữ A</a>
-                                        </li>
-                                        <li class="category-item--header"><a href="#" class="category-item--a">vòng cổ
-                                                chữ A</a>
-                                        </li>
-                                        <li class="category-item--header"><a href="#" class="category-item--a">vòng cổ
-                                                chữ A</a>
-                                        </li>
-                                        <li class="category-item--header"><a href="#" class="category-item--a">vòng cổ
-                                                chữ A</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <form action="{{ route('search') }}" method="GET">
+                                    <div class="search" >
+                                        <input class="input-search" type="text" name="querySearch"  
+                                            placeholder="Tìm sản Phẩm, Thương Hiệu, và tên shoppe">
+                                        <span class="button-search d-flex align-items-center justify-content-center"><i
+                                                class="fas fa-search search-icon"></i></span>
+                                </form>
+                            </div>
                             </div>
                             <div class="cart-button">
                                 <a class="header-cart" href="/cart">
                                     <i class="fas fa-shopping-cart" style="color: white; margin-top: 10px;"></i>
-                                    <div class="header-cart__count" style="display: {{isset($cartQuantity) ? "block" : "none"}};">{{isset($cartQuantity) ? $cartQuantity : 0}}</div>
+                                    <div class="header-cart__count" style="display: {{isset($cartQuantity) && $cartQuantity > 0 ? "block" : "none"}};">{{isset($cartQuantity) ? $cartQuantity : 0}}</div>
                                 </a>
                             </div>
                         </div>

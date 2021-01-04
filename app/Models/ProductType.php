@@ -14,5 +14,7 @@ class ProductType extends Model
      *
      * @var string
      */
+    public $timestamps = false;
+    protected $fillable = ['productId', 'name', 'quantity', 'price'];
     protected $primaryKey = 'id';
 }
