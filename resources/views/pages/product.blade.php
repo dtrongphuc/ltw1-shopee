@@ -11,7 +11,7 @@
                         @if(isset($images))
                         @foreach($images as $image)
                         <div class="product-image__item">
-                            <div class="image-item__bg" style="background-image: url({{cloudinary()->getImage('products/'.$image->productImage)}})">
+                            <div class="image-item__bg" style="background-image: url({{cloudinary()->getImage($image->productImage)}})">
                             </div>
                             <div class="image-item__border"></div>
                         </div>
@@ -301,7 +301,7 @@
                 @endif
                 <div class="new-review">
                     @if(isset($currentUserAvatar))
-                    <img src="{{cloudinary()->getImage('avatars/'.$currentUserAvatar)}}" alt="" class="review-item__avatar">
+                    <img src="{{cloudinary()->getImage($currentUserAvatar)}}" alt="" class="review-item__avatar">
                     @endif
                     <form action="{{route('post.review')}}" method="POST" class="new-review__form">
                         @csrf
@@ -398,7 +398,7 @@
                         <div class="d-flex align-items-start">
                             <a href="#" class="review-item__user d-block">
                                 <div>
-                                    <img src="{{cloudinary()->getImage('avatars/'.$review->avatar)}}" alt="" class="review-item__avatar">
+                                    <img src="{{cloudinary()->getImage($review->avatar)}}" alt="" class="review-item__avatar">
                                 </div>
                             </a>
                             <div class="review-item__main ms-3">

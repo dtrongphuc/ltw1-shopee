@@ -8,7 +8,7 @@
                     <div class="main-info__left">
                         <div class="info__left-header d-flex align-items-center">
                             <div class="info__left-header--img">
-                                <img src="{{ cloudinary()->getImage('avatars/' . $user->avatar) }}" alt=""
+                                <img src="{{ cloudinary()->getImage($user->avatar) }}" alt=""
                                     class="info__left-imguser">
                             </div>
                             <div class="info__left-header--updatename">
@@ -98,7 +98,7 @@
 
                                     <div class="form-group row">
                                         <label for="password" class="col-sm-4 col-form-label">Mật khẩu</label>
-                                        <input type="password" class="col-sm-6 form-control" name="password"
+                                        <input type="password" class="col-sm-6 form-control"
                                             placeholder="Mật khẩu" autocomplete="new-password" value="*************">
                                         <button type="button" class="col-sm-2 info__btn-changepass" data-toggle="modal"
                                             data-target="#exampleModal">
@@ -150,7 +150,7 @@
                                         </div>
                                         <div class="d-flex justify-content-center">
                                             <label for="apply" class="lable-upload">
-                                                <input class="info__right-uploadimg--btnupload" type="file" name=""
+                                                <input class="info__right-uploadimg--btnupload" type="file" name="new-avatar"
                                                     id="apply" accept="image/*" onchange="readURL(this);">Get file
                                             </label>
                                         </div>
