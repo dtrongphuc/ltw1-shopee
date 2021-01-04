@@ -1,4 +1,4 @@
-@extends('../layouts/master', ['title' => 'Thông tin cá nhân'])
+@extends('../layouts/master', ['title' => 'Đơn mua'])
 @section('body')
     @parent
     @inject('helper', 'App\Http\Controllers\HomeController')
@@ -9,13 +9,15 @@
                     <div class="main-info__left">
                         <div class="info__left-header d-flex align-items-center">
                             <div class="info__left-header--img">
-                                <img src="images/products/hoodie_cart.jpg" alt="" class="info__left-imguser">
+                                <img src="{{ cloudinary()->getImage($user->avatar) }}" alt="" class="info__left-imguser">
                             </div>
                             <div class="info__left-header--updatename">
-                                <p class="info__left-header--name">Nguyễn Hiếu Nghĩa</p>
-                                <div class="info__left-header--updtae d-flex align-items-center">
-                                    <i class="fas fa-pencil-alt"></i>
-                                    <p class="info__left-header--content">Sửa hồ sơ</p>
+                                <p class="info__left-header--name">{{ explode('@', \Auth::user()->email)[0] }}</p>
+                                <div class="info__left-header--update d-flex align-items-center">
+                                    <a href="/user/account" class="d-flex align-items-center">
+                                        <i class="fas fa-pencil-alt"></i>
+                                        <p class="info__left-header--content">Sửa hồ sơ</p>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -48,8 +50,7 @@
                             <h4 class="favorite__header-content">Đơn mua</h4>
                         </div>
                         <div class="order__body">
-                            {{-- @foreach ($bills as $bill)
-                                --}}
+                            @if (isset($bill) && count($bill) > 0)
                                 @for ($bill = count($bills); $bill >= 1; $bill--)
                                     <div class="order__body-order">
                                         <div class="order__body-status d-flex justify-content-end">
@@ -74,7 +75,7 @@
                                         @foreach ($bills[$bill] as $detailbill)
                                             <div class="order__body-infoproduct d-flex align-items-cente">
                                                 <div class="infoproduct__img p-2">
-                                                    <img src="{{ cloudinary()->getImage('products/' . $detailbill->productImage) }}"
+                                                    <img src="{{ cloudinary()->getImage($detailbill->productImage) }}"
                                                         alt="" width="80px" height="80px">
                                                 </div>
                                                 <div class="infoproduct__info p-2 ">
@@ -103,7 +104,13 @@
                                     </div>
                                     {{--
                                 @endforeach --}}
-                            @endfor
+                                @endfor
+                            @else
+                                <div class="notify__not-found mt-4">
+                                    <img src="{{ URL::asset('images/not-found.png') }}" alt="">
+                                    <p>Chưa có đơn mua</p>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>

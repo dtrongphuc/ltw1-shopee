@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
 use App\Models\Review;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -35,6 +36,21 @@ class PostReviewController extends Controller
             'rate' => $request->rate,
         ]);
 
+        self::updateRate($request->productId);
         return Redirect::to(URL::previous() . "#reviews");
+    }
+
+    private function updateRate($productId) {
+        $reviews = Review::where('productId', '=', $productId)->get();
+        $total = 0;
+
+        foreach($reviews as $review) {
+            $total += $review->rate;
+        }
+        
+        $rate = $total / $reviews->count();
+        $product = Product::find($productId);
+        $product->rate = round($rate, 1);
+        $product->save();
     }
 }

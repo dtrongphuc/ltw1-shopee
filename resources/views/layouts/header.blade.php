@@ -40,7 +40,7 @@
                             @auth
                             <li class="header__navbar-item header__navbar-item--strong header__navbar-item--user">
                                 <div class="header__avatar">
-                                    <img src="{{cloudinary()->getImage('avatars/'.\Auth::user()->avatar)}}" alt="" >
+                                    <img src="{{cloudinary()->getImage(\Auth::user()->avatar)}}" alt="" >
                                 </div>
                                 <a href="/user/account">{{explode('@',\Auth::user()->email)[0]}}</a>
                                 <div class="header__user-menu">

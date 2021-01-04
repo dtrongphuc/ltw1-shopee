@@ -114,7 +114,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::get('/usermanagement', [Admin\UserController::class, 'index']);
 Route::get('/admin', [Admin\ProductController::class, 'index']);
-Route::get('/ordermanagement', [Admin\OrderController::class, 'index']);
+Route::get('/orderManagement', [Admin\OrderController::class, 'index'])-> name('orderManagement');
 Route::get('/chartstatistical', [Admin\ChartController::class, 'index']);
 Route::get('/categorymanagement/delete/{id}', [CartController::class, 'deleteCartById']);
 
@@ -124,6 +124,7 @@ Route::post('/edit-category', [CategoryController::class, 'EditCategory'])->name
 Route::get('/delete-product/{id}', [Admin\ProductController::class, 'deleteProducttById'])->name('product.delete');
 Route::post('/api/admin/new-product', [Admin\ProductController::class, 'AddProduct'])->name('add.product');
 Route::post('/api/admin/get-Group-product', [Admin\ProductController::class, 'GetGroupProductById'])->name('get.GroupProduct');
+Route::post('/api/admin/edit-product', [Admin\ProductController::class, 'EditProduct'])->name('edit.product');
 
 Route::get('/administrator', function () {
     return view('/pages/administrator');
@@ -141,15 +142,8 @@ Route::get('/cart/delete/{cartid}', [CartController::class, 'deleteCartById'])->
 Route::get('/pay', 'App\Http\Controllers\Pay\PayController@pay');
 Route::post('/pay/paytoorder', [PayController::class, 'ToPurchaseOrder'])->name('pay.toorder');
 
-//TEST ROUTES
-Route::get('/upload', [FileUploadController::class, 'showUploadForm']);
-Route::post('/upload', [FileUploadController::class, 'storeUploads']);
-
 // Search Product
 Route::get('/search', [HomeController::class, 'searchProduct'])->name('search');
 
 //đơn mua hàng
 // Route::get('/purchaseorder', [PurchaseOrderController::class], 'purchaseorder');
-
-
-//sp yêu thích

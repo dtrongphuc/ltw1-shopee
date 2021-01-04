@@ -8,14 +8,16 @@
                     <div class="main-info__left">
                         <div class="info__left-header d-flex align-items-center">
                             <div class="info__left-header--img">
-                                <img src="{{ cloudinary()->getImage('avatars/' . $user->avatar) }}" alt=""
+                                <img src="{{ cloudinary()->getImage($user->avatar) }}" alt=""
                                     class="info__left-imguser">
                             </div>
                             <div class="info__left-header--updatename">
                                 <p class="info__left-header--name">{{ explode('@', \Auth::user()->email)[0] }}</p>
-                                <div class="info__left-header--updtae d-flex align-items-center">
-                                    <i class="fas fa-pencil-alt"></i>
-                                    <p class="info__left-header--content">Sửa hồ sơ</p>
+                                <div class="info__left-header--update d-flex align-items-center">
+                                    <a href="/user/account" class="d-flex align-items-center">
+                                        <i class="fas fa-pencil-alt"></i>
+                                        <p class="info__left-header--content">Sửa hồ sơ</p>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -26,12 +28,6 @@
                                     <p class="info__categor-update--content">Tài khoản của tôi</p>
                                 </a>
                             </div>
-                            {{-- <div class="info__categor-update d-flex align-items-center">
-                                <i class="fas fa-user-circle icon-user"></i>
-                                <a href="/user/change-password">
-                                    <p class="info__categor-update--content">Đổi mật khẩu</p>
-                                </a>
-                            </div> --}}
                             <div class="info__categor-favorite d-flex align-items-center">
                                 <i class="fab fa-gratipay icon-favorite"></i>
                                 <a href="/user/favorite">
@@ -98,7 +94,7 @@
 
                                     <div class="form-group row">
                                         <label for="password" class="col-sm-4 col-form-label">Mật khẩu</label>
-                                        <input type="password" class="col-sm-6 form-control" name="password"
+                                        <input type="password" class="col-sm-6 form-control"
                                             placeholder="Mật khẩu" autocomplete="new-password" value="*************">
                                         <button type="button" class="col-sm-2 info__btn-changepass" data-toggle="modal"
                                             data-target="#exampleModal">
@@ -145,12 +141,12 @@
                                     <div class="info__right-uploadimg">
                                         <div class="d-flex justify-content-center">
                                             <img id="img-info"
-                                                src="{{ cloudinary()->getImage('avatars/' . $user->avatar) }}" alt=""
+                                                src="{{ cloudinary()->getImage($user->avatar) }}" alt=""
                                                 class="info__right-uploadimgimg" width="100px" height="100px">
                                         </div>
                                         <div class="d-flex justify-content-center">
                                             <label for="apply" class="lable-upload">
-                                                <input class="info__right-uploadimg--btnupload" type="file" name=""
+                                                <input class="info__right-uploadimg--btnupload" type="file" name="new-avatar"
                                                     id="apply" accept="image/*" onchange="readURL(this);">Get file
                                             </label>
                                         </div>

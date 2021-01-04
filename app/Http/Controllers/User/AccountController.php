@@ -34,7 +34,10 @@ class AccountController extends Controller
         if(isset($request->birthday)) {
             $birthday = Carbon::createFromFormat('d/m/Y', $request->birthday)->format('Y-m-d');
         }
+        if($request->hasFile('new-avatar')) {
+            $user->avatar = $request->file('new-avatar')->storeOnCloudinary('avatars')->getPublicId();
 
+        }
         $user->email = $request->email;
         $user->name = $request->name ?? null;
         $user->phoneNumber = $request->phoneNumber ?? null;

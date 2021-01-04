@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('phoneNumber')->nullable();
             $table->enum('gender', ['male', 'female', 'other'])->nullable();
             $table->date('birthday')->nullable();
-            $table->string('avatar')->default("default_avatar");
+            $table->string('avatar')->default("avatars/default_avatar");
             $table->text('address')->nullable();
             $table->date('email_verified_at')->nullable();
             $table->enum('role', [0, 1])->default(0);

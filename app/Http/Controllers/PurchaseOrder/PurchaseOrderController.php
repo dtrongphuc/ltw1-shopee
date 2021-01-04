@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 class PurchaseOrderController extends Controller
 {
     public function purchaseorder(){
+        $user = \Auth::user();
         $detail_bill = DB::table('detail_bills')
         ->join('bills', 'bills.id', '=', 'detail_bills.billId')
         ->join('products', 'products.productId', '=', 'detail_bills.productId')
@@ -19,6 +20,6 @@ class PurchaseOrderController extends Controller
         //dd($detail_bill->groupBy('id'));
         $statuses = DB::table('bills')->select('bills.status', 'totalPrice')->get();
         //dd($statuses);
-        return view('pages/purchaseorder', ['bills' => $detail_bill->groupBy('id'), 'statuses' => $statuses]);
+        return view('pages/purchaseorder', ['user' => $user, 'bills' => $detail_bill->groupBy('id'), 'statuses' => $statuses]);
     }
 }
