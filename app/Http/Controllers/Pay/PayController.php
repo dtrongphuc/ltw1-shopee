@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\PurchaseOrder\PurchaseOrderController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PayController extends Controller
 {
@@ -24,7 +25,8 @@ class PayController extends Controller
             $sum = $sum + ($sp->quantity * $sp->price);
         }
 
-        $userinfo = DB::table('users')->where('id', 3)->get();
+        $iduser = Auth::id();
+        $userinfo = DB::table('users')->where('id', $iduser)->get();
         return view('pages/pay', ['products' => $productsofcart, 'payall' => $sum, 'userinfo' => $userinfo]);
     }
     public function ToPurchaseOrder(Request $user){

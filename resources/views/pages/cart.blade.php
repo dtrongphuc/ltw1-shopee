@@ -68,7 +68,7 @@
                 @foreach( $products as $product)
                 <div class="row d-flex justify-content-around" style="border-bottom: #f5f5f5 solid 1px; padding-bottom: 15px">
                     <div class="col-md-5">
-                        <a href="{{'/cart/to_product/'.$product->id}}">
+                        <a href="{{'/product/'.$product->id}}">
                             <div class="cartbody__checkall d-flex align-items-center ">
                                 <div class="cartbody__products-check">
                                 </div>

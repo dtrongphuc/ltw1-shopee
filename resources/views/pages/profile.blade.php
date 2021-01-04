@@ -78,46 +78,7 @@
                                         <u>Thay đổi</u>
                                     </button>
                                     <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Đổi mật khẩu</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form action="" class="register__body-form">
-                                                        <div class="form-group">
-                                                            <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                                                            <input type="text" class="form-control" placeholder="Mật khẩu cũ" require>
-                                                            <div class="invalid-feedback">
-                                                                *Mật khẩu phải 8 kí tự trở lên
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                                                            <input type="text" class="form-control" placeholder="Mật khẩu mới" require>
-                                                            <div class="invalid-feedback">
-                                                                *Mật khẩu phải 8 kí tự trở lên
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                                                            <input type="text" class="form-control" placeholder="nhập lại mật khẩu" require>
-                                                            <div class="invalid-feedback">
-                                                                *nhập lại mật khẩu không khớp
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary btn-changeinfo">Lưu thay đổi</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 <div class="form-group row">
                                     <label for="gender" class="col-sm-4 col-form-label">Giới tính</label>
@@ -144,6 +105,46 @@
                                     <button type="submit" class="btn btn-primary btn-changeinfo">Lưu thay đổi</button>
                                 </div>
                             </form>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Đổi mật khẩu</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="" class="register__body-form">
+                                                <div class="form-group">
+                                                    <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
+                                                    <input type="text" class="form-control" placeholder="Mật khẩu cũ" require>
+                                                    <div class="invalid-feedback">
+                                                        *Mật khẩu phải 8 kí tự trở lên
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
+                                                    <input type="text" class="form-control" placeholder="Mật khẩu mới" require>
+                                                    <div class="invalid-feedback">
+                                                        *Mật khẩu phải 8 kí tự trở lên
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
+                                                    <input type="text" class="form-control" placeholder="nhập lại mật khẩu" require>
+                                                    <div class="invalid-feedback">
+                                                        *nhập lại mật khẩu không khớp
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary btn-changeinfo">Lưu thay đổi</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-4">
                             <div class="info__right-uploadimg">
