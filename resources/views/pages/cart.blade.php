@@ -1,6 +1,7 @@
 @extends('../layouts/master', ['title' => 'Giỏ hàng'])
 @section('body')
 @parent
+@inject('helper', 'App\Http\Controllers\HomeController')
 <div class="cart">
     <div class="container">
         <div class="row">

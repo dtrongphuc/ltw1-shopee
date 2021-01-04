@@ -1,6 +1,7 @@
 @extends('../layouts/master', ['title' => 'Trang chủ'])
 @section('body')
     @parent
+    @inject('helper', 'App\Http\Controllers\HomeController')
     <div class="cart">
         <div class="container">
             <div class="row">
@@ -153,7 +154,7 @@
                                 <div class="col-md-5">
                                     <div class="cartbody__checkall d-flex align-items-center ">
                                         <div class="cartbody__products-img">
-                                            <img src="images/products/hoodie_cart.jpg" alt=""
+                                            <img src="{{cloudinary()->getImage('products/'.$product->productImage)}}" alt=""
                                                 style="width: 80px; height: 80px;">
                                         </div>
                                         <h5 class="cartbody__products-productname">
