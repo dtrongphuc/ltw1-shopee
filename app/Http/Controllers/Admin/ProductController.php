@@ -32,17 +32,17 @@ class ProductController extends Controller
             ->join('categories', 'products.categoryId', 'categories.categoryId')
             ->orderBy('productId', 'asc')
             ->paginate(6);
-        $productype = DB::table('product_types')
-            ->select(
-                'product_types.productId',
-                'product_types.name',
-                'product_types.quantity',
-                'product_types.price'
-            )
-            ->join('products', 'products.productId', 'product_types.productId')->get();
+
         //$product = Product::all();
-        return view('adminthucong/index', ['sanpham' => $product, 'category' => $category, 'productType' => $productype]);
+        return view('adminthucong/index', ['sanpham' => $product, 'category' => $category]);
         //return response()->json($product, 200);
+    }
+
+    public function GetGroupProductById(Request $req)
+    {
+        $id = $req->id;
+        $productype = DB::table('product_types')->where('productId', '=', $id)->get();
+        return response()->json($productype, 200);
     }
 
     public function deleteProducttById($id)
@@ -85,6 +85,6 @@ class ProductController extends Controller
                 'price' =>  $phanNhom[$p]['gianhom'],
             ]);
         }
-        return response()->json($id, 200);
+        return response()->json($req->sanpham, 200);
     }
 }

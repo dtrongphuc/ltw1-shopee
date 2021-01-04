@@ -112,10 +112,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 //     return view('/adminthucong/Category');
 // });
 
-Route::get('/usermanagement', 'App\Http\Controllers\Admin\UserController@index');
-Route::get('/admin', 'App\Http\Controllers\Admin\ProductController@index');
-Route::get('/ordermanagement', 'App\Http\Controllers\Admin\OrderController@index');
-Route::get('/chartstatistical', 'App\Http\Controllers\Admin\ChartController@index');
+Route::get('/usermanagement', [Admin\UserController::class, 'index']);
+Route::get('/admin', [Admin\ProductController::class, 'index']);
+Route::get('/ordermanagement', [Admin\OrderController::class, 'index']);
+Route::get('/chartstatistical', [Admin\ChartController::class, 'index']);
 Route::get('/categorymanagement/delete/{id}', [CartController::class, 'deleteCartById']);
 
 Route::post('/add-category', [CategoryController::class, 'AddCategory'])->name('add.category');
@@ -123,6 +123,7 @@ Route::get('/delete-category/{id}', [CategoryController::class, 'deleteCategoryt
 Route::post('/edit-category', [CategoryController::class, 'EditCategory'])->name('edit.category');
 Route::get('/delete-product/{id}', [Admin\ProductController::class, 'deleteProducttById'])->name('product.delete');
 Route::post('/api/admin/new-product', [Admin\ProductController::class, 'AddProduct'])->name('add.product');
+Route::post('/api/admin/get-Group-product', [Admin\ProductController::class, 'GetGroupProductById'])->name('get.GroupProduct');
 
 Route::get('/administrator', function () {
     return view('/pages/administrator');
