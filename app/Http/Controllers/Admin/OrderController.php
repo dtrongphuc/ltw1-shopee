@@ -13,4 +13,23 @@ class OrderController extends Controller
         $order = Bill::all();
         return view('adminthucong/Order', ['orders' => $order]);
     }
+    
+    public function findOrderByNumber($orderId)
+    {
+        return Order::where('Id', $orderId)->first();
+    }
+    public function updateOrder(array $params)
+    {
+        $order = $this->findOrderById($params['Id']);
+
+        $collection = collect($params)->except('_token');
+
+
+
+
+        $order->update();
+
+
+        return $order;
+    }
 }
