@@ -118,7 +118,7 @@
                             <li class="statistic-item">
                                 <a href="">
                                     <div class="d-flex align-items-center">
-                                        <span class="statistic-item__number">{{isset($reviews) ? count($reviews) : 0}}</span>
+                                        <span class="statistic-item__number">{{isset($reviewsCount) ? $reviewsCount : 0}}</span>
                                         <p class="statistic-item__text">Đánh Giá</p>
                                     </div>
                                 </a>

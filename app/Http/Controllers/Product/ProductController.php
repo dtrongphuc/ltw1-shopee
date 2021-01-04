@@ -38,7 +38,11 @@ class ProductController extends Controller
                     ->orderBy('reviews.created_at', 'desc')
                     ->select('avatar', 'email', 'reviews.rate', 'text', 'reviews.created_at')
                     ->paginate(5)->fragment('reviews');
-
+        $reviewsCount = DB::table('reviews')
+                            ->join('products', 'reviews.productId','=', 'products.productId')
+                            ->join('users', 'reviews.userId', '=', 'users.id')
+                            ->where('products.productId', '=', $productId)
+                            ->count();
         if(\Auth::check()){
             $currentUserAvatar = User::find($userId)->avatar;
         } 
@@ -48,6 +52,7 @@ class ProductController extends Controller
             'images' => $images,
             'types' => $types,
             'reviews' => $reviews,
+            'reviewsCount' => $reviewsCount,
             'currentUserAvatar' => $currentUserAvatar ?? null
         ]);
     }
