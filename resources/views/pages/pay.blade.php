@@ -154,7 +154,7 @@
                                 <div class="col-md-5">
                                     <div class="cartbody__checkall d-flex align-items-center ">
                                         <div class="cartbody__products-img">
-                                            <img src="{{cloudinary()->getImage('products/'.$product->productImage)}}" alt=""
+                                            <img src="{{cloudinary()->getImage($product->productImage)}}" alt=""
                                                 style="width: 80px; height: 80px;">
                                         </div>
                                         <h5 class="cartbody__products-productname">
@@ -191,7 +191,7 @@
                     <div class="payfooter__totalpay d-flex align-items-center justify-content-end">
                         <p class="payfooter__totalpay-content">Tổng thanh toán:</p>
                         <div class="payfooter__totalpay-price">
-                            <h3>đ{{ number_format(floatval($payall)) }}</h1>
+                            <h3>đ{{ number_format(floatval($payall ?? 0)) }}</h1>
                         </div>
                     </div>
                     <div class="payfooter_btnpay d-flex justify-content-end">

@@ -145,7 +145,7 @@
                                     <div class="info__right-uploadimg">
                                         <div class="d-flex justify-content-center">
                                             <img id="img-info"
-                                                src="{{ cloudinary()->getImage('avatars/' . $user->avatar) }}" alt=""
+                                                src="{{ cloudinary()->getImage($user->avatar) }}" alt=""
                                                 class="info__right-uploadimgimg" width="100px" height="100px">
                                         </div>
                                         <div class="d-flex justify-content-center">
