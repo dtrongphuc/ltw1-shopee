@@ -195,12 +195,12 @@
                                                                 </div>
                                                                 <div class="col-md-12 itemadd" id="themPhanNhom-suaSP">
                                                                     <label class="col-md-2 labelitem" for="">Phân Nhóm</label>
-                                                                    <div class='col-md-8' id="content-phanNhom-suaSP">
+                                                                    <div class='col-md-8' id="content-phanNhom-suaSP0">
 
-                                                                        <input class="col-md-3 inputitem" type="text" name="tenNhom0-suaSP" placeholder="asd">
-                                                                        <input class="col-md-3 inputitem" type="text" name="SLNhom0-suaSP" placeholder='Nhập Số Lượng'>
-                                                                        <input class="col-md-2 inputitem" type="text" name="GiaNhom0-suaSP" placeholder='Nhập Giá'>
-                                                                        <button type="button" class='inputitem-icon btn ' style="display: inline-block;"><i class="fas fa-plus"></i></button>
+                                                                        <input class="col-md-3 inputitem" type="text" name="tenNhom-suaSP0" placeholder="asd">
+                                                                        <input class="col-md-3 inputitem" type="text" name="SLNhom-suaSP0" placeholder='Nhập Số Lượng'>
+                                                                        <input class="col-md-2 inputitem" type="text" name="GiaNhom-suaSP0" placeholder='Nhập Giá'>
+                                                                        <button type="button" class='inputitem-icon btn' onclick="themNhomSuaSP();" style="display: inline-block;"><i class="fas fa-plus"></i></button>
 
                                                                     </div>
                                                                 </div>
@@ -290,7 +290,7 @@
                         </div>
                         <div class="col-md-12 itemadd" id="themPhanNhom-themsp">
                             <label class="col-md-2 labelitem" for="">Phân Nhóm</label>
-                            <div class='col-md-8' id="content-phanNhom0-themsp">
+                            <div class='col-md-8' id="content-phanNhom-themsp0">
                                 <input class="col-md-3 inputitem" type="text" name="tenNhom-themsp0" placeholder='Nhập tên Phân Nhóm'>
                                 <input class="col-md-3 inputitem" type="text" name="SLNhom-themsp0" placeholder='Nhập Số Lượng'>
                                 <input class="col-md-2 inputitem" type="text" name="GiaNhom-themsp0" placeholder='Nhập Giá'>
@@ -320,6 +320,7 @@
 
     <script type="text/javascript">
         var slNhomThemSP = 0;
+        var slNhomSuaSP = 0;
 
 
         function addinputthemsp() {
@@ -366,6 +367,52 @@
             document.getElementById("content-phanNhom-themsp" + slNhomThemSP).appendChild(inputPrice);
             document.getElementById("content-phanNhom-themsp" + slNhomThemSP).appendChild(bntRemove);
             document.getElementById("btnremove-themsp" + slNhomThemSP).appendChild(icon);
+        }
+
+        function themNhomSuaSP() {
+            slNhomSuaSP++;
+            var divinput = document.createElement("div");
+            var inputName = document.createElement("INPUT");
+            var inputQuantity = document.createElement("INPUT");
+            var inputPrice = document.createElement("INPUT");
+            var bntRemove = document.createElement("BUTTON");
+            var icon = document.createElement("i");
+
+            //set id cho buntton
+            divinput.setAttribute("id", "content-phanNhom-suaSP" + slNhomSuaSP);
+            bntRemove.setAttribute("id", "btnremove-suaSP" + slNhomSuaSP);
+
+
+            //set type
+            inputName.setAttribute("type", "text");
+            inputQuantity.setAttribute("type", "text");
+            inputPrice.setAttribute("type", "text");
+            bntRemove.setAttribute("type", "button");
+
+
+            //Name
+            inputName.setAttribute("Name", "tenNhom-suaSP" + slNhomSuaSP);
+            inputQuantity.setAttribute("Name", "SLNhom-suaSP" + slNhomSuaSP);
+            inputPrice.setAttribute("Name", "GiaNhom-suaSP" + slNhomSuaSP);
+
+            //style
+            inputName.setAttribute("Class", "inputitem");
+            inputQuantity.setAttribute("Class", "inputitem");
+            inputPrice.setAttribute("Class", "inputitem");
+            inputName.setAttribute("placeholder", "Nhập Tên Sản Phẩm");
+            inputQuantity.setAttribute("placeholder", "Nhập Số Lượng");
+            inputPrice.setAttribute("placeholder", "Nhập Giá");
+            bntRemove.setAttribute("Class", "icon-remove-input-themsp", "btn");
+            icon.setAttribute("Class", "fas fa-minus-circle");
+
+            //x.setAttribute("value", "asd");
+
+            document.getElementById("themPhanNhom-suaSP").appendChild(divinput);
+            document.getElementById("content-phanNhom-suaSP" + slNhomSuaSP).appendChild(inputName);
+            document.getElementById("content-phanNhom-suaSP" + slNhomSuaSP).appendChild(inputQuantity);
+            document.getElementById("content-phanNhom-suaSP" + slNhomSuaSP).appendChild(inputPrice);
+            document.getElementById("content-phanNhom-suaSP" + slNhomSuaSP).appendChild(bntRemove);
+            document.getElementById("btnremove-suaSP" + slNhomSuaSP).appendChild(icon);
         }
 
 
@@ -415,7 +462,24 @@
                         id
                     });
                     if (response.status === 200) {
-                        console.log(response);
+                        let datasp = response.data;
+                        console.log(datasp);
+                        
+                        for(var sldiv = 0; sldiv < datasp.length;sldiv++)
+                        {
+                            var sldivdatontai = document.getElementById("themPhanNhom-suaSP").childElementCount -1;
+                            if(sldivdatontai != datasp.length)
+                            {
+                                themNhomSuaSP();
+                            }
+                            var inputTen = document.getElementsByName("tenNhom-suaSP"+sldiv)[0];
+                            inputTen.setAttribute("value", datasp[sldiv]['name']);
+                            var inputsl = document.getElementsByName("SLNhom-suaSP"+sldiv)[0];
+                            inputsl.setAttribute("value", datasp[sldiv]['quantity']);
+                            var inputgia = document.getElementsByName("GiaNhom-suaSP"+sldiv)[0];
+                            inputgia.setAttribute("value", parseFloat(datasp[sldiv]['price']));
+                        }
+                        
                     }
                 } catch (e) {
                     console.log('error', e.response);
