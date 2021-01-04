@@ -17,7 +17,7 @@
             </div>
             <div class="col-md-6">
                 <div class="cart__header-search d-flex justify-content-between">
-                    <input class="form-control cart__header-input form-control" value="1" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control cart__header-input form-control" value="" type="search" placeholder="Search" aria-label="Search">
                     <span class="cart-search d-flex align-items-center justify-content-center">
                         <i class="fas fa-search search-icon"></i>
                     </span>

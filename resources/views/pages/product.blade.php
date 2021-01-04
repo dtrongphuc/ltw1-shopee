@@ -1,4 +1,4 @@
-@extends('../layouts/master', ['title' => 'Sản phẩm'])
+@extends('../layouts/master', ['title' => $product->productName])
 @section('body')
 @parent
 <main class="main main-product">
@@ -10,11 +10,11 @@
                     <div class="product-images__slider">
                         @if(isset($images))
                             @foreach($images as $image)
-                            <div class="product-image__item">
-                                <div class="image-item__bg" style="background-image: url({{cloudinary()->getImage($image->productImage)}})">
+                                <div class="product-image__item">
+                                    <div class="image-item__bg" style="background-image: url({{cloudinary()->getImage($image->productImage)}})">
+                                    </div>
+                                    <div class="image-item__border"></div>
                                 </div>
-                                <div class="image-item__border"></div>
-                            </div>
                             @endforeach
                         @endif
                     </div>

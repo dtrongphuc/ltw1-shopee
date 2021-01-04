@@ -1,8 +1,8 @@
 require("./bootstrap");
 require("./auth");
 require("./home");
-require("./cart");
 require("./product");
+require("./cart");
 axios.interceptors.response.use(
     function(response) {
         // Any status code that lie within the range of 2xx cause this function to trigger

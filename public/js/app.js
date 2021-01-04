@@ -26155,9 +26155,9 @@ __webpack_require__(/*! ./auth */ "./resources/js/auth.js");
 
 __webpack_require__(/*! ./home */ "./resources/js/home.js");
 
-__webpack_require__(/*! ./cart */ "./resources/js/cart.js");
-
 __webpack_require__(/*! ./product */ "./resources/js/product.js");
+
+__webpack_require__(/*! ./cart */ "./resources/js/cart.js");
 
 axios.interceptors.response.use(function (response) {
   // Any status code that lie within the range of 2xx cause this function to trigger
@@ -26959,24 +26959,24 @@ document.addEventListener("DOMContentLoaded", function () {
   }))); //tăng giảm số lượng
 
   $("#down_dtproduct").click(function () {
-    var quantity_present = parseInt(document.getElementById('quantity').value);
+    var quantity_present = parseInt(document.getElementById("quantity").value);
 
     if (quantity_present == 1) {
-      document.getElementById('down_dtproduct').style.cursor = "not-allowed";
+      document.getElementById("down_dtproduct").style.cursor = "not-allowed";
       return;
     }
 
-    document.getElementById('quantity').value = quantity_present - 1;
+    document.getElementById("quantity").value = quantity_present - 1;
   });
   $("#up_dtproduct").click(function () {
-    var quantity_present = parseInt(document.getElementById('quantity').value);
+    var quantity_present = parseInt(document.getElementById("quantity").value);
     console.log(quantity_present + 1);
 
     if (quantity_present == 1) {
-      document.getElementById('down_dtproduct').style.cursor = "pointer";
+      document.getElementById("down_dtproduct").style.cursor = "pointer";
     }
 
-    document.getElementById('quantity').value = quantity_present + 1;
+    document.getElementById("quantity").value = quantity_present + 1;
   });
 });
 
