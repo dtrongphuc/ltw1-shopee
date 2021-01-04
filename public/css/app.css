@@ -1432,10 +1432,7 @@ a:hover {
 
 .product-left__images {
     position: relative;
-}
-
-.product-images__slider {
-    margin: 5px -5px;
+    width: 100%;
     display: flex;
     align-items: center;
 }
@@ -1492,6 +1489,7 @@ a:hover {
     padding:7px 4px;
     border: none;
     outline: none;
+    z-index: 2;
 }
 
 .product-images__ctn > i {
@@ -1790,7 +1788,6 @@ a:hover {
 .product-validator__notification > p {
     color: var(--primary-color);
     font-size: 1rem;
-    
 }
 .cart {
     margin-top: 20px;
