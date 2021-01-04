@@ -47,7 +47,6 @@ class AccountController extends Controller
     }
 
     public function changePassword(Request $request) {
-        dd($request);
         $validator = Validator::make($request->all(), [
             'old-password' => 'required',
             'new-password' => 'required|min:5|max:12|different:password',
