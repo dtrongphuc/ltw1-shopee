@@ -79,11 +79,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/account', [AccountController::class, 'account']);
         Route::post('/account/update', [AccountController::class, 'updateInfo'])->name('update.account');
         Route::post('/account/change-password', [AccountController::class, 'changePassword'])
-                ->name('change.account.password');
+            ->name('change.account.password');
 
-        Route::get('/purchase', function () {
-            return view('/pages/cart');
-        });
+        Route::get('/purchaseorder', 'App\Http\Controllers\PurchaseOrder\PurchaseOrderController@purchaseorder')->name('purchaseorder.index');
 
         Route::get('/favorite', [FavoriteController::class, 'favorite']);
         Route::get('/favorite/delete/{productid}', [FavoriteController::class, 'deleteproduct']);
@@ -151,6 +149,6 @@ Route::get('/search', [HomeController::class, 'searchProduct'])->name('search');
 
 //đơn mua hàng
 // Route::get('/purchaseorder', [PurchaseOrderController::class], 'purchaseorder');
-Route::get('/purchaseorder', 'App\Http\Controllers\PurchaseOrder\PurchaseOrderController@purchaseorder')->name('purchaseorder.index');
+
 
 //sp yêu thích
