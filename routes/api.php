@@ -17,6 +17,7 @@ use App\Http\Controllers\Cart\CartController;
 // Route::get('/chartstatis', [ChartController::class, 'index']);
 Route::get('/statisticalquarter', [ChartController::class, 'StatisticalQuarter']);
 Route::get('/statisticalyear', [ChartController::class, 'StatisticalYear']);
+Route::get('/statisticalmonth', [ChartController::class, 'StatisticalMonth']);
 //giỏ hàng
 Route::post('/cart/UpQuantity', [CartController::class, 'upQuantityProduct'])->name('cart.upquantify');
 Route::post('/cart/DownQuantity', [CartController::class, 'DownQuantityProduct'])->name('cart.downquantify');

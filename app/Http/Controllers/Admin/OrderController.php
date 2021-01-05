@@ -10,7 +10,7 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $order = Bill::all();
+        $order = Bill::paginate(10);
         return view('adminthucong/Order', ['orders' => $order]);
     }
 }
