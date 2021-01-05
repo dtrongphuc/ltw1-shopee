@@ -29,11 +29,11 @@
                 </li>
                 <li class="item">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="/userManagement">Quản lý người dùng</a>
+                    <a href="/usermanagement">Quản lý người dùng</a>
                 </li>
                 <li class="item">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="./orderManagement">Quản lý Đơn Hàng</a>
+                    <a href="./ordermanagement">Quản lý Đơn Hàng</a>
                 </li>
             </ul>
         </div>
@@ -278,16 +278,21 @@
                 <div class="modal-header">
                     <h4 class="modal-title">Thêm Sản Phẩm</h4><button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                <form name="formInfoAdd">
+                <form name="formInfoAdd" enctype="multipart/form-data" id="form-add-product" method="POST">
                     <div class="modal-body row">
                         <div class="col-md-12 itemadd">
-                            <label class="col-md-2 labelitem" for="">Tên Sản Phẩm</label>
-                            <input class="col-md-9 inputitem" name="tenSP" type="text" placeholder='Nhập tên Sản Phẩm'>
+                            <label class="col-md-2 labelitem" for="tenSP">Tên Sản Phẩm</label>
+                            <input class="col-md-9 inputitem" name="tenSP" id="tenSP" type="text" placeholder='Nhập tên Sản Phẩm'>
                         </div>
 
                         <div class="col-md-12 itemadd " style="display: flex;">
                             <label class="col-md-2 labelitem" for="">Mô tả</label>
                             <textarea class="col-md-9 inputitem" name="motaSP" rows="10" cols="50"></textarea>
+                        </div>
+                        <div class="col-md-12 itemadd">
+                            <label for="" class="lable-upload"></label>
+                            <input type="file" id="upload" name="upload" accept="image/*" multiple>GetFile
+
                         </div>
                         <div class="col-md-12 itemadd" id="themPhanNhom-themsp">
                             <label class="col-md-2 labelitem" for="">Phân Nhóm</label>
@@ -310,7 +315,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
-                        <button type="button" class="btn btn-success btn__submit-AddProduct" style="width:100px;">Thêm</button>
+                        <button type="submit" class="btn btn-success btn__submit-AddProduct" style="width:100px;">Thêm</button>
                     </div>
                 </form>
             </div>

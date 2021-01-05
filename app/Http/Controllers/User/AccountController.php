@@ -10,12 +10,14 @@ use Illuminate\Support\Facades\Hash;
 
 class AccountController extends Controller
 {
-    public function account() {
+    public function account()
+    {
         $user = \Auth::user();
         return view('pages.profile', ['user' => $user]);
     }
 
-    public function updateInfo(Request $request) {
+    public function updateInfo(Request $request)
+    {
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'phoneNumber' => ['regex:/(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b/']
@@ -31,12 +33,11 @@ class AccountController extends Controller
         $user = \Auth::user();
 
         $birthday;
-        if(isset($request->birthday)) {
+        if (isset($request->birthday)) {
             $birthday = Carbon::createFromFormat('d/m/Y', $request->birthday)->format('Y-m-d');
         }
-        if($request->hasFile('new-avatar')) {
+        if ($request->hasFile('new-avatar')) {
             $user->avatar = $request->file('new-avatar')->storeOnCloudinary('avatars')->getPublicId();
-
         }
         $user->email = $request->email;
         $user->name = $request->name ?? null;
@@ -49,7 +50,8 @@ class AccountController extends Controller
         return \Redirect::back()->with('message', 'Cập nhật thông tin thành công');
     }
 
-    public function changePassword(Request $request) {
+    public function changePassword(Request $request)
+    {
         $validator = Validator::make($request->all(), [
             'old-password' => 'required',
             'new-password' => 'required|min:5|max:12|different:password',
@@ -69,10 +71,10 @@ class AccountController extends Controller
 
         $user = \Auth::user();
 
-        if(!Hash::check($request->oldPassword, $user->password)) {
+        if (!Hash::check($request->oldPassword, $user->password)) {
             return \Redirect::back()->withErrors('error', 'Mật khẩu không chính xác');
         }
-        
+
         $user->password = Hash::make($request->newPassword);
         $user->save();
 

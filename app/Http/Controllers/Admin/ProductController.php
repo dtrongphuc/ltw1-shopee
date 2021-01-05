@@ -56,36 +56,42 @@ class ProductController extends Controller
 
     public function AddProduct(Request $req)
     {
-        $sp = $req->sanpham;
-        $phanNhom = $sp['mangNhom'];
-        $localtime = date("Y-m-d", time());
-        $tongsl = 0;
-        for ($i = 0; $i < count($phanNhom); $i++) {
-            $tongsl = $tongsl + (float)$phanNhom[$i]['slnhom'];
-        }
-        $Product = Product::create([
-            'categoryId' => $sp['danhmuc'],
-            'productName' => $sp['tensp'],
-            'description' => $sp['mota'],
-            'price' => $phanNhom[0]['gianhom'],
-            'quantity' => $tongsl,
-            'likeCount' => 0,
-            'rate' => 0,
-            'sold' => 0,
-            'postAt' => $localtime
-        ]);
+        // $sp = $req->sanpham;
+        // $phanNhom = $sp['mangNhom'];
+        // $localtime = date("Y-m-d", time());
+        // $tongsl = 0;
+        // for ($i = 0; $i < count($phanNhom); $i++) {
+        //     $tongsl = $tongsl + (float)$phanNhom[$i]['slnhom'];
+        // }
+        // $Product = Product::create([
+        //     'categoryId' => $sp['danhmuc'],
+        //     'productName' => $sp['tensp'],
+        //     'description' => $sp['mota'],
+        //     'price' => $phanNhom[0]['gianhom'],
+        //     'quantity' => $tongsl,
+        //     'likeCount' => 0,
+        //     'rate' => 0,
+        //     'sold' => 0,
+        //     'postAt' => $localtime
+        // ]);
 
-        $id = DB::table('products')->max('productId');
+        // $id = DB::table('products')->max('productId');
 
-        for ($p = 0; $p < count($phanNhom); $p++) {
-            $nhom = ProductType::create([
-                'productId' => $id,
-                'name' => $phanNhom[$p]['tennhom'],
-                'quantity' =>   $phanNhom[$p]['slnhom'],
-                'price' =>  $phanNhom[$p]['gianhom'],
-            ]);
-        }
-        return response()->json($req->sanpham, 200);
+        // for ($p = 0; $p < count($phanNhom); $p++) {
+        //     $nhom = ProductType::create([
+        //         'productId' => $id,
+        //         'name' => $phanNhom[$p]['tennhom'],
+        //         'quantity' =>   $phanNhom[$p]['slnhom'],
+        //         'price' =>  $phanNhom[$p]['gianhom'],
+        //     ]);
+        // }
+
+        // $images = $req->file('images');
+        // $r = array();
+        // foreach ($images as $img) {
+        //     array_push($r, $img->getClientOriginalName());
+        // }
+        return response()->json($req->data, 200);
     }
 
     public function EditProduct(Request $req)
