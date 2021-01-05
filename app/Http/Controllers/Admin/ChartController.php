@@ -50,24 +50,31 @@ class ChartController extends Controller
     //thống kê theo quý
     public function StatisticalQuarter()
     {
+        $format = "Y";
+        $timestamp = time();
+        $strTime = date($format, $timestamp);
         $quy1 = DB::table('bills')
             ->whereMonth('createAt', '>=', '1')
             ->whereMonth('createAt', '<=', '3')
+            ->whereYear('createAt', '=', $strTime)
             ->where('status', '=', '4')
             ->sum('totalPrice');
         $quy2 = DB::table('bills')
             ->whereMonth('createAt', '>=', '4')
             ->whereMonth('createAt', '<=', '6')
+            ->whereYear('createAt', '=', $strTime)
             ->where('status', '=', '4')
             ->sum('totalPrice');
         $quy3 = DB::table('bills')
             ->whereMonth('createAt', '>=', '7')
             ->whereMonth('createAt', '<=', '9')
+            ->whereYear('createAt', '=', $strTime)
             ->where('status', '=', '4')
             ->sum('totalPrice');
         $quy4 = DB::table('bills')
             ->whereMonth('createAt', '>=', '10')
             ->whereMonth('createAt', '<=', '12')
+            ->whereYear('createAt', '=', $strTime)
             ->where('status', '=', '4')
             ->sum('totalPrice');
 
@@ -94,10 +101,14 @@ class ChartController extends Controller
 
     public function StatisticalMonth()
     {
+        $format = "Y";
+        $timestamp = time();
+        $strTime = date($format, $timestamp);
         $ArrayMonth = array();
         for ($i = 1; $i <= 12; $i++) {
             $total = DB::table('bills')
                 ->whereMonth('createAt', '=', $i)
+                ->whereYear('createAt', '=', $strTime)
                 ->where('status', '=', '4')
                 ->sum('totalPrice');
             $total = $total / 1000;
