@@ -29,11 +29,11 @@
                 </li>
                 <li class="item">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="./userManagement">Quản lý người dùng</a>
+                    <a href="./usermanagement">Quản lý người dùng</a>
                 </li>
                 <li class="item active">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="./orderManagement">Quản lý Đơn Hàng</a>
+                    <a href="./ordermanagement">Quản lý Đơn Hàng</a>
                 </li>
             </ul>
         </div>
