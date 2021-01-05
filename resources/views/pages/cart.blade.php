@@ -74,7 +74,7 @@
                                 <div class="cartbody__products-check">
                                 </div>
                                 <div class="cartbody__products-img">
-                                    <img src="{{cloudinary()->getImage($product->productImage)}}" alt="" style="width: 80px; height: 80px;">
+                                    <img src="{{cloudinary()->getImage('products/' . $product->productImage) }}" alt="" style="width: 80px; height: 80px;">
                                 </div>
                                 <h5 class="cartbody__products-productname">
                                     {{$product->productName}}

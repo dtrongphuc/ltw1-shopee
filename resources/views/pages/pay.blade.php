@@ -155,7 +155,7 @@
                                 <div class="col-md-5">
                                     <div class="cartbody__checkall d-flex align-items-center ">
                                         <div class="cartbody__products-img">
-                                            <img src="{{ cloudinary()->getImage('products/' . $product->productImage) }}"
+                                            <img src="{{ cloudinary()->getImage('products/' . $product->productImage)  }}"
                                                 alt="" style="width: 80px; height: 80px;">
                                         </div>
                                         <h5 class="cartbody__products-productname">
