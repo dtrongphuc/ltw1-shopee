@@ -14,98 +14,98 @@
 
     <script>
         window.onload = function() {
-           const test = async () => {
-            try {
-                response = await axios.get('/api/statisticalmonth')
-                data = response.data;
-                var chart = new CanvasJS.Chart("chart-day", {
-                theme: "light1", // "light1", "light2", "dark1", "dark2"
-                animationEnabled: true,
+            const test = async () => {
+                try {
+                    response = await axios.get('/api/statisticalmonth')
+                    data = response.data;
+                    var chart = new CanvasJS.Chart("chart-day", {
+                        theme: "light1", // "light1", "light2", "dark1", "dark2"
+                        animationEnabled: true,
 
-                axisX: {
-                    interval: 1,
-                    intervalType: "number",
-                    valueFormatString: "T #"
-                },
-                axisY: {
-                    includeZero: true,
-                    valueFormatString: "#0[Ngàn VND]"
-                },
-                data: [{
-                    type: "line",
-                    markerSize: 12,
-                    // xValueFormatString: "MM",
-                    // yValueFormatString: "$###.#",
-                    dataPoints: [{
-                            x: 1,
-                            y: data[0],
-                            markerColor: "#6B8E23"
+                        axisX: {
+                            interval: 1,
+                            intervalType: "number",
+                            valueFormatString: "T #"
                         },
-                        {
-                            x: 2,
-                            y: data[1],
-                            markerColor: "#6B8E23"
+                        axisY: {
+                            includeZero: true,
+                            valueFormatString: "#0[Ngàn VND]"
                         },
-                        {
-                            x: 3,
-                            y: data[2],
-                            markerColor: "6B8E23"
-                        },
-                        {
-                            x: 4,
-                            y: data[3],
-                            markerColor: "6B8E23"
-                        },
-                        {
-                            x: 5,
-                            y: data[4],
-                            markerColor: "#6B8E23"
-                        },
-                        {
-                            x: 6,
-                            y: data[5],
-                            markerColor: "#6B8E23"
-                        },
-                        {
-                            x: 7,
-                            y: data[6],
-                            markerColor: "6B8E23"
-                        },
-                        {
-                            x: 8,
-                            y: data[7],
-                            markerColor: "6B8E23"
-                        },
-                        {
-                            x: 9,
-                            y: data[8],
-                            markerColor: "6B8E23"
-                        },
-                        {
-                            x: 10,
-                            y: data[9],
-                            markerColor: "6B8E23"
-                        },
-                        {
-                            x: 11,
-                            y: data[10],
-                            markerColor: "6B8E23"
-                        },
-                        {
-                            x: 12,
-                            y: data[11],
-                            markerColor: "6B8E23"
-                        }
-                    ]
-                }]
-            });
-            chart.render();
+                        data: [{
+                            type: "line",
+                            markerSize: 12,
+                            // xValueFormatString: "MM",
+                            // yValueFormatString: "$###.#",
+                            dataPoints: [{
+                                    x: 1,
+                                    y: data[0],
+                                    markerColor: "#6B8E23"
+                                },
+                                {
+                                    x: 2,
+                                    y: data[1],
+                                    markerColor: "#6B8E23"
+                                },
+                                {
+                                    x: 3,
+                                    y: data[2],
+                                    markerColor: "6B8E23"
+                                },
+                                {
+                                    x: 4,
+                                    y: data[3],
+                                    markerColor: "6B8E23"
+                                },
+                                {
+                                    x: 5,
+                                    y: data[4],
+                                    markerColor: "#6B8E23"
+                                },
+                                {
+                                    x: 6,
+                                    y: data[5],
+                                    markerColor: "#6B8E23"
+                                },
+                                {
+                                    x: 7,
+                                    y: data[6],
+                                    markerColor: "6B8E23"
+                                },
+                                {
+                                    x: 8,
+                                    y: data[7],
+                                    markerColor: "6B8E23"
+                                },
+                                {
+                                    x: 9,
+                                    y: data[8],
+                                    markerColor: "6B8E23"
+                                },
+                                {
+                                    x: 10,
+                                    y: data[9],
+                                    markerColor: "6B8E23"
+                                },
+                                {
+                                    x: 11,
+                                    y: data[10],
+                                    markerColor: "6B8E23"
+                                },
+                                {
+                                    x: 12,
+                                    y: data[11],
+                                    markerColor: "6B8E23"
+                                }
+                            ]
+                        }]
+                    });
+                    chart.render();
 
-            } catch (error) {
-                console.log(error);
+                } catch (error) {
+                    console.log(error);
+                }
             }
-        }
-        test(); 
+            test();
         }
     </script>
 </head>
@@ -127,11 +127,11 @@
                 </li>
                 <li class="item">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="./userManagement">Quản lý người dùng</a>
+                    <a href="./usermanagement">Quản lý người dùng</a>
                 </li>
                 <li class="item active">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="./orderManagement">Quản lý Đơn Hàng</a>
+                    <a href="./ordermanagement">Quản lý Đơn Hàng</a>
                 </li>
             </ul>
         </div>
@@ -258,59 +258,70 @@
         // }
 
         // test(); -->
-        
-        <script type="text/javascript">
-            // Load google charts
-            google.charts.load('current', {'packages':['corechart']});
-            google.charts.setOnLoadCallback(drawChart);
 
-            // Draw the chart and set the chart values
-            function drawChart() {
-                const test = async () => {
-                    try {
-                        let response = await axios.get('/api/statisticalquarter')
-                        let datastatis = response.data;
-                       //let quy1 = datastatis[0];
-                        var data = google.visualization.arrayToDataTable([
+    <script type="text/javascript">
+        // Load google charts
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        // Draw the chart and set the chart values
+        function drawChart() {
+            const test = async () => {
+                try {
+                    let response = await axios.get('/api/statisticalquarter')
+                    let datastatis = response.data;
+                    //let quy1 = datastatis[0];
+                    var data = google.visualization.arrayToDataTable([
                         ['Task', 'Hours per Day'],
                         ['Quý 1', parseFloat(datastatis[0])],
                         ['Quý 2', parseFloat(datastatis[1])],
                         ['Quý 3', parseFloat(datastatis[2])],
                         ['Quý 4', parseFloat(datastatis[3])]
-                        ]); 
-                        // Optional; add a title and set the width and height of the chart
-                        var options = {'width':500, 'height':400, sliceVisibilityThreshold: 0};
+                    ]);
+                    // Optional; add a title and set the width and height of the chart
+                    var options = {
+                        'width': 500,
+                        'height': 400,
+                        sliceVisibilityThreshold: 0
+                    };
 
-                        // Display the chart inside the <div> element with id="piechart"
-                        var chart = new google.visualization.PieChart(document.getElementById('chart-Quarter1'));
-                        chart.draw(data, options);
-                    } catch (error) {
-                            console.log(error);
-                        }
+                    // Display the chart inside the <div> element with id="piechart"
+                    var chart = new google.visualization.PieChart(document.getElementById('chart-Quarter1'));
+                    chart.draw(data, options);
+                } catch (error) {
+                    console.log(error);
                 }
-                test();
             }
-        </script>
- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
- 
- <script type="text/javascript">
-            var analytics = <?php echo $year; ?>
-            
-            // Load google charts
-            google.charts.load('current', {'packages':['corechart']});
-            google.charts.setOnLoadCallback(drawChart);
-
-            // Draw the chart and set the chart values
-            function drawChart() {
-                var data = google.visualization.arrayToDataTable(
-                    analytics
-                );
-                var options = {'width':500, 'height':400};
-               var chart = new google.visualization.PieChart(document.getElementById('chart-Quarter2'));         
-               chart.draw(data, options);  
+            test();
         }
-        </script>
-   
+    </script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+    <script type="text/javascript">
+        var analytics = <?php echo $year; ?>
+
+        // Load google charts
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        // Draw the chart and set the chart values
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable(
+                analytics
+            );
+            var options = {
+                'width': 500,
+                'height': 400
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('chart-Quarter2'));
+            chart.draw(data, options);
+        }
+    </script>
+
 
 </body>
 
