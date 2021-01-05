@@ -26187,7 +26187,24 @@ $(document).ready(function () {
       e.preventDefault();
       submitSuaSP();
     });
-  });
+  }); // document.querySelectorAll('.SelectstatusOrder').forEach(select => {
+  //     select.addEventListener('change', async () => {
+  //         let id = select.dataset.orderId;
+  //         var status = select.getElementsByClassName("SelectstatusOrder").value;
+  //         console.log(status);
+  //         try {
+  //             const response = await axios.post('/api/admin/statuschangeorder', {
+  //                 id,
+  //                 status
+  //             });
+  //             if (response.status === 200) {
+  //                 console.log(response);
+  //             }
+  //         } catch (e) {
+  //             console.log('error', e.response);
+  //         }
+  //     });
+  // });
 
   function addinputthemsp() {
     slNhomThemSP++;
@@ -26271,56 +26288,41 @@ $(document).ready(function () {
 
   function _submitThemSP() {
     _submitThemSP = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-      var arrayPhanNhom, tensp, mota, cate, z, check, sanpham;
+      var fdata, image;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              arrayPhanNhom = [];
-              tensp = document.forms["formInfoAdd"]["tenSP"].value;
-              mota = document.forms["formInfoAdd"]["motaSP"].value;
-              cate = document.forms["formInfoAdd"]["category"].value;
-              z = 0;
+              // var arrayPhanNhom = [];
+              // var tensp = document.forms["formInfoAdd"]["tenSP"].value;
+              // var mota = document.forms["formInfoAdd"]["motaSP"].value;
+              // var cate = document.forms["formInfoAdd"]["category"].value;
+              // for (var z = 0; z <= slNhomThemSP; z++) {
+              //     var check = document.forms["formInfoAdd"]["tenNhom-themsp" + z].value;
+              //     if(check == "")
+              //         continue;
+              //     arrayPhanNhom.push({
+              //         tennhom: document.forms["formInfoAdd"]["tenNhom-themsp" + z].value,
+              //         slnhom: document.forms["formInfoAdd"]["SLNhom-themsp" + z].value,
+              //         gianhom: document.forms["formInfoAdd"]["GiaNhom-themsp" + z].value
+              //     })
+              // }
+              // slNhomThemSP = 0;
+              // var sanpham = {
+              //     tensp: tensp,
+              //     mota: mota,
+              //     danhmuc: cate,
+              //     mangNhom: arrayPhanNhom
+              // };
+              alert("a");
+              fdata = new FormData();
+              image = document.getElementById('upload').files;
+              fdata.append('image', image);
+              console.log(image);
+              _context2.next = 7;
+              return postProduct(image);
 
-            case 5:
-              if (!(z <= slNhomThemSP)) {
-                _context2.next = 13;
-                break;
-              }
-
-              check = document.forms["formInfoAdd"]["tenNhom-themsp" + z].value;
-
-              if (!(check == "")) {
-                _context2.next = 9;
-                break;
-              }
-
-              return _context2.abrupt("continue", 10);
-
-            case 9:
-              arrayPhanNhom.push({
-                tennhom: document.forms["formInfoAdd"]["tenNhom-themsp" + z].value,
-                slnhom: document.forms["formInfoAdd"]["SLNhom-themsp" + z].value,
-                gianhom: document.forms["formInfoAdd"]["GiaNhom-themsp" + z].value
-              });
-
-            case 10:
-              z++;
-              _context2.next = 5;
-              break;
-
-            case 13:
-              slNhomThemSP = 0;
-              sanpham = {
-                tensp: tensp,
-                mota: mota,
-                danhmuc: cate,
-                mangNhom: arrayPhanNhom
-              };
-              _context2.next = 17;
-              return postProduct(sanpham);
-
-            case 17:
+            case 7:
             case "end":
               return _context2.stop();
           }
@@ -26350,9 +26352,8 @@ $(document).ready(function () {
             case 3:
               response = _context3.sent;
 
-              if (response.status === 200) {
-                console.log(response);
-                window.location.reload();
+              if (response.status === 200) {//console.log(response);
+                //window.location.reload();
               }
 
               _context3.next = 10;

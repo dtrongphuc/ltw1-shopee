@@ -91,7 +91,7 @@ class ProductController extends Controller
         // foreach ($images as $img) {
         //     array_push($r, $img->getClientOriginalName());
         // }
-        return response()->json($req->data, 200);
+        return response()->json('a', 200);
     }
 
     public function EditProduct(Request $req)

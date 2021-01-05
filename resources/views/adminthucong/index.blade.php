@@ -278,7 +278,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title">Thêm Sản Phẩm</h4><button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                <form name="formInfoAdd" enctype="multipart/form-data" id="form-add-product" method="POST">
+                <form name="formInfoAdd" enctype="multipart/form-data" id="form-add-product" method="GET">
                     <div class="modal-body row">
                         <div class="col-md-12 itemadd">
                             <label class="col-md-2 labelitem" for="tenSP">Tên Sản Phẩm</label>

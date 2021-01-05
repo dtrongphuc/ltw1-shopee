@@ -125,6 +125,7 @@ Route::get('/delete-product/{id}', [Admin\ProductController::class, 'deleteProdu
 Route::post('/api/admin/new-product', [Admin\ProductController::class, 'AddProduct'])->name('add.product');
 Route::post('/api/admin/get-Group-product', [Admin\ProductController::class, 'GetGroupProductById'])->name('get.GroupProduct');
 Route::post('/api/admin/edit-product', [Admin\ProductController::class, 'EditProduct'])->name('edit.product');
+Route::post('/api/admin/statuschangeorder', [Admin\OrderController::class, 'EditStatus'])->name('edit.statusOrder');
 
 Route::get('/administrator', function () {
     return view('/pages/administrator');

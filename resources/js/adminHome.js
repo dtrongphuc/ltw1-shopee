@@ -28,6 +28,24 @@ $(document).ready(function() {
             submitSuaSP();  
         })
     });
+    // document.querySelectorAll('.SelectstatusOrder').forEach(select => {
+    //     select.addEventListener('change', async () => {
+    //         let id = select.dataset.orderId;
+    //         var status = select.getElementsByClassName("SelectstatusOrder").value;
+    //         console.log(status);
+    //         try {
+    //             const response = await axios.post('/api/admin/statuschangeorder', {
+    //                 id,
+    //                 status
+    //             });
+    //             if (response.status === 200) {
+    //                 console.log(response);
+    //             }
+    //         } catch (e) {
+    //             console.log('error', e.response);
+    //         }
+    //     });
+    // });
 
     function addinputthemsp() {
         slNhomThemSP++;
@@ -120,33 +138,38 @@ $(document).ready(function() {
         document.getElementById("content-phanNhom-suaSP" + slNhomSuaSP).appendChild(bntRemove);
         document.getElementById("btnremove-suaSP" + slNhomSuaSP).appendChild(icon);
     }
-
-
+    
     async function submitThemSP() {
-        var arrayPhanNhom = [];
-        var tensp = document.forms["formInfoAdd"]["tenSP"].value;
-        var mota = document.forms["formInfoAdd"]["motaSP"].value;
-        var cate = document.forms["formInfoAdd"]["category"].value;
+        // var arrayPhanNhom = [];
+        // var tensp = document.forms["formInfoAdd"]["tenSP"].value;
+        // var mota = document.forms["formInfoAdd"]["motaSP"].value;
+        // var cate = document.forms["formInfoAdd"]["category"].value;
 
 
-        for (var z = 0; z <= slNhomThemSP; z++) {
-            var check = document.forms["formInfoAdd"]["tenNhom-themsp" + z].value;
-            if(check == "")
-                continue;
-            arrayPhanNhom.push({
-                tennhom: document.forms["formInfoAdd"]["tenNhom-themsp" + z].value,
-                slnhom: document.forms["formInfoAdd"]["SLNhom-themsp" + z].value,
-                gianhom: document.forms["formInfoAdd"]["GiaNhom-themsp" + z].value
-            })
-        }
-        slNhomThemSP = 0;
-        var sanpham = {
-            tensp: tensp,
-            mota: mota,
-            danhmuc: cate,
-            mangNhom: arrayPhanNhom
-        };
-        await postProduct(sanpham);
+        // for (var z = 0; z <= slNhomThemSP; z++) {
+        //     var check = document.forms["formInfoAdd"]["tenNhom-themsp" + z].value;
+        //     if(check == "")
+        //         continue;
+        //     arrayPhanNhom.push({
+        //         tennhom: document.forms["formInfoAdd"]["tenNhom-themsp" + z].value,
+        //         slnhom: document.forms["formInfoAdd"]["SLNhom-themsp" + z].value,
+        //         gianhom: document.forms["formInfoAdd"]["GiaNhom-themsp" + z].value
+        //     })
+        // }
+        // slNhomThemSP = 0;
+        // var sanpham = {
+        //     tensp: tensp,
+        //     mota: mota,
+        //     danhmuc: cate,
+        //     mangNhom: arrayPhanNhom
+        // };
+        alert("a");
+        var fdata = new FormData();
+        var image =  document.getElementById('upload').files;
+        fdata.append('image', image)
+        console.log(image);
+        await postProduct(image);
+       
     }
 
     async function postProduct(sanpham) {
@@ -155,8 +178,8 @@ $(document).ready(function() {
                 sanpham
             });
             if (response.status === 200) {
-                console.log(response);
-                window.location.reload();
+                //console.log(response);
+                //window.location.reload();
             }
         } catch (e) {
             console.log('error', e.response);
