@@ -20,16 +20,13 @@ class OrderController extends Controller
     }
     public function updateOrder(array $params)
     {
-        $order = $this->findOrderById($params['Id']);
+        // $order = $this->findOrderById($params['Id']);
 
-        $collection = collect($params)->except('_token');
+        // $collection = collect($params)->except('_token');
 
+        // $order->update();
 
-
-
-        $order->update();
-
-
-        return $order;
+        $orders = Order::all();
+        return view('adminthucong/Order', ['orders' => $order]);
     }
 }
