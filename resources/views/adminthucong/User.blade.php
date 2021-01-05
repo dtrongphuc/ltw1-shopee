@@ -60,7 +60,7 @@
                 <div class="box-content-right">
                     <p class="title">Quản lý Người Dùng</p>
                 </div>
-                <div class="card-body">
+                <div class="card-body" id="userAdmin">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
@@ -103,15 +103,9 @@
                             </tbody>
                         </table>
                     </div>
-                    <nav aria-label="Page navigation example" class="pag">
-                        <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                        </ul>
-                    </nav>
+                    <div>
+                        {{$users->links()}}
+                    </div>
                 </div>
             </div>
         </div>

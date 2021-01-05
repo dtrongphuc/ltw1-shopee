@@ -129,7 +129,7 @@
                     <i class="fas fa-fw fa-table"></i>
                     <a href="./usermanagement">Quản lý người dùng</a>
                 </li>
-                <li class="item active">
+                <li class="item">
                     <i class="fas fa-fw fa-table"></i>
                     <a href="./ordermanagement">Quản lý Đơn Hàng</a>
                 </li>

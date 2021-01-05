@@ -60,7 +60,7 @@
                 <div class="box-content-right">
                     <p class="title">Đơn Hàng</p>
                 </div>
-                <div class="card-body">
+                <div class="card-body" id="orderAdmin">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
@@ -99,15 +99,9 @@
                             </tbody>
                         </table>
                     </div>
-                    <nav aria-label="Page navigation example" class="pag">
-                        <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                        </ul>
-                    </nav>
+                    <div>
+                        {{$orders->links()}}
+                    </div>
                 </div>
             </div>
         </div>

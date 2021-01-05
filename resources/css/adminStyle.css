@@ -1,27 +1,27 @@
 .left .headerleft a,
 .left .headerleft .list-item .item a,
 .right .header-right .dropdown-content a,
-.right .header-right .dropdown-content .dropdown-menu a{
+.right .header-right .dropdown-content .dropdown-menu a {
     text-decoration: none !important;
 }
-body{
+body {
     font-size: 12px;
 }
-.avatar{
+.avatar {
     width: 30px;
     height: 30px;
     border-radius: 25px;
 }
-.box-content{
+.box-content {
     display: flex;
 }
-.box-content .left{
+.box-content .left {
     width: 0;
     background-color: #4e73df;
-    background-image: linear-gradient(180deg,#4e73df 10%,#224abe 100%);
+    background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
     background-size: cover;
 }
-.box-content .left .headerleft{
+.box-content .left .headerleft {
     height: 4.375rem;
     text-decoration: none;
     font-size: 1rem;
@@ -29,108 +29,108 @@ body{
     padding: 1.5rem 1rem;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: .05rem;
+    letter-spacing: 0.05rem;
     border-bottom: 1px solid white;
 }
-.box-content .left .list-item .item i{
+.box-content .left .list-item .item i {
     font-size: 1.2em;
-    color: rgba(255,255,255,.8);
+    color: rgba(255, 255, 255, 0.8);
 }
-.box-content .left .list-item .item{
+.box-content .left .list-item .item {
     display: block;
     text-align: left;
     padding: 1rem 0;
 }
-.box-content .left .list-item .item a{
+.box-content .left .list-item .item a {
     font-size: 1.2em;
-    color: rgba(255,255,255,.8);
+    color: rgba(255, 255, 255, 0.8);
 }
-.box-content .left .list-item .item a:hover{
+.box-content .left .list-item .item a:hover {
     color: white;
 }
 
-.box-content .right{
+.box-content .right {
     width: 100%;
 }
-.box-content .right .header-right{
+.box-content .right .header-right {
     display: flex;
     align-items: center;
     padding: 0 30px;
     height: 70px;
-    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important;
     justify-content: space-between;
 }
-.box-content .right .header-right .dropdown-content{
+.box-content .right .header-right .dropdown-content {
     min-width: fit-content !important;
-    width: 150px; 
+    width: 150px;
     top: 4px !important;
 }
-.box-content .right .content-right{ 
+.box-content .right .content-right {
     padding: 25px 15px;
     background: #6360600f;
-    
-    
 }
 .box-content .right .content-right .box-content-right {
     display: flex;
     justify-content: space-between;
 }
-.box-content .right .content-right .box-content-right .title{
+.box-content .right .content-right .box-content-right .title {
     color: #5a5c69;
     font-size: 1.75em;
-    
 }
 
-.box-content .right .content-right .card-body-DM{ 
+.box-content .right .content-right .card-body-DM {
     padding: 15px 9px;
     background: white;
 }
 
-
-.box-content .right .content-right .card-body{ 
+.box-content .right .content-right .card-body {
     padding: 15px 9px;
     background: white;
 }
 
-.box-content .right .content-right .card-body-SP{ 
+.box-content .right .content-right .card-body-SP {
     padding: 15px 9px;
     background: white;
     margin-top: 20px;
 }
 
-
-.box-content .right .content-right .card-body-SP .pag{ 
+.box-content .right .content-right .card-body-SP .pag {
     display: flex;
     flex-direction: row-reverse;
 }
 
-.box-content .right .content-right .card-body .pag{ 
+.box-content .right .content-right .card-body .pag {
     display: flex;
     flex-direction: row-reverse;
 }
 
-.active a{
+.active a {
     color: white !important;
     text-decoration-line: underline !important;
 }
 
-.showLeft .left{
+.showLeft .left {
     width: 18% !important;
     padding: 0 20px;
     min-height: 100vh;
 }
 
-.showLeft .right{
+.showLeft .right {
     width: 82%;
 }
 
-.box-content .right .content-right .chart-column{
+.box-content .right .content-right .chart-column {
     width: 100%;
     background: white;
 }
 
 .box-content .right .content-right .chart-column .tittle-chart,
-.box-content .right .content-right .chart-round .chart-round-item .tittle-chart{
+.box-content
+    .right
+    .content-right
+    .chart-round
+    .chart-round-item
+    .tittle-chart {
     padding: 20px 30%;
     font-size: 18px;
     border-bottom: 1px solid #e3e6f0;
@@ -138,11 +138,11 @@ body{
     color: #4e73df;
 }
 
-.box-content .right .content-right .chart-round{
+.box-content .right .content-right .chart-round {
     margin-bottom: 29px;
 }
 
-.box-content .right .content-right .date-Statistics .total-item{
+.box-content .right .content-right .date-Statistics .total-item {
     width: 290px;
     color: #4e7be1;
     height: 99px;
@@ -150,43 +150,45 @@ body{
     background-color: #f8f9fc;
 }
 
-.box-content .date-Statistics .total-item .detail-Statistics .tittle-Statistics{
+.box-content
+    .date-Statistics
+    .total-item
+    .detail-Statistics
+    .tittle-Statistics {
     font-size: 14px;
     margin-left: 20px;
 }
 
-.box-content .date-Statistics .total-item .detail-Statistics .Statistics{
+.box-content .date-Statistics .total-item .detail-Statistics .Statistics {
     font-size: 34px;
     padding-left: 65px;
 }
 
-
-
-.box-content .date-Statistics .total-item .icon-statistics{
+.box-content .date-Statistics .total-item .icon-statistics {
     width: 78px;
     height: 100%;
     background-color: #f2f0fd;
 }
 
-.modal-dialog .itemadd{
+.modal-dialog .itemadd {
     margin-bottom: 12px;
 }
 
-.modal-dialog .itemadd .labelitem{
+.modal-dialog .itemadd .labelitem {
     padding: 0;
 }
-.modal-dialog .itemadd .inputitem{
+.modal-dialog .itemadd .inputitem {
     padding: 10px;
 }
 
 .card-body-DM .category,
-.card-body-SP .category{
+.card-body-SP .category {
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
 }
 
-.modal-body .itemadd .inputitem-icon{
+.modal-body .itemadd .inputitem-icon {
     margin-left: 42px;
 }
 
@@ -195,6 +197,16 @@ body{
     margin-top: 1rem;
 }
 
-.icon-remove-input{
+#orderAdmin nav > .pagination {
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+#userAdmin nav > .pagination {
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.icon-remove-input {
     display: inline-block;
 }
