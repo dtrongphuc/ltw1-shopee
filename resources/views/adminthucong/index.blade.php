@@ -278,8 +278,9 @@
                 <div class="modal-header">
                     <h4 class="modal-title">Thêm Sản Phẩm</h4><button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                <form name="formInfoAdd" enctype="multipart/form-data" id="form-add-product" method="GET">
-                    <div class="modal-body row">
+                <form name="formInfoAdd" enctype="multipart/form-data" id="form-add-product" method="POST">
+                    @csrf
+                    {{-- <div class="modal-body row">
                         <div class="col-md-12 itemadd">
                             <label class="col-md-2 labelitem" for="tenSP">Tên Sản Phẩm</label>
                             <input class="col-md-9 inputitem" name="tenSP" id="tenSP" type="text" placeholder='Nhập tên Sản Phẩm'>
@@ -290,9 +291,7 @@
                             <textarea class="col-md-9 inputitem" name="motaSP" rows="10" cols="50"></textarea>
                         </div>
                         <div class="col-md-12 itemadd">
-                            <label for="" class="lable-upload"></label>
-                            <input type="file" id="upload" name="upload" accept="image/*" multiple>GetFile
-
+                            <input type="file" id="upload" name="upload" accept="image/*" multiple>
                         </div>
                         <div class="col-md-12 itemadd" id="themPhanNhom-themsp">
                             <label class="col-md-2 labelitem" for="">Phân Nhóm</label>
@@ -309,6 +308,40 @@
                             <select name="category" class="col-md-9 inputitem">
                                 @foreach($category as $cate)
                                 <option value={{$cate->categoryId}}>{{$cate->categoryName}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div> --}}
+                    <div class="modal-body row">
+                        <div class="col-md-12 itemadd">
+                            <label class="col-md-2 labelitem" for="product-name">Tên Sản Phẩm</label>
+                            <input class="col-md-9 inputitem" name="product-name" id="product-name" type="text" placeholder='Nhập tên Sản Phẩm'>
+                        </div>
+
+                        <div class="col-md-12 itemadd " style="display: flex;">
+                            <label class="col-md-2 labelitem" for="product-description">Mô tả</label>
+                            <textarea class="col-md-9 inputitem" name="product-description" id='product-description' rows="10" cols="50"></textarea>
+                        </div>
+                        <div class="col-md-12 itemadd">
+                            <input type="file" id="upload" name="upload" accept="image/*" multiple>
+                        </div>
+                        <div class="col-md-12 itemadd product-types__group">
+                            <label class="col-md-2 labelitem" for="">Phân Nhóm</label>
+                            <div class='col-md-8'>
+                                <input class="col-md-3 inputitem" type="text" name="product-type[]" placeholder='Nhập tên Phân Nhóm'>
+                                <input class="col-md-3 inputitem" type="text" name="product-type-quantity[]" placeholder='Nhập Số Lượng'>
+                                <input class="col-md-2 inputitem" type="text" name="product-type-price[]" placeholder='Nhập Giá'>
+                                <button type="button" class='inputitem-icon btn btn__add-type' name="btn-addInput-themsp" style="display: inline-block;">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 itemadd">
+                            <label class="col-md-2 labelitem" for="">Danh Mục Sản Phẩm</label>
+                            <select name="category" class="col-md-9 inputitem add-product__category">
+                                @foreach($category as $cate)
+                                    <option value={{$cate->categoryId}}>{{$cate->categoryName}}</option>
                                 @endforeach
                             </select>
                         </div>

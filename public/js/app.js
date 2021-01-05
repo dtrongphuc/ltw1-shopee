@@ -26162,31 +26162,40 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 $(document).ready(function () {
   var slNhomThemSP = 0;
   var slNhomSuaSP = 0;
-  document.querySelectorAll('.btn__edit-product').forEach(function (btn) {
-    btn.addEventListener('click', function () {
+  document.querySelectorAll(".btn__edit-product").forEach(function (btn) {
+    btn.addEventListener("click", function () {
       editsp(btn.dataset.productId);
     });
   });
-  document.querySelectorAll('.btn__AddGroup-product').forEach(function (btn) {
-    btn.addEventListener('click', function () {
+  document.querySelectorAll(".btn__AddGroup-product").forEach(function (btn) {
+    btn.addEventListener("click", function () {
       addinputthemsp();
     });
+  }); // document.querySelectorAll(".btn__AddGroup-Editproduct").forEach(btn => {
+  //     btn.addEventListener("click", () => {
+  //         themNhomSuaSP();
+  //     });
+  // });
+  // document.querySelectorAll(".btn__submit-AddProduct").forEach(btn => {
+  //     btn.addEventListener("click", () => {
+  //         submitThemSP();
+  //     });
+  // });
+  //
+  //
+
+  document.querySelector(".btn__add-type").addEventListener("click", function () {
+    addInputType();
   });
-  document.querySelectorAll('.btn__AddGroup-Editproduct').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      themNhomSuaSP();
-    });
-  });
-  document.querySelectorAll('.btn__submit-AddProduct').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      submitThemSP();
-    });
-  });
-  document.querySelectorAll('.btn__submit-EditProduct').forEach(function (btn) {
-    btn.addEventListener('submit', function (e) {
+  document.querySelectorAll(".btn__submit-EditProduct").forEach(function (btn) {
+    btn.addEventListener("submit", function (e) {
       e.preventDefault();
       submitSuaSP();
     });
+  });
+  document.querySelector("#form-add-product").addEventListener("submit", function (e) {
+    e.preventDefault();
+    submitThemSP();
   }); // document.querySelectorAll('.SelectstatusOrder').forEach(select => {
   //     select.addEventListener('change', async () => {
   //         let id = select.dataset.orderId;
@@ -26282,13 +26291,27 @@ $(document).ready(function () {
     document.getElementById("btnremove-suaSP" + slNhomSuaSP).appendChild(icon);
   }
 
+  var addInputType = function addInputType() {
+    var div = document.createElement("div");
+    div.className = "col-md-8 type-group";
+    div.innerHTML = "\n            <input class=\"col-md-3 inputitem\" type=\"text\" name=\"product-type[]\" placeholder='Nh\u1EADp t\xEAn Ph\xE2n Nh\xF3m'>\n            <input class=\"col-md-3 inputitem\" type=\"text\" name=\"product-type-quantity[]\" placeholder='Nh\u1EADp S\u1ED1 L\u01B0\u1EE3ng'>\n            <input class=\"col-md-2 inputitem\" type=\"text\" name=\"product-type-price[]\" placeholder='Nh\u1EADp Gi\xE1'>\n            <button id=\"btnremove-themsp1\" type=\"button\" class=\"icon-remove-input-themsp btn__remove-type\">\n                <i class=\"fas fa-minus-circle\"></i>\n            </button>\n        ";
+    document.querySelector(".product-types__group").appendChild(div);
+    document.querySelector(".btn__add-type").addEventListener("click", function () {
+      addInputType();
+    });
+    document.querySelector(".type-group:last-child > .btn__remove-type").addEventListener("click", function (e) {
+      console.log(e.currentTarget);
+    });
+  };
+
   function submitThemSP() {
     return _submitThemSP.apply(this, arguments);
   }
 
   function _submitThemSP() {
     _submitThemSP = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-      var fdata, image;
+      var fdata, typesGroup, productTypeName, productTypeQuantity, productTypePrice, i, files, _i;
+
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
@@ -26314,15 +26337,34 @@ $(document).ready(function () {
               //     danhmuc: cate,
               //     mangNhom: arrayPhanNhom
               // };
-              alert("a");
               fdata = new FormData();
-              image = document.getElementById('upload').files;
-              fdata.append('image', image);
-              console.log(image);
-              _context2.next = 7;
-              return postProduct(image);
+              fdata.append("productName", document.querySelector("#product-name").value);
+              fdata.append("productDescription", document.querySelector("#product-description").value);
+              fdata.append("categoryId", document.querySelector(".add-product__category").value);
+              typesGroup = [];
+              productTypeName = document.getElementsByName("product-type[]");
+              productTypeQuantity = document.getElementsByName("product-type-quantity[]");
+              productTypePrice = document.getElementsByName("product-type-price[]");
 
-            case 7:
+              for (i = 0; i < productTypeName.length && i < productTypePrice.length && i < productTypeQuantity.length; i++) {
+                typesGroup.push({
+                  name: productTypeName[i].value,
+                  quantity: productTypeQuantity[i].value,
+                  price: productTypePrice[i].value
+                });
+              }
+
+              fdata.append("productTypes", JSON.stringify(typesGroup));
+              files = document.getElementById("upload").files;
+
+              for (_i = 0; _i < files.length; _i++) {
+                fdata.append("images[]", files[_i]);
+              }
+
+              _context2.next = 14;
+              return postProduct(fdata);
+
+            case 14:
             case "end":
               return _context2.stop();
           }
@@ -26337,7 +26379,7 @@ $(document).ready(function () {
   }
 
   function _postProduct() {
-    _postProduct = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(sanpham) {
+    _postProduct = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(product) {
       var response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
         while (1) {
@@ -26345,15 +26387,17 @@ $(document).ready(function () {
             case 0:
               _context3.prev = 0;
               _context3.next = 3;
-              return axios.post('/api/admin/new-product', {
-                sanpham: sanpham
+              return axios.post("/api/admin/new-product", product, {
+                headers: {
+                  "Content-Type": "multipart/form-data"
+                }
               });
 
             case 3:
               response = _context3.sent;
 
-              if (response.status === 200) {//console.log(response);
-                //window.location.reload();
+              if (response.status === 200) {
+                console.log(response); //window.location.reload();
               }
 
               _context3.next = 10;
@@ -26362,7 +26406,7 @@ $(document).ready(function () {
             case 7:
               _context3.prev = 7;
               _context3.t0 = _context3["catch"](0);
-              console.log('error', _context3.t0.response);
+              console.log("error", _context3.t0.response);
 
             case 10:
             case "end":
@@ -26388,7 +26432,7 @@ $(document).ready(function () {
               case 0:
                 _context.prev = 0;
                 _context.next = 3;
-                return axios.post('/api/admin/get-Group-product', {
+                return axios.post("/api/admin/get-Group-product", {
                   id: id
                 });
 
@@ -26406,11 +26450,11 @@ $(document).ready(function () {
                     }
 
                     inputTen = document.getElementsByName("tenNhom-suaSP" + sldiv)[0];
-                    inputTen.setAttribute("value", datasp[sldiv]['name']);
+                    inputTen.setAttribute("value", datasp[sldiv]["name"]);
                     inputsl = document.getElementsByName("SLNhom-suaSP" + sldiv)[0];
-                    inputsl.setAttribute("value", datasp[sldiv]['quantity']);
+                    inputsl.setAttribute("value", datasp[sldiv]["quantity"]);
                     inputgia = document.getElementsByName("GiaNhom-suaSP" + sldiv)[0];
-                    inputgia.setAttribute("value", parseFloat(datasp[sldiv]['price']));
+                    inputgia.setAttribute("value", parseFloat(datasp[sldiv]["price"]));
                   }
 
                   for (indexRemove = datasp.length; indexRemove < sldivdatontai; indexRemove++) {
@@ -26425,7 +26469,7 @@ $(document).ready(function () {
               case 7:
                 _context.prev = 7;
                 _context.t0 = _context["catch"](0);
-                console.log('error', _context.t0.response);
+                console.log("error", _context.t0.response);
 
               case 10:
               case "end":
@@ -26521,7 +26565,7 @@ $(document).ready(function () {
             case 0:
               _context5.prev = 0;
               _context5.next = 3;
-              return axios.post('/api/admin/edit-product', {
+              return axios.post("/api/admin/edit-product", {
                 sanphamSua: sanphamSua
               });
 
@@ -26539,7 +26583,7 @@ $(document).ready(function () {
             case 7:
               _context5.prev = 7;
               _context5.t0 = _context5["catch"](0);
-              console.log('error', _context5.t0.response);
+              console.log("error", _context5.t0.response);
 
             case 10:
             case "end":
@@ -27453,7 +27497,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\DELL\Desktop\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! Z:\Code\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })

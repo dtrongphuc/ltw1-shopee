@@ -16,7 +16,8 @@ class Product extends Model
      * @var string
      */
     protected $primaryKey = 'productId';
-    public $timestamps = false;
+    const CREATED_AT = 'postAt';
+    public $timestamps = true;
     protected $fillable = ['categoryId', 'productName', 'description', 'price', 'quantity', 'likeCount', 'rate', 'sold', 'postAt'];
 
     protected $product = "Products";

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\categories;
 use App\Models\Product;
 use App\Models\ProductType;
+use App\Models\ProductImage;
 
 class ProductController extends Controller
 {
@@ -54,7 +55,7 @@ class ProductController extends Controller
         return redirect()->back(); //quay lai trang truoc
     }
 
-    public function AddProduct(Request $req)
+    public function AddProduct(Request $request)
     {
         // $sp = $req->sanpham;
         // $phanNhom = $sp['mangNhom'];
@@ -91,7 +92,45 @@ class ProductController extends Controller
         // foreach ($images as $img) {
         //     array_push($r, $img->getClientOriginalName());
         // }
-        return response()->json('a', 200);
+
+        
+        $productCount = 0;
+        $producTypes = json_decode($request->productTypes, true);
+        foreach ($producTypes as $type) {
+            $productCount += $type['quantity'];
+        }
+
+        $product = Product::create([
+            'categoryId' => $request->categoryId,
+            'productName' => $request->productName,
+            'description' => $request->productDescription,
+            'price' => $producTypes[0]['price'],
+            'quantity' => $productCount,
+            'likeCount' => 0,
+            'rate' => 0,
+            'sold' => 0,
+        ]);
+
+        if($request->hasFile('images')) {
+            for ($i = 0; $i < count($request->file('images')); $i++) {
+                $publicId = $request->file('images.'.$i)->storeOnCloudinary('products')->getPublicId();
+
+                ProductImage::create([
+                    'productId' => $product->productId,
+                    'productImage' => $publicId,
+                ]);
+            }
+            // foreach($request->get('images') as $image) {
+            //     $publicId = $image->storeOnCloudinary('products')->getPublicId();
+
+            //     ProductImage::create([
+            //         'productId' => $product->productId,
+            //         'productImage' => $publicId,
+            //     ]);
+            // }
+        }
+
+        return response()->json(['success' => true], 200);
     }
 
     public function EditProduct(Request $req)
