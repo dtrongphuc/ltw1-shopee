@@ -14,6 +14,7 @@ class OrderController extends Controller
         $order = Bill::paginate(10);
         return view('adminthucong/Order', ['orders' => $order]);
     }
+<<<<<<< HEAD
 
     public function EditStatus(Request $req)
     {
@@ -24,5 +25,22 @@ class OrderController extends Controller
             ->where('id', 1)
             ->update(['status' => 4]);
         return response()->json($req, 200);
+=======
+    
+    public function findOrderByNumber($orderId)
+    {
+        return Order::where('Id', $orderId)->first();
+    }
+    public function updateOrder(array $params)
+    {
+        // $order = $this->findOrderById($params['Id']);
+
+        // $collection = collect($params)->except('_token');
+
+        // $order->update();
+
+        $orders = Order::all();
+        return view('adminthucong/Order', ['orders' => $order]);
+>>>>>>> 9d9c16b943752742510782b514b82b50f46bd0a0
     }
 }

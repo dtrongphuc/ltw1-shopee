@@ -1,15 +1,22 @@
-document.addEventListener("DOMContentLoaded", function() {
-    let maxItems = $(".product-images__slider").children("div").length;
-    $(".product-images__slider").slick({
-        dots: false,
-        infinite: false,
-        speed: 300,
-        slidesToShow: maxItems >= 5 ? 5 : maxItems,
-        adaptiveHeight: true,
-        slidesToScroll: 1,
-        prevArrow: $(".product-images__ctn--left"),
-        nextArrow: $(".product-images__ctn--right")
-    });
+document.addEventListener("DOMContentLoaded", () => {
+    const initCarousel = () => {
+        let maxItems = document.querySelectorAll(".product-image__item").length;
+        var mySwiper = new Swiper(".swiper-container", {
+            // Optional parameters
+            direction: "horizontal",
+            loop: false,
+            slidesPerView: maxItems >= 5 ? 5 : maxItems,
+            // Navigation arrows
+            navigation: {
+                nextEl: ".product-images__ctn--right",
+                prevEl: ".product-images__ctn--left"
+            }
+        });
+    };
+
+    if (!!document.querySelector(".product-images__slider")) {
+        initCarousel();
+    }
 
     const bigImage = document.querySelector(".product-left__img--big");
     let firstImage = document.querySelector(".image-item__bg");
@@ -17,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
         bigImage.style.backgroundImage =
             firstImage && firstImage.style.backgroundImage;
     }
+
     document.querySelectorAll(".product-image__item").forEach(item => {
         item.addEventListener("mouseover", event => {
             let parent = event.currentTarget;
@@ -212,22 +220,25 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     //tăng giảm số lượng
-    $("#down_dtproduct").click(function(){
-        let quantity_present = parseInt(document.getElementById('quantity').value);
-        if(quantity_present == 1)
-        {
-            document.getElementById('down_dtproduct').style.cursor = "not-allowed";
+    $("#down_dtproduct").click(function() {
+        let quantity_present = parseInt(
+            document.getElementById("quantity").value
+        );
+        if (quantity_present == 1) {
+            document.getElementById("down_dtproduct").style.cursor =
+                "not-allowed";
             return;
         }
-        document.getElementById('quantity').value = quantity_present - 1;
+        document.getElementById("quantity").value = quantity_present - 1;
     });
-    $("#up_dtproduct").click(function(){
-        let quantity_present = parseInt(document.getElementById('quantity').value);
+    $("#up_dtproduct").click(function() {
+        let quantity_present = parseInt(
+            document.getElementById("quantity").value
+        );
         console.log(quantity_present + 1);
-        if(quantity_present == 1)
-        {
-            document.getElementById('down_dtproduct').style.cursor = "pointer";
+        if (quantity_present == 1) {
+            document.getElementById("down_dtproduct").style.cursor = "pointer";
         }
-        document.getElementById('quantity').value = quantity_present + 1;
+        document.getElementById("quantity").value = quantity_present + 1;
     });
 });

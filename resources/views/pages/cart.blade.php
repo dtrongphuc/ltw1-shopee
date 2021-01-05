@@ -17,7 +17,7 @@
             </div>
             <div class="col-md-6">
                 <div class="cart__header-search d-flex justify-content-between">
-                    <input class="form-control cart__header-input form-control" value="1" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control cart__header-input form-control" value="" type="search" placeholder="Search" aria-label="Search">
                     <span class="cart-search d-flex align-items-center justify-content-center">
                         <i class="fas fa-search search-icon"></i>
                     </span>
@@ -120,20 +120,14 @@
         </div>
 
         <div class="cartfooter">
-            <div class="row d-flex justify-content-between align-items-center">
-                <div class="col-md-6">
-                    <div class="cartfooter__selectproduct d-flex align-items-center">
-                        {{-- <button class="btn cartfooter__selectproduct-deleteall">Xóa</button> --}}
-                        <button class="btn cartfooter__selectproduct-favoriteall">Lưu vào mục đã thích</button>
-                    </div>
-                </div>
+            <div class="row d-flex justify-content-end align-items-center">
                 <div class="col-md-6">
                     <div class="cartfooter__buyproduct d-flex align-items-center justify-content-end">
                         <div class="cartfooter__buyproduct-totalmoney d-flex align-items-center">
                             <p class="cartfooter__buyproduct-totalmoney--content">Tổng tiền hàng:</p>
                             <div class="cartfooter__buyproduct-totalmoney--money d-flex">
                                 <h3>đ</h3>
-                                <h3 id="payall">{{number_format(floatval($payall))}}</h3>
+                                <h3 id="payall">{{number_format($payall , 0, ',', '.')}}</h3>
                             </div>
                         </div>
                         <a href="{{'/pay'}}">

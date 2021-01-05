@@ -26575,9 +26575,9 @@ __webpack_require__(/*! ./auth */ "./resources/js/auth.js");
 
 __webpack_require__(/*! ./home */ "./resources/js/home.js");
 
-__webpack_require__(/*! ./cart */ "./resources/js/cart.js");
-
 __webpack_require__(/*! ./product */ "./resources/js/product.js");
+
+__webpack_require__(/*! ./cart */ "./resources/js/cart.js");
 
 __webpack_require__(/*! ./adminHome */ "./resources/js/adminHome.js");
 
@@ -26957,19 +26957,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-//  //check tất cả trong giở hàng
-//  document.getElementById("check-all").onclick = function() {
-//          //lấy ds checkbox
-//          var checkboxs = document.getElementsByName("check-one");
-//          if (document.getElementById("check-all").checked == true)
-//              for (var i = 0; i < checkboxs.length; i++) {
-//                  checkboxs[i].checked = true;
-//              }
-//          else
-//              for (var i = 0; i < checkboxs.length; i++) {
-//                  checkboxs[i].checked = false;
-//              }
-//      }
 var _require = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js"),
     startCase = _require.startCase,
     padStart = _require.padStart;
@@ -27078,20 +27065,67 @@ btnSortSelling === null || btnSortSelling === void 0 ? void 0 : btnSortSelling.a
 /*!*****************************!*\
   !*** ./resources/js/pay.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 $(document).ready(function () {
   $("#coplete_change").on("click", function (e) {
     $("#username").text($("#username_change").val());
     $("#phonenumber").text($("#phonenumber_change").val());
     $("#address").text($("#address_change").val()); // alert($("#username_change").val());
-  }); // $("#btntoorder").on("click", function(e) {
-  //     let username = $("#username").text();
-  //     let phonenumber = $("#phonenumber").text();
-  //     let address = $("#address").text();
-  //     $("#changehref").attr("href", "/pay/paytoorder/" + username + "/" + phonenumber + "/" + address);
-  // });
+  }); //test
+
+  var btnOrder = document.querySelector("#btntoorder");
+  btnOrder === null || btnOrder === void 0 ? void 0 : btnOrder.addEventListener("click", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+    var OrderData, response, _e$response, _e$response$data, messageObj;
+
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            document.getElementById("validator-pay").innerHTML = "";
+            OrderData = {
+              userName: document.getElementById("username").innerHTML,
+              phoneNumber: document.getElementById("phonenumber").innerHTML,
+              addRess: document.getElementById("address").innerHTML
+            };
+            console.log(OrderData);
+            _context.prev = 3;
+            _context.next = 6;
+            return axios.post("/pay/paytoorder", OrderData);
+
+          case 6:
+            response = _context.sent;
+            //chuyể trang purchaseorder
+            window.location.href = 'user/purchaseorder'; // console.log(response);
+
+            _context.next = 15;
+            break;
+
+          case 10:
+            _context.prev = 10;
+            _context.t0 = _context["catch"](3);
+            messageObj = _context.t0 === null || _context.t0 === void 0 ? void 0 : (_e$response = _context.t0.response) === null || _e$response === void 0 ? void 0 : (_e$response$data = _e$response.data) === null || _e$response$data === void 0 ? void 0 : _e$response$data.errors;
+            console.log(messageObj);
+            document.getElementById("validator-pay").innerHTML = Object.values(messageObj)[0]; // console.log(2);
+
+          case 15:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, null, [[3, 10]]);
+  })));
 });
 
 /***/ }),
@@ -27116,17 +27150,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 document.addEventListener("DOMContentLoaded", function () {
   var _$;
 
-  var maxItems = $(".product-images__slider").children("div").length;
-  $(".product-images__slider").slick({
-    dots: false,
-    infinite: false,
-    speed: 300,
-    slidesToShow: maxItems >= 5 ? 5 : maxItems,
-    adaptiveHeight: true,
-    slidesToScroll: 1,
-    prevArrow: $(".product-images__ctn--left"),
-    nextArrow: $(".product-images__ctn--right")
-  });
+  var initCarousel = function initCarousel() {
+    var maxItems = document.querySelectorAll(".product-image__item").length;
+    var mySwiper = new Swiper(".swiper-container", {
+      // Optional parameters
+      direction: "horizontal",
+      loop: false,
+      slidesPerView: maxItems >= 5 ? 5 : maxItems,
+      // Navigation arrows
+      navigation: {
+        nextEl: ".product-images__ctn--right",
+        prevEl: ".product-images__ctn--left"
+      }
+    });
+  };
+
+  if (!!document.querySelector(".product-images__slider")) {
+    initCarousel();
+  }
+
   var bigImage = document.querySelector(".product-left__img--big");
   var firstImage = document.querySelector(".image-item__bg");
 
@@ -27381,24 +27423,24 @@ document.addEventListener("DOMContentLoaded", function () {
   }))); //tăng giảm số lượng
 
   $("#down_dtproduct").click(function () {
-    var quantity_present = parseInt(document.getElementById('quantity').value);
+    var quantity_present = parseInt(document.getElementById("quantity").value);
 
     if (quantity_present == 1) {
-      document.getElementById('down_dtproduct').style.cursor = "not-allowed";
+      document.getElementById("down_dtproduct").style.cursor = "not-allowed";
       return;
     }
 
-    document.getElementById('quantity').value = quantity_present - 1;
+    document.getElementById("quantity").value = quantity_present - 1;
   });
   $("#up_dtproduct").click(function () {
-    var quantity_present = parseInt(document.getElementById('quantity').value);
+    var quantity_present = parseInt(document.getElementById("quantity").value);
     console.log(quantity_present + 1);
 
     if (quantity_present == 1) {
-      document.getElementById('down_dtproduct').style.cursor = "pointer";
+      document.getElementById("down_dtproduct").style.cursor = "pointer";
     }
 
-    document.getElementById('quantity').value = quantity_present + 1;
+    document.getElementById("quantity").value = quantity_present + 1;
   });
 });
 

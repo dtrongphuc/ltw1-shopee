@@ -1,4 +1,4 @@
-@extends('../layouts/master', ['title' => 'Sản phẩm'])
+@extends('../layouts/master', ['title' => $product->productName])
 @section('body')
 @parent
 <main class="main main-product">
@@ -6,15 +6,15 @@
         <div class="main-product__wrapper">
             <div class="main-product__left">
                 <div class="product-left__img product-left__img--big"></div>
-                <div class="product-left__images">
-                    <div class="product-images__slider">
+                <div class="product-left__images swiper-container">
+                    <div class="product-images__slider swiper-wrapper">
                         @if(isset($images))
                             @foreach($images as $image)
-                            <div class="product-image__item">
-                                <div class="image-item__bg" style="background-image: url({{cloudinary()->getImage($image->productImage)}})">
+                                <div class="product-image__item swiper-slide">
+                                    <div class="image-item__bg" style="background-image: url({{cloudinary()->getImage($image->productImage)}})">
+                                    </div>
+                                    <div class="image-item__border"></div>
                                 </div>
-                                <div class="image-item__border"></div>
-                            </div>
                             @endforeach
                         @endif
                     </div>
@@ -118,7 +118,7 @@
                             <li class="statistic-item">
                                 <a href="">
                                     <div class="d-flex align-items-center">
-                                        <span class="statistic-item__number">{{isset($reviews) ? count($reviews) : 0}}</span>
+                                        <span class="statistic-item__number">{{isset($reviewsCount) ? $reviewsCount : 0}}</span>
                                         <p class="statistic-item__text">Đánh Giá</p>
                                     </div>
                                 </a>

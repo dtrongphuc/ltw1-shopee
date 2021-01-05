@@ -20,8 +20,8 @@
     </div>
     <div class="cartbody">
         <div class="container" style="padding-bottom: 70px;">
-            <form action="{{route('pay.toorder')}}" method="POST">
-                @csrf
+            {{-- <form action="{{ route('pay.toorder') }}" method="POST">
+                @csrf --}}
                 <div class="pay__addressship">
                     <div class="pay__addressship-header d-flex align-items-center">
                         <div class="pay__addressship-header--icon">
@@ -34,7 +34,7 @@
                             <div class="pay__addressship-infouser  d-flex align-items-center">
 
                                 <div class="pay__addressship-info--username">
-                                    <strong id="username" >{{ $userinfo[0]->name }}</strong>
+                                    <strong id="username">{{ $userinfo[0]->name }}</strong>
                                 </div>
                                 <div class="pay__addressship-info--phone" style="margin: 0 10px;">
                                     <strong id="phonenumber">(+84) {{ substr($userinfo[0]->phoneNumber, 1) }}</strong>
@@ -74,7 +74,7 @@
                                                                 <input
                                                                     class="address-modal__form_input_name_nameuser_model_input"
                                                                     type="text" placeholder="Họ và tên" id="username_change"
-                                                                    value="{{ $userinfo[0]->name }}" name="username" >
+                                                                    value="{{ $userinfo[0]->name }}" name="username">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -86,8 +86,8 @@
                                                                     class="address-modal__form_input_name_nameuser_model_input"
                                                                     type="text" placeholder="Số điện thoại"
                                                                     id="phonenumber_change"
-                                                                    value="(+84) {{ substr($userinfo[0]->phoneNumber, 1) }}" name="phonenumber"
-                                                                    >
+                                                                    value="(+84) {{ substr($userinfo[0]->phoneNumber, 1) }}"
+                                                                    name="phonenumber">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -99,13 +99,14 @@
                                                                 <input
                                                                     class="address-modal__form_input_name_nameuser_model_input"
                                                                     type="text" placeholder="Địa chỉ" id="address_change"
-                                                                    value="{{ $userinfo[0]->address }}" name="address" >
+                                                                    value="{{ $userinfo[0]->address }}" name="address">
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="shopee-popup-form__footer">
-                                                    <button class="cancel-btn" type="button" data-dismiss="modal">Trở Lại</button>
+                                                    <button class="cancel-btn" type="button" data-dismiss="modal">Trở
+                                                        Lại</button>
                                                     <button class="cancel-btn completed" type="button" data-dismiss="modal"
                                                         id="coplete_change">Hoàn thành</button>
                                                 </div>
@@ -154,8 +155,8 @@
                                 <div class="col-md-5">
                                     <div class="cartbody__checkall d-flex align-items-center ">
                                         <div class="cartbody__products-img">
-                                            <img src="{{cloudinary()->getImage($product->productImage)}}" alt=""
-                                                style="width: 80px; height: 80px;">
+                                            <img src="{{ cloudinary()->getImage('products/' . $product->productImage) }}"
+                                                alt="" style="width: 80px; height: 80px;">
                                         </div>
                                         <h5 class="cartbody__products-productname">
                                             {{ $product->productName }}
@@ -195,10 +196,15 @@
                         </div>
                     </div>
                     <div class="payfooter_btnpay d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary cartfooter__buyproduct-btnbuy" id="btntoorder">Đặt hàng</button>
+                        <div class="d-flex flex-column">
+                            <button type="submit" class="btn btn-primary cartfooter__buyproduct-btnbuy"
+                                id="btntoorder">Đặt hàng</button>
+                            <p class="mt-auto" id="validator-pay" style="color: red; padding-top: 5px; text-align: center"></p>
+                        </div>
                     </div>
                 </div>
-            </form>
+                {{--
+            </form> --}}
         </div>
     </div>
     @include('../layouts/footer')

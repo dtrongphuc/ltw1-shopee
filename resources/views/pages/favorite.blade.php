@@ -1,4 +1,4 @@
-@extends('../layouts/master', ['title' => 'Thông tin cá nhân'])
+@extends('../layouts/master', ['title' => 'Sản phẩm yêu thích'])
 @section('body')
     @parent
     @inject('helper', 'App\Http\Controllers\HomeController')

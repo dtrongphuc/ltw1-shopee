@@ -114,7 +114,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::get('/usermanagement', [Admin\UserController::class, 'index']);
 Route::get('/admin', [Admin\ProductController::class, 'index']);
-Route::get('/ordermanagement', [Admin\OrderController::class, 'index']);
+Route::get('/orderManagement', [Admin\OrderController::class, 'index'])-> name('orderManagement');
 Route::get('/chartstatistical', [Admin\ChartController::class, 'index']);
 Route::get('/categorymanagement/delete/{id}', [CartController::class, 'deleteCartById']);
 

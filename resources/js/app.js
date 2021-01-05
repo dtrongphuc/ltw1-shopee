@@ -1,8 +1,8 @@
 require("./bootstrap");
 require("./auth");
 require("./home");
-require("./cart");
 require("./product");
+require("./cart");
 require("./adminHome");
 require("./pay");
 
