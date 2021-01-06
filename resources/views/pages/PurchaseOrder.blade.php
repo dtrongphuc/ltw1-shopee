@@ -77,7 +77,7 @@
                                         @foreach ($bill as $detailbill)
                                             <div class="order__body-infoproduct d-flex align-items-center">
                                                 <a href="{{'/product/'.$detailbill->productId}}" class="infoproduct__img p-2">
-                                                    <img src="{{ cloudinary()->getImage('products/' . $detailbill->productImage) }}"
+                                                    <img src="{{ cloudinary()->getImage($detailbill->productImage) }}"
                                                         alt="" width="80px" height="80px">
                                                 </a>
                                                 <div class="infoproduct__info p-2 ">

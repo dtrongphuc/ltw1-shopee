@@ -9,7 +9,8 @@
                     <div class="main-info__left">
                         <div class="info__left-header d-flex align-items-center">
                             <div class="info__left-header--img">
-                                <img src="{{cloudinary()->getImage(\Auth::user()->avatar)}}" alt="" class="info__left-imguser">
+                                <img src="{{ cloudinary()->getImage(\Auth::user()->avatar) }}" alt=""
+                                    class="info__left-imguser">
                             </div>
                             <div class="info__left-header--updatename">
                                 <p class="info__left-header--name">{{ explode('@', \Auth::user()->email)[0] }}</p>
@@ -50,21 +51,25 @@
                             <h4 class="favorite__header-content">Sản phẩm yêu thích</h4>
                         </div>
                         <div class="favorite__body">
-                            @if(isset($products) && count($products) > 0)
+                            @if (isset($products) && count($products) > 0)
                                 @foreach ($products as $product)
                                     <div class="favorite__body-product d-flex align-items-center">
-                                        <div class="favorite__product-img p-2">
-                                            <img src="{{cloudinary()->getImage($product->productImage)}}" alt="hình sản phẩm" width="80px"
-                                                height="80px">
-                                        </div>
-                                        <div class="favorite__product-infopeoduct align-items-end flex-column p-2">
-                                            <div class="favorite__product-infopeoduct--name p-2">
-                                                {{ $product->productName }}
+                                        <a href="{{ '/product/' . $product->productId }}" class="p-2">
+                                            <div class="favorite__product-img ">
+                                                <img src="{{ cloudinary()->getImage($product->productImage) }}"
+                                                    alt="hình sản phẩm" width="80px" height="80px">
                                             </div>
-                                            <div class="favorite__product-infopeoduct--price mt-auto p-2">₫
-                                                {{ $product->price }}
+                                        </a>
+                                        <a href="{{ '/product/' . $product->productId }}" class="p-2">
+                                            <div class="favorite__product-infopeoduct align-items-end flex-column ">
+                                                <div class="favorite__product-infopeoduct--name p-2">
+                                                    {{ $product->productName }}
+                                                </div>
+                                                <div class="favorite__product-infopeoduct--price mt-auto p-2">₫
+                                                    {{ $product->price }}
+                                                </div>
                                             </div>
-                                        </div>
+                                        </a>
                                         <div class="favorite__product-infopeoduct-btndelete ml-auto p-2">
                                             <a href="{{ '/user/favorite/delete/' . $product->productId }}">
                                                 <span class="delte-product">Xóa</span>

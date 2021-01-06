@@ -776,15 +776,16 @@ a:hover {
 }
 
 .button-search {
-    cursor: pointer;
+    border: none;
+    outline: none;
+    background: red;
+    padding: 6px 24px;
+    border-radius: 2px;
 }
 
 .search,
 .button-search .search-icon {
     color: white;
-    background: red;
-    padding: 6px 24px;
-    border-radius: 2px;
 }
 
 .cart-button {
@@ -2873,6 +2874,7 @@ body {
 .infoproduct__info-name {
     font-size: 16px;
     font-weight: 400;
+    color: black;
 }
 
 .infoproduct__info-type {
@@ -2883,6 +2885,7 @@ body {
 .infoproduct__info-quantity,
 .order__footer-content {
     font-size: 14px;
+    color: black;
 }
 
 .infoproduct__info-price,

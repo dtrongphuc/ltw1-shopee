@@ -67,10 +67,11 @@
                             <div class="search-keyword">
                                 <form action="{{ route('search') }}" method="GET">
                                     <div class="search" >
-                                        <input class="input-search" type="text" name="querySearch"  
+                                        <input class="input-search" type="text" name="keyword"  
                                             placeholder="Tìm sản Phẩm, Thương Hiệu, và tên shoppe">
-                                        <span class="button-search d-flex align-items-center justify-content-center"><i
-                                                class="fas fa-search search-icon"></i></span>
+                                        <button type="submit" class="button-search d-flex align-items-center justify-content-center">
+                                            <i class="fas fa-search search-icon"></i>
+                                        </button>
                                 </form>
                             </div>
                             </div>

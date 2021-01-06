@@ -74,7 +74,7 @@
                                 <div class="cartbody__products-check">
                                 </div>
                                 <div class="cartbody__products-img">
-                                    <img src="{{cloudinary()->getImage('products/' . $product->productImage) }}" alt="" style="width: 80px; height: 80px;">
+                                    <img src="{{cloudinary()->getImage($product->productImage) }}" alt="" style="width: 80px; height: 80px;">
                                 </div>
                                 <h5 class="cartbody__products-productname">
                                     {{$product->productName}}
@@ -127,7 +127,7 @@
                             <p class="cartfooter__buyproduct-totalmoney--content">Tổng tiền hàng:</p>
                             <div class="cartfooter__buyproduct-totalmoney--money d-flex">
                                 <h3>đ</h3>
-                                <h3 id="payall">{{number_format($payall , 0, ',', '.')}}</h3>
+                                <h3 id="payall">{{number_format($payall)}}</h3>
                             </div>
                         </div>
                         <a href="{{'/pay'}}">
