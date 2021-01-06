@@ -17,7 +17,7 @@ class CreateReviewsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('userId');
             $table->foreign('userId')->references('id')->on('users');
-            $table->integer('productId');
+            $table->unsignedBigInteger('productId');
             $table->foreign('productId')->references('productId')->on('products');
             $table->text('text');
             $table->float('rate');
