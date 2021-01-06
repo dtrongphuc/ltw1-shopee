@@ -2864,6 +2864,7 @@ body {
 .infoproduct__info-name {
     font-size: 16px;
     font-weight: 400;
+    color: black;
 }
 
 .infoproduct__info-type {
@@ -2874,6 +2875,7 @@ body {
 .infoproduct__info-quantity,
 .order__footer-content {
     font-size: 14px;
+    color: black;
 }
 
 .infoproduct__info-price,
