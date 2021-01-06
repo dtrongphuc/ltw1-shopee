@@ -21,8 +21,8 @@ class OrderController extends Controller
         $status = $req->status;
 
         $bill = DB::table('bills')
-            ->where('id', 1)
-            ->update(['status' => 4]);
+            ->where('id', $id)
+            ->update(['status' => $status]);
         return response()->json($req, 200);
     }
     // public function findOrderByNumber($orderId)

@@ -8,29 +8,9 @@ $(document).ready(function() {
     document.querySelector(".btn__add-type")?.addEventListener("click", () => {
         addInputType(".product-types__group");
     });
-<<<<<<< HEAD
     
     document.querySelector(".btn__add-type--edit")?.addEventListener("click", () => {
         addInputType(".product-types__group-edit");
-=======
-
-    // document.querySelectorAll(".btn__AddGroup-Editproduct").forEach(btn => {
-    //     btn.addEventListener("click", () => {
-    //         themNhomSuaSP();
-    //     });
-    // });
-
-    // document.querySelectorAll(".btn__submit-AddProduct").forEach(btn => {
-    //     btn.addEventListener("click", () => {
-    //         submitThemSP();
-    //     });
-    // });
-
-    //
-    //
-    document.querySelector(".btn__add-type")?.addEventListener("click", () => {
-        addInputType();
->>>>>>> 02f2bd096c33d3be32ec30498a97fd651ea19bf6
     });
 
     document.querySelector(".btn-themSp")?.addEventListener("click", () => {
@@ -53,21 +33,19 @@ $(document).ready(function() {
     document.querySelectorAll('.SelectstatusOrder').forEach(select => {
         select.addEventListener('change', async () => {
 
-            // let id = select.dataset.orderId;
+            let id = select.dataset.orderId;
             var status = select.value;
-            console.log(status);
-            // console.log(status);
-            // try {
-            //     const response = await axios.post('/api/admin/statuschangeorder', {
-            //         id,
-            //         status
-            //     });
-            //     if (response.status === 200) {
-            //         console.log(response);
-            //     }
-            // } catch (e) {
-            //     console.log('error', e.response);
-            // }
+            try {
+                const response = await axios.post('/api/admin/statuschangeorder', {
+                    id,
+                    status
+                });
+                if (response.status === 200) {
+                    console.log(response);
+                }
+            } catch (e) {
+                console.log('error', e.response);
+            }
         });
     });
 
@@ -81,12 +59,7 @@ $(document).ready(function() {
         }
     }
 
-<<<<<<< HEAD
     const addInputType = (className) => {
-=======
-    const addInputType = () => {
-        console.log("add");
->>>>>>> 02f2bd096c33d3be32ec30498a97fd651ea19bf6
         let div = document.createElement("div");
         div.className = "type-group type-group--input";
         div.innerHTML = `
@@ -94,17 +67,7 @@ $(document).ready(function() {
             <input class=" inputitem" type="text" name="product-type-quantity[]" placeholder='Nhập Số Lượng'>
             <input class=" inputitem" type="text" name="product-type-price[]" placeholder='Nhập Giá'>
         `;
-<<<<<<< HEAD
         document.querySelector(className).appendChild(div);
-=======
-        document.querySelector(".product-types__group").appendChild(div);
-
-        document
-            .querySelector(".type-group:last-child > .btn__remove-type")
-            .addEventListener("click", e => {
-                console.log(e.currentTarget);
-            });
->>>>>>> 02f2bd096c33d3be32ec30498a97fd651ea19bf6
     };
 
     async function submitThemSP() {
@@ -293,3 +256,4 @@ $(document).ready(function() {
         }
     });
 });
+
