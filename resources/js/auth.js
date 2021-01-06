@@ -70,6 +70,10 @@ loginForm &&
             btnSubmit.disabled = true;
             const response = await axios.post("login", loginData);
             if (response.status === 200) {
+                if (response.data?.role === 1) {
+                    window.location.href = "/admin";
+                    return;
+                }
                 window.location.href = "/";
             }
         } catch (error) {

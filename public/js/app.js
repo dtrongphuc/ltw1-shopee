@@ -26745,7 +26745,7 @@ registerForm && registerForm.addEventListener("submit", /*#__PURE__*/function ()
 }());
 loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
-    var formData, loginData, response, _error$response2, _error$response2$data, messageObj, fields;
+    var formData, loginData, response, _response$data, _error$response2, _error$response2$data, messageObj, fields;
 
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
       while (1) {
@@ -26766,19 +26766,32 @@ loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
           case 8:
             response = _context2.sent;
 
-            if (response.status === 200) {
-              window.location.href = "/";
+            if (!(response.status === 200)) {
+              _context2.next = 14;
+              break;
             }
 
-            _context2.next = 25;
+            if (!(((_response$data = response.data) === null || _response$data === void 0 ? void 0 : _response$data.role) === 1)) {
+              _context2.next = 13;
+              break;
+            }
+
+            window.location.href = "/admin";
+            return _context2.abrupt("return");
+
+          case 13:
+            window.location.href = "/";
+
+          case 14:
+            _context2.next = 29;
             break;
 
-          case 12:
-            _context2.prev = 12;
+          case 16:
+            _context2.prev = 16;
             _context2.t0 = _context2["catch"](4);
 
             if (!(_context2.t0.response.status === 401)) {
-              _context2.next = 18;
+              _context2.next = 22;
               break;
             }
 
@@ -26786,11 +26799,11 @@ loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
             errorAlert.style.display = "block";
             return _context2.abrupt("return");
 
-          case 18:
+          case 22:
             messageObj = _context2.t0 === null || _context2.t0 === void 0 ? void 0 : (_error$response2 = _context2.t0.response) === null || _error$response2 === void 0 ? void 0 : (_error$response2$data = _error$response2.data) === null || _error$response2$data === void 0 ? void 0 : _error$response2$data.data;
 
             if (!messageObj.error) {
-              _context2.next = 23;
+              _context2.next = 27;
               break;
             }
 
@@ -26798,24 +26811,24 @@ loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
             errorAlert.style.display = "block";
             return _context2.abrupt("return");
 
-          case 23:
+          case 27:
             fields = Object.keys(messageObj);
             fields.forEach(function (field) {
               document.querySelector("#" + field).classList.add("is-invalid");
               document.querySelector("#".concat(field, " + .invalid-feedback")).innerHTML = messageObj[field];
             });
 
-          case 25:
-            _context2.prev = 25;
+          case 29:
+            _context2.prev = 29;
             btnSubmit.disabled = false;
-            return _context2.finish(25);
+            return _context2.finish(29);
 
-          case 28:
+          case 32:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[4, 12, 25, 28]]);
+    }, _callee2, null, [[4, 16, 29, 32]]);
   }));
 
   return function (_x2) {
