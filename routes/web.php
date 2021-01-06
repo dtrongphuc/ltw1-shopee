@@ -130,7 +130,6 @@ Route::group(['middleware' => ['admin']], function () {
     
 });
 
-
 // Route::get('/admin', function () {
 //     return view('/adminthucong/index');
 // });
