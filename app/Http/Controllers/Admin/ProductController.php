@@ -10,6 +10,8 @@ use App\Models\Product;
 use App\Models\ProductType;
 use App\Models\ProductImage;
 
+use function PHPSTORM_META\type;
+
 class ProductController extends Controller
 {
     public function index()
@@ -18,6 +20,7 @@ class ProductController extends Controller
 
         $product = DB::table('products')
             ->where('products.status', '=', '1')
+            ->where('categories.status', '=', '1')
             ->select(
                 'products.productId',
                 'products.productName',
@@ -43,7 +46,8 @@ class ProductController extends Controller
     {
         $id = $req->id;
         $productype = DB::table('product_types')->where('productId', '=', $id)->get();
-        return response()->json($productype, 200);
+        $product = DB::table('products')->where('productId', '=', $id)->get();
+        return response()->json([$productype, $product], 200);
     }
 
     public function deleteProducttById($id)
@@ -57,43 +61,6 @@ class ProductController extends Controller
 
     public function AddProduct(Request $request)
     {
-        // $sp = $req->sanpham;
-        // $phanNhom = $sp['mangNhom'];
-        // $localtime = date("Y-m-d", time());
-        // $tongsl = 0;
-        // for ($i = 0; $i < count($phanNhom); $i++) {
-        //     $tongsl = $tongsl + (float)$phanNhom[$i]['slnhom'];
-        // }
-        // $Product = Product::create([
-        //     'categoryId' => $sp['danhmuc'],
-        //     'productName' => $sp['tensp'],
-        //     'description' => $sp['mota'],
-        //     'price' => $phanNhom[0]['gianhom'],
-        //     'quantity' => $tongsl,
-        //     'likeCount' => 0,
-        //     'rate' => 0,
-        //     'sold' => 0,
-        //     'postAt' => $localtime
-        // ]);
-
-        // $id = DB::table('products')->max('productId');
-
-        // for ($p = 0; $p < count($phanNhom); $p++) {
-        //     $nhom = ProductType::create([
-        //         'productId' => $id,
-        //         'name' => $phanNhom[$p]['tennhom'],
-        //         'quantity' =>   $phanNhom[$p]['slnhom'],
-        //         'price' =>  $phanNhom[$p]['gianhom'],
-        //     ]);
-        // }
-
-        // $images = $req->file('images');
-        // $r = array();
-        // foreach ($images as $img) {
-        //     array_push($r, $img->getClientOriginalName());
-        // }
-
-        
         $productCount = 0;
         $producTypes = json_decode($request->productTypes, true);
         foreach ($producTypes as $type) {
@@ -111,56 +78,72 @@ class ProductController extends Controller
             'sold' => 0,
         ]);
 
-        if($request->hasFile('images')) {
+        foreach ($producTypes as $type) {
+            $producttype = ProductType::create([
+                'productId' => $product->productId,
+                'name' => $type['name'],
+                'quantity' => $type['quantity'],
+                'price' => $type['price']
+            ]);
+        }
+
+        if ($request->hasFile('images')) {
             for ($i = 0; $i < count($request->file('images')); $i++) {
-                $publicId = $request->file('images.'.$i)->storeOnCloudinary('products')->getPublicId();
+                $publicId = $request->file('images.' . $i)->storeOnCloudinary('products')->getPublicId();
 
                 ProductImage::create([
                     'productId' => $product->productId,
                     'productImage' => $publicId,
                 ]);
             }
-            // foreach($request->get('images') as $image) {
-            //     $publicId = $image->storeOnCloudinary('products')->getPublicId();
-
-            //     ProductImage::create([
-            //         'productId' => $product->productId,
-            //         'productImage' => $publicId,
-            //     ]);
-            // }
         }
 
         return response()->json(['success' => true], 200);
     }
 
-    public function EditProduct(Request $req)
+    public function EditProduct(Request $request)
     {
-        $data = $req->sanphamSua;
-        $phanNhom = $data['mangNhom'];
-        $tongsl = 0;
-        for ($i = 0; $i < count($phanNhom); $i++) {
-            $tongsl = $tongsl + (float)$phanNhom[$i]['slnhom'];
+        $productCount = 0;
+        $producTypes = json_decode($request->productTypes, true);
+        foreach ($producTypes as $type) {
+            $productCount += $type['quantity'];
         }
-        $product = Product::where('productId', '=', (int)$data['id'])
+
+
+        $product = Product::where('productId', '=', (int)$request->productId)
             ->update([
-                'categoryId' => $data['danhmuc'],
-                'productName' => $data['tensp'],
-                'description' => $data['mota'],
-                'price' => $phanNhom[0]['gianhom'],
-                'quantity' => $tongsl,
+                'categoryId' => $request->categoryId,
+                'productName' => $request->productName,
+                'description' => $request->productDescription,
+                'price' => $producTypes[0]['price'],
+                'quantity' => $productCount,
                 'likeCount' => 0,
                 'rate' => 0,
                 'sold' => 0,
             ]);
-        $remove =  DB::table('product_types')->where('product_types.productId', '=', (int)$data['id'])->delete();
-        for ($p = 0; $p < count($phanNhom); $p++) {
-            $nhom = ProductType::create([
-                'productId' => (int)$data['id'],
-                'name' => $phanNhom[$p]['tennhom'],
-                'quantity' =>   $phanNhom[$p]['slnhom'],
-                'price' =>  $phanNhom[$p]['gianhom'],
+
+        $productImageremove = ProductImage::where('productId', '=', (int)$request->productId)->delete();
+        if ($request->hasFile('images')) {
+            for ($i = 0; $i < count($request->file('images')); $i++) {
+                $publicId = $request->file('images.' . $i)->storeOnCloudinary('products')->getPublicId();
+
+                ProductImage::create([
+                    'productId' => $request->productId,
+                    'productImage' => $publicId,
+                ]);
+            }
+        }
+
+        $productTyperemove = ProductType::where('productId', '=', (int)$request->productId)->delete();
+        foreach ($producTypes as $type) {
+            $producttype = ProductType::create([
+                'productId' => $request->productId,
+                'name' => $type['name'],
+                'quantity' => $type['quantity'],
+                'price' => $type['price']
             ]);
         }
-        return response()->json($req->sanphamSua, 200);
+
+        return response()->json(['success' => true], 200);
     }
 }
