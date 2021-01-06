@@ -235,13 +235,16 @@
                     <div class="modal-body row">
                         <div class="col-md-12 itemadd">
                             <label class="col-md-2 labelitem" for="product-name">Tên Sản Phẩm</label>
-                            <input class="col-md-9 inputitem" name="product-name" id="product-name" type="text" placeholder='Nhập tên Sản Phẩm' require>
+                            <input class="col-md-9 inputitem " name="product-name" id="product-name" type="text" placeholder='Nhập tên Sản Phẩm' require>
+                            <div id="error_productName"></div>
                         </div>
 
                         <div class="col-md-12 itemadd " style="display: flex;">
                             <label class="col-md-2 labelitem" for="product-description">Mô tả</label>
                             <textarea class="col-md-9 inputitem" name="product-description" id='product-description' rows="10" cols="50" require></textarea>
                         </div>
+                        <p id="erroe_productDescription"></p>
+
                         <div class="col-md-12 itemadd">
                             <input type="file" id="upload" name="upload" accept="image/*" multiple require>
                         </div>
@@ -256,6 +259,7 @@
                                         <i class="fas fa-plus"></i>
                                     </button>
                                 </div>
+                                <p id="erroe_productDescription"></p>
                             </div>
                         </div>
 

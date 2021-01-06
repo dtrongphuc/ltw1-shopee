@@ -26229,6 +26229,7 @@ $(document).ready(function () {
     var divRemove = document.querySelectorAll(".type-group");
 
     for (var indexRemove = 0; indexRemove < divRemove.length; indexRemove++) {
+      console.log("here");
       divRemove[indexRemove].remove();
     }
   }
@@ -26252,6 +26253,27 @@ $(document).ready(function () {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
+              document.getElementById("error_productName").innerHTML = "";
+              document.getElementById("erroe_productDescription").innerHTML = "";
+
+              if (!(document.querySelector("#product-name").value.trim() == "")) {
+                _context2.next = 5;
+                break;
+              }
+
+              document.getElementById("error_productName").innerHTML = "không được bỏ trống";
+              return _context2.abrupt("return");
+
+            case 5:
+              if (!(document.querySelector("#product-description").value.trim() == "")) {
+                _context2.next = 8;
+                break;
+              }
+
+              document.getElementById("erroe_productDescription").innerHTML = "không được bỏ trống";
+              return _context2.abrupt("return");
+
+            case 8:
               fdata = new FormData();
               fdata.append("productName", document.querySelector("#product-name").value);
               fdata.append("productDescription", document.querySelector("#product-description").value);
@@ -26283,10 +26305,10 @@ $(document).ready(function () {
                 fdata.append("images[]", files[_i]);
               }
 
-              _context2.next = 14;
+              _context2.next = 22;
               return postProduct(fdata);
 
-            case 14:
+            case 22:
             case "end":
               return _context2.stop();
           }
@@ -26372,7 +26394,6 @@ $(document).ready(function () {
                 document.getElementById(datasp[0].categoryId).selected = true; //xóa hết tất cả cac div được tạo
 
                 divRemove = document.querySelectorAll(".type-group");
-                console.log(divRemove);
 
                 for (indexRemove = 0; indexRemove < divRemove.length; indexRemove++) {
                   console.log("here");

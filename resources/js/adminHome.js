@@ -52,9 +52,10 @@ $(document).ready(function() {
 
     function Removeimput(){
         //xóa hết tất cả cac div được tạo
+        
         var divRemove = document.querySelectorAll(".type-group");
         for (var indexRemove = 0; indexRemove < divRemove.length; indexRemove++) {
-            
+            console.log("here");
             divRemove[indexRemove].remove();
         }
     }
@@ -71,6 +72,20 @@ $(document).ready(function() {
     };
 
     async function submitThemSP() {
+        document.getElementById("error_productName").innerHTML = "";
+        document.getElementById("erroe_productDescription").innerHTML = "";
+        
+        if(document.querySelector("#product-name").value.trim() == "")
+        {
+            document.getElementById("error_productName").innerHTML = "không được bỏ trống";
+            return;
+        }
+        if(document.querySelector("#product-description").value.trim() == "")
+        {
+            document.getElementById("erroe_productDescription").innerHTML = "không được bỏ trống";
+            return;
+        }
+
         var fdata = new FormData();
         fdata.append(
             "productName",
@@ -156,7 +171,6 @@ $(document).ready(function() {
                     //xóa hết tất cả cac div được tạo
                     
                     var divRemove = document.querySelectorAll(".type-group");
-                    console.log(divRemove);
                     for (var indexRemove = 0; indexRemove < divRemove.length; indexRemove++) {
                         console.log("here");
                         divRemove[indexRemove].remove();
