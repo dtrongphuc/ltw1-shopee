@@ -27016,7 +27016,7 @@ $(document).ready(function () {
     var productid = $(this).attr("data-id"); // let productname = $(this).attr("data-productname"); //id.substring(3);
     // alert(productname);
 
-    var quantity = $("#quantity_" + productid).val(); // alert(quantity);
+    var quantity = $("#quantity_" + productid).val(); //alert(quantity);
 
     if (parseInt(quantity) == 1 && id.substring(0, 2) == "dw") return;
     $.ajax({
@@ -27032,27 +27032,25 @@ $(document).ready(function () {
         //trả ra giá đã tăng or đã giảm
         //alert(response);
         $("#quantity_" + productid).val(response);
-        UpPriceFromQuantity(productid, response, id.substring(0, 2));
+        UpPriceFromQuantity(productid, response, id.substring(0, 2)); //alert(quantity);
       }
     });
   });
 });
 
 function UpPriceFromQuantity(productid, quantity, statusid) {
-  var price = $("#price_" + productid).text();
-  var price_after = parseInt(price.substring(0, price.length - 3)) * quantity;
-  $("#toltalprice_" + productid).text(StringToMoney(price_after.toString()) + ",000");
-  var pay = $("#payall").text();
-  var price_all = parseInt(pay.substring(0, pay.length - 4).replace(/,/i, ''));
-  var payprice = 0;
-  if (statusid == "dw") payprice = parseInt(price_all) - parseInt(price.substring(0, price.length - 3));else payprice = parseInt(price_all) + parseInt(price.substring(0, price.length - 3));
-  $("#payall").text(StringToMoney(payprice.toString()) + ",000");
-}
+  //lấy giá của 1 sp 
+  var price = $("#price_" + productid).text(); //giá của 1 sp nhân số lượng
 
-function StringToMoney(str) {
-  if (str.length > 6) str = str.substring(0, str.length - 3) + "," + str.substring(0, str.length - 6) + "," + str.substring(1);
-  if (str.length > 3) str = str.substring(0, str.length - 3) + "," + str.substring(1);
-  return str;
+  var price_after = parseInt(price.replace(/,/g, '')) * quantity;
+  $("#toltalprice_" + productid).text(new Intl.NumberFormat().format(price_after)); //lấy tổng tien2 tất cả sp đã chọn
+
+  var pay = $("#payall").text();
+  var price_all = pay.replace(/,/g, '');
+  var payprice = 0; //nếu id dw là giảm thì trừ ra ngc lại cộng lên 
+
+  if (statusid == "dw") payprice = parseInt(price_all) - parseInt(price.replace(/,/g, ''));else payprice = parseInt(price_all) + parseInt(price.replace(/,/g, ''));
+  $("#payall").text(new Intl.NumberFormat().format(payprice));
 }
 
 /***/ }),
@@ -27497,7 +27495,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! Z:\Code\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! F:\2020-2021-HK1\LTWeb 1\Project\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })
