@@ -176,7 +176,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             const response = await axios.post("/product/add-to-cart", cartData);
-            console.log(response);
+            if (response.status === 200) {
+                console.log(response);
+                document.querySelector(".header-cart__count").innerHTML =
+                    response.data?.count;
+            }
         } catch (e) {
             let messageObj = e?.response?.data?.errors;
             document.querySelector(

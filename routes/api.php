@@ -2,8 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\ChartController;
-use App\Http\Controllers\Cart\CartController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,8 +16,3 @@ use App\Http\Controllers\Cart\CartController;
 Route::get('/statisticalquarter', [ChartController::class, 'StatisticalQuarter']);
 Route::get('/statisticalyear', [ChartController::class, 'StatisticalYear']);
 Route::get('/statisticalmonth', [ChartController::class, 'StatisticalMonth']);
-//giỏ hàng
-Route::post('/cart/UpQuantity', [CartController::class, 'upQuantityProduct'])->name('cart.upquantify');
-Route::post('/cart/DownQuantity', [CartController::class, 'DownQuantityProduct'])->name('cart.downquantify');
-
-// Product

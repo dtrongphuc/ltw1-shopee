@@ -28,6 +28,8 @@ use App\Http\Controllers\Admin;
 |
 */
 
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
 // Verification
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
@@ -131,9 +133,6 @@ Route::get('/administrator', function () {
     return view('/pages/administrator');
 });
 
-Route::get('/', [HomeController::class, 'index']);
-//Route::get('/', [HomeController::class, 'ListProducts']);
-//Route::get('/', [HomeController::class, 'ProductImages']);
 
 //giỏ hàng
 Route::get('/cart/delete/{cartid}', [CartController::class, 'deleteCartById'])->name('cart.delete');
@@ -148,3 +147,7 @@ Route::get('/search', [HomeController::class, 'searchProduct'])->name('search');
 
 //đơn mua hàng
 // Route::get('/purchaseorder', [PurchaseOrderController::class], 'purchaseorder');
+
+//giỏ hàng
+Route::post('/api/cart/UpQuantity', [CartController::class, 'upQuantityProduct'])->name('cart.upquantify');
+Route::post('/api/cart/DownQuantity', [CartController::class, 'DownQuantityProduct'])->name('cart.downquantify');

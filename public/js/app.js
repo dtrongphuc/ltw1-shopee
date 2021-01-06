@@ -27382,7 +27382,7 @@ document.addEventListener("DOMContentLoaded", function () {
   btnAddToCart === null || btnAddToCart === void 0 ? void 0 : btnAddToCart.addEventListener("click", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
     var _document$querySelect;
 
-    var cartData, response, _e$response, _e$response$data, messageObj;
+    var cartData, response, _response$data, _e$response, _e$response$data, messageObj;
 
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
       while (1) {
@@ -27401,7 +27401,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
           case 6:
             response = _context3.sent;
-            console.log(response);
+
+            if (response.status === 200) {
+              console.log(response);
+              document.querySelector(".header-cart__count").innerHTML = (_response$data = response.data) === null || _response$data === void 0 ? void 0 : _response$data.count;
+            }
+
             _context3.next = 15;
             break;
 
@@ -27495,7 +27500,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! F:\2020-2021-HK1\LTWeb 1\Project\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! Z:\Code\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })

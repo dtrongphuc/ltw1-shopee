@@ -41,7 +41,7 @@ class AuthController extends AuthBaseController
                 return $this->sendError('Verify Error.', ['verify' => 'Tài khoản chưa được xác thực'], 401);
             }
             Auth::login($user);
-            return $this->sendResponse('User login successfully.');
+            return $this->sendResponse(['role' => $user->role]);
         } else {
             return $this->sendError('Unauthorized.', ['error' => 'Lỗi xác thực']);
         }
