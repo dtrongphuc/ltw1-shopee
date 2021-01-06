@@ -174,6 +174,7 @@ $(document).ready(function() {
     }
 
     const addInputType = () => {
+        console.log("add");
         let div = document.createElement("div");
         div.className = "col-md-8 type-group";
         div.innerHTML = `
@@ -185,12 +186,6 @@ $(document).ready(function() {
             </button>
         `;
         document.querySelector(".product-types__group").appendChild(div);
-
-        document
-            .querySelector(".btn__add-type")
-            .addEventListener("click", () => {
-                addInputType();
-            });
 
         document
             .querySelector(".type-group:last-child > .btn__remove-type")

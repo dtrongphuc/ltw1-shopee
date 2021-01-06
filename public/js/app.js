@@ -26292,13 +26292,11 @@ $(document).ready(function () {
   }
 
   var addInputType = function addInputType() {
+    console.log("add");
     var div = document.createElement("div");
     div.className = "col-md-8 type-group";
     div.innerHTML = "\n            <input class=\"col-md-3 inputitem\" type=\"text\" name=\"product-type[]\" placeholder='Nh\u1EADp t\xEAn Ph\xE2n Nh\xF3m'>\n            <input class=\"col-md-3 inputitem\" type=\"text\" name=\"product-type-quantity[]\" placeholder='Nh\u1EADp S\u1ED1 L\u01B0\u1EE3ng'>\n            <input class=\"col-md-2 inputitem\" type=\"text\" name=\"product-type-price[]\" placeholder='Nh\u1EADp Gi\xE1'>\n            <button id=\"btnremove-themsp1\" type=\"button\" class=\"icon-remove-input-themsp btn__remove-type\">\n                <i class=\"fas fa-minus-circle\"></i>\n            </button>\n        ";
     document.querySelector(".product-types__group").appendChild(div);
-    document.querySelector(".btn__add-type").addEventListener("click", function () {
-      addInputType();
-    });
     document.querySelector(".type-group:last-child > .btn__remove-type").addEventListener("click", function (e) {
       console.log(e.currentTarget);
     });
