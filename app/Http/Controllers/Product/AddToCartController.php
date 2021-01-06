@@ -38,6 +38,8 @@ class AddToCartController extends Controller
             'type' => $request->type,
         ]);
 
-        return response()->json(['success' => true], 200);
+        $cartCount = Cart::where('userId', '=', $userId)->count();
+
+        return response()->json(['success' => true, 'count' => $cartCount], 200);
     }
 }
