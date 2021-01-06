@@ -2616,6 +2616,16 @@ body {
     display: inline-block;
 }
 
+.product-types__group .type-group--input,
+.product-types__group-edit .type-group--input {
+    margin-bottom: 10px;
+}
+
+.product-types__group,
+.product-types__group-edit {
+    width: calc(100% - 165px);
+}
+
 .main-info {
     margin: 40px 0;
 }

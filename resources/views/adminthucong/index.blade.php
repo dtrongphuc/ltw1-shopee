@@ -104,13 +104,13 @@
                                                             <div class="modal-body row">
                                                                 <div class="col-md-12 itemadd">
                                                                     <label class="col-md-2 labelitem" for="">Tên Danh Mục</label>
-                                                                    <input class="col-md-9 inputitem" name="tenDM" type="text" placeholder='Nhập tên Danh Mục' value="{{$category[$i]->categoryName}}">
+                                                                    <input class="col-md-9 inputitem" name="tenDM" type="text" placeholder='Nhập tên Danh Mục' value="{{$category[$i]->categoryName}}" require>
                                                                     <input type="hidden" name="IdDM" value="{{$category[$i]->categoryId}}">
                                                                 </div>
 
                                                                 <div class="col-md-12 itemadd">
                                                                     <label class="col-md-2 labelitem" for="">Mô tả</label>
-                                                                    <textarea class="col-md-9 inputitem" name="motaDM" cols="50">{{$category[$i]->description}}</textarea>
+                                                                    <textarea class="col-md-9 inputitem" name="motaDM" cols="50" require>{{$category[$i]->description}}</textarea>
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">
@@ -136,7 +136,7 @@
                             <h5>Quản Lý Sản Phẩm</h5>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#themSP">Thêm Sản Phẩm</button>
+                            <button type="button" class="btn btn-info btn-lg btn-themSp" data-toggle="modal" data-target="#themSP">Thêm Sản Phẩm</button>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -173,55 +173,7 @@
                                         <td><a href="{{'/delete-product/'.$sanpham[$i]->productId}}"><i class="fas fa-trash-alt"></i></a></td>
                                         <td>
                                             <button type="button" class="btn__edit-product" data-product-id="{{$sanpham[$i]->productId}}" data-toggle="modal" data-target="#suaSP"><i class="fas fa-edit"></i></button>
-                                            <!-- Modal sua san pham -->
-                                            <div id="suaSP" class="modal fade" role="dialog">
-                                                <div class="modal-dialog" style="max-width: 1000px !important;">
 
-                                                    <!-- Modal content-->
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title">Sửa Thông Tin Sản Phẩm</h4><button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        </div>
-                                                        <form name="editSPForm" method="POST" class='btn__submit-EditProduct'>
-                                                            <div class="modal-body row">
-                                                                <div class="col-md-12 itemadd">
-                                                                    <label class="col-md-2 labelitem" for="">Tên Sản Phẩm</label>
-                                                                    <input Name="idproductSua" type="hidden" value="{{$sanpham[$i]->productId}}">
-                                                                    <input class="col-md-9 inputitem" Name="tensuaSP" type="text" placeholder='Nhập tên Sản Phẩm' value="{{$sanpham[$i]->productName}}">
-                                                                </div>
-
-                                                                <div class="col-md-12 itemadd" style="display: flex;">
-                                                                    <label class="col-md-2 labelitem" for="">Mô tả</label>
-                                                                    <textarea class="col-md-9 inputitem" Name="motasuaSP" rows="10" cols="50">{{$sanpham[$i]->description}}</textarea>
-                                                                </div>
-                                                                <div class="col-md-12 itemadd" id="themPhanNhom-suaSP">
-                                                                    <label class="col-md-2 labelitem" for="">Phân Nhóm</label>
-                                                                    <div class='col-md-8' id="content-phanNhom-suaSP0">
-
-                                                                        <input class="col-md-3 inputitem" type="text" name="tenNhom-suaSP0" placeholder="asd">
-                                                                        <input class="col-md-3 inputitem" type="text" name="SLNhom-suaSP0" placeholder='Nhập Số Lượng'>
-                                                                        <input class="col-md-2 inputitem" type="text" name="GiaNhom-suaSP0" placeholder='Nhập Giá'>
-                                                                        <button type="button" class='inputitem-icon btn btn__AddGroup-Editproduct' style="display: inline-block;"><i class="fas fa-plus"></i></button>
-
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-12 itemadd">
-                                                                    <label class="col-md-2 labelitem" for="">Danh Mục Sản Phẩm</label>
-                                                                    <select name="categorysuaSP" class="col-md-9 inputitem">
-                                                                        @foreach($category as $cate)
-                                                                        <option value={{$cate->categoryId}}>{{$cate->categoryName}}</option>
-                                                                        @endforeach
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
-                                                                <button type="submit" class="btn btn-success" style="width:100px;">Sửa</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </td>
                                     </tr>
                                     @endfor
@@ -250,12 +202,12 @@
                     <div class="modal-body row">
                         <div class="col-md-12 itemadd">
                             <label class="col-md-2 labelitem" for="">Tên Danh Mục</label>
-                            <input class="col-md-9 inputitem" type="text" name="tenDM" placeholder='Nhập tên Danh Mục'>
+                            <input class="col-md-9 inputitem" type="text" name="tenDM" placeholder='Nhập tên Danh Mục' require>
                         </div>
 
                         <div class="col-md-12 itemadd">
                             <label class="col-md-2 labelitem" for="">Mô tả</label>
-                            <textarea class="col-md-9 inputitem" rows="4" cols="50" name="motaDM"></textarea>
+                            <textarea class="col-md-9 inputitem" rows="4" cols="50" name="motaDM" require></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -280,60 +232,34 @@
                 </div>
                 <form name="formInfoAdd" enctype="multipart/form-data" id="form-add-product" method="POST">
                     @csrf
-                    {{-- <div class="modal-body row">
-                        <div class="col-md-12 itemadd">
-                            <label class="col-md-2 labelitem" for="tenSP">Tên Sản Phẩm</label>
-                            <input class="col-md-9 inputitem" name="tenSP" id="tenSP" type="text" placeholder='Nhập tên Sản Phẩm'>
-                        </div>
-
-                        <div class="col-md-12 itemadd " style="display: flex;">
-                            <label class="col-md-2 labelitem" for="">Mô tả</label>
-                            <textarea class="col-md-9 inputitem" name="motaSP" rows="10" cols="50"></textarea>
-                        </div>
-                        <div class="col-md-12 itemadd">
-                            <input type="file" id="upload" name="upload" accept="image/*" multiple>
-                        </div>
-                        <div class="col-md-12 itemadd" id="themPhanNhom-themsp">
-                            <label class="col-md-2 labelitem" for="">Phân Nhóm</label>
-                            <div class='col-md-8' id="content-phanNhom-themsp0">
-                                <input class="col-md-3 inputitem" type="text" name="tenNhom-themsp0" placeholder='Nhập tên Phân Nhóm'>
-                                <input class="col-md-3 inputitem" type="text" name="SLNhom-themsp0" placeholder='Nhập Số Lượng'>
-                                <input class="col-md-2 inputitem" type="text" name="GiaNhom-themsp0" placeholder='Nhập Giá'>
-                                <button type="button" class='inputitem-icon btn btn__AddGroup-product' name="btn-addInput-themsp" style="display: inline-block;"><i class="fas fa-plus"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12 itemadd">
-                            <label class="col-md-2 labelitem" for="">Danh Mục Sản Phẩm</label>
-                            <select name="category" class="col-md-9 inputitem">
-                                @foreach($category as $cate)
-                                <option value={{$cate->categoryId}}>{{$cate->categoryName}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div> --}}
                     <div class="modal-body row">
                         <div class="col-md-12 itemadd">
                             <label class="col-md-2 labelitem" for="product-name">Tên Sản Phẩm</label>
-                            <input class="col-md-9 inputitem" name="product-name" id="product-name" type="text" placeholder='Nhập tên Sản Phẩm'>
+                            <input class="col-md-9 inputitem " name="product-name" id="product-name" type="text" placeholder='Nhập tên Sản Phẩm' require>
+                            <div id="error_productName"></div>
                         </div>
 
                         <div class="col-md-12 itemadd " style="display: flex;">
                             <label class="col-md-2 labelitem" for="product-description">Mô tả</label>
-                            <textarea class="col-md-9 inputitem" name="product-description" id='product-description' rows="10" cols="50"></textarea>
+                            <textarea class="col-md-9 inputitem" name="product-description" id='product-description' rows="10" cols="50" require></textarea>
                         </div>
+                        <p id="erroe_productDescription"></p>
+
                         <div class="col-md-12 itemadd">
-                            <input type="file" id="upload" name="upload" accept="image/*" multiple>
+                            <input type="file" id="upload" name="upload" accept="image/*" multiple require>
                         </div>
-                        <div class="col-md-12 itemadd product-types__group">
-                            <label class="col-md-2 labelitem" for="">Phân Nhóm</label>
-                            <div class='col-md-8'>
-                                <input class="col-md-3 inputitem" type="text" name="product-type[]" placeholder='Nhập tên Phân Nhóm'>
-                                <input class="col-md-3 inputitem" type="text" name="product-type-quantity[]" placeholder='Nhập Số Lượng'>
-                                <input class="col-md-2 inputitem" type="text" name="product-type-price[]" placeholder='Nhập Giá'>
-                                <button type="button" class='inputitem-icon btn btn__add-type' name="btn-addInput-themsp" style="display: inline-block;">
-                                    <i class="fas fa-plus"></i>
-                                </button>
+                        <div class="col-md-12 itemadd" style="display: flex;">
+                            <label class=" labelitem" for="" style="width: 164px;">Phân Nhóm</label>
+                            <div class="product-types__group">
+                                <div class=' type-group--input'>
+                                    <input class=" inputitem" type="text" name="product-type[]" placeholder='Nhập tên Phân Nhóm' require>
+                                    <input class=" inputitem" type="text" name="product-type-quantity[]" placeholder='Nhập Số Lượng' require>
+                                    <input class=" inputitem" type="text" name="product-type-price[]" placeholder='Nhập Giá' require>
+                                    <button type="button" class='inputitem-icon btn btn__add-type' name="btn-addInput-themsp" style="display: inline-block;">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                <p id="erroe_productDescription"></p>
                             </div>
                         </div>
 
@@ -341,7 +267,7 @@
                             <label class="col-md-2 labelitem" for="">Danh Mục Sản Phẩm</label>
                             <select name="category" class="col-md-9 inputitem add-product__category">
                                 @foreach($category as $cate)
-                                    <option value={{$cate->categoryId}}>{{$cate->categoryName}}</option>
+                                <option value={{$cate->categoryId}}>{{$cate->categoryName}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -355,6 +281,63 @@
         </div>
     </div>
 
+
+    <!-- Modal sua san pham -->
+    <div id="suaSP" class="modal fade" role="dialog">
+        <div class="modal-dialog" style="max-width: 1000px !important;">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Sửa Thông Tin Sản Phẩm</h4><button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <form name="formInfoEdit" enctype="multipart/form-data" id="form-edit-product" method="POST">
+                    @csrf
+                    <div class="modal-body row">
+                        <div class="col-md-12 itemadd">
+                            <label class="col-md-2 labelitem" for="product-name">Tên Sản Phẩm</label>
+                            <input class="col-md-9 inputitem" name="product-name" id="product-name-edit" type="text" placeholder='Nhập tên Sản Phẩm' require>
+                            <input id="product-id-edit" type="hidden">
+                        </div>
+
+                        <div class="col-md-12 itemadd " style="display: flex;">
+                            <label class="col-md-2 labelitem" for="product-description">Mô tả</label>
+                            <textarea class="col-md-9 inputitem" name="product-description" id='product-description-edit' rows="10" cols="50" require></textarea>
+                        </div>
+                        <div class="col-md-12 itemadd">
+                            <input type="file" id="upload-edit" name="upload" accept="image/*" multiple>
+                        </div>
+                        <div class="col-md-12 itemadd " style="display: flex;">
+                            <label class="col-md-2 labelitem" for="" style="width: 164px;">Phân Nhóm</label>
+                            <div class='product-types__group-edit'>
+                                <div class="type-group--input">
+                                    <input class=" inputitem" type="text" name="product-type-edit[]" placeholder='Nhập tên Phân Nhóm' require>
+                                    <input class=" inputitem" type="text" name="product-type-quantity-edit[]" placeholder='Nhập Số Lượng' require>
+                                    <input class="inputitem" type="text" name="product-type-price-edit[]" placeholder='Nhập Giá' require>
+                                    <button type="button" class='inputitem-icon btn btn__add-type--edit' name="btn-addInput-suaSP" style="display: inline-block;">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 itemadd">
+                            <label class="col-md-2 labelitem" for="">Danh Mục Sản Phẩm</label>
+                            <select name="category" class="col-md-9 inputitem add-product__category" id="select-edit-category">
+                                @foreach($category as $cate)
+                                <option id="{{$cate->categoryId}}" value="{{$cate->categoryId}}">{{$cate->categoryName}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
+                        <button type="submit" class="btn btn-success btn__submit-AddProduct" style="width:100px;">sửa</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
