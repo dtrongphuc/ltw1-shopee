@@ -28,7 +28,7 @@ $(document).ready(function() {
 
     //
     //
-    document.querySelector(".btn__add-type").addEventListener("click", () => {
+    document.querySelector(".btn__add-type")?.addEventListener("click", () => {
         addInputType();
     });
 
@@ -41,7 +41,7 @@ $(document).ready(function() {
 
     document
         .querySelector("#form-add-product")
-        .addEventListener("submit", e => {
+        ?.addEventListener("submit", e => {
             e.preventDefault();
             submitThemSP();
         });

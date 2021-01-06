@@ -14,14 +14,6 @@
                         <li class="category-item {{Request::has('category') ? "" : "category-item--active"}}">
                             <a href="/">Tất cả</a>
                         </li>
-                        @if(isset($category))
-                            @foreach($category as $cate)
-                            <li class="category-item {{Request::has('category') && Request::get('category') == $cate->categoryId ? "category-item--active" : ""}}">
-                                <a href="{{request()->fullUrlWithQuery(['category' => $cate->categoryId])}}">{{$cate -> categoryName}}</a>
-                            </li>
-                            @endforeach
-                        @endif
-
                     </ul>
                 </div>
                 <div class="col-10 p-6" id="products">
@@ -39,10 +31,6 @@
                                     <li class="filter-list__item {{Request::has('filter') && Request::get('filter') == 'selling' ? "filter-list__item--active" : ""}}" id="sort-selling">
                                         <a href="{{request()->fullUrlWithQuery(['filter' => 'selling'])}}">Bán chạy</a>
                                     </li>
-                                    {{-- <li class="filter-list__item filter-list__item--select">
-                                        Giá
-                                        <i class="fas fa-chevron-down"></i>
-                                    </li> --}}
                                 </ul>
                             </div>
                             <div class="main-filter__right"></div>

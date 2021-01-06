@@ -20,7 +20,7 @@ class AccountController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
-            'phoneNumber' => ['regex:/(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b/']
+            'phoneNumber' => 'nullable|regex:/(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b/'
         ], [
             'email.required' => 'Vui lòng điền email',
             'phoneNumber.regex' => 'Nhập số điện thoại hợp lệ',

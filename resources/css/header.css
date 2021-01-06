@@ -106,15 +106,16 @@
 }
 
 .button-search {
-    cursor: pointer;
+    border: none;
+    outline: none;
+    background: red;
+    padding: 6px 24px;
+    border-radius: 2px;
 }
 
 .search,
 .button-search .search-icon {
     color: white;
-    background: red;
-    padding: 6px 24px;
-    border-radius: 2px;
 }
 
 .cart-button {
