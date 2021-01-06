@@ -1,89 +1,75 @@
-const { countBy } = require("lodash");
-let idproductEdit;
 $(document).ready(function() {
-
     document.querySelectorAll(".btn__edit-product").forEach(btn => {
         btn.addEventListener("click", () => {
             editsp(btn.dataset.productId);
         });
     });
-
-
-    // document.querySelectorAll(".btn__AddGroup-Editproduct").forEach(btn => {
-    //     btn.addEventListener("click", () => {
-    //         themNhomSuaSP();
-    //     });
-    // });
-
-    // document.querySelectorAll(".btn__submit-AddProduct").forEach(btn => {
-    //     btn.addEventListener("click", () => {
-    //         submitThemSP();
-    //     });
-    // });
-
-    //
-    //
-    document.querySelector(".btn__add-type").addEventListener("click", () => {
-        addInputType();
+    
+    document.querySelector(".btn__add-type")?.addEventListener("click", () => {
+        addInputType(".product-types__group");
     });
     
+    document.querySelector(".btn__add-type--edit")?.addEventListener("click", () => {
+        addInputType(".product-types__group-edit");
+    });
 
-    // document.querySelectorAll(".btn__add-type-edit").addEventListener("click", () => {
-    //     addInputType();
-    // });
-
-    // document.querySelectorAll(".btn__submit-EditProduct").forEach(btn => {
-    //     btn.addEventListener("submit", e => {
-    //         e.preventDefault();
-    //         submitSuaSP();
-    //     });
-    // });
+    document.querySelector(".btn-themSp")?.addEventListener("click", () => {
+        Removeimput();
+    });
 
     document
         .querySelector("#form-add-product")
-        .addEventListener("submit", e => {
+        ?.addEventListener("submit", e => {
             e.preventDefault();
             submitThemSP();
         });
-        document
+    document
         .querySelector("#form-edit-product")
-        .addEventListener("submit", e => {
+        ?.addEventListener("submit", e => {
             e.preventDefault();
             submitSuaSP();
         });
+    
+    document.querySelectorAll('.SelectstatusOrder').forEach(select => {
+        select.addEventListener('change', async () => {
 
-    // document.querySelectorAll('.SelectstatusOrder').forEach(select => {
-    //     select.addEventListener('change', async () => {
-    //         let id = select.dataset.orderId;
-    //         var status = select.getElementsByClassName("SelectstatusOrder").value;
-    //         console.log(status);
-    //         try {
-    //             const response = await axios.post('/api/admin/statuschangeorder', {
-    //                 id,
-    //                 status
-    //             });
-    //             if (response.status === 200) {
-    //                 console.log(response);
-    //             }
-    //         } catch (e) {
-    //             console.log('error', e.response);
-    //         }
-    //     });
-    // });
+            // let id = select.dataset.orderId;
+            var status = select.value;
+            console.log(status);
+            // console.log(status);
+            // try {
+            //     const response = await axios.post('/api/admin/statuschangeorder', {
+            //         id,
+            //         status
+            //     });
+            //     if (response.status === 200) {
+            //         console.log(response);
+            //     }
+            // } catch (e) {
+            //     console.log('error', e.response);
+            // }
+        });
+    });
 
 
-    const addInputType = () => {
+    function Removeimput(){
+        //xóa hết tất cả cac div được tạo
+        var divRemove = document.querySelectorAll(".type-group");
+        for (var indexRemove = 0; indexRemove < divRemove.length; indexRemove++) {
+            
+            divRemove[indexRemove].remove();
+        }
+    }
+
+    const addInputType = (className) => {
         let div = document.createElement("div");
-        div.className = "col-md-8 type-group";
+        div.className = "type-group type-group--input";
         div.innerHTML = `
-            <input class="col-md-3 inputitem" type="text" name="product-type[]" placeholder='Nhập tên Phân Nhóm'>
-            <input class="col-md-3 inputitem" type="text" name="product-type-quantity[]" placeholder='Nhập Số Lượng'>
-            <input class="col-md-2 inputitem" type="text" name="product-type-price[]" placeholder='Nhập Giá'>
-            <button id="btnremove-themsp1" type="button" class="icon-remove-input-themsp btn__remove-type">
-                <i class="fas fa-minus-circle"></i>
-            </button>
+            <input class=" inputitem" type="text" name="product-type[]" placeholder='Nhập tên Phân Nhóm'>
+            <input class=" inputitem" type="text" name="product-type-quantity[]" placeholder='Nhập Số Lượng'>
+            <input class=" inputitem" type="text" name="product-type-price[]" placeholder='Nhập Giá'>
         `;
-        document.querySelector(".product-types__group").appendChild(div);
+        document.querySelector(className).appendChild(div);
     };
 
     async function submitThemSP() {
@@ -151,8 +137,8 @@ $(document).ready(function() {
         }
     }
 
-    function editsp(id) {
-        async function GetGroupProduct(id) {
+    async function editsp(id) {
+        
             try {
                 const response = await axios.post(
                     "/api/admin/get-Group-product",
@@ -164,29 +150,28 @@ $(document).ready(function() {
                     let data = response.data;
                     let dataproducttype = data[0];
                     let datasp = data[1];
-                    console.log(datasp[0].productId);
                     //tạo dữ liệu cho sản phẩm
                     document.getElementById("product-name-edit").value = datasp[0].productName;
                     document.getElementById("product-id-edit").value = datasp[0].productId;
                     document.getElementById("product-description-edit").value = datasp[0].description;
                     document.getElementById(datasp[0].categoryId).selected = true;
                     //xóa hết tất cả cac div được tạo
-                    var divRemove = document.querySelectorAll(".type-group-edit");
+                    
+                    var divRemove = document.querySelectorAll(".type-group");
+                    console.log(divRemove);
                     for (var indexRemove = 0; indexRemove < divRemove.length; indexRemove++) {
-                        
+                        console.log("here");
                         divRemove[indexRemove].remove();
                     }
                     //tạo dữ liệu cho type
                     
                     for (var sldiv = 0; sldiv < dataproducttype.length; sldiv++) {
                         let div = document.createElement("div");
-                        div.className = "col-md-8 type-group-edit";
-                    
-
+                        div.className = "type-group type-group--input";
                         div.innerHTML = `
-                        <input class="col-md-3 inputitem" type="text" name="product-type-edit[]" placeholder='Nhập tên Phân Nhóm' value= '${dataproducttype[sldiv]['name']}'>
-                        <input class="col-md-3 inputitem" type="text" name="product-type-quantity-edit[]" placeholder='Nhập Số Lượng' value= '${dataproducttype[sldiv]['quantity']}'>
-                        <input class="col-md-2 inputitem" type="text" name="product-type-price-edit[]" placeholder='Nhập Giá' value= ${dataproducttype[sldiv]['price']}>
+                        <input class=" inputitem" type="text" name="product-type-edit[]" placeholder='Nhập tên Phân Nhóm' value= '${dataproducttype[sldiv]['name']}'>
+                        <input class=" inputitem" type="text" name="product-type-quantity-edit[]" placeholder='Nhập Số Lượng' value= '${dataproducttype[sldiv]['quantity']}'>
+                        <input class=" inputitem" type="text" name="product-type-price-edit[]" placeholder='Nhập Giá' value= ${dataproducttype[sldiv]['price']}>
                     `;
                     document.querySelector(".product-types__group-edit").appendChild(div);
                     }
@@ -194,14 +179,11 @@ $(document).ready(function() {
             } catch (e) {
                 console.log("error", e.response);
             }
-        }
-        GetGroupProduct(id);
     }
 
     async function submitSuaSP(e) {
         
         var fdata = new FormData();
-        console.log(idproductEdit);
         fdata.append(
             "productId",
             document.querySelector("#product-id-edit").value

@@ -26159,71 +26159,76 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var _require = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js"),
-    countBy = _require.countBy;
-
-var idproductEdit;
 $(document).ready(function () {
+  var _document$querySelect, _document$querySelect2, _document$querySelect3, _document$querySelect4, _document$querySelect5;
+
   document.querySelectorAll(".btn__edit-product").forEach(function (btn) {
     btn.addEventListener("click", function () {
       editsp(btn.dataset.productId);
     });
-  }); // document.querySelectorAll(".btn__AddGroup-Editproduct").forEach(btn => {
-  //     btn.addEventListener("click", () => {
-  //         themNhomSuaSP();
-  //     });
-  // });
-  // document.querySelectorAll(".btn__submit-AddProduct").forEach(btn => {
-  //     btn.addEventListener("click", () => {
-  //         submitThemSP();
-  //     });
-  // });
-  //
-  //
-
-  document.querySelector(".btn__add-type").addEventListener("click", function () {
-    addInputType();
-  }); // document.querySelectorAll(".btn__add-type-edit").addEventListener("click", () => {
-  //     addInputType();
-  // });
-  // document.querySelectorAll(".btn__submit-EditProduct").forEach(btn => {
-  //     btn.addEventListener("submit", e => {
-  //         e.preventDefault();
-  //         submitSuaSP();
-  //     });
-  // });
-
-  document.querySelector("#form-add-product").addEventListener("submit", function (e) {
+  });
+  (_document$querySelect = document.querySelector(".btn__add-type")) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.addEventListener("click", function () {
+    addInputType(".product-types__group");
+  });
+  (_document$querySelect2 = document.querySelector(".btn__add-type--edit")) === null || _document$querySelect2 === void 0 ? void 0 : _document$querySelect2.addEventListener("click", function () {
+    addInputType(".product-types__group-edit");
+  });
+  (_document$querySelect3 = document.querySelector(".btn-themSp")) === null || _document$querySelect3 === void 0 ? void 0 : _document$querySelect3.addEventListener("click", function () {
+    Removeimput();
+  });
+  (_document$querySelect4 = document.querySelector("#form-add-product")) === null || _document$querySelect4 === void 0 ? void 0 : _document$querySelect4.addEventListener("submit", function (e) {
     e.preventDefault();
     submitThemSP();
   });
-  document.querySelector("#form-edit-product").addEventListener("submit", function (e) {
+  (_document$querySelect5 = document.querySelector("#form-edit-product")) === null || _document$querySelect5 === void 0 ? void 0 : _document$querySelect5.addEventListener("submit", function (e) {
     e.preventDefault();
     submitSuaSP();
-  }); // document.querySelectorAll('.SelectstatusOrder').forEach(select => {
-  //     select.addEventListener('change', async () => {
-  //         let id = select.dataset.orderId;
-  //         var status = select.getElementsByClassName("SelectstatusOrder").value;
-  //         console.log(status);
-  //         try {
-  //             const response = await axios.post('/api/admin/statuschangeorder', {
-  //                 id,
-  //                 status
-  //             });
-  //             if (response.status === 200) {
-  //                 console.log(response);
-  //             }
-  //         } catch (e) {
-  //             console.log('error', e.response);
-  //         }
-  //     });
-  // });
+  });
+  document.querySelectorAll('.SelectstatusOrder').forEach(function (select) {
+    select.addEventListener('change', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var status;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              // let id = select.dataset.orderId;
+              status = select.value;
+              console.log(status); // console.log(status);
+              // try {
+              //     const response = await axios.post('/api/admin/statuschangeorder', {
+              //         id,
+              //         status
+              //     });
+              //     if (response.status === 200) {
+              //         console.log(response);
+              //     }
+              // } catch (e) {
+              //     console.log('error', e.response);
+              // }
 
-  var addInputType = function addInputType() {
+            case 2:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    })));
+  });
+
+  function Removeimput() {
+    //xóa hết tất cả cac div được tạo
+    var divRemove = document.querySelectorAll(".type-group");
+
+    for (var indexRemove = 0; indexRemove < divRemove.length; indexRemove++) {
+      divRemove[indexRemove].remove();
+    }
+  }
+
+  var addInputType = function addInputType(className) {
     var div = document.createElement("div");
-    div.className = "col-md-8 type-group";
-    div.innerHTML = "\n            <input class=\"col-md-3 inputitem\" type=\"text\" name=\"product-type[]\" placeholder='Nh\u1EADp t\xEAn Ph\xE2n Nh\xF3m'>\n            <input class=\"col-md-3 inputitem\" type=\"text\" name=\"product-type-quantity[]\" placeholder='Nh\u1EADp S\u1ED1 L\u01B0\u1EE3ng'>\n            <input class=\"col-md-2 inputitem\" type=\"text\" name=\"product-type-price[]\" placeholder='Nh\u1EADp Gi\xE1'>\n            <button id=\"btnremove-themsp1\" type=\"button\" class=\"icon-remove-input-themsp btn__remove-type\">\n                <i class=\"fas fa-minus-circle\"></i>\n            </button>\n        ";
-    document.querySelector(".product-types__group").appendChild(div);
+    div.className = "type-group type-group--input";
+    div.innerHTML = "\n            <input class=\" inputitem\" type=\"text\" name=\"product-type[]\" placeholder='Nh\u1EADp t\xEAn Ph\xE2n Nh\xF3m'>\n            <input class=\" inputitem\" type=\"text\" name=\"product-type-quantity[]\" placeholder='Nh\u1EADp S\u1ED1 L\u01B0\u1EE3ng'>\n            <input class=\" inputitem\" type=\"text\" name=\"product-type-price[]\" placeholder='Nh\u1EADp Gi\xE1'>\n        ";
+    document.querySelector(className).appendChild(div);
   };
 
   function submitThemSP() {
@@ -26327,72 +26332,69 @@ $(document).ready(function () {
     return _postProduct.apply(this, arguments);
   }
 
-  function editsp(id) {
-    function GetGroupProduct(_x2) {
-      return _GetGroupProduct.apply(this, arguments);
-    }
+  function editsp(_x2) {
+    return _editsp.apply(this, arguments);
+  }
 
-    function _GetGroupProduct() {
-      _GetGroupProduct = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
-        var response, data, dataproducttype, datasp, divRemove, indexRemove, sldiv, div;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.prev = 0;
-                _context.next = 3;
-                return axios.post("/api/admin/get-Group-product", {
-                  id: id
-                });
+  function _editsp() {
+    _editsp = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id) {
+      var response, data, dataproducttype, datasp, divRemove, indexRemove, sldiv, div;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              _context4.next = 3;
+              return axios.post("/api/admin/get-Group-product", {
+                id: id
+              });
 
-              case 3:
-                response = _context.sent;
+            case 3:
+              response = _context4.sent;
 
-                if (response.status === 200) {
-                  data = response.data;
-                  dataproducttype = data[0];
-                  datasp = data[1];
-                  console.log(datasp[0].productId); //tạo dữ liệu cho sản phẩm
+              if (response.status === 200) {
+                data = response.data;
+                dataproducttype = data[0];
+                datasp = data[1]; //tạo dữ liệu cho sản phẩm
 
-                  document.getElementById("product-name-edit").value = datasp[0].productName;
-                  document.getElementById("product-id-edit").value = datasp[0].productId;
-                  document.getElementById("product-description-edit").value = datasp[0].description;
-                  document.getElementById(datasp[0].categoryId).selected = true; //xóa hết tất cả cac div được tạo
+                document.getElementById("product-name-edit").value = datasp[0].productName;
+                document.getElementById("product-id-edit").value = datasp[0].productId;
+                document.getElementById("product-description-edit").value = datasp[0].description;
+                document.getElementById(datasp[0].categoryId).selected = true; //xóa hết tất cả cac div được tạo
 
-                  divRemove = document.querySelectorAll(".type-group-edit");
+                divRemove = document.querySelectorAll(".type-group");
+                console.log(divRemove);
 
-                  for (indexRemove = 0; indexRemove < divRemove.length; indexRemove++) {
-                    divRemove[indexRemove].remove();
-                  } //tạo dữ liệu cho type
+                for (indexRemove = 0; indexRemove < divRemove.length; indexRemove++) {
+                  console.log("here");
+                  divRemove[indexRemove].remove();
+                } //tạo dữ liệu cho type
 
 
-                  for (sldiv = 0; sldiv < dataproducttype.length; sldiv++) {
-                    div = document.createElement("div");
-                    div.className = "col-md-8 type-group-edit";
-                    div.innerHTML = "\n                        <input class=\"col-md-3 inputitem\" type=\"text\" name=\"product-type-edit[]\" placeholder='Nh\u1EADp t\xEAn Ph\xE2n Nh\xF3m' value= '".concat(dataproducttype[sldiv]['name'], "'>\n                        <input class=\"col-md-3 inputitem\" type=\"text\" name=\"product-type-quantity-edit[]\" placeholder='Nh\u1EADp S\u1ED1 L\u01B0\u1EE3ng' value= '").concat(dataproducttype[sldiv]['quantity'], "'>\n                        <input class=\"col-md-2 inputitem\" type=\"text\" name=\"product-type-price-edit[]\" placeholder='Nh\u1EADp Gi\xE1' value= ").concat(dataproducttype[sldiv]['price'], ">\n                    ");
-                    document.querySelector(".product-types__group-edit").appendChild(div);
-                  }
+                for (sldiv = 0; sldiv < dataproducttype.length; sldiv++) {
+                  div = document.createElement("div");
+                  div.className = "type-group type-group--input";
+                  div.innerHTML = "\n                        <input class=\" inputitem\" type=\"text\" name=\"product-type-edit[]\" placeholder='Nh\u1EADp t\xEAn Ph\xE2n Nh\xF3m' value= '".concat(dataproducttype[sldiv]['name'], "'>\n                        <input class=\" inputitem\" type=\"text\" name=\"product-type-quantity-edit[]\" placeholder='Nh\u1EADp S\u1ED1 L\u01B0\u1EE3ng' value= '").concat(dataproducttype[sldiv]['quantity'], "'>\n                        <input class=\" inputitem\" type=\"text\" name=\"product-type-price-edit[]\" placeholder='Nh\u1EADp Gi\xE1' value= ").concat(dataproducttype[sldiv]['price'], ">\n                    ");
+                  document.querySelector(".product-types__group-edit").appendChild(div);
                 }
+              }
 
-                _context.next = 10;
-                break;
+              _context4.next = 10;
+              break;
 
-              case 7:
-                _context.prev = 7;
-                _context.t0 = _context["catch"](0);
-                console.log("error", _context.t0.response);
+            case 7:
+              _context4.prev = 7;
+              _context4.t0 = _context4["catch"](0);
+              console.log("error", _context4.t0.response);
 
-              case 10:
-              case "end":
-                return _context.stop();
-            }
+            case 10:
+            case "end":
+              return _context4.stop();
           }
-        }, _callee, null, [[0, 7]]);
-      }));
-      return _GetGroupProduct.apply(this, arguments);
-    }
-
-    GetGroupProduct(id);
+        }
+      }, _callee4, null, [[0, 7]]);
+    }));
+    return _editsp.apply(this, arguments);
   }
 
   function submitSuaSP(_x3) {
@@ -26400,15 +26402,14 @@ $(document).ready(function () {
   }
 
   function _submitSuaSP() {
-    _submitSuaSP = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(e) {
+    _submitSuaSP = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(e) {
       var fdata, typesGroup, productTypeName, productTypeQuantity, productTypePrice, i, name, quantity, price, files, _i2;
 
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
         while (1) {
-          switch (_context4.prev = _context4.next) {
+          switch (_context5.prev = _context5.next) {
             case 0:
               fdata = new FormData();
-              console.log(idproductEdit);
               fdata.append("productId", document.querySelector("#product-id-edit").value);
               fdata.append("productName", document.querySelector("#product-name-edit").value);
               fdata.append("productDescription", document.querySelector("#product-description-edit").value);
@@ -26439,15 +26440,15 @@ $(document).ready(function () {
                 fdata.append("images[]", files[_i2]);
               }
 
-              _context4.next = 16;
+              _context5.next = 15;
               return postProductToEdit(fdata);
 
-            case 16:
+            case 15:
             case "end":
-              return _context4.stop();
+              return _context5.stop();
           }
         }
-      }, _callee4);
+      }, _callee5);
     }));
     return _submitSuaSP.apply(this, arguments);
   }
@@ -26457,14 +26458,14 @@ $(document).ready(function () {
   }
 
   function _postProductToEdit() {
-    _postProductToEdit = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(productEdit) {
+    _postProductToEdit = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(productEdit) {
       var response;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
         while (1) {
-          switch (_context5.prev = _context5.next) {
+          switch (_context6.prev = _context6.next) {
             case 0:
-              _context5.prev = 0;
-              _context5.next = 3;
+              _context6.prev = 0;
+              _context6.next = 3;
               return axios.post("/api/admin/edit-product", productEdit, {
                 headers: {
                   "Content-Type": "multipart/form-data"
@@ -26472,27 +26473,27 @@ $(document).ready(function () {
               });
 
             case 3:
-              response = _context5.sent;
+              response = _context6.sent;
 
               if (response.status === 200) {
                 console.log(response);
                 window.location.reload();
               }
 
-              _context5.next = 10;
+              _context6.next = 10;
               break;
 
             case 7:
-              _context5.prev = 7;
-              _context5.t0 = _context5["catch"](0);
-              console.log("error", _context5.t0.response);
+              _context6.prev = 7;
+              _context6.t0 = _context6["catch"](0);
+              console.log("error", _context6.t0.response);
 
             case 10:
             case "end":
-              return _context5.stop();
+              return _context6.stop();
           }
         }
-      }, _callee5, null, [[0, 7]]);
+      }, _callee6, null, [[0, 7]]);
     }));
     return _postProductToEdit.apply(this, arguments);
   }

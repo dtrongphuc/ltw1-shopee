@@ -136,7 +136,7 @@
                             <h5>Quản Lý Sản Phẩm</h5>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#themSP">Thêm Sản Phẩm</button>
+                            <button type="button" class="btn btn-info btn-lg btn-themSp" data-toggle="modal" data-target="#themSP">Thêm Sản Phẩm</button>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -245,15 +245,17 @@
                         <div class="col-md-12 itemadd">
                             <input type="file" id="upload" name="upload" accept="image/*" multiple require>
                         </div>
-                        <div class="col-md-12 itemadd product-types__group">
-                            <label class="col-md-2 labelitem" for="">Phân Nhóm</label>
-                            <div class='col-md-8 '>
-                                <input class="col-md-3 inputitem" type="text" name="product-type[]" placeholder='Nhập tên Phân Nhóm' require>
-                                <input class="col-md-3 inputitem" type="text" name="product-type-quantity[]" placeholder='Nhập Số Lượng' require>
-                                <input class="col-md-2 inputitem" type="text" name="product-type-price[]" placeholder='Nhập Giá' require>
-                                <button type="button" class='inputitem-icon btn btn__add-type' name="btn-addInput-themsp" style="display: inline-block;">
-                                    <i class="fas fa-plus"></i>
-                                </button>
+                        <div class="col-md-12 itemadd" style="display: flex;">
+                            <label class=" labelitem" for="" style="width: 164px;">Phân Nhóm</label>
+                            <div class="product-types__group">
+                                <div class=' type-group--input'>
+                                    <input class=" inputitem" type="text" name="product-type[]" placeholder='Nhập tên Phân Nhóm' require>
+                                    <input class=" inputitem" type="text" name="product-type-quantity[]" placeholder='Nhập Số Lượng' require>
+                                    <input class=" inputitem" type="text" name="product-type-price[]" placeholder='Nhập Giá' require>
+                                    <button type="button" class='inputitem-icon btn btn__add-type' name="btn-addInput-themsp" style="display: inline-block;">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
@@ -301,15 +303,17 @@
                         <div class="col-md-12 itemadd">
                             <input type="file" id="upload-edit" name="upload" accept="image/*" multiple>
                         </div>
-                        <div class="col-md-12 itemadd product-types__group-edit">
-                            <label class="col-md-2 labelitem" for="">Phân Nhóm</label>
-                            <div class='col-md-8 '>
-                                <input class="col-md-3 inputitem" type="text" name="product-type-edit[]" placeholder='Nhập tên Phân Nhóm' require>
-                                <input class="col-md-3 inputitem" type="text" name="product-type-quantity-edit[]" placeholder='Nhập Số Lượng' require>
-                                <input class="col-md-2 inputitem" type="text" name="product-type-price-edit[]" placeholder='Nhập Giá' require>
-                                <button type="button" class='inputitem-icon btn btn__add-type' name="btn-addInput-suaSP" style="display: inline-block;">
-                                    <i class="fas fa-plus"></i>
-                                </button>
+                        <div class="col-md-12 itemadd " style="display: flex;">
+                            <label class="col-md-2 labelitem" for="" style="width: 164px;">Phân Nhóm</label>
+                            <div class='product-types__group-edit'>
+                                <div class="type-group--input">
+                                    <input class=" inputitem" type="text" name="product-type-edit[]" placeholder='Nhập tên Phân Nhóm' require>
+                                    <input class=" inputitem" type="text" name="product-type-quantity-edit[]" placeholder='Nhập Số Lượng' require>
+                                    <input class="inputitem" type="text" name="product-type-price-edit[]" placeholder='Nhập Giá' require>
+                                    <button type="button" class='inputitem-icon btn btn__add-type--edit' name="btn-addInput-suaSP" style="display: inline-block;">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
