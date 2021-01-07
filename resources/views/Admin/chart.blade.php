@@ -143,13 +143,12 @@
                 </div>
                 <div class="dropdown show dropdown-content">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Thành Phú
-                        <img style="margin-left: 10px;" class="avatar" src="../images/av.png" />
+                        Admin
+                        <img style="margin-left: 10px;" class="avatar" src="{{cloudinary()->getImage(\Auth::user()->avatar)}}" />
                     </a>
 
                     <div class="dropdown-menu " style="top: 8px !important;" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">Profile</a>
-                        <a class="dropdown-item" href="#">Log out</a>
+                        <a class="dropdown-item" href="/logout">Log out</a>
                     </div>
                 </div>
             </div>
@@ -236,19 +235,6 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type=" text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
 
-    <!-- // const test = async () => {
-        //     try {
-        //         response = await axios.get('/api/statisticalMonth')
-        //         data = response.data;
-                
-        //         console.log(data[0]);
-
-        //     } catch (error) {
-        //         console.log(error);
-        //     }
-        // }
-
-        // test(); -->
 
     <script type="text/javascript">
         // Load google charts
