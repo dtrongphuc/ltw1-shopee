@@ -12,7 +12,7 @@ class OrderController extends Controller
     public function index()
     {
         $order = Bill::paginate(10);
-        return view('adminthucong/Order', ['orders' => $order]);
+        return view('Admin/Order', ['orders' => $order]);
     }
 
     public function EditStatus(Request $req)

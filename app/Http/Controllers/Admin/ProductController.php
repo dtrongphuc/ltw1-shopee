@@ -38,7 +38,7 @@ class ProductController extends Controller
             ->paginate(6);
 
         //$product = Product::all();
-        return view('adminthucong/index', ['sanpham' => $product, 'category' => $category]);
+        return view('Admin/index', ['sanpham' => $product, 'category' => $category]);
         //return response()->json($product, 200);
     }
 

@@ -101,19 +101,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 
-
-// Route::get('/admin', function () {
-//     return view('/adminthucong/index');
-// });
-
-// Route::get('/User', function () {
-//     return view('/adminthucong/User');
-// });
-
-// Route::get('/Category', function () {
-//     return view('/adminthucong/Category');
-// });
-
 Route::get('/usermanagement', [Admin\UserController::class, 'index']);
 Route::get('/admin', [Admin\ProductController::class, 'index']);
 Route::get('/ordermanagement', [Admin\OrderController::class, 'index'])->name('orderManagement');
@@ -128,6 +115,9 @@ Route::post('/api/admin/new-product', [Admin\ProductController::class, 'AddProdu
 Route::post('/api/admin/get-Group-product', [Admin\ProductController::class, 'GetGroupProductById'])->name('get.GroupProduct');
 Route::post('/api/admin/edit-product', [Admin\ProductController::class, 'EditProduct'])->name('edit.product');
 Route::post('/api/admin/statuschangeorder', [Admin\OrderController::class, 'EditStatus'])->name('edit.statusOrder');
+Route::get('/api/admin/statisticalquarter', [ChartController::class, 'StatisticalQuarter']);
+Route::get('/statisticalyear', [ChartController::class, 'StatisticalYear']);
+Route::get('/api/admin/statisticalmonth', [ChartController::class, 'StatisticalMonth']);
 
 Route::get('/administrator', function () {
     return view('/pages/administrator');

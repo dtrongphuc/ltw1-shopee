@@ -30,7 +30,7 @@ class ChartController extends Controller
         $statistical = new QuantityStatistics($quantity, $total, $orderwait);
 
 
-        // return view('adminthucong/chart', ['statisticalToday' => $statistical]);
+        return view('Admin/chart', ['statisticalToday' => $statistical]);
         // //return response()->json($statistical, 200);
 
         //thống kê theo năm
@@ -43,7 +43,7 @@ class ChartController extends Controller
         foreach ($data as $key => $value) {
             $array[++$key] = [(string)$value->year, (float)$value->total];
         }
-        return view('adminthucong/chart')->with('year', json_encode($array))->with('statisticalToday', $statistical);
+        //return view('adminthucong/chart')->with('year', json_encode($array))->with('statisticalToday', $statistical);
         //return response()->json($data, 200);
     }
 
