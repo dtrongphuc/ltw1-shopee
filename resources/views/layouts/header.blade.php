@@ -68,7 +68,7 @@
                                 <form action="{{ route('search') }}" method="GET">
                                     <div class="search" >
                                         <input class="input-search" type="text" name="keyword"  
-                                            placeholder="Tìm sản Phẩm, Thương Hiệu, và tên shoppe">
+                                            placeholder="Tìm sản phẩm">
                                         <button type="submit" class="button-search d-flex align-items-center justify-content-center">
                                             <i class="fas fa-search search-icon"></i>
                                         </button>
