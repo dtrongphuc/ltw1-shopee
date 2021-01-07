@@ -38,22 +38,27 @@
                                 </li>
                             @endguest
                             @auth
-                            <li class="header__navbar-item header__navbar-item--strong header__navbar-item--user">
-                                <div class="header__avatar">
-                                    <img src="{{cloudinary()->getImage(\Auth::user()->avatar)}}" alt="" >
-                                </div>
-                                <a href="/user/account">{{explode('@',\Auth::user()->email)[0]}}</a>
-                                <div class="header__user-menu">
-                                    <ul class="user-menu__list">
-                                        <li class="user-menu__item">
-                                            <a href="/user/account">Tài khoản của tôi</a>
-                                        </li>
-                                        <li class="user-menu__item">
-                                            <a href="{{route('logout')}}">Đăng xuất</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
+                                @if(\Auth::user()->role == 1)
+                                    <li class="header__navbar-item header__navbar-item--strong header__navbar-item-separate header__navbar-item--relative">
+                                        <a href="/admin">Quản lý</a>
+                                    </li>
+                                @endif
+                                <li class="header__navbar-item header__navbar-item--strong header__navbar-item--user">
+                                    <div class="header__avatar">
+                                        <img src="{{cloudinary()->getImage(\Auth::user()->avatar)}}" alt="" >
+                                    </div>
+                                    <a href="/user/account">{{explode('@',\Auth::user()->email)[0]}}</a>
+                                    <div class="header__user-menu">
+                                        <ul class="user-menu__list">
+                                            <li class="user-menu__item">
+                                                <a href="/user/account">Tài khoản của tôi</a>
+                                            </li>
+                                            <li class="user-menu__item">
+                                                <a href="{{route('logout')}}">Đăng xuất</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
                             @endauth
                         </ul>
                     </nav>
