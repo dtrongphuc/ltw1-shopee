@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col d-flex justify-content-between align-items-center">
                     <div class="auth__titlelogo d-flex align-items-center">
-                        <a href="./">
+                        <a href="/">
                             <img src="images/logo/shopee-color.png" alt="" class="auth-img">
                         </a>
                         <h4 class="auth__header-title">Đăng Ký</h4>

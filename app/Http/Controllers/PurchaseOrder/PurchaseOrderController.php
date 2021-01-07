@@ -22,6 +22,6 @@ class PurchaseOrderController extends Controller
         //dd($detail_bill->groupBy('id'));
         // $statuses = DB::table('bills')->select('bills.status', 'totalPrice')->get();
         //dd($statuses);
-        return view('pages/purchaseorder', ['user' => $user, 'bills' => $detail_bill->groupBy('id')]);
+        return view('pages/purchase', ['user' => $user, 'bills' => $detail_bill->groupBy('id')]);
     }
 }

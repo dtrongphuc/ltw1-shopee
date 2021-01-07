@@ -6,7 +6,6 @@ $(document).ready(function() {
         // alert($("#username_change").val());
     });
 
-
     //test
     const btnOrder = document.querySelector("#btntoorder");
 
@@ -17,16 +16,17 @@ $(document).ready(function() {
             phoneNumber: document.getElementById("phonenumber").innerHTML,
             addRess: document.getElementById("address").innerHTML
         };
-        console.log(OrderData);
         try {
             const response = await axios.post("/pay/paytoorder", OrderData);
-            //chuyể trang purchaseorder
-            window.location.href = 'user/purchaseorder';
+            //chuyển trang
+            window.location.href = "user/purchase";
             // console.log(response);
         } catch (e) {
             let messageObj = e?.response?.data?.errors;
             console.log(messageObj);
-            document.getElementById("validator-pay").innerHTML = Object.values(messageObj)[0];
+            document.getElementById("validator-pay").innerHTML = Object.values(
+                messageObj
+            )[0];
             // console.log(2);
         }
     });

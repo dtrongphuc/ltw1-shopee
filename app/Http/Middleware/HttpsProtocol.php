@@ -4,8 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
-class Admin
+class HttpsProtocol
 {
     /**
      * Handle an incoming request.
@@ -16,10 +17,10 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (\Auth::user() && \Auth::user()->role == 1) {
-            return $next($request);
-       }
+        if (!$request->secure() && App::environment() === 'production') {
+            return redirect()->secure($request->getRequestUri());
+        }
 
-       return redirect('/')->with('error','You have not admin access');
+        return $next($request);
     }
 }

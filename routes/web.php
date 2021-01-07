@@ -75,7 +75,7 @@ Route::post('/api/product/type', [ProductController::class, 'getPriceAndQuantity
 Route::get('/category/{categoryId}', [HomeController::class, 'category'])->name('filter.category');
 
 // Protected routes
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     // Routes user
     Route::prefix('user')->group(function () {
         Route::get('/account', [AccountController::class, 'account']);
@@ -83,7 +83,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/account/change-password', [AccountController::class, 'changePassword'])
             ->name('change.account.password');
 
-        Route::get('/purchaseorder', 'App\Http\Controllers\PurchaseOrder\PurchaseOrderController@purchaseorder')->name('purchaseorder.index');
+        Route::get('/purchase', [PurchaseOrderController::class, 'purchaseorder'])->name('purchaseorder.index');
 
         Route::get('/favorite', [FavoriteController::class, 'favorite']);
         Route::get('/favorite/delete/{productid}', [FavoriteController::class, 'deleteproduct']);
@@ -97,10 +97,23 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/post-review', [PostReviewController::class, 'post'])->name('post.review');
     });
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-    Route::get('/cart', 'App\Http\Controllers\Cart\CartController@cart');
+    Route::get('/cart', [CartController::class, 'cart']);
+
+    Route::get('/pay', 'App\Http\Controllers\Pay\PayController@pay');
+
+    Route::post('/pay/paytoorder', [PayController::class, 'ToPurchaseOrder'])
+        ->name('pay.toorder');
+
+    Route::post('/api/cart/UpQuantity', [CartController::class, 'upQuantityProduct'])
+        ->name('cart.upquantify');
+
+    Route::post('/api/cart/DownQuantity', [CartController::class, 'DownQuantityProduct'])
+        ->name('cart.downquantify');
+
 });
 
 
+<<<<<<< HEAD
 Route::get('/usermanagement', [Admin\UserController::class, 'index']);
 Route::get('/admin', [Admin\ProductController::class, 'index']);
 Route::get('/ordermanagement', [Admin\OrderController::class, 'index'])->name('orderManagement');
@@ -122,6 +135,54 @@ Route::get('/api/admin/statisticalmonth', [ChartController::class, 'StatisticalM
 Route::get('/administrator', function () {
     return view('/pages/administrator');
 });
+=======
+// Admin route
+Route::group(['middleware' => ['admin']], function () {
+    Route::prefix('admin')->group(function () {
+        Route::get('/', [Admin\ProductController::class, 'index']);
+        Route::get('/usermanagement', [Admin\UserController::class, 'index']);
+        Route::get('/orderManagement', [Admin\OrderController::class, 'index'])-> name('orderManagement');
+        Route::get('/chartstatistical', [Admin\ChartController::class, 'index']);
+        Route::get('/categorymanagement/delete/{id}', [CartController::class, 'deleteCartById']);
+
+        Route::post('/add-category', [CategoryController::class, 'AddCategory'])
+                ->name('add.category');
+        Route::get('/delete-category/{id}', [CategoryController::class, 'deleteCategorytById'])
+                ->name('category.delete');
+        Route::post('/edit-category', [CategoryController::class, 'EditCategory'])
+                ->name('edit.category');
+        Route::get('/delete-product/{id}', [Admin\ProductController::class, 'deleteProducttById'])
+                ->name('product.delete');
+        Route::post('/api/admin/new-product', [Admin\ProductController::class, 'AddProduct'])
+                ->name('add.product');
+        Route::post('/api/admin/get-Group-product', [Admin\ProductController::class, 'GetGroupProductById'])
+                ->name('get.GroupProduct');
+        Route::post('/api/admin/edit-product', [Admin\ProductController::class, 'EditProduct'])
+                ->name('edit.product');
+        Route::post('/api/admin/statuschangeorder', [Admin\OrderController::class, 'EditStatus'])
+                ->name('edit.statusOrder');
+    });
+    
+});
+
+// Route::get('/admin', function () {
+//     return view('/adminthucong/index');
+// });
+
+// Route::get('/User', function () {
+//     return view('/adminthucong/User');
+// });
+
+// Route::get('/Category', function () {
+//     return view('/adminthucong/Category');
+// });
+
+
+
+// Route::get('/administrator', function () {
+//     return view('/pages/administrator');
+// });
+>>>>>>> 938c83da6b6245dae2acf164f14f95779e7f9061
 
 
 //giỏ hàng
@@ -129,8 +190,6 @@ Route::get('/cart/delete/{cartid}', [CartController::class, 'deleteCartById'])->
 // Route::post('/cart/UpQuantity', [CartController::class, 'upQuantityProduct'])->name('cart.upquantify');
 
 //thánh toán
-Route::get('/pay', 'App\Http\Controllers\Pay\PayController@pay');
-Route::post('/pay/paytoorder', [PayController::class, 'ToPurchaseOrder'])->name('pay.toorder');
 
 // Search Product
 Route::get('/search', [HomeController::class, 'searchProduct'])->name('search');
@@ -138,6 +197,10 @@ Route::get('/search', [HomeController::class, 'searchProduct'])->name('search');
 //đơn mua hàng
 // Route::get('/purchaseorder', [PurchaseOrderController::class], 'purchaseorder');
 
+<<<<<<< HEAD
 //giỏ hàng
 Route::post('/api/cart/UpQuantity', [CartController::class, 'upQuantityProduct'])->name('cart.upquantify');
 Route::post('/api/cart/DownQuantity', [CartController::class, 'DownQuantityProduct'])->name('cart.downquantify');
+=======
+//giỏ hàng
+>>>>>>> 938c83da6b6245dae2acf164f14f95779e7f9061
