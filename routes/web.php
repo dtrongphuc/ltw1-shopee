@@ -112,30 +112,9 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
-
-<<<<<<< HEAD
-Route::get('/usermanagement', [Admin\UserController::class, 'index']);
-Route::get('/admin', [Admin\ProductController::class, 'index']);
-Route::get('/ordermanagement', [Admin\OrderController::class, 'index'])->name('orderManagement');
-Route::get('/chartstatistical', [Admin\ChartController::class, 'index']);
-Route::get('/categorymanagement/delete/{id}', [CartController::class, 'deleteCartById']);
-
-Route::post('/add-category', [CategoryController::class, 'AddCategory'])->name('add.category');
-Route::get('/delete-category/{id}', [CategoryController::class, 'deleteCategorytById'])->name('category.delete');
-Route::post('/edit-category', [CategoryController::class, 'EditCategory'])->name('edit.category');
-Route::get('/delete-product/{id}', [Admin\ProductController::class, 'deleteProducttById'])->name('product.delete');
-Route::post('/api/admin/new-product', [Admin\ProductController::class, 'AddProduct'])->name('add.product');
-Route::post('/api/admin/get-Group-product', [Admin\ProductController::class, 'GetGroupProductById'])->name('get.GroupProduct');
-Route::post('/api/admin/edit-product', [Admin\ProductController::class, 'EditProduct'])->name('edit.product');
-Route::post('/api/admin/statuschangeorder', [Admin\OrderController::class, 'EditStatus'])->name('edit.statusOrder');
-Route::get('/api/admin/statisticalquarter', [ChartController::class, 'StatisticalQuarter']);
-Route::get('/statisticalyear', [ChartController::class, 'StatisticalYear']);
-Route::get('/api/admin/statisticalmonth', [ChartController::class, 'StatisticalMonth']);
-
 Route::get('/administrator', function () {
     return view('/pages/administrator');
 });
-=======
 // Admin route
 Route::group(['middleware' => ['admin']], function () {
     Route::prefix('admin')->group(function () {
@@ -143,7 +122,7 @@ Route::group(['middleware' => ['admin']], function () {
         Route::get('/usermanagement', [Admin\UserController::class, 'index']);
         Route::get('/orderManagement', [Admin\OrderController::class, 'index'])-> name('orderManagement');
         Route::get('/chartstatistical', [Admin\ChartController::class, 'index']);
-        Route::get('/categorymanagement/delete/{id}', [CartController::class, 'deleteCartById']);
+        //Route::get('/categorymanagement/delete/{id}', [CartController::class, 'deleteCartById']);
 
         Route::post('/add-category', [CategoryController::class, 'AddCategory'])
                 ->name('add.category');
@@ -161,6 +140,9 @@ Route::group(['middleware' => ['admin']], function () {
                 ->name('edit.product');
         Route::post('/api/admin/statuschangeorder', [Admin\OrderController::class, 'EditStatus'])
                 ->name('edit.statusOrder');
+        Route::get('/api/admin/statisticalquarter', [ChartController::class, 'StatisticalQuarter']);
+        Route::get('/api/admin/statisticalmonth', [ChartController::class, 'StatisticalMonth']);
+
     });
     
 });
@@ -182,7 +164,6 @@ Route::group(['middleware' => ['admin']], function () {
 // Route::get('/administrator', function () {
 //     return view('/pages/administrator');
 // });
->>>>>>> 938c83da6b6245dae2acf164f14f95779e7f9061
 
 
 //giỏ hàng

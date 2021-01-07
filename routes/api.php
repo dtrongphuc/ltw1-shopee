@@ -13,6 +13,3 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // Route::get('/chartstatis', [ChartController::class, 'index']);
-Route::get('/statisticalquarter', [ChartController::class, 'StatisticalQuarter']);
-Route::get('/statisticalyear', [ChartController::class, 'StatisticalYear']);
-Route::get('/statisticalmonth', [ChartController::class, 'StatisticalMonth']);
