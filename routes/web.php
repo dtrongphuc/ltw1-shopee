@@ -128,19 +128,20 @@ Route::group(['middleware' => ['admin']], function () {
             ->name('edit.category');
         Route::get('/delete-product/{id}', [Admin\ProductController::class, 'deleteProducttById'])
             ->name('product.delete');
-        Route::post('/api/admin/new-product', [Admin\ProductController::class, 'AddProduct'])
-            ->name('add.product');
-        Route::post('/api/admin/get-Group-product', [Admin\ProductController::class, 'GetGroupProductById'])
-            ->name('get.GroupProduct');
-        Route::post('/api/admin/edit-product', [Admin\ProductController::class, 'EditProduct'])
-            ->name('edit.product');
-        Route::post('/api/admin/statuschangeorder', [Admin\OrderController::class, 'EditStatus'])
-            ->name('edit.statusOrder');
-        Route::get('/api/admin/statisticalquarter', [ChartController::class, 'StatisticalQuarter']);
-        Route::get('/api/admin/statisticalmonth', [ChartController::class, 'StatisticalMonth']);
     });
 });
 
+//api cho admin
+Route::post('/api/admin/new-product', [Admin\ProductController::class, 'AddProduct'])
+    ->name('add.product');
+Route::post('/api/admin/get-Group-product', [Admin\ProductController::class, 'GetGroupProductById'])
+    ->name('get.GroupProduct');
+Route::post('/api/admin/edit-product', [Admin\ProductController::class, 'EditProduct'])
+    ->name('edit.product');
+Route::post('/api/admin/statuschangeorder', [Admin\OrderController::class, 'EditStatus'])
+    ->name('edit.statusOrder');
+Route::get('/api/admin/statisticalquarter', [ChartController::class, 'StatisticalQuarter']);
+Route::get('/api/admin/statisticalmonth', [ChartController::class, 'StatisticalMonth']);
 
 //giỏ hàng
 Route::get('/cart/delete/{cartid}', [CartController::class, 'deleteCartById'])->name('cart.delete');

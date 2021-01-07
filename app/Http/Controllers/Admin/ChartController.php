@@ -28,6 +28,7 @@ class ChartController extends Controller
             ->where('status', '=', '0')
             ->count();
         $statistical = new QuantityStatistics($quantity, $total, $orderwait);
+        // //return response()->json($statistical, 200);
 
         //thống kê theo năm
         $data = DB::table('bills')
@@ -40,7 +41,7 @@ class ChartController extends Controller
             $array[++$key] = [(string)$value->year, (float)$value->total];
         }
         return view('Admin/chart')->with('year', json_encode($array))->with('statisticalToday', $statistical);
-        //return response()->json(json_encode($array), 200);
+        return response()->json(json_encode($array), 200);
     }
 
     //thống kê theo quý
