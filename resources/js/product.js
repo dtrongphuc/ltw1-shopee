@@ -180,6 +180,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(response);
                 document.querySelector(".header-cart__count").innerHTML =
                     response.data?.count;
+                document.querySelector(".header-cart__count").style.display =
+                    "block";
             }
         } catch (e) {
             let messageObj = e?.response?.data?.errors;

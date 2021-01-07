@@ -93,6 +93,7 @@
                                 </div>
                                 <div class="col-3">
                                     <div class="cartbody__productsinfo-amount">
+                                        @csrf
                                         <button class="cartbody__productsinfo-amount--downup down-default" name="btnupdown" data-id={{$product->id}} id="dw_{{$product->productName}}" data-cart="{{$product->productName}}" >
                                             <span>&#8722</span>
                                         </button>

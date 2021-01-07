@@ -75,7 +75,7 @@ Route::post('/api/product/type', [ProductController::class, 'getPriceAndQuantity
 Route::get('/category/{categoryId}', [HomeController::class, 'category'])->name('filter.category');
 
 // Protected routes
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     // Routes user
     Route::prefix('user')->group(function () {
         Route::get('/account', [AccountController::class, 'account']);
@@ -100,7 +100,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/cart', [CartController::class, 'cart']);
 
     Route::get('/pay', 'App\Http\Controllers\Pay\PayController@pay');
-    
+
     Route::post('/pay/paytoorder', [PayController::class, 'ToPurchaseOrder'])
         ->name('pay.toorder');
 
@@ -109,6 +109,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::post('/api/cart/DownQuantity', [CartController::class, 'DownQuantityProduct'])
         ->name('cart.downquantify');
+
 });
 
 
