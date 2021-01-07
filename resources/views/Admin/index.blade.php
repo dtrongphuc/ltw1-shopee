@@ -15,13 +15,13 @@
     <div class="box-content showLeft" id="box-content">
         <div class="left">
             <div class="headerleft">
-                <a class="text-light" href="./admin">ADMIN</a>
+                <a class="text-light" href="/admin">ADMIN</a>
             </div>
             <ul class="list-item">
 
                 <li class="item active">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="./admin">Quản Lý Danh Mục / Sản Phẩm</a>
+                    <a href="/admin">Quản Lý Danh Mục / Sản Phẩm</a>
                 </li>
                 <li class="item">
                     <i class="fas fa-fw fa-table"></i>
