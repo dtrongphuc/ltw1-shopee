@@ -4,14 +4,16 @@ $(document).ready(function() {
             editsp(btn.dataset.productId);
         });
     });
-    
+
     document.querySelector(".btn__add-type")?.addEventListener("click", () => {
         addInputType(".product-types__group");
     });
-    
-    document.querySelector(".btn__add-type--edit")?.addEventListener("click", () => {
-        addInputType(".product-types__group-edit");
-    });
+
+    document
+        .querySelector(".btn__add-type--edit")
+        ?.addEventListener("click", () => {
+            addInputType(".product-types__group-edit");
+        });
 
     document.querySelector(".btn-themSp")?.addEventListener("click", () => {
         Removeimput();
@@ -29,38 +31,43 @@ $(document).ready(function() {
             e.preventDefault();
             submitSuaSP();
         });
-    
-    document.querySelectorAll('.SelectstatusOrder').forEach(select => {
-        select.addEventListener('change', async () => {
 
+    document.querySelectorAll(".SelectstatusOrder").forEach(select => {
+        select.addEventListener("change", async () => {
             let id = select.dataset.orderId;
             var status = select.value;
             try {
-                const response = await axios.post('/api/admin/statuschangeorder', {
-                    id,
-                    status
-                });
+                const response = await axios.post(
+                    "/api/admin/statuschangeorder",
+                    {
+                        id,
+                        status
+                    }
+                );
                 if (response.status === 200) {
                     console.log(response);
                 }
             } catch (e) {
-                console.log('error', e.response);
+                console.log("error", e.response);
             }
         });
     });
 
-
-    function Removeimput(){
+    function Removeimput() {
         //xóa hết tất cả cac div được tạo
-        
+
         var divRemove = document.querySelectorAll(".type-group");
-        for (var indexRemove = 0; indexRemove < divRemove.length; indexRemove++) {
+        for (
+            var indexRemove = 0;
+            indexRemove < divRemove.length;
+            indexRemove++
+        ) {
             console.log("here");
             divRemove[indexRemove].remove();
         }
     }
 
-    const addInputType = (className) => {
+    const addInputType = className => {
         let div = document.createElement("div");
         div.className = "type-group type-group--input";
         div.innerHTML = `
@@ -74,15 +81,15 @@ $(document).ready(function() {
     async function submitThemSP() {
         document.getElementById("error_productName").innerHTML = "";
         document.getElementById("erroe_productDescription").innerHTML = "";
-        
-        if(document.querySelector("#product-name").value.trim() == "")
-        {
-            document.getElementById("error_productName").innerHTML = "không được bỏ trống";
+
+        if (document.querySelector("#product-name").value.trim() == "") {
+            document.getElementById("error_productName").innerHTML =
+                "không được bỏ trống";
             return;
         }
-        if(document.querySelector("#product-description").value.trim() == "")
-        {
-            document.getElementById("erroe_productDescription").innerHTML = "không được bỏ trống";
+        if (document.querySelector("#product-description").value.trim() == "") {
+            document.getElementById("erroe_productDescription").innerHTML =
+                "không được bỏ trống";
             return;
         }
 
@@ -103,22 +110,34 @@ $(document).ready(function() {
 
         let typesGroup = [];
         let productTypeName = document.getElementsByName("product-type[]");
-        let productTypeQuantity = document.getElementsByName("product-type-quantity[]");
-        let productTypePrice = document.getElementsByName("product-type-price[]");
+        let productTypeQuantity = document.getElementsByName(
+            "product-type-quantity[]"
+        );
+        let productTypePrice = document.getElementsByName(
+            "product-type-price[]"
+        );
 
-        for (let i = 0; i < productTypeName.length && i < productTypePrice.length && i < productTypeQuantity.length;i++) {
+        for (
+            let i = 0;
+            i < productTypeName.length &&
+            i < productTypePrice.length &&
+            i < productTypeQuantity.length;
+            i++
+        ) {
             let name = productTypeName[i].value;
             let quantity = productTypeQuantity[i].value;
             let price = productTypePrice[i].value;
-            if(name.trim() != "" || quantity.trim() != "" || price.trim() != "")
-            {
+            if (
+                name.trim() != "" ||
+                quantity.trim() != "" ||
+                price.trim() != ""
+            ) {
                 typesGroup.push({
                     name: name,
                     quantity: quantity,
                     price: price
                 });
             }
-            
         }
 
         fdata.append("productTypes", JSON.stringify(typesGroup)); // tại sao chổ này lại dùng lại phải chuyển thành Json
@@ -131,7 +150,9 @@ $(document).ready(function() {
     }
 
     async function postProduct(product) {
+        const btnSubmit = document.querySelector(".btn__submit-AddProduct");
         try {
+            btnSubmit.disabled = true;
             const response = await axios.post(
                 "/api/admin/new-product",
                 product,
@@ -147,54 +168,60 @@ $(document).ready(function() {
             }
         } catch (e) {
             console.log("error", e.response);
+        } finally {
+            btnSubmit.disabled = false;
         }
     }
 
     async function editsp(id) {
-        
-            try {
-                const response = await axios.post(
-                    "/api/admin/get-Group-product",
-                    {
-                        id
-                    }
-                );
-                if (response.status === 200) {
-                    let data = response.data;
-                    let dataproducttype = data[0];
-                    let datasp = data[1];
-                    //tạo dữ liệu cho sản phẩm
-                    document.getElementById("product-name-edit").value = datasp[0].productName;
-                    document.getElementById("product-id-edit").value = datasp[0].productId;
-                    document.getElementById("product-description-edit").value = datasp[0].description;
-                    document.getElementById(datasp[0].categoryId).selected = true;
-                    //xóa hết tất cả cac div được tạo
-                    
-                    var divRemove = document.querySelectorAll(".type-group");
-                    for (var indexRemove = 0; indexRemove < divRemove.length; indexRemove++) {
-                        console.log("here");
-                        divRemove[indexRemove].remove();
-                    }
-                    //tạo dữ liệu cho type
-                    
-                    for (var sldiv = 0; sldiv < dataproducttype.length; sldiv++) {
-                        let div = document.createElement("div");
-                        div.className = "type-group type-group--input";
-                        div.innerHTML = `
-                        <input class=" inputitem" type="text" name="product-type-edit[]" placeholder='Nhập tên Phân Nhóm' value= '${dataproducttype[sldiv]['name']}'>
-                        <input class=" inputitem" type="text" name="product-type-quantity-edit[]" placeholder='Nhập Số Lượng' value= '${dataproducttype[sldiv]['quantity']}'>
-                        <input class=" inputitem" type="text" name="product-type-price-edit[]" placeholder='Nhập Giá' value= ${dataproducttype[sldiv]['price']}>
-                    `;
-                    document.querySelector(".product-types__group-edit").appendChild(div);
-                    }
+        try {
+            const response = await axios.post("/api/admin/get-Group-product", {
+                id
+            });
+            if (response.status === 200) {
+                let data = response.data;
+                let dataproducttype = data[0];
+                let datasp = data[1];
+                //tạo dữ liệu cho sản phẩm
+                document.getElementById("product-name-edit").value =
+                    datasp[0].productName;
+                document.getElementById("product-id-edit").value =
+                    datasp[0].productId;
+                document.getElementById("product-description-edit").value =
+                    datasp[0].description;
+                document.getElementById(datasp[0].categoryId).selected = true;
+                //xóa hết tất cả cac div được tạo
+
+                var divRemove = document.querySelectorAll(".type-group");
+                for (
+                    var indexRemove = 0;
+                    indexRemove < divRemove.length;
+                    indexRemove++
+                ) {
+                    console.log("here");
+                    divRemove[indexRemove].remove();
                 }
-            } catch (e) {
-                console.log("error", e.response);
+                //tạo dữ liệu cho type
+
+                for (var sldiv = 0; sldiv < dataproducttype.length; sldiv++) {
+                    let div = document.createElement("div");
+                    div.className = "type-group type-group--input";
+                    div.innerHTML = `
+                        <input class=" inputitem" type="text" name="product-type-edit[]" placeholder='Nhập tên Phân Nhóm' value= '${dataproducttype[sldiv]["name"]}'>
+                        <input class=" inputitem" type="text" name="product-type-quantity-edit[]" placeholder='Nhập Số Lượng' value= '${dataproducttype[sldiv]["quantity"]}'>
+                        <input class=" inputitem" type="text" name="product-type-price-edit[]" placeholder='Nhập Giá' value= ${dataproducttype[sldiv]["price"]}>
+                    `;
+                    document
+                        .querySelector(".product-types__group-edit")
+                        .appendChild(div);
+                }
             }
+        } catch (e) {
+            console.log("error", e.response);
+        }
     }
 
     async function submitSuaSP(e) {
-        
         var fdata = new FormData();
         fdata.append(
             "productId",
@@ -216,15 +243,28 @@ $(document).ready(function() {
 
         let typesGroup = [];
         let productTypeName = document.getElementsByName("product-type-edit[]");
-        let productTypeQuantity = document.getElementsByName("product-type-quantity-edit[]");
-        let productTypePrice = document.getElementsByName("product-type-price-edit[]");
+        let productTypeQuantity = document.getElementsByName(
+            "product-type-quantity-edit[]"
+        );
+        let productTypePrice = document.getElementsByName(
+            "product-type-price-edit[]"
+        );
 
-        for (let i = 0; i < productTypeName.length && i < productTypePrice.length && i < productTypeQuantity.length;i++) {
+        for (
+            let i = 0;
+            i < productTypeName.length &&
+            i < productTypePrice.length &&
+            i < productTypeQuantity.length;
+            i++
+        ) {
             let name = productTypeName[i].value;
             let quantity = productTypeQuantity[i].value;
             let price = productTypePrice[i].value;
-            if(name.trim() != "" || quantity.trim() != "" || price.trim() != "")
-            {
+            if (
+                name.trim() != "" ||
+                quantity.trim() != "" ||
+                price.trim() != ""
+            ) {
                 typesGroup.push({
                     name: name,
                     quantity: quantity,
@@ -233,7 +273,7 @@ $(document).ready(function() {
             }
         }
 
-        fdata.append("productTypes", JSON.stringify(typesGroup)); 
+        fdata.append("productTypes", JSON.stringify(typesGroup));
 
         let files = document.getElementById("upload-edit").files;
         for (let i = 0; i < files.length; i++) {
@@ -270,4 +310,3 @@ $(document).ready(function() {
         }
     });
 });
-
