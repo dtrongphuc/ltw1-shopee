@@ -1,7 +1,6 @@
 @extends('../layouts/master', ['title' => 'Đơn mua'])
 @section('body')
 @parent
-@inject('helper', 'App\Http\Controllers\HomeController')
 <div class="main-info">
     <div class="container">
         <div class="row">
@@ -126,6 +125,4 @@
     </div>
 </div>
 </div>
-
-@include('../layouts/footer')
 @stop
