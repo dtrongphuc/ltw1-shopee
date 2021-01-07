@@ -25,15 +25,15 @@
                 </li>
                 <li class="item ">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="./chartstatistical">Quản lý thống kê</a>
+                    <a href="./admin/chartstatistical">Quản lý thống kê</a>
                 </li>
                 <li class="item">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="./usermanagement">Quản lý người dùng</a>
+                    <a href="./admin/usermanagement">Quản lý người dùng</a>
                 </li>
                 <li class="item active">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="./ordermanagement">Quản lý Đơn Hàng</a>
+                    <a href="./admin/ordermanagement">Quản lý Đơn Hàng</a>
                 </li>
             </ul>
         </div>
