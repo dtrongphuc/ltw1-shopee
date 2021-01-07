@@ -26160,148 +26160,85 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 $(document).ready(function () {
-  var _document$querySelect, _document$querySelect2;
+  var _document$querySelect, _document$querySelect2, _document$querySelect3, _document$querySelect4, _document$querySelect5;
 
-  var slNhomThemSP = 0;
-  var slNhomSuaSP = 0;
   document.querySelectorAll(".btn__edit-product").forEach(function (btn) {
     btn.addEventListener("click", function () {
       editsp(btn.dataset.productId);
     });
   });
-  document.querySelectorAll(".btn__AddGroup-product").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      addinputthemsp();
-    });
-  }); // document.querySelectorAll(".btn__AddGroup-Editproduct").forEach(btn => {
-  //     btn.addEventListener("click", () => {
-  //         themNhomSuaSP();
-  //     });
-  // });
-  // document.querySelectorAll(".btn__submit-AddProduct").forEach(btn => {
-  //     btn.addEventListener("click", () => {
-  //         submitThemSP();
-  //     });
-  // });
-  //
-  //
-
   (_document$querySelect = document.querySelector(".btn__add-type")) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.addEventListener("click", function () {
-    addInputType();
+    addInputType(".product-types__group");
   });
-  document.querySelectorAll(".btn__submit-EditProduct").forEach(function (btn) {
-    btn.addEventListener("submit", function (e) {
-      e.preventDefault();
-      submitSuaSP();
-    });
+  (_document$querySelect2 = document.querySelector(".btn__add-type--edit")) === null || _document$querySelect2 === void 0 ? void 0 : _document$querySelect2.addEventListener("click", function () {
+    addInputType(".product-types__group-edit");
   });
-  (_document$querySelect2 = document.querySelector("#form-add-product")) === null || _document$querySelect2 === void 0 ? void 0 : _document$querySelect2.addEventListener("submit", function (e) {
+  (_document$querySelect3 = document.querySelector(".btn-themSp")) === null || _document$querySelect3 === void 0 ? void 0 : _document$querySelect3.addEventListener("click", function () {
+    Removeimput();
+  });
+  (_document$querySelect4 = document.querySelector("#form-add-product")) === null || _document$querySelect4 === void 0 ? void 0 : _document$querySelect4.addEventListener("submit", function (e) {
     e.preventDefault();
     submitThemSP();
-  }); // document.querySelectorAll('.SelectstatusOrder').forEach(select => {
-  //     select.addEventListener('change', async () => {
-  //         let id = select.dataset.orderId;
-  //         var status = select.getElementsByClassName("SelectstatusOrder").value;
-  //         console.log(status);
-  //         try {
-  //             const response = await axios.post('/api/admin/statuschangeorder', {
-  //                 id,
-  //                 status
-  //             });
-  //             if (response.status === 200) {
-  //                 console.log(response);
-  //             }
-  //         } catch (e) {
-  //             console.log('error', e.response);
-  //         }
-  //     });
-  // });
+  });
+  (_document$querySelect5 = document.querySelector("#form-edit-product")) === null || _document$querySelect5 === void 0 ? void 0 : _document$querySelect5.addEventListener("submit", function (e) {
+    e.preventDefault();
+    submitSuaSP();
+  });
+  document.querySelectorAll('.SelectstatusOrder').forEach(function (select) {
+    select.addEventListener('change', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var id, status, response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              id = select.dataset.orderId;
+              status = select.value;
+              _context.prev = 2;
+              _context.next = 5;
+              return axios.post('/api/admin/statuschangeorder', {
+                id: id,
+                status: status
+              });
 
-  function addinputthemsp() {
-    slNhomThemSP++;
-    var divinput = document.createElement("div");
-    var inputName = document.createElement("INPUT");
-    var inputQuantity = document.createElement("INPUT");
-    var inputPrice = document.createElement("INPUT");
-    var bntRemove = document.createElement("BUTTON");
-    var icon = document.createElement("i"); //set id cho buntton
+            case 5:
+              response = _context.sent;
 
-    divinput.setAttribute("id", "content-phanNhom-themsp" + slNhomThemSP);
-    bntRemove.setAttribute("id", "btnremove-themsp" + slNhomThemSP); //set type
+              if (response.status === 200) {
+                console.log(response);
+              }
 
-    inputName.setAttribute("type", "text");
-    inputQuantity.setAttribute("type", "text");
-    inputPrice.setAttribute("type", "text");
-    bntRemove.setAttribute("type", "button"); //Name
+              _context.next = 12;
+              break;
 
-    inputName.setAttribute("Name", "tenNhom-themsp" + slNhomThemSP);
-    inputQuantity.setAttribute("Name", "SLNhom-themsp" + slNhomThemSP);
-    inputPrice.setAttribute("Name", "GiaNhom-themsp" + slNhomThemSP); //style
+            case 9:
+              _context.prev = 9;
+              _context.t0 = _context["catch"](2);
+              console.log('error', _context.t0.response);
 
-    inputName.setAttribute("Class", "inputitem");
-    inputQuantity.setAttribute("Class", "inputitem");
-    inputPrice.setAttribute("Class", "inputitem");
-    inputName.setAttribute("placeholder", "Nhập Tên Sản Phẩm");
-    inputQuantity.setAttribute("placeholder", "Nhập Số Lượng");
-    inputPrice.setAttribute("placeholder", "Nhập Giá");
-    bntRemove.setAttribute("Class", "icon-remove-input-themsp", "btn");
-    icon.setAttribute("Class", "fas fa-minus-circle"); //x.setAttribute("value", "asd");
+            case 12:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[2, 9]]);
+    })));
+  });
 
-    document.getElementById("themPhanNhom-themsp").appendChild(divinput);
-    document.getElementById("content-phanNhom-themsp" + slNhomThemSP).appendChild(inputName);
-    document.getElementById("content-phanNhom-themsp" + slNhomThemSP).appendChild(inputQuantity);
-    document.getElementById("content-phanNhom-themsp" + slNhomThemSP).appendChild(inputPrice);
-    document.getElementById("content-phanNhom-themsp" + slNhomThemSP).appendChild(bntRemove);
-    document.getElementById("btnremove-themsp" + slNhomThemSP).appendChild(icon);
+  function Removeimput() {
+    //xóa hết tất cả cac div được tạo
+    var divRemove = document.querySelectorAll(".type-group");
+
+    for (var indexRemove = 0; indexRemove < divRemove.length; indexRemove++) {
+      console.log("here");
+      divRemove[indexRemove].remove();
+    }
   }
 
-  function themNhomSuaSP() {
-    slNhomSuaSP++;
-    var divinput = document.createElement("div");
-    var inputName = document.createElement("INPUT");
-    var inputQuantity = document.createElement("INPUT");
-    var inputPrice = document.createElement("INPUT");
-    var bntRemove = document.createElement("BUTTON");
-    var icon = document.createElement("i"); //set id cho buntton
-
-    divinput.setAttribute("id", "content-phanNhom-suaSP" + slNhomSuaSP);
-    bntRemove.setAttribute("id", "btnremove-suaSP" + slNhomSuaSP); //set type
-
-    inputName.setAttribute("type", "text");
-    inputQuantity.setAttribute("type", "text");
-    inputPrice.setAttribute("type", "text");
-    bntRemove.setAttribute("type", "button"); //Name
-
-    inputName.setAttribute("Name", "tenNhom-suaSP" + slNhomSuaSP);
-    inputQuantity.setAttribute("Name", "SLNhom-suaSP" + slNhomSuaSP);
-    inputPrice.setAttribute("Name", "GiaNhom-suaSP" + slNhomSuaSP); //style
-
-    inputName.setAttribute("Class", "inputitem");
-    inputQuantity.setAttribute("Class", "inputitem");
-    inputPrice.setAttribute("Class", "inputitem");
-    inputName.setAttribute("placeholder", "Nhập Tên Sản Phẩm");
-    inputQuantity.setAttribute("placeholder", "Nhập Số Lượng");
-    inputPrice.setAttribute("placeholder", "Nhập Giá");
-    bntRemove.setAttribute("Class", "icon-remove-input-themsp", "btn");
-    icon.setAttribute("Class", "fas fa-minus-circle"); //x.setAttribute("value", "asd");
-
-    document.getElementById("themPhanNhom-suaSP").appendChild(divinput);
-    document.getElementById("content-phanNhom-suaSP" + slNhomSuaSP).appendChild(inputName);
-    document.getElementById("content-phanNhom-suaSP" + slNhomSuaSP).appendChild(inputQuantity);
-    document.getElementById("content-phanNhom-suaSP" + slNhomSuaSP).appendChild(inputPrice);
-    document.getElementById("content-phanNhom-suaSP" + slNhomSuaSP).appendChild(bntRemove);
-    document.getElementById("btnremove-suaSP" + slNhomSuaSP).appendChild(icon);
-  }
-
-  var addInputType = function addInputType() {
-    console.log("add");
+  var addInputType = function addInputType(className) {
     var div = document.createElement("div");
-    div.className = "col-md-8 type-group";
-    div.innerHTML = "\n            <input class=\"col-md-3 inputitem\" type=\"text\" name=\"product-type[]\" placeholder='Nh\u1EADp t\xEAn Ph\xE2n Nh\xF3m'>\n            <input class=\"col-md-3 inputitem\" type=\"text\" name=\"product-type-quantity[]\" placeholder='Nh\u1EADp S\u1ED1 L\u01B0\u1EE3ng'>\n            <input class=\"col-md-2 inputitem\" type=\"text\" name=\"product-type-price[]\" placeholder='Nh\u1EADp Gi\xE1'>\n            <button id=\"btnremove-themsp1\" type=\"button\" class=\"icon-remove-input-themsp btn__remove-type\">\n                <i class=\"fas fa-minus-circle\"></i>\n            </button>\n        ";
-    document.querySelector(".product-types__group").appendChild(div);
-    document.querySelector(".type-group:last-child > .btn__remove-type").addEventListener("click", function (e) {
-      console.log(e.currentTarget);
-    });
+    div.className = "type-group type-group--input";
+    div.innerHTML = "\n            <input class=\" inputitem\" type=\"text\" name=\"product-type[]\" placeholder='Nh\u1EADp t\xEAn Ph\xE2n Nh\xF3m'>\n            <input class=\" inputitem\" type=\"text\" name=\"product-type-quantity[]\" placeholder='Nh\u1EADp S\u1ED1 L\u01B0\u1EE3ng'>\n            <input class=\" inputitem\" type=\"text\" name=\"product-type-price[]\" placeholder='Nh\u1EADp Gi\xE1'>\n        ";
+    document.querySelector(className).appendChild(div);
   };
 
   function submitThemSP() {
@@ -26310,33 +26247,33 @@ $(document).ready(function () {
 
   function _submitThemSP() {
     _submitThemSP = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-      var fdata, typesGroup, productTypeName, productTypeQuantity, productTypePrice, i, files, _i;
+      var fdata, typesGroup, productTypeName, productTypeQuantity, productTypePrice, i, name, quantity, price, files, _i;
 
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              // var arrayPhanNhom = [];
-              // var tensp = document.forms["formInfoAdd"]["tenSP"].value;
-              // var mota = document.forms["formInfoAdd"]["motaSP"].value;
-              // var cate = document.forms["formInfoAdd"]["category"].value;
-              // for (var z = 0; z <= slNhomThemSP; z++) {
-              //     var check = document.forms["formInfoAdd"]["tenNhom-themsp" + z].value;
-              //     if(check == "")
-              //         continue;
-              //     arrayPhanNhom.push({
-              //         tennhom: document.forms["formInfoAdd"]["tenNhom-themsp" + z].value,
-              //         slnhom: document.forms["formInfoAdd"]["SLNhom-themsp" + z].value,
-              //         gianhom: document.forms["formInfoAdd"]["GiaNhom-themsp" + z].value
-              //     })
-              // }
-              // slNhomThemSP = 0;
-              // var sanpham = {
-              //     tensp: tensp,
-              //     mota: mota,
-              //     danhmuc: cate,
-              //     mangNhom: arrayPhanNhom
-              // };
+              document.getElementById("error_productName").innerHTML = "";
+              document.getElementById("erroe_productDescription").innerHTML = "";
+
+              if (!(document.querySelector("#product-name").value.trim() == "")) {
+                _context2.next = 5;
+                break;
+              }
+
+              document.getElementById("error_productName").innerHTML = "không được bỏ trống";
+              return _context2.abrupt("return");
+
+            case 5:
+              if (!(document.querySelector("#product-description").value.trim() == "")) {
+                _context2.next = 8;
+                break;
+              }
+
+              document.getElementById("erroe_productDescription").innerHTML = "không được bỏ trống";
+              return _context2.abrupt("return");
+
+            case 8:
               fdata = new FormData();
               fdata.append("productName", document.querySelector("#product-name").value);
               fdata.append("productDescription", document.querySelector("#product-description").value);
@@ -26347,24 +26284,31 @@ $(document).ready(function () {
               productTypePrice = document.getElementsByName("product-type-price[]");
 
               for (i = 0; i < productTypeName.length && i < productTypePrice.length && i < productTypeQuantity.length; i++) {
-                typesGroup.push({
-                  name: productTypeName[i].value,
-                  quantity: productTypeQuantity[i].value,
-                  price: productTypePrice[i].value
-                });
+                name = productTypeName[i].value;
+                quantity = productTypeQuantity[i].value;
+                price = productTypePrice[i].value;
+
+                if (name.trim() != "" || quantity.trim() != "" || price.trim() != "") {
+                  typesGroup.push({
+                    name: name,
+                    quantity: quantity,
+                    price: price
+                  });
+                }
               }
 
-              fdata.append("productTypes", JSON.stringify(typesGroup));
+              fdata.append("productTypes", JSON.stringify(typesGroup)); // tại sao chổ này lại dùng lại phải chuyển thành Json
+
               files = document.getElementById("upload").files;
 
               for (_i = 0; _i < files.length; _i++) {
                 fdata.append("images[]", files[_i]);
               }
 
-              _context2.next = 14;
+              _context2.next = 22;
               return postProduct(fdata);
 
-            case 14:
+            case 22:
             case "end":
               return _context2.stop();
           }
@@ -26397,7 +26341,8 @@ $(document).ready(function () {
               response = _context3.sent;
 
               if (response.status === 200) {
-                console.log(response); //window.location.reload();
+                console.log(response);
+                window.location.reload();
               }
 
               _context3.next = 10;
@@ -26418,70 +26363,68 @@ $(document).ready(function () {
     return _postProduct.apply(this, arguments);
   }
 
-  function editsp(id) {
-    function GetGroupProduct(_x2) {
-      return _GetGroupProduct.apply(this, arguments);
-    }
+  function editsp(_x2) {
+    return _editsp.apply(this, arguments);
+  }
 
-    function _GetGroupProduct() {
-      _GetGroupProduct = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
-        var response, datasp, sldiv, sldivdatontai, inputTen, inputsl, inputgia, indexRemove, divRemove;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.prev = 0;
-                _context.next = 3;
-                return axios.post("/api/admin/get-Group-product", {
-                  id: id
-                });
+  function _editsp() {
+    _editsp = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id) {
+      var response, data, dataproducttype, datasp, divRemove, indexRemove, sldiv, div;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              _context4.next = 3;
+              return axios.post("/api/admin/get-Group-product", {
+                id: id
+              });
 
-              case 3:
-                response = _context.sent;
+            case 3:
+              response = _context4.sent;
 
-                if (response.status === 200) {
-                  datasp = response.data;
+              if (response.status === 200) {
+                data = response.data;
+                dataproducttype = data[0];
+                datasp = data[1]; //tạo dữ liệu cho sản phẩm
 
-                  for (sldiv = 0; sldiv < datasp.length; sldiv++) {
-                    sldivdatontai = document.getElementById("themPhanNhom-suaSP").childElementCount - 1;
+                document.getElementById("product-name-edit").value = datasp[0].productName;
+                document.getElementById("product-id-edit").value = datasp[0].productId;
+                document.getElementById("product-description-edit").value = datasp[0].description;
+                document.getElementById(datasp[0].categoryId).selected = true; //xóa hết tất cả cac div được tạo
 
-                    if (sldivdatontai < datasp.length) {
-                      themNhomSuaSP();
-                    }
+                divRemove = document.querySelectorAll(".type-group");
 
-                    inputTen = document.getElementsByName("tenNhom-suaSP" + sldiv)[0];
-                    inputTen.setAttribute("value", datasp[sldiv]["name"]);
-                    inputsl = document.getElementsByName("SLNhom-suaSP" + sldiv)[0];
-                    inputsl.setAttribute("value", datasp[sldiv]["quantity"]);
-                    inputgia = document.getElementsByName("GiaNhom-suaSP" + sldiv)[0];
-                    inputgia.setAttribute("value", parseFloat(datasp[sldiv]["price"]));
-                  }
+                for (indexRemove = 0; indexRemove < divRemove.length; indexRemove++) {
+                  console.log("here");
+                  divRemove[indexRemove].remove();
+                } //tạo dữ liệu cho type
 
-                  for (indexRemove = datasp.length; indexRemove < sldivdatontai; indexRemove++) {
-                    divRemove = document.getElementById("content-phanNhom-suaSP" + indexRemove);
-                    divRemove.remove();
-                  }
+
+                for (sldiv = 0; sldiv < dataproducttype.length; sldiv++) {
+                  div = document.createElement("div");
+                  div.className = "type-group type-group--input";
+                  div.innerHTML = "\n                        <input class=\" inputitem\" type=\"text\" name=\"product-type-edit[]\" placeholder='Nh\u1EADp t\xEAn Ph\xE2n Nh\xF3m' value= '".concat(dataproducttype[sldiv]['name'], "'>\n                        <input class=\" inputitem\" type=\"text\" name=\"product-type-quantity-edit[]\" placeholder='Nh\u1EADp S\u1ED1 L\u01B0\u1EE3ng' value= '").concat(dataproducttype[sldiv]['quantity'], "'>\n                        <input class=\" inputitem\" type=\"text\" name=\"product-type-price-edit[]\" placeholder='Nh\u1EADp Gi\xE1' value= ").concat(dataproducttype[sldiv]['price'], ">\n                    ");
+                  document.querySelector(".product-types__group-edit").appendChild(div);
                 }
+              }
 
-                _context.next = 10;
-                break;
+              _context4.next = 10;
+              break;
 
-              case 7:
-                _context.prev = 7;
-                _context.t0 = _context["catch"](0);
-                console.log("error", _context.t0.response);
+            case 7:
+              _context4.prev = 7;
+              _context4.t0 = _context4["catch"](0);
+              console.log("error", _context4.t0.response);
 
-              case 10:
-              case "end":
-                return _context.stop();
-            }
+            case 10:
+            case "end":
+              return _context4.stop();
           }
-        }, _callee, null, [[0, 7]]);
-      }));
-      return _GetGroupProduct.apply(this, arguments);
-    }
-
-    GetGroupProduct(id);
+        }
+      }, _callee4, null, [[0, 7]]);
+    }));
+    return _editsp.apply(this, arguments);
   }
 
   function submitSuaSP(_x3) {
@@ -26489,65 +26432,53 @@ $(document).ready(function () {
   }
 
   function _submitSuaSP() {
-    _submitSuaSP = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(e) {
-      var arrayPhanNhom, id, tensp, mota, cate, sldivdatontai, z, check, slNhomSuaSP, sanphamSua;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+    _submitSuaSP = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(e) {
+      var fdata, typesGroup, productTypeName, productTypeQuantity, productTypePrice, i, name, quantity, price, files, _i2;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
         while (1) {
-          switch (_context4.prev = _context4.next) {
+          switch (_context5.prev = _context5.next) {
             case 0:
-              arrayPhanNhom = [];
-              id = document.forms["editSPForm"]["idproductSua"].value;
-              tensp = document.forms["editSPForm"]["tensuaSP"].value;
-              mota = document.forms["editSPForm"]["motasuaSP"].value;
-              cate = document.forms["editSPForm"]["categorysuaSP"].value;
-              sldivdatontai = document.getElementById("themPhanNhom-suaSP").childElementCount - 1;
-              z = 0;
+              fdata = new FormData();
+              fdata.append("productId", document.querySelector("#product-id-edit").value);
+              fdata.append("productName", document.querySelector("#product-name-edit").value);
+              fdata.append("productDescription", document.querySelector("#product-description-edit").value);
+              fdata.append("categoryId", document.querySelector(".add-product__category").value);
+              typesGroup = [];
+              productTypeName = document.getElementsByName("product-type-edit[]");
+              productTypeQuantity = document.getElementsByName("product-type-quantity-edit[]");
+              productTypePrice = document.getElementsByName("product-type-price-edit[]");
 
-            case 7:
-              if (!(z < sldivdatontai)) {
-                _context4.next = 15;
-                break;
+              for (i = 0; i < productTypeName.length && i < productTypePrice.length && i < productTypeQuantity.length; i++) {
+                name = productTypeName[i].value;
+                quantity = productTypeQuantity[i].value;
+                price = productTypePrice[i].value;
+
+                if (name.trim() != "" || quantity.trim() != "" || price.trim() != "") {
+                  typesGroup.push({
+                    name: name,
+                    quantity: quantity,
+                    price: price
+                  });
+                }
               }
 
-              check = document.forms["editSPForm"]["tenNhom-suaSP" + z].value;
+              fdata.append("productTypes", JSON.stringify(typesGroup));
+              files = document.getElementById("upload-edit").files;
 
-              if (!(check == "")) {
-                _context4.next = 11;
-                break;
+              for (_i2 = 0; _i2 < files.length; _i2++) {
+                fdata.append("images[]", files[_i2]);
               }
 
-              return _context4.abrupt("continue", 12);
-
-            case 11:
-              arrayPhanNhom.push({
-                tennhom: document.forms["editSPForm"]["tenNhom-suaSP" + z].value,
-                slnhom: document.forms["editSPForm"]["SLNhom-suaSP" + z].value,
-                gianhom: document.forms["editSPForm"]["GiaNhom-suaSP" + z].value
-              });
-
-            case 12:
-              z++;
-              _context4.next = 7;
-              break;
+              _context5.next = 15;
+              return postProductToEdit(fdata);
 
             case 15:
-              slNhomSuaSP = 0;
-              sanphamSua = {
-                id: id,
-                tensp: tensp,
-                mota: mota,
-                danhmuc: cate,
-                mangNhom: arrayPhanNhom
-              };
-              _context4.next = 19;
-              return postProductToEdit(sanphamSua);
-
-            case 19:
             case "end":
-              return _context4.stop();
+              return _context5.stop();
           }
         }
-      }, _callee4);
+      }, _callee5);
     }));
     return _submitSuaSP.apply(this, arguments);
   }
@@ -26557,40 +26488,42 @@ $(document).ready(function () {
   }
 
   function _postProductToEdit() {
-    _postProductToEdit = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(sanphamSua) {
+    _postProductToEdit = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(productEdit) {
       var response;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
         while (1) {
-          switch (_context5.prev = _context5.next) {
+          switch (_context6.prev = _context6.next) {
             case 0:
-              _context5.prev = 0;
-              _context5.next = 3;
-              return axios.post("/api/admin/edit-product", {
-                sanphamSua: sanphamSua
+              _context6.prev = 0;
+              _context6.next = 3;
+              return axios.post("/api/admin/edit-product", productEdit, {
+                headers: {
+                  "Content-Type": "multipart/form-data"
+                }
               });
 
             case 3:
-              response = _context5.sent;
+              response = _context6.sent;
 
               if (response.status === 200) {
                 console.log(response);
                 window.location.reload();
               }
 
-              _context5.next = 10;
+              _context6.next = 10;
               break;
 
             case 7:
-              _context5.prev = 7;
-              _context5.t0 = _context5["catch"](0);
-              console.log("error", _context5.t0.response);
+              _context6.prev = 7;
+              _context6.t0 = _context6["catch"](0);
+              console.log("error", _context6.t0.response);
 
             case 10:
             case "end":
-              return _context5.stop();
+              return _context6.stop();
           }
         }
-      }, _callee5, null, [[0, 7]]);
+      }, _callee6, null, [[0, 7]]);
     }));
     return _postProductToEdit.apply(this, arguments);
   }
@@ -26745,7 +26678,7 @@ registerForm && registerForm.addEventListener("submit", /*#__PURE__*/function ()
 }());
 loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
-    var formData, loginData, response, _error$response2, _error$response2$data, messageObj, fields;
+    var formData, loginData, response, _response$data, _error$response2, _error$response2$data, messageObj, fields;
 
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
       while (1) {
@@ -26766,19 +26699,32 @@ loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
           case 8:
             response = _context2.sent;
 
-            if (response.status === 200) {
-              window.location.href = "/";
+            if (!(response.status === 200)) {
+              _context2.next = 14;
+              break;
             }
 
-            _context2.next = 25;
+            if (!(((_response$data = response.data) === null || _response$data === void 0 ? void 0 : _response$data.role) === 1)) {
+              _context2.next = 13;
+              break;
+            }
+
+            window.location.href = "/admin";
+            return _context2.abrupt("return");
+
+          case 13:
+            window.location.href = "/";
+
+          case 14:
+            _context2.next = 29;
             break;
 
-          case 12:
-            _context2.prev = 12;
+          case 16:
+            _context2.prev = 16;
             _context2.t0 = _context2["catch"](4);
 
             if (!(_context2.t0.response.status === 401)) {
-              _context2.next = 18;
+              _context2.next = 22;
               break;
             }
 
@@ -26786,11 +26732,11 @@ loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
             errorAlert.style.display = "block";
             return _context2.abrupt("return");
 
-          case 18:
+          case 22:
             messageObj = _context2.t0 === null || _context2.t0 === void 0 ? void 0 : (_error$response2 = _context2.t0.response) === null || _error$response2 === void 0 ? void 0 : (_error$response2$data = _error$response2.data) === null || _error$response2$data === void 0 ? void 0 : _error$response2$data.data;
 
             if (!messageObj.error) {
-              _context2.next = 23;
+              _context2.next = 27;
               break;
             }
 
@@ -26798,24 +26744,24 @@ loginForm && loginForm.addEventListener("submit", /*#__PURE__*/function () {
             errorAlert.style.display = "block";
             return _context2.abrupt("return");
 
-          case 23:
+          case 27:
             fields = Object.keys(messageObj);
             fields.forEach(function (field) {
               document.querySelector("#" + field).classList.add("is-invalid");
               document.querySelector("#".concat(field, " + .invalid-feedback")).innerHTML = messageObj[field];
             });
 
-          case 25:
-            _context2.prev = 25;
+          case 29:
+            _context2.prev = 29;
             btnSubmit.disabled = false;
-            return _context2.finish(25);
+            return _context2.finish(29);
 
-          case 28:
+          case 32:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[4, 12, 25, 28]]);
+    }, _callee2, null, [[4, 16, 29, 32]]);
   }));
 
   return function (_x2) {
@@ -27382,7 +27328,7 @@ document.addEventListener("DOMContentLoaded", function () {
   btnAddToCart === null || btnAddToCart === void 0 ? void 0 : btnAddToCart.addEventListener("click", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
     var _document$querySelect;
 
-    var cartData, response, _e$response, _e$response$data, messageObj;
+    var cartData, response, _response$data, _e$response, _e$response$data, messageObj;
 
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
       while (1) {
@@ -27401,7 +27347,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
           case 6:
             response = _context3.sent;
-            console.log(response);
+
+            if (response.status === 200) {
+              console.log(response);
+              document.querySelector(".header-cart__count").innerHTML = (_response$data = response.data) === null || _response$data === void 0 ? void 0 : _response$data.count;
+            }
+
             _context3.next = 15;
             break;
 
@@ -27495,7 +27446,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! F:\2020-2021-HK1\LTWeb 1\Project\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! Z:\Code\ltw1-shopee\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })

@@ -28,6 +28,8 @@ use App\Http\Controllers\Admin;
 |
 */
 
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
 // Verification
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
@@ -99,6 +101,34 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 
+// Admin route
+Route::group(['middleware' => ['admin']], function () {
+    Route::prefix('admin')->group(function () {
+        Route::get('/', [Admin\ProductController::class, 'index']);
+        Route::get('/usermanagement', [Admin\UserController::class, 'index']);
+        Route::get('/orderManagement', [Admin\OrderController::class, 'index'])-> name('orderManagement');
+        Route::get('/chartstatistical', [Admin\ChartController::class, 'index']);
+        Route::get('/categorymanagement/delete/{id}', [CartController::class, 'deleteCartById']);
+
+        Route::post('/add-category', [CategoryController::class, 'AddCategory'])
+                ->name('add.category');
+        Route::get('/delete-category/{id}', [CategoryController::class, 'deleteCategorytById'])
+                ->name('category.delete');
+        Route::post('/edit-category', [CategoryController::class, 'EditCategory'])
+                ->name('edit.category');
+        Route::get('/delete-product/{id}', [Admin\ProductController::class, 'deleteProducttById'])
+                ->name('product.delete');
+        Route::post('/api/admin/new-product', [Admin\ProductController::class, 'AddProduct'])
+                ->name('add.product');
+        Route::post('/api/admin/get-Group-product', [Admin\ProductController::class, 'GetGroupProductById'])
+                ->name('get.GroupProduct');
+        Route::post('/api/admin/edit-product', [Admin\ProductController::class, 'EditProduct'])
+                ->name('edit.product');
+        Route::post('/api/admin/statuschangeorder', [Admin\OrderController::class, 'EditStatus'])
+                ->name('edit.statusOrder');
+    });
+    
+});
 
 // Route::get('/admin', function () {
 //     return view('/adminthucong/index');
@@ -112,28 +142,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
 //     return view('/adminthucong/Category');
 // });
 
-Route::get('/usermanagement', [Admin\UserController::class, 'index']);
-Route::get('/admin', [Admin\ProductController::class, 'index']);
-Route::get('/orderManagement', [Admin\OrderController::class, 'index'])-> name('orderManagement');
-Route::get('/chartstatistical', [Admin\ChartController::class, 'index']);
-Route::get('/categorymanagement/delete/{id}', [CartController::class, 'deleteCartById']);
 
-Route::post('/add-category', [CategoryController::class, 'AddCategory'])->name('add.category');
-Route::get('/delete-category/{id}', [CategoryController::class, 'deleteCategorytById'])->name('category.delete');
-Route::post('/edit-category', [CategoryController::class, 'EditCategory'])->name('edit.category');
-Route::get('/delete-product/{id}', [Admin\ProductController::class, 'deleteProducttById'])->name('product.delete');
-Route::post('/api/admin/new-product', [Admin\ProductController::class, 'AddProduct'])->name('add.product');
-Route::post('/api/admin/get-Group-product', [Admin\ProductController::class, 'GetGroupProductById'])->name('get.GroupProduct');
-Route::post('/api/admin/edit-product', [Admin\ProductController::class, 'EditProduct'])->name('edit.product');
-Route::post('/api/admin/statuschangeorder', [Admin\OrderController::class, 'EditStatus'])->name('edit.statusOrder');
 
-Route::get('/administrator', function () {
-    return view('/pages/administrator');
-});
+// Route::get('/administrator', function () {
+//     return view('/pages/administrator');
+// });
 
-Route::get('/', [HomeController::class, 'index']);
-//Route::get('/', [HomeController::class, 'ListProducts']);
-//Route::get('/', [HomeController::class, 'ProductImages']);
 
 //giỏ hàng
 Route::get('/cart/delete/{cartid}', [CartController::class, 'deleteCartById'])->name('cart.delete');
@@ -148,3 +162,7 @@ Route::get('/search', [HomeController::class, 'searchProduct'])->name('search');
 
 //đơn mua hàng
 // Route::get('/purchaseorder', [PurchaseOrderController::class], 'purchaseorder');
+
+//giỏ hàng
+Route::post('/api/cart/UpQuantity', [CartController::class, 'upQuantityProduct'])->name('cart.upquantify');
+Route::post('/api/cart/DownQuantity', [CartController::class, 'DownQuantityProduct'])->name('cart.downquantify');
