@@ -25,20 +25,4 @@ class OrderController extends Controller
             ->update(['status' => $status]);
         return response()->json($req, 200);
     }
-    // public function findOrderByNumber($orderId)
-    // {
-    //     return Order::where('Id', $orderId)->first();
-    // }
-
-    // public function updateOrder(array $params)
-    // {
-    //     // $order = $this->findOrderById($params['Id']);
-
-    //     // $collection = collect($params)->except('_token');
-
-    //     // $order->update();
-
-    //     $orders = Order::all();
-    //     return view('adminthucong/Order', ['orders' => $order]);
-    // }
 }

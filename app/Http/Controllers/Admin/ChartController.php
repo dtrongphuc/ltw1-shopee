@@ -29,10 +29,6 @@ class ChartController extends Controller
             ->count();
         $statistical = new QuantityStatistics($quantity, $total, $orderwait);
 
-
-        return view('Admin/chart', ['statisticalToday' => $statistical]);
-        // //return response()->json($statistical, 200);
-
         //thống kê theo năm
         $data = DB::table('bills')
             ->select(DB::raw('YEAR(createAt) year'), DB::raw('sum(totalPrice) total'))
@@ -43,8 +39,8 @@ class ChartController extends Controller
         foreach ($data as $key => $value) {
             $array[++$key] = [(string)$value->year, (float)$value->total];
         }
-        //return view('adminthucong/chart')->with('year', json_encode($array))->with('statisticalToday', $statistical);
-        //return response()->json($data, 200);
+        return view('Admin/chart')->with('year', json_encode($array))->with('statisticalToday', $statistical);
+        //return response()->json(json_encode($array), 200);
     }
 
     //thống kê theo quý
