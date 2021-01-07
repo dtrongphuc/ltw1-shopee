@@ -83,7 +83,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/account/change-password', [AccountController::class, 'changePassword'])
             ->name('change.account.password');
 
-        Route::get('/purchaseorder', 'App\Http\Controllers\PurchaseOrder\PurchaseOrderController@purchaseorder')->name('purchaseorder.index');
+        Route::get('/purchase', [PurchaseOrderController::class, 'purchaseorder'])->name('purchaseorder.index');
 
         Route::get('/favorite', [FavoriteController::class, 'favorite']);
         Route::get('/favorite/delete/{productid}', [FavoriteController::class, 'deleteproduct']);
@@ -97,7 +97,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/post-review', [PostReviewController::class, 'post'])->name('post.review');
     });
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-    Route::get('/cart', 'App\Http\Controllers\Cart\CartController@cart');
+    Route::get('/cart', [CartController::class, 'cart']);
+
+    Route::get('/pay', 'App\Http\Controllers\Pay\PayController@pay');
+    
+    Route::post('/pay/paytoorder', [PayController::class, 'ToPurchaseOrder'])
+        ->name('pay.toorder');
+
+    Route::post('/api/cart/UpQuantity', [CartController::class, 'upQuantityProduct'])
+        ->name('cart.upquantify');
+
+    Route::post('/api/cart/DownQuantity', [CartController::class, 'DownQuantityProduct'])
+        ->name('cart.downquantify');
 });
 
 
@@ -154,8 +165,6 @@ Route::get('/cart/delete/{cartid}', [CartController::class, 'deleteCartById'])->
 // Route::post('/cart/UpQuantity', [CartController::class, 'upQuantityProduct'])->name('cart.upquantify');
 
 //thánh toán
-Route::get('/pay', 'App\Http\Controllers\Pay\PayController@pay');
-Route::post('/pay/paytoorder', [PayController::class, 'ToPurchaseOrder'])->name('pay.toorder');
 
 // Search Product
 Route::get('/search', [HomeController::class, 'searchProduct'])->name('search');
@@ -164,5 +173,3 @@ Route::get('/search', [HomeController::class, 'searchProduct'])->name('search');
 // Route::get('/purchaseorder', [PurchaseOrderController::class], 'purchaseorder');
 
 //giỏ hàng
-Route::post('/api/cart/UpQuantity', [CartController::class, 'upQuantityProduct'])->name('cart.upquantify');
-Route::post('/api/cart/DownQuantity', [CartController::class, 'DownQuantityProduct'])->name('cart.downquantify');
