@@ -119,19 +119,19 @@
             <ul class="list-item">
                 <li class="item ">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="/admin">Quản lý sản phẩm</a>
+                    <a href="/admin">Quản Lý Danh Mục / Sản Phẩm</a>
                 </li>
                 <li class="item active">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="admin/chartstatistical">Quản lý thống kê</a>
+                    <a href="./chartstatistical">Quản lý thống kê</a>
                 </li>
                 <li class="item">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="admin/usermanagement">Quản lý người dùng</a>
+                    <a href="./usermanagement">Quản lý người dùng</a>
                 </li>
                 <li class="item">
                     <i class="fas fa-fw fa-table"></i>
-                    <a href="admin/ordermanagement">Quản lý Đơn Hàng</a>
+                    <a href="./ordermanagement">Quản lý Đơn Hàng</a>
                 </li>
             </ul>
         </div>

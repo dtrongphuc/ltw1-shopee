@@ -116,7 +116,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::prefix('admin')->group(function () {
         Route::get('/', [Admin\ProductController::class, 'index']);
         Route::get('/usermanagement', [Admin\UserController::class, 'index']);
-        Route::get('/orderManagement', [Admin\OrderController::class, 'index'])->name('orderManagement');
+        Route::get('/ordermanagement', [Admin\OrderController::class, 'index'])->name('orderManagement');
         Route::get('/chartstatistical', [Admin\ChartController::class, 'index']);
         //Route::get('/categorymanagement/delete/{id}', [CartController::class, 'deleteCartById']);
 
