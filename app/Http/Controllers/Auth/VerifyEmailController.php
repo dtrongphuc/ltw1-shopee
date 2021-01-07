@@ -23,6 +23,7 @@ class VerifyEmailController extends Controller
         }
         
         $message = __('Your email has been verified.');
+        \Auth::login($user);
 
         return redirect('/')->with('status', $message); //if user is already logged in it will redirect to the dashboard page
     }
