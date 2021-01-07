@@ -109,61 +109,37 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/api/cart/DownQuantity', [CartController::class, 'DownQuantityProduct'])
         ->name('cart.downquantify');
-
 });
 
-Route::get('/administrator', function () {
-    return view('/pages/administrator');
-});
 // Admin route
 Route::group(['middleware' => ['admin']], function () {
     Route::prefix('admin')->group(function () {
         Route::get('/', [Admin\ProductController::class, 'index']);
         Route::get('/usermanagement', [Admin\UserController::class, 'index']);
-        Route::get('/orderManagement', [Admin\OrderController::class, 'index'])-> name('orderManagement');
+        Route::get('/orderManagement', [Admin\OrderController::class, 'index'])->name('orderManagement');
         Route::get('/chartstatistical', [Admin\ChartController::class, 'index']);
         //Route::get('/categorymanagement/delete/{id}', [CartController::class, 'deleteCartById']);
 
         Route::post('/add-category', [CategoryController::class, 'AddCategory'])
-                ->name('add.category');
+            ->name('add.category');
         Route::get('/delete-category/{id}', [CategoryController::class, 'deleteCategorytById'])
-                ->name('category.delete');
+            ->name('category.delete');
         Route::post('/edit-category', [CategoryController::class, 'EditCategory'])
-                ->name('edit.category');
+            ->name('edit.category');
         Route::get('/delete-product/{id}', [Admin\ProductController::class, 'deleteProducttById'])
-                ->name('product.delete');
+            ->name('product.delete');
         Route::post('/api/admin/new-product', [Admin\ProductController::class, 'AddProduct'])
-                ->name('add.product');
+            ->name('add.product');
         Route::post('/api/admin/get-Group-product', [Admin\ProductController::class, 'GetGroupProductById'])
-                ->name('get.GroupProduct');
+            ->name('get.GroupProduct');
         Route::post('/api/admin/edit-product', [Admin\ProductController::class, 'EditProduct'])
-                ->name('edit.product');
+            ->name('edit.product');
         Route::post('/api/admin/statuschangeorder', [Admin\OrderController::class, 'EditStatus'])
-                ->name('edit.statusOrder');
+            ->name('edit.statusOrder');
         Route::get('/api/admin/statisticalquarter', [ChartController::class, 'StatisticalQuarter']);
         Route::get('/api/admin/statisticalmonth', [ChartController::class, 'StatisticalMonth']);
-
     });
-    
 });
-
-// Route::get('/admin', function () {
-//     return view('/adminthucong/index');
-// });
-
-// Route::get('/User', function () {
-//     return view('/adminthucong/User');
-// });
-
-// Route::get('/Category', function () {
-//     return view('/adminthucong/Category');
-// });
-
-
-
-// Route::get('/administrator', function () {
-//     return view('/pages/administrator');
-// });
 
 
 //giỏ hàng
@@ -177,11 +153,3 @@ Route::get('/search', [HomeController::class, 'searchProduct'])->name('search');
 
 //đơn mua hàng
 // Route::get('/purchaseorder', [PurchaseOrderController::class], 'purchaseorder');
-
-<<<<<<< HEAD
-//giỏ hàng
-Route::post('/api/cart/UpQuantity', [CartController::class, 'upQuantityProduct'])->name('cart.upquantify');
-Route::post('/api/cart/DownQuantity', [CartController::class, 'DownQuantityProduct'])->name('cart.downquantify');
-=======
-//giỏ hàng
->>>>>>> 938c83da6b6245dae2acf164f14f95779e7f9061
