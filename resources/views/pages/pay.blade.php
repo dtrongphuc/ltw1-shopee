@@ -1,7 +1,6 @@
 @extends('../layouts/master', ['title' => 'Trang chủ'])
 @section('body')
     @parent
-    @inject('helper', 'App\Http\Controllers\HomeController')
     <div class="cart">
         <div class="container">
             <div class="row">
@@ -207,5 +206,4 @@
             </form> --}}
         </div>
     </div>
-    @include('../layouts/footer')
 @stop
