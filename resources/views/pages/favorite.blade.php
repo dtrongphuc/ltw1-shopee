@@ -37,7 +37,7 @@
                             </div>
                             <div class="info__categor-favorite d-flex align-items-center">
                                 <i class="fas fa-shopping-basket icon-purchaseorder"></i>
-                                <a href="/user/purchaseorder">
+                                <a href="/user/purchase">
                                     <p class="info__categor-favorite--content">Đơn mua</p>
                                 </a>
                             </div>

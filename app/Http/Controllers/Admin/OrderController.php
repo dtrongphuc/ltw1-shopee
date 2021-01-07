@@ -12,7 +12,7 @@ class OrderController extends Controller
     public function index()
     {
         $order = Bill::paginate(10);
-        return view('adminthucong/Order', ['orders' => $order]);
+        return view('Admin/Order', ['orders' => $order]);
     }
 
     public function EditStatus(Request $req)
@@ -21,25 +21,24 @@ class OrderController extends Controller
         $status = $req->status;
 
         $bill = DB::table('bills')
-            ->where('id', 1)
-            ->update(['status' => 4]);
+            ->where('id', $id)
+            ->update(['status' => $status]);
         return response()->json($req, 200);
     }
-    
-    public function findOrderByNumber($orderId)
-    {
-        return Order::where('Id', $orderId)->first();
-    }
-    
-    public function updateOrder(array $params)
-    {
-        // $order = $this->findOrderById($params['Id']);
+    // public function findOrderByNumber($orderId)
+    // {
+    //     return Order::where('Id', $orderId)->first();
+    // }
 
-        // $collection = collect($params)->except('_token');
+    // public function updateOrder(array $params)
+    // {
+    //     // $order = $this->findOrderById($params['Id']);
 
-        // $order->update();
+    //     // $collection = collect($params)->except('_token');
 
-        $orders = Order::all();
-        return view('adminthucong/Order', ['orders' => $order]);
-    }
+    //     // $order->update();
+
+    //     $orders = Order::all();
+    //     return view('adminthucong/Order', ['orders' => $order]);
+    // }
 }

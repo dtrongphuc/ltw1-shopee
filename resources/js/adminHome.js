@@ -1,42 +1,22 @@
 $(document).ready(function() {
-    var slNhomThemSP = 0;
-    var slNhomSuaSP = 0;
-
     document.querySelectorAll(".btn__edit-product").forEach(btn => {
         btn.addEventListener("click", () => {
             editsp(btn.dataset.productId);
         });
     });
 
-    document.querySelectorAll(".btn__AddGroup-product").forEach(btn => {
-        btn.addEventListener("click", () => {
-            addinputthemsp();
-        });
-    });
-
-    // document.querySelectorAll(".btn__AddGroup-Editproduct").forEach(btn => {
-    //     btn.addEventListener("click", () => {
-    //         themNhomSuaSP();
-    //     });
-    // });
-
-    // document.querySelectorAll(".btn__submit-AddProduct").forEach(btn => {
-    //     btn.addEventListener("click", () => {
-    //         submitThemSP();
-    //     });
-    // });
-
-    //
-    //
     document.querySelector(".btn__add-type")?.addEventListener("click", () => {
-        addInputType();
+        addInputType(".product-types__group");
     });
 
-    document.querySelectorAll(".btn__submit-EditProduct").forEach(btn => {
-        btn.addEventListener("submit", e => {
-            e.preventDefault();
-            submitSuaSP();
+    document
+        .querySelector(".btn__add-type--edit")
+        ?.addEventListener("click", () => {
+            addInputType(".product-types__group-edit");
         });
+
+    document.querySelector(".btn-themSp")?.addEventListener("click", () => {
+        Removeimput();
     });
 
     document
@@ -45,178 +25,74 @@ $(document).ready(function() {
             e.preventDefault();
             submitThemSP();
         });
+    document
+        .querySelector("#form-edit-product")
+        ?.addEventListener("submit", e => {
+            e.preventDefault();
+            submitSuaSP();
+        });
 
-    // document.querySelectorAll('.SelectstatusOrder').forEach(select => {
-    //     select.addEventListener('change', async () => {
-    //         let id = select.dataset.orderId;
-    //         var status = select.getElementsByClassName("SelectstatusOrder").value;
-    //         console.log(status);
-    //         try {
-    //             const response = await axios.post('/api/admin/statuschangeorder', {
-    //                 id,
-    //                 status
-    //             });
-    //             if (response.status === 200) {
-    //                 console.log(response);
-    //             }
-    //         } catch (e) {
-    //             console.log('error', e.response);
-    //         }
-    //     });
-    // });
+    document.querySelectorAll(".SelectstatusOrder").forEach(select => {
+        select.addEventListener("change", async () => {
+            let id = select.dataset.orderId;
+            var status = select.value;
+            try {
+                const response = await axios.post(
+                    "/api/admin/statuschangeorder",
+                    {
+                        id,
+                        status
+                    }
+                );
+                if (response.status === 200) {
+                    console.log(response);
+                }
+            } catch (e) {
+                console.log("error", e.response);
+            }
+        });
+    });
 
-    function addinputthemsp() {
-        slNhomThemSP++;
-        var divinput = document.createElement("div");
-        var inputName = document.createElement("INPUT");
-        var inputQuantity = document.createElement("INPUT");
-        var inputPrice = document.createElement("INPUT");
-        var bntRemove = document.createElement("BUTTON");
-        var icon = document.createElement("i");
+    function Removeimput() {
+        //xóa hết tất cả cac div được tạo
 
-        //set id cho buntton
-        divinput.setAttribute("id", "content-phanNhom-themsp" + slNhomThemSP);
-        bntRemove.setAttribute("id", "btnremove-themsp" + slNhomThemSP);
-
-        //set type
-        inputName.setAttribute("type", "text");
-        inputQuantity.setAttribute("type", "text");
-        inputPrice.setAttribute("type", "text");
-        bntRemove.setAttribute("type", "button");
-
-        //Name
-        inputName.setAttribute("Name", "tenNhom-themsp" + slNhomThemSP);
-        inputQuantity.setAttribute("Name", "SLNhom-themsp" + slNhomThemSP);
-        inputPrice.setAttribute("Name", "GiaNhom-themsp" + slNhomThemSP);
-
-        //style
-        inputName.setAttribute("Class", "inputitem");
-        inputQuantity.setAttribute("Class", "inputitem");
-        inputPrice.setAttribute("Class", "inputitem");
-        inputName.setAttribute("placeholder", "Nhập Tên Sản Phẩm");
-        inputQuantity.setAttribute("placeholder", "Nhập Số Lượng");
-        inputPrice.setAttribute("placeholder", "Nhập Giá");
-        bntRemove.setAttribute("Class", "icon-remove-input-themsp", "btn");
-        icon.setAttribute("Class", "fas fa-minus-circle");
-
-        //x.setAttribute("value", "asd");
-
-        document.getElementById("themPhanNhom-themsp").appendChild(divinput);
-        document
-            .getElementById("content-phanNhom-themsp" + slNhomThemSP)
-            .appendChild(inputName);
-        document
-            .getElementById("content-phanNhom-themsp" + slNhomThemSP)
-            .appendChild(inputQuantity);
-        document
-            .getElementById("content-phanNhom-themsp" + slNhomThemSP)
-            .appendChild(inputPrice);
-        document
-            .getElementById("content-phanNhom-themsp" + slNhomThemSP)
-            .appendChild(bntRemove);
-        document
-            .getElementById("btnremove-themsp" + slNhomThemSP)
-            .appendChild(icon);
+        var divRemove = document.querySelectorAll(".type-group");
+        for (
+            var indexRemove = 0;
+            indexRemove < divRemove.length;
+            indexRemove++
+        ) {
+            console.log("here");
+            divRemove[indexRemove].remove();
+        }
     }
 
-    function themNhomSuaSP() {
-        slNhomSuaSP++;
-        var divinput = document.createElement("div");
-        var inputName = document.createElement("INPUT");
-        var inputQuantity = document.createElement("INPUT");
-        var inputPrice = document.createElement("INPUT");
-        var bntRemove = document.createElement("BUTTON");
-        var icon = document.createElement("i");
-
-        //set id cho buntton
-        divinput.setAttribute("id", "content-phanNhom-suaSP" + slNhomSuaSP);
-        bntRemove.setAttribute("id", "btnremove-suaSP" + slNhomSuaSP);
-
-        //set type
-        inputName.setAttribute("type", "text");
-        inputQuantity.setAttribute("type", "text");
-        inputPrice.setAttribute("type", "text");
-        bntRemove.setAttribute("type", "button");
-
-        //Name
-        inputName.setAttribute("Name", "tenNhom-suaSP" + slNhomSuaSP);
-        inputQuantity.setAttribute("Name", "SLNhom-suaSP" + slNhomSuaSP);
-        inputPrice.setAttribute("Name", "GiaNhom-suaSP" + slNhomSuaSP);
-
-        //style
-        inputName.setAttribute("Class", "inputitem");
-        inputQuantity.setAttribute("Class", "inputitem");
-        inputPrice.setAttribute("Class", "inputitem");
-        inputName.setAttribute("placeholder", "Nhập Tên Sản Phẩm");
-        inputQuantity.setAttribute("placeholder", "Nhập Số Lượng");
-        inputPrice.setAttribute("placeholder", "Nhập Giá");
-        bntRemove.setAttribute("Class", "icon-remove-input-themsp", "btn");
-        icon.setAttribute("Class", "fas fa-minus-circle");
-
-        //x.setAttribute("value", "asd");
-
-        document.getElementById("themPhanNhom-suaSP").appendChild(divinput);
-        document
-            .getElementById("content-phanNhom-suaSP" + slNhomSuaSP)
-            .appendChild(inputName);
-        document
-            .getElementById("content-phanNhom-suaSP" + slNhomSuaSP)
-            .appendChild(inputQuantity);
-        document
-            .getElementById("content-phanNhom-suaSP" + slNhomSuaSP)
-            .appendChild(inputPrice);
-        document
-            .getElementById("content-phanNhom-suaSP" + slNhomSuaSP)
-            .appendChild(bntRemove);
-        document
-            .getElementById("btnremove-suaSP" + slNhomSuaSP)
-            .appendChild(icon);
-    }
-
-    const addInputType = () => {
-        console.log("add");
+    const addInputType = className => {
         let div = document.createElement("div");
-        div.className = "col-md-8 type-group";
+        div.className = "type-group type-group--input";
         div.innerHTML = `
-            <input class="col-md-3 inputitem" type="text" name="product-type[]" placeholder='Nhập tên Phân Nhóm'>
-            <input class="col-md-3 inputitem" type="text" name="product-type-quantity[]" placeholder='Nhập Số Lượng'>
-            <input class="col-md-2 inputitem" type="text" name="product-type-price[]" placeholder='Nhập Giá'>
-            <button id="btnremove-themsp1" type="button" class="icon-remove-input-themsp btn__remove-type">
-                <i class="fas fa-minus-circle"></i>
-            </button>
+            <input class=" inputitem" type="text" name="product-type[]" placeholder='Nhập tên Phân Nhóm'>
+            <input class=" inputitem" type="text" name="product-type-quantity[]" placeholder='Nhập Số Lượng'>
+            <input class=" inputitem" type="text" name="product-type-price[]" placeholder='Nhập Giá'>
         `;
-        document.querySelector(".product-types__group").appendChild(div);
-
-        document
-            .querySelector(".type-group:last-child > .btn__remove-type")
-            .addEventListener("click", e => {
-                console.log(e.currentTarget);
-            });
+        document.querySelector(className).appendChild(div);
     };
 
     async function submitThemSP() {
-        // var arrayPhanNhom = [];
-        // var tensp = document.forms["formInfoAdd"]["tenSP"].value;
-        // var mota = document.forms["formInfoAdd"]["motaSP"].value;
-        // var cate = document.forms["formInfoAdd"]["category"].value;
+        document.getElementById("error_productName").innerHTML = "";
+        document.getElementById("erroe_productDescription").innerHTML = "";
 
-        // for (var z = 0; z <= slNhomThemSP; z++) {
-        //     var check = document.forms["formInfoAdd"]["tenNhom-themsp" + z].value;
-        //     if(check == "")
-        //         continue;
-        //     arrayPhanNhom.push({
-        //         tennhom: document.forms["formInfoAdd"]["tenNhom-themsp" + z].value,
-        //         slnhom: document.forms["formInfoAdd"]["SLNhom-themsp" + z].value,
-        //         gianhom: document.forms["formInfoAdd"]["GiaNhom-themsp" + z].value
-        //     })
-        // }
-        // slNhomThemSP = 0;
-        // var sanpham = {
-        //     tensp: tensp,
-        //     mota: mota,
-        //     danhmuc: cate,
-        //     mangNhom: arrayPhanNhom
-        // };
+        if (document.querySelector("#product-name").value.trim() == "") {
+            document.getElementById("error_productName").innerHTML =
+                "không được bỏ trống";
+            return;
+        }
+        if (document.querySelector("#product-description").value.trim() == "") {
+            document.getElementById("erroe_productDescription").innerHTML =
+                "không được bỏ trống";
+            return;
+        }
+
         var fdata = new FormData();
         fdata.append(
             "productName",
@@ -240,6 +116,7 @@ $(document).ready(function() {
         let productTypePrice = document.getElementsByName(
             "product-type-price[]"
         );
+
         for (
             let i = 0;
             i < productTypeName.length &&
@@ -247,25 +124,35 @@ $(document).ready(function() {
             i < productTypeQuantity.length;
             i++
         ) {
-            typesGroup.push({
-                name: productTypeName[i].value,
-                quantity: productTypeQuantity[i].value,
-                price: productTypePrice[i].value
-            });
+            let name = productTypeName[i].value;
+            let quantity = productTypeQuantity[i].value;
+            let price = productTypePrice[i].value;
+            if (
+                name.trim() != "" ||
+                quantity.trim() != "" ||
+                price.trim() != ""
+            ) {
+                typesGroup.push({
+                    name: name,
+                    quantity: quantity,
+                    price: price
+                });
+            }
         }
 
-        fdata.append("productTypes", JSON.stringify(typesGroup));
+        fdata.append("productTypes", JSON.stringify(typesGroup)); // tại sao chổ này lại dùng lại phải chuyển thành Json
 
         let files = document.getElementById("upload").files;
         for (let i = 0; i < files.length; i++) {
             fdata.append("images[]", files[i]);
         }
-
         await postProduct(fdata);
     }
 
     async function postProduct(product) {
+        const btnSubmit = document.querySelector(".btn__submit-AddProduct");
         try {
+            btnSubmit.disabled = true;
             const response = await axios.post(
                 "/api/admin/new-product",
                 product,
@@ -277,104 +164,135 @@ $(document).ready(function() {
             );
             if (response.status === 200) {
                 console.log(response);
-                //window.location.reload();
+                window.location.reload();
+            }
+        } catch (e) {
+            console.log("error", e.response);
+        } finally {
+            btnSubmit.disabled = false;
+        }
+    }
+
+    async function editsp(id) {
+        try {
+            const response = await axios.post("/api/admin/get-Group-product", {
+                id
+            });
+            if (response.status === 200) {
+                let data = response.data;
+                let dataproducttype = data[0];
+                let datasp = data[1];
+                //tạo dữ liệu cho sản phẩm
+                document.getElementById("product-name-edit").value =
+                    datasp[0].productName;
+                document.getElementById("product-id-edit").value =
+                    datasp[0].productId;
+                document.getElementById("product-description-edit").value =
+                    datasp[0].description;
+                document.getElementById(datasp[0].categoryId).selected = true;
+                //xóa hết tất cả cac div được tạo
+
+                var divRemove = document.querySelectorAll(".type-group");
+                for (
+                    var indexRemove = 0;
+                    indexRemove < divRemove.length;
+                    indexRemove++
+                ) {
+                    console.log("here");
+                    divRemove[indexRemove].remove();
+                }
+                //tạo dữ liệu cho type
+
+                for (var sldiv = 0; sldiv < dataproducttype.length; sldiv++) {
+                    let div = document.createElement("div");
+                    div.className = "type-group type-group--input";
+                    div.innerHTML = `
+                        <input class=" inputitem" type="text" name="product-type-edit[]" placeholder='Nhập tên Phân Nhóm' value= '${dataproducttype[sldiv]["name"]}'>
+                        <input class=" inputitem" type="text" name="product-type-quantity-edit[]" placeholder='Nhập Số Lượng' value= '${dataproducttype[sldiv]["quantity"]}'>
+                        <input class=" inputitem" type="text" name="product-type-price-edit[]" placeholder='Nhập Giá' value= ${dataproducttype[sldiv]["price"]}>
+                    `;
+                    document
+                        .querySelector(".product-types__group-edit")
+                        .appendChild(div);
+                }
             }
         } catch (e) {
             console.log("error", e.response);
         }
     }
 
-    function editsp(id) {
-        async function GetGroupProduct(id) {
-            try {
-                const response = await axios.post(
-                    "/api/admin/get-Group-product",
-                    {
-                        id
-                    }
-                );
-                if (response.status === 200) {
-                    let datasp = response.data;
+    async function submitSuaSP(e) {
+        var fdata = new FormData();
+        fdata.append(
+            "productId",
+            document.querySelector("#product-id-edit").value
+        );
+        fdata.append(
+            "productName",
+            document.querySelector("#product-name-edit").value
+        );
+        fdata.append(
+            "productDescription",
+            document.querySelector("#product-description-edit").value
+        );
 
-                    for (var sldiv = 0; sldiv < datasp.length; sldiv++) {
-                        var sldivdatontai =
-                            document.getElementById("themPhanNhom-suaSP")
-                                .childElementCount - 1;
-                        if (sldivdatontai < datasp.length) {
-                            themNhomSuaSP();
-                        }
-                        var inputTen = document.getElementsByName(
-                            "tenNhom-suaSP" + sldiv
-                        )[0];
-                        inputTen.setAttribute("value", datasp[sldiv]["name"]);
-                        var inputsl = document.getElementsByName(
-                            "SLNhom-suaSP" + sldiv
-                        )[0];
-                        inputsl.setAttribute(
-                            "value",
-                            datasp[sldiv]["quantity"]
-                        );
-                        var inputgia = document.getElementsByName(
-                            "GiaNhom-suaSP" + sldiv
-                        )[0];
-                        inputgia.setAttribute(
-                            "value",
-                            parseFloat(datasp[sldiv]["price"])
-                        );
-                    }
-                    for (
-                        var indexRemove = datasp.length;
-                        indexRemove < sldivdatontai;
-                        indexRemove++
-                    ) {
-                        var divRemove = document.getElementById(
-                            "content-phanNhom-suaSP" + indexRemove
-                        );
-                        divRemove.remove();
-                    }
-                }
-            } catch (e) {
-                console.log("error", e.response);
+        fdata.append(
+            "categoryId",
+            document.querySelector(".add-product__category").value
+        );
+
+        let typesGroup = [];
+        let productTypeName = document.getElementsByName("product-type-edit[]");
+        let productTypeQuantity = document.getElementsByName(
+            "product-type-quantity-edit[]"
+        );
+        let productTypePrice = document.getElementsByName(
+            "product-type-price-edit[]"
+        );
+
+        for (
+            let i = 0;
+            i < productTypeName.length &&
+            i < productTypePrice.length &&
+            i < productTypeQuantity.length;
+            i++
+        ) {
+            let name = productTypeName[i].value;
+            let quantity = productTypeQuantity[i].value;
+            let price = productTypePrice[i].value;
+            if (
+                name.trim() != "" ||
+                quantity.trim() != "" ||
+                price.trim() != ""
+            ) {
+                typesGroup.push({
+                    name: name,
+                    quantity: quantity,
+                    price: price
+                });
             }
         }
-        GetGroupProduct(id);
-    }
 
-    async function submitSuaSP(e) {
-        var arrayPhanNhom = [];
-        var id = document.forms["editSPForm"]["idproductSua"].value;
-        var tensp = document.forms["editSPForm"]["tensuaSP"].value;
-        var mota = document.forms["editSPForm"]["motasuaSP"].value;
-        var cate = document.forms["editSPForm"]["categorysuaSP"].value;
+        fdata.append("productTypes", JSON.stringify(typesGroup));
 
-        var sldivdatontai =
-            document.getElementById("themPhanNhom-suaSP").childElementCount - 1;
-        for (var z = 0; z < sldivdatontai; z++) {
-            var check = document.forms["editSPForm"]["tenNhom-suaSP" + z].value;
-            if (check == "") continue;
-            arrayPhanNhom.push({
-                tennhom:
-                    document.forms["editSPForm"]["tenNhom-suaSP" + z].value,
-                slnhom: document.forms["editSPForm"]["SLNhom-suaSP" + z].value,
-                gianhom: document.forms["editSPForm"]["GiaNhom-suaSP" + z].value
-            });
+        let files = document.getElementById("upload-edit").files;
+        for (let i = 0; i < files.length; i++) {
+            fdata.append("images[]", files[i]);
         }
-        var slNhomSuaSP = 0;
-        var sanphamSua = {
-            id: id,
-            tensp: tensp,
-            mota: mota,
-            danhmuc: cate,
-            mangNhom: arrayPhanNhom
-        };
-        await postProductToEdit(sanphamSua);
+        await postProductToEdit(fdata);
     }
 
-    async function postProductToEdit(sanphamSua) {
+    async function postProductToEdit(productEdit) {
         try {
-            const response = await axios.post("/api/admin/edit-product", {
-                sanphamSua
-            });
+            const response = await axios.post(
+                "/api/admin/edit-product",
+                productEdit,
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data"
+                    }
+                }
+            );
             if (response.status === 200) {
                 console.log(response);
                 window.location.reload();

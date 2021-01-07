@@ -12,7 +12,3 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-// Route::get('/chartstatis', [ChartController::class, 'index']);
-Route::get('/statisticalquarter', [ChartController::class, 'StatisticalQuarter']);
-Route::get('/statisticalyear', [ChartController::class, 'StatisticalYear']);
-Route::get('/statisticalmonth', [ChartController::class, 'StatisticalMonth']);

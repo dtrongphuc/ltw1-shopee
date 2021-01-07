@@ -69,7 +69,7 @@
                 @foreach( $products as $product)
                 <div class="row d-flex justify-content-around" style="border-bottom: #f5f5f5 solid 1px; padding-bottom: 15px">
                     <div class="col-md-5">
-                        <a href="{{'/product/'.$product->id}}">
+                        <a href="{{'/product/'.$product->productId}}">
                             <div class="cartbody__checkall d-flex align-items-center ">
                                 <div class="cartbody__products-check">
                                 </div>
@@ -93,6 +93,7 @@
                                 </div>
                                 <div class="col-3">
                                     <div class="cartbody__productsinfo-amount">
+                                        @csrf
                                         <button class="cartbody__productsinfo-amount--downup down-default" name="btnupdown" data-id={{$product->id}} id="dw_{{$product->productName}}" data-cart="{{$product->productName}}" >
                                             <span>&#8722</span>
                                         </button>

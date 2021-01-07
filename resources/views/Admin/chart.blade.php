@@ -16,7 +16,7 @@
         window.onload = function() {
             const test = async () => {
                 try {
-                    response = await axios.get('/api/statisticalmonth')
+                    response = await axios.get('/api/admin/statisticalmonth')
                     data = response.data;
                     var chart = new CanvasJS.Chart("chart-day", {
                         theme: "light1", // "light1", "light2", "dark1", "dark2"
@@ -261,7 +261,7 @@
         function drawChart() {
             const test = async () => {
                 try {
-                    let response = await axios.get('/api/statisticalquarter')
+                    let response = await axios.get('/api/admin/statisticalquarter')
                     let datastatis = response.data;
                     //let quy1 = datastatis[0];
                     var data = google.visualization.arrayToDataTable([

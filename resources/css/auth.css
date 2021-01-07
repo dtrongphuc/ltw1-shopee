@@ -211,18 +211,3 @@
 .auth-alert__error  {
     display: none;
 }
-
-.btn-auth__submit:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.btn-auth__submit:disabled > .spinner-loading{
-    display: inline-block;
-}
-
-.spinner-loading {
-    display: none;
-    margin-bottom: 2px;
-    margin-right: 2px;
-}
