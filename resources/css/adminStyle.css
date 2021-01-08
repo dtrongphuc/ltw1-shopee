@@ -220,3 +220,8 @@ body {
 .product-types__group-edit {
     width: calc(100% - 165px);
 }
+.error_input--admin {
+    padding-left: 164px;
+    padding-top: 5px;
+    padding-bottom: 7px;
+}
