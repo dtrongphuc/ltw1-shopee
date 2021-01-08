@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="./myStyle.css"> -->
+    <link rel="shortcut icon" href="{{ URL::asset('images/icons/favicon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Thống Kê</title>
@@ -154,11 +155,8 @@
             </div>
 
             <div class="content-right">
-                <div class="box-content-right">
-                    <p class="title">Thống Kê</p>
-
-                </div>
                 @if(isset($statisticalToday))
+                <h5 class="title mb-2">Hôm nay {{date("d/m/Y")}}</h5>
                 <div class="date-Statistics d-flex justify-content-between">
                     <div class="total-item d-flex align-items-center" style="border-radius: 12px;">
                         <div class=" icon-statistics d-flex justify-content-center align-items-center mr-2">
@@ -182,7 +180,7 @@
                                 <span>Tổng Tiền Kiếm Được</span>
                             </div>
                             <div class="Statistics">
-                                <span>{{$statisticalToday->getTotalOrder()}}</span>
+                                <span>{{number_format($statisticalToday->getTotalOrder(), 0, ',', '.')}}</span>
                             </div>
                         </div>
                     </div>
