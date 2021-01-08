@@ -154,11 +154,8 @@
             </div>
 
             <div class="content-right">
-                <div class="box-content-right">
-                    <p class="title">Thống Kê</p>
-
-                </div>
                 @if(isset($statisticalToday))
+                <h5 class="title mb-2">Hôm nay {{date("d/m/Y")}}</h5>
                 <div class="date-Statistics d-flex justify-content-between">
                     <div class="total-item d-flex align-items-center" style="border-radius: 12px;">
                         <div class=" icon-statistics d-flex justify-content-center align-items-center mr-2">
@@ -182,7 +179,7 @@
                                 <span>Tổng Tiền Kiếm Được</span>
                             </div>
                             <div class="Statistics">
-                                <span>{{$statisticalToday->getTotalOrder()}}</span>
+                                <span>{{number_format($statisticalToday->getTotalOrder(), 0, ',', '.')}}</span>
                             </div>
                         </div>
                     </div>

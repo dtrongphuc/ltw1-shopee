@@ -25,6 +25,7 @@ class ChartController extends Controller
             ->where('status', '=', '4')
             ->sum('totalPrice');
         $orderwait = DB::table('bills')
+            ->where('createAt', '=', $strTime)
             ->where('status', '=', '0')
             ->count();
         $statistical = new QuantityStatistics($quantity, $total, $orderwait);
