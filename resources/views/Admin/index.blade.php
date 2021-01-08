@@ -162,8 +162,8 @@
                             <tbody>
                                 @for($i = 0 ; $i < $sanpham->count(); $i++)
                                     <tr>
-                                        <td>{{((Request::get('page') != null ? Request::get('page') : 1)-1)*6 + $i + 1}}</td>
-                                        <td>{{$sanpham[$i]->productId}}</td>
+                                        <td style='text-align: center;'>{{((Request::get('page') != null ? Request::get('page') : 1)-1)*6 + $i + 1}}</td>
+                                        <td style=' text-align: center; width: 110px;'>{{$sanpham[$i]->productId}}</td>
                                         <td style="width: 300px;">{{$sanpham[$i]->productName}}</td>
                                         <td>{{$sanpham[$i]->categoryName}}</td>
                                         <td>{{$sanpham[$i]->price}}</td>
