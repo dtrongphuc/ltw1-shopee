@@ -25,6 +25,7 @@ class ChartController extends Controller
             ->where('status', '=', '4')
             ->sum('totalPrice');
         $orderwait = DB::table('bills')
+            ->where('createAt', '=', $strTime)
             ->where('status', '=', '0')
             ->count();
         $statistical = new QuantityStatistics($quantity, $total, $orderwait);
@@ -41,7 +42,7 @@ class ChartController extends Controller
             $array[++$key] = [(string)$value->year, (float)$value->total];
         }
         return view('Admin/chart')->with('year', json_encode($array))->with('statisticalToday', $statistical);
-        return response()->json(json_encode($array), 200);
+        //return response()->json(json_encode($array), 200);
     }
 
     //thống kê theo quý
