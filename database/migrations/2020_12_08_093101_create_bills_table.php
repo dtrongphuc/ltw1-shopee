@@ -15,6 +15,7 @@ class CreateBillsTable extends Migration
     {
         Schema::create('bills', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('userId');
             $table->text('customerName');
             $table->string('phoneNumber');
             $table->text('address');
@@ -22,6 +23,8 @@ class CreateBillsTable extends Migration
             $table->date('createAt');
             $table->date('expectedAt');
             $table->enum('status', [0, 1, 2, 3, 4]);
+
+            $table->foreign('userId')->references('id')->on('users');
         });
     }
 
