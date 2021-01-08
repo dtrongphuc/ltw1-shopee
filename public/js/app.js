@@ -20355,7 +20355,6 @@ $(document).ready(function () {
                 divRemove = document.querySelectorAll(".type-group");
 
                 for (indexRemove = 0; indexRemove < divRemove.length; indexRemove++) {
-                  console.log("here");
                   divRemove[indexRemove].remove();
                 } //tạo dữ liệu cho type
 

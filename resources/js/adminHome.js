@@ -182,6 +182,7 @@ $(document).ready(function() {
                 let data = response.data;
                 let dataproducttype = data[0];
                 let datasp = data[1];
+
                 //tạo dữ liệu cho sản phẩm
                 document.getElementById("product-name-edit").value =
                     datasp[0].productName;
@@ -189,6 +190,7 @@ $(document).ready(function() {
                     datasp[0].productId;
                 document.getElementById("product-description-edit").value =
                     datasp[0].description;
+
                 document.getElementById(datasp[0].categoryId).selected = true;
                 //xóa hết tất cả cac div được tạo
 
@@ -198,11 +200,10 @@ $(document).ready(function() {
                     indexRemove < divRemove.length;
                     indexRemove++
                 ) {
-                    console.log("here");
                     divRemove[indexRemove].remove();
                 }
                 //tạo dữ liệu cho type
-
+                
                 for (var sldiv = 0; sldiv < dataproducttype.length; sldiv++) {
                     let div = document.createElement("div");
                     div.className = "type-group type-group--input";
