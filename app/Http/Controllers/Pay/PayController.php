@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
+use App\Models\ProductType;
 use Validator;
 
 class PayController extends Controller
@@ -58,7 +59,7 @@ class PayController extends Controller
         $carts = DB::table('products')
             ->join('carts', 'carts.productId', '=', 'products.productId')
             ->join('product_types', 'carts.type', 'product_types.id')
-            ->select('carts.id', 'products.productName', 'product_types.price', 'carts.quantity', 'carts.type', 'products.productId')
+            ->select('carts.id', 'products.productName', 'product_types.price', 'carts.quantity', 'carts.type', 'products.productId', 'product_types.id as typeid')
             ->get();
 
         //them dữ liệu trong giỏ hàng vào bill
@@ -92,13 +93,16 @@ class PayController extends Controller
                 'type' => $cart->type]
             );
         }
-        //trừ số lượng sp và tăng sl đã bán
+        //trừ số lượng sp -> type và tăng sl đã bán
         foreach($carts as $cart)
         {
             $pd = Product::find($cart->productId);
             Product::where('productId', $cart->productId)
                     ->update(['quantity' => $pd->quantity - $cart->quantity,
                               'sold' => $pd->sold + $cart->quantity]);
+
+            $producttype = ProductType::find($cart->typeid);
+            ProductType::where('id', $cart->typeid)->update(['quantity' => $producttype->quantity - $cart->quantity]);
         }
 
         $tt = DB::table('carts')->truncate();  // xóa trong  giỏ hàng và id trở về 0
