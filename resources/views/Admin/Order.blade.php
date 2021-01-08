@@ -65,6 +65,7 @@
                             <thead>
                                 <tr>
                                     <th>STT</th>
+                                    <th>Id</th>
                                     <th>Tên</th>
                                     <th>Số Điện Thoại</th>
                                     <th>Địa Chỉ</th>
@@ -75,26 +76,27 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($orders as $od)
-                                <tr>
-                                    <td>{{$od ->id}}</td>
-                                    <td>{{$od ->customerName}}</td>
-                                    <td>{{$od ->phoneNumber}}</td>
-                                    <td>{{$od ->address}}</td>
-                                    <td>{{$od ->totalPrice}}</td>
-                                    <td>{{$od ->createAt}}</td>
-                                    <td>{{$od ->expectedAt}}</td>
-                                    <td>
-                                        <select name="statusOrder" class="SelectstatusOrder" data-order-id="{{$od->id}}">
-                                            <option value="0" @if($od->status == 0) selected @endif>Chờ Xử Lý</option>
-                                            <option value="1" @if($od->status == 1) selected @endif>Hủy</option>
-                                            <option value="2" @if($od->status == 2) selected @endif>Đang Xử Lý</option>
-                                            <option value="3" @if($od->status == 3) selected @endif>Đang Giao Hàng</option>
-                                            <option value="4" @if($od->status == 4) selected @endif>Hoàn Thành</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                @endforeach
+                                @for($i = 0 ; $i < $orders->count(); $i++)
+                                    <tr>
+                                        <td>{{$i +1}}</td>
+                                        <td>{{$orders[$i] ->id}}</td>
+                                        <td>{{$orders[$i] ->customerName}}</td>
+                                        <td>{{$orders[$i] ->phoneNumber}}</td>
+                                        <td>{{$orders[$i] ->address}}</td>
+                                        <td>{{$orders[$i] ->totalPrice}}</td>
+                                        <td>{{$orders[$i] ->createAt}}</td>
+                                        <td>{{$orders[$i] ->expectedAt}}</td>
+                                        <td>
+                                            <select name="statusOrder" class="SelectstatusOrder" data-order-id="{{$orders[$i]->id}}">
+                                                <option value="0" @if($orders[$i]->status == 0) selected @endif>Chờ Xử Lý</option>
+                                                <option value="1" @if($orders[$i]->status == 1) selected @endif>Hủy</option>
+                                                <option value="2" @if($orders[$i]->status == 2) selected @endif>Đang Xử Lý</option>
+                                                <option value="3" @if($orders[$i]->status == 3) selected @endif>Đang Giao Hàng</option>
+                                                <option value="4" @if($orders[$i]->status == 4) selected @endif>Hoàn Thành</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    @endfor
                             </tbody>
                         </table>
                     </div>
