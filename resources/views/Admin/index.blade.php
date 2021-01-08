@@ -66,7 +66,7 @@
                         </div>
                     </div>
 
-                    <div class="table-responsive">
+                    <div class="table-responsive" id="categoryadmin">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
@@ -81,7 +81,7 @@
                             <tbody>
                                 @for($i = 0 ; $i < $category->count(); $i++)
                                     <tr>
-                                        <td style='text-align: center; width: 50px;'>{{$i+1}}</td>
+                                        <td style='text-align: center; width: 50px;'>{{((Request::get('page') != null ? Request::get('page') : 1)-1)*5 + $i + 1}}</td>
                                         <td style='text-align: center; width: 125px;'>{{$category[$i]->categoryId}}</td>
                                         <td style='width: 300px;'>{{$category[$i]->categoryName}}</td>
                                         <td style='width: 300px;'>{{$category[$i]->description}}</td>
@@ -125,6 +125,9 @@
                                     @endfor
                             </tbody>
                         </table>
+                        <div>
+                            {{$category->links()}}
+                        </div>
                     </div>
                 </div>
 
@@ -159,7 +162,7 @@
                             <tbody>
                                 @for($i = 0 ; $i < $sanpham->count(); $i++)
                                     <tr>
-                                        <td>{{$i+1}}</td>
+                                        <td>{{((Request::get('page') != null ? Request::get('page') : 1)-1)*6 + $i + 1}}</td>
                                         <td>{{$sanpham[$i]->productId}}</td>
                                         <td style="width: 300px;">{{$sanpham[$i]->productName}}</td>
                                         <td>{{$sanpham[$i]->categoryName}}</td>

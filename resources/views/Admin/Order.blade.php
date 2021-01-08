@@ -78,7 +78,7 @@
                             <tbody>
                                 @for($i = 0 ; $i < $orders->count(); $i++)
                                     <tr>
-                                        <td>{{$i +1}}</td>
+                                        <td>{{((Request::get('page') != null ? Request::get('page') : 1)-1)*10 + $i + 1}}</td>
                                         <td>{{$orders[$i] ->id}}</td>
                                         <td>{{$orders[$i] ->customerName}}</td>
                                         <td>{{$orders[$i] ->phoneNumber}}</td>

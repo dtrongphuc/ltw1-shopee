@@ -16,7 +16,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $category = DB::table('categories')->where('categories.status', '=', '1')->get();
+        $category = DB::table('categories')->where('categories.status', '=', '1')->paginate(5);
 
         $product = DB::table('products')
             ->where('products.status', '=', '1')

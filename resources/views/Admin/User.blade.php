@@ -65,6 +65,7 @@
                             <thead>
                                 <tr>
                                     <th>STT</th>
+                                    <th>Mã</th>
                                     <th>Email</th>
                                     <th>Tên</th>
                                     <th>Số Điện Thoại</th>
@@ -76,29 +77,30 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($users as $us)
-                                <tr>
-                                    <td>{{$us->id}}</td>
-                                    <td>{{$us->email}}</td>
-                                    <td>{{$us->name}}</td>
-                                    <td>{{$us->phoneNumber}}</td>
-                                    @if($us->gender == "male")
-                                    <td>Nam</td>
-                                    @elseif ($us->gender == "female")
-                                    <td>Nữ</td>
-                                    @else
-                                    <td>Giới Tính Khác</td>
-                                    @endif
-                                    <td>{{$us->birthday}}</td>
-                                    <td>{{$us->address}}</td>
-                                    <td>{{$us->email_verified_at}}</td>
-                                    @if($us->role == 0)
-                                    <td>Khách Hàng</td>
-                                    @else
-                                    <td>Quản Lý</td>
-                                    @endif
-                                </tr>
-                                @endforeach
+                                @for($i = 0 ; $i < $users->count(); $i++)
+                                    <tr>
+                                        <td>{{((Request::get('page') != null ? Request::get('page') : 1)-1)*10 + $i + 1}}</td>
+                                        <td>{{$users[$i]->id}}</td>
+                                        <td>{{$users[$i]->email}}</td>
+                                        <td>{{$users[$i]->name}}</td>
+                                        <td>{{$users[$i]->phoneNumber}}</td>
+                                        @if($users[$i]->gender == "male")
+                                        <td>Nam</td>
+                                        @elseif ($users[$i]->gender == "female")
+                                        <td>Nữ</td>
+                                        @else
+                                        <td>Giới Tính Khác</td>
+                                        @endif
+                                        <td>{{$users[$i]->birthday}}</td>
+                                        <td>{{$users[$i]->address}}</td>
+                                        <td>{{$users[$i]->email_verified_at}}</td>
+                                        @if($users[$i]->role == 0)
+                                        <td>Khách Hàng</td>
+                                        @else
+                                        <td>Quản Lý</td>
+                                        @endif
+                                    </tr>
+                                    @endfor
                             </tbody>
                         </table>
                     </div>

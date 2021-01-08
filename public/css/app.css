@@ -2616,7 +2616,10 @@ body {
     justify-content: flex-end;
     margin-top: 1rem;
 }
-
+#categoryadmin nav > .pagination {
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
 .icon-remove-input {
     display: inline-block;
 }
