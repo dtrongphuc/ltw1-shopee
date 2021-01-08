@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="./myStyle.css"> -->
+    <link rel="shortcut icon" href="{{ URL::asset('images/icons/favicon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
     <title>Quản Lý Sản Phẩm</title>
 </head>
@@ -81,7 +82,7 @@
                             <tbody>
                                 @for($i = 0 ; $i < $category->count(); $i++)
                                     <tr>
-                                        <td style='text-align: center; width: 50px;'>{{((Request::get('page') != null ? Request::get('page') : 1)-1)*5 + $i + 1}}</td>
+                                        <td style='text-align: center; width: 50px;'>{{$i + 1}}</td>
                                         <td style='text-align: center; width: 125px;'>{{$category[$i]->categoryId}}</td>
                                         <td style='width: 300px;'>{{$category[$i]->categoryName}}</td>
                                         <td style='width: 300px;'>{{$category[$i]->description}}</td>
@@ -126,7 +127,7 @@
                             </tbody>
                         </table>
                         <div>
-                            {{$category->links()}}
+                            {{-- {{$category->links()}} --}}
                         </div>
                     </div>
                 </div>

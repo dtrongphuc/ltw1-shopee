@@ -180,6 +180,7 @@ $(document).ready(function() {
             });
             if (response.status === 200) {
                 let data = response.data;
+                console.log(data);
                 let dataproducttype = data[0];
                 let datasp = data[1];
 
@@ -193,7 +194,6 @@ $(document).ready(function() {
 
                 document.getElementById(datasp[0].categoryId).selected = true;
                 //xóa hết tất cả cac div được tạo
-
                 var divRemove = document.querySelectorAll(".type-group");
                 for (
                     var indexRemove = 0;
