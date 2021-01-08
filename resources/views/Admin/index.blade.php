@@ -82,7 +82,7 @@
                             <tbody>
                                 @for($i = 0 ; $i < $category->count(); $i++)
                                     <tr>
-                                        <td style='text-align: center; width: 50px;'>{{((Request::get('page') != null ? Request::get('page') : 1)-1)*5 + $i + 1}}</td>
+                                        <td style='text-align: center; width: 50px;'>{{$i + 1}}</td>
                                         <td style='text-align: center; width: 125px;'>{{$category[$i]->categoryId}}</td>
                                         <td style='width: 300px;'>{{$category[$i]->categoryName}}</td>
                                         <td style='width: 300px;'>{{$category[$i]->description}}</td>
@@ -127,7 +127,7 @@
                             </tbody>
                         </table>
                         <div>
-                            {{$category->links()}}
+                            {{-- {{$category->links()}} --}}
                         </div>
                     </div>
                 </div>
