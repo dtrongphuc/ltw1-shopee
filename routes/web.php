@@ -118,7 +118,6 @@ Route::group(['middleware' => ['admin']], function () {
         Route::get('/usermanagement', [Admin\UserController::class, 'index']);
         Route::get('/ordermanagement', [Admin\OrderController::class, 'index'])->name('orderManagement');
         Route::get('/chartstatistical', [Admin\ChartController::class, 'index']);
-        //Route::get('/categorymanagement/delete/{id}', [CartController::class, 'deleteCartById']);
 
         Route::post('/add-category', [CategoryController::class, 'AddCategory'])
             ->name('add.category');
