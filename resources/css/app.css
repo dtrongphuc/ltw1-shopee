@@ -84,13 +84,15 @@ a:hover {
 }
 
 .btn-auth__submit:disabled,
-.btn__submit-AddProduct:disabled {
+.btn__submit-AddProduct:disabled,
+.btn-product__submit--edit:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
 
 .btn-auth__submit:disabled > .spinner-loading,
-.btn__submit-AddProduct:disabled > .spinner-loading {
+.btn__submit-AddProduct:disabled > .spinner-loading,
+.btn-product__submit--edit:disabled > .spinner-loading{
     display: inline-block;
 }
 

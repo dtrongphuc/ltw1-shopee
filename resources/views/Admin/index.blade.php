@@ -282,7 +282,10 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
-                        <button type="submit" class="btn btn-success btn__submit-AddProduct" style="width:100px;">Thêm</button>
+                        <button type="submit" class="btn btn-success btn__submit-AddProduct" style="width:100px;">
+                            <span class="spinner-border spinner-border-sm spinner-loading" role="status" aria-hidden="true"></span>
+                            Thêm
+                        </button>
                     </div>
                 </form>
             </div>
@@ -343,7 +346,10 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
-                        <button type="submit" class="btn btn-success btn__submit-AddProduct" style="width:100px;">sửa</button>
+                        <button type="submit" class="btn btn-success btn__submit-AddProduct btn-product__submit--edit" style="width:100px;">
+                            <span class="spinner-border spinner-border-sm spinner-loading" role="status" aria-hidden="true"></span>
+                            Sửa
+                        </button>
                     </div>
                 </form>
             </div>
