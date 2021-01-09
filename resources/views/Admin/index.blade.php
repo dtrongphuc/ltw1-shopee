@@ -174,7 +174,7 @@
                                         <td>{{$sanpham[$i]->rate}}</td>
                                         <td>{{$sanpham[$i]->sold}}</td>
                                         <td>{{$sanpham[$i]->postAt}}</td>
-                                        <td><a href="{{'/delete-product/'.$sanpham[$i]->productId}}"><i class="fas fa-trash-alt"></i></a></td>
+                                        <td><a href="{{'/admin/delete-product/'.$sanpham[$i]->productId}}"><i class="fas fa-trash-alt"></i></a></td>
                                         <td>
                                             <button type="button" class="btn__edit-product" data-product-id="{{$sanpham[$i]->productId}}" data-toggle="modal" data-target="#suaSP"><i class="fas fa-edit"></i></button>
 
