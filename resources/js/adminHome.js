@@ -104,7 +104,6 @@ $(document).ready(function() {
                 "Sản Phẩm Phải có ít Nhất 1 hình ảnh !!";
             return;
         }
-        
 
         var fdata = new FormData();
         fdata.append(
@@ -160,7 +159,7 @@ $(document).ready(function() {
             return;
         }
 
-        fdata.append("productTypes", JSON.stringify(typesGroup)); 
+        fdata.append("productTypes", JSON.stringify(typesGroup));
 
         for (let i = 0; i < files.length; i++) {
             fdata.append("images[]", files[i]);
@@ -196,7 +195,11 @@ $(document).ready(function() {
         document.getElementById("error_productName-edit").innerHTML = "";
         document.getElementById("error_productDescription-edit").innerHTML = "";
         document.getElementById("error-productType-edit").innerHTML = "";
+        const btnSubmit = document.querySelector(".btn__submit-AddProduct");
+
         try {
+            btnSubmit.disabled = true;
+
             const response = await axios.post("/api/admin/get-Group-product", {
                 id
             });
@@ -240,11 +243,12 @@ $(document).ready(function() {
             }
         } catch (e) {
             console.log("error", e.response);
+        } finally {
+            btnSubmit.disabled = false;
         }
     }
 
     async function submitSuaSP(e) {
-        
         document.getElementById("error_productName-edit").innerHTML = "";
         document.getElementById("error_productDescription-edit").innerHTML = "";
         document.getElementById("error-productType-edit").innerHTML = "";
@@ -253,12 +257,14 @@ $(document).ready(function() {
                 "Tên Sản Phẩm không được bỏ trống !!";
             return;
         }
-        if (document.querySelector("#product-description-edit").value.trim() == "") {
+        if (
+            document.querySelector("#product-description-edit").value.trim() ==
+            ""
+        ) {
             document.getElementById("error_productDescription-edit").innerHTML =
                 "Mô Tả không được bỏ trống";
             return;
         }
-        
 
         var fdata = new FormData();
         fdata.append(
@@ -303,12 +309,11 @@ $(document).ready(function() {
             ) {
                 continue;
             }
-                typesGroup.push({
-                    name: name,
-                    quantity: quantity,
-                    price: price
-                });
-            
+            typesGroup.push({
+                name: name,
+                quantity: quantity,
+                price: price
+            });
         }
 
         //kiem tra san pham co phan nhom hay khong
