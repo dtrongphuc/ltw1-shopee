@@ -104,7 +104,20 @@ $(document).ready(function() {
                 "Sản Phẩm Phải có ít Nhất 1 hình ảnh !!";
             return;
         }
+<<<<<<< HEAD
         
+=======
+        if (
+            document.querySelector("#product-type-name").value.trim() == "" ||
+            document.querySelector("#product-type-quantity").value.trim() ==
+                "" ||
+            document.querySelector("#product-type-price").value.trim() == ""
+        ) {
+            document.getElementById("error-productType").innerHTML =
+                "Sản phẩm phải có ít nhất 1 phân nhóm !!";
+            return;
+        }
+>>>>>>> 7fa5229e54354167e3d19e0b93ae609df6446f43
 
         var fdata = new FormData();
         fdata.append(
@@ -162,7 +175,6 @@ $(document).ready(function() {
 
         fdata.append("productTypes", JSON.stringify(typesGroup)); 
 
-        
         for (let i = 0; i < files.length; i++) {
             fdata.append("images[]", files[i]);
         }
@@ -226,7 +238,7 @@ $(document).ready(function() {
                     divRemove[indexRemove].remove();
                 }
                 //tạo dữ liệu cho type
-                
+
                 for (var sldiv = 0; sldiv < dataproducttype.length; sldiv++) {
                     let div = document.createElement("div");
                     div.className = "type-group type-group--input";
@@ -246,7 +258,10 @@ $(document).ready(function() {
     }
 
     async function submitSuaSP(e) {
+<<<<<<< HEAD
         
+=======
+>>>>>>> 7fa5229e54354167e3d19e0b93ae609df6446f43
         document.getElementById("error_productName-edit").innerHTML = "";
         document.getElementById("error_productDescription-edit").innerHTML = "";
         document.getElementById("error-productType-edit").innerHTML = "";
@@ -255,12 +270,31 @@ $(document).ready(function() {
                 "Tên Sản Phẩm không được bỏ trống !!";
             return;
         }
-        if (document.querySelector("#product-description-edit").value.trim() == "") {
+        if (
+            document.querySelector("#product-description-edit").value.trim() ==
+            ""
+        ) {
             document.getElementById("error_productDescription-edit").innerHTML =
                 "Mô Tả không được bỏ trống";
             return;
         }
+<<<<<<< HEAD
         
+=======
+        if (
+            document.querySelector("#product-type-name-edit").value.trim() ==
+                "" ||
+            document
+                .querySelector("#product-type-quantity-edit")
+                .value.trim() == "" ||
+            document.querySelector("#product-type-price-edit").value.trim() ==
+                ""
+        ) {
+            document.getElementById("error-productType-edit").innerHTML =
+                "Sản phẩm phải có ít nhất 1 phân nhóm";
+            return;
+        }
+>>>>>>> 7fa5229e54354167e3d19e0b93ae609df6446f43
 
         var fdata = new FormData();
         fdata.append(
@@ -323,8 +357,8 @@ $(document).ready(function() {
 
         fdata.append("productTypes", JSON.stringify(typesGroup));
 
-         //lấy tất cả hình ảnh
-         let files = document.getElementById("upload-edit").files;
+        //lấy tất cả hình ảnh
+        let files = document.getElementById("upload-edit").files;
         for (let i = 0; i < files.length; i++) {
             fdata.append("images[]", files[i]);
         }
