@@ -21,15 +21,15 @@
             <ul class="list-item">
 
                 <li class="item active">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fab fa-product-hunt"></i>
                     <a href="/admin">Quản Lý Danh Mục / Sản Phẩm</a>
                 </li>
                 <li class="item">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-chart-pie"></i>
                     <a href="admin/chartstatistical">Quản lý thống kê</a>
                 </li>
                 <li class="item">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-file-invoice-dollar"></i>
                     <a href="admin/usermanagement">Quản lý người dùng</a>
                 </li>
                 <li class="item">

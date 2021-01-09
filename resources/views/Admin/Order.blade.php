@@ -9,6 +9,7 @@
     <!-- <link rel="stylesheet" href="./myStyle.css"> -->
     <link rel="shortcut icon" href="{{ URL::asset('images/icons/favicon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
+    <link rel="shortcut icon" href="{{ URL::asset('images/icons/favicon.png') }}" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Đơn Hàng</title>
 </head>
@@ -21,19 +22,19 @@
             </div>
             <ul class="list-item">
                 <li class="item ">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fab fa-product-hunt"></i>
                     <a href="/admin">Quản Lý Danh Mục / Sản Phẩm</a>
                 </li>
                 <li class="item ">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-chart-pie"></i>
                     <a href="./chartstatistical">Quản lý thống kê</a>
                 </li>
                 <li class="item">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-users-cog"></i>
                     <a href="./usermanagement">Quản lý người dùng</a>
                 </li>
                 <li class="item active">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-file-invoice-dollar"></i>
                     <a href="./ordermanagement">Quản lý Đơn Hàng</a>
                 </li>
             </ul>
