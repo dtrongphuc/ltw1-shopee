@@ -56,10 +56,11 @@ class PayController extends Controller
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 404);
         }
-
+        $iduser = Auth::id();
         $carts = DB::table('products')
             ->join('carts', 'carts.productId', '=', 'products.productId')
             ->join('product_types', 'carts.type', 'product_types.id')
+            ->where('carts.userId', $iduser)
             ->select('carts.id', 'products.productName', 'product_types.price', 'carts.quantity', 'carts.type', 'products.productId', 'product_types.id as typeid')
             ->get();
 
