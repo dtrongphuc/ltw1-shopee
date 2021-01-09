@@ -14,14 +14,16 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $category = Categories::all();
+        $category = Categories::where('status', '=', '1')->get();
         $isHasCategory = $request->has('category');
         $isHasFilter = $request->has('filter');
         $products = (($isHasCategory && $isHasFilter) ? 
                     (self::productsWithCategoryAndFilter($request->category, $request->filter)) :
                     ($isHasCategory ? self::productsWithCategory($request->category) :
                     ($isHasFilter ? self::productsWithFilter($request->filter) :
-                    Product::orderBy('likeCount', 'desc'))))->paginate(10)->withQueryString();
+                    Product::orderBy('likeCount', 'desc'))))
+                    ->where('status', '=', '1')
+                    ->paginate(10)->withQueryString();
         return view('pages.index',[
             'category' => $category,
             'products' => $products
@@ -46,6 +48,7 @@ class HomeController extends Controller
                     ($isHasFilter ? self::productsWithFilter($request->filter) :
                     Product::orderBy('likeCount', 'desc'))))
                             ->where('productName', 'like', "%$querySearch%")
+                            ->where('status', '=', '1')
                             ->paginate(10)->withQueryString();
 
         return view('pages.searchResults',['productSearch'=> $productSearch]);

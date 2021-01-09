@@ -176,6 +176,7 @@ body {
 }
 .modal-dialog .itemadd .inputitem {
     padding: 10px;
+    line-height: 1.5;
 }
 
 .card-body-DM .category,
