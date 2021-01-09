@@ -126,8 +126,8 @@ class ProductController extends Controller
                 'sold' => 0,
             ]);
 
-        $productImageremove = ProductImage::where('productId', '=', (int)$request->productId)->delete();
         if ($request->hasFile('images')) {
+            $productImageremove = ProductImage::where('productId', '=', (int)$request->productId)->delete();
             for ($i = 0; $i < count($request->file('images')); $i++) {
                 $publicId = $request->file('images.' . $i)->storeOnCloudinary('products')->getPublicId();
 
