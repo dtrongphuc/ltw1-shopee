@@ -20099,9 +20099,494 @@ module.exports = function(module) {
   !*** ./resources/js/adminHome.js ***!
   \***********************************/
 /*! no exports provided */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\Users\\DELL\\Desktop\\ltw1-shopee\\resources\\js\\adminHome.js: Unexpected token (107:0)\n\n\u001b[0m \u001b[90m 105 | \u001b[39m            \u001b[36mreturn\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 106 | \u001b[39m        }\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 107 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 108 | \u001b[39m        \u001b[0m\n\u001b[0m \u001b[90m 109 | \u001b[39m\u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 110 | \u001b[39m        \u001b[36mif\u001b[39m (\u001b[0m\n    at Parser._raise (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:748:17)\n    at Parser.raiseWithData (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:741:17)\n    at Parser.raise (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:735:17)\n    at Parser.unexpected (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:9097:16)\n    at Parser.parseExprAtom (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:10548:20)\n    at Parser.parseExprSubscripts (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:10122:23)\n    at Parser.parseUpdate (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:10102:21)\n    at Parser.parseMaybeUnary (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:10091:17)\n    at Parser.parseExprOps (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:9961:23)\n    at Parser.parseMaybeConditional (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:9935:23)\n    at Parser.parseMaybeAssign (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:9898:21)\n    at Parser.parseExpressionBase (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:9843:23)\n    at C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:9837:39\n    at Parser.allowInAnd (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:11515:16)\n    at Parser.parseExpression (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:9837:17)\n    at Parser.parseStatementContent (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:11781:23)\n    at Parser.parseStatement (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:11650:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:12232:25)\n    at Parser.parseBlockBody (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:12218:10)\n    at Parser.parseBlock (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:12202:10)\n    at Parser.parseFunctionBody (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:11194:24)\n    at Parser.parseFunctionBodyAndFinish (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:11178:10)\n    at C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:12368:12\n    at Parser.withTopicForbiddingContext (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:11490:14)\n    at Parser.parseFunction (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:12367:10)\n    at Parser.parseFunctionStatement (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:11998:17)\n    at Parser.parseStatementContent (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:11775:25)\n    at Parser.parseStatement (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:11650:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:12232:25)\n    at Parser.parseBlockBody (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:12218:10)\n    at Parser.parseBlock (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:12202:10)\n    at Parser.parseFunctionBody (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:11194:24)\n    at Parser.parseFunctionBodyAndFinish (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:11178:10)\n    at C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:12368:12\n    at Parser.withTopicForbiddingContext (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:11490:14)\n    at Parser.parseFunction (C:\\Users\\DELL\\Desktop\\ltw1-shopee\\node_modules\\@babel\\parser\\lib\\index.js:12367:10)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+$(document).ready(function () {
+  var _document$querySelect, _document$querySelect2, _document$querySelect3, _document$querySelect4, _document$querySelect5;
+
+  document.querySelectorAll(".btn__edit-product").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      editsp(btn.dataset.productId);
+    });
+  });
+  (_document$querySelect = document.querySelector(".btn__add-type")) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.addEventListener("click", function () {
+    addInputType(".product-types__group");
+  });
+  (_document$querySelect2 = document.querySelector(".btn__add-type--edit")) === null || _document$querySelect2 === void 0 ? void 0 : _document$querySelect2.addEventListener("click", function () {
+    addInputType(".product-types__group-edit");
+  });
+  (_document$querySelect3 = document.querySelector(".btn-themSp")) === null || _document$querySelect3 === void 0 ? void 0 : _document$querySelect3.addEventListener("click", function () {
+    Removeimput();
+  });
+  (_document$querySelect4 = document.querySelector("#form-add-product")) === null || _document$querySelect4 === void 0 ? void 0 : _document$querySelect4.addEventListener("submit", function (e) {
+    e.preventDefault();
+    submitThemSP();
+  });
+  (_document$querySelect5 = document.querySelector("#form-edit-product")) === null || _document$querySelect5 === void 0 ? void 0 : _document$querySelect5.addEventListener("submit", function (e) {
+    e.preventDefault();
+    submitSuaSP();
+  });
+  document.querySelectorAll(".SelectstatusOrder").forEach(function (select) {
+    select.addEventListener("change", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var id, status, response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              id = select.dataset.orderId;
+              status = select.value;
+              _context.prev = 2;
+              _context.next = 5;
+              return axios.post("/api/admin/statuschangeorder", {
+                id: id,
+                status: status
+              });
+
+            case 5:
+              response = _context.sent;
+
+              if (response.status === 200) {
+                console.log(response);
+              }
+
+              _context.next = 12;
+              break;
+
+            case 9:
+              _context.prev = 9;
+              _context.t0 = _context["catch"](2);
+              console.log("error", _context.t0.response);
+
+            case 12:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[2, 9]]);
+    })));
+  });
+
+  function Removeimput() {
+    //xóa hết tất cả cac div được tạo
+    document.getElementById("error_productName").innerHTML = "";
+    document.getElementById("error_productDescription").innerHTML = "";
+    document.getElementById("error-productType").innerHTML = "";
+    document.getElementById("error-image").innerHTML = "";
+    var divRemove = document.querySelectorAll(".type-group");
+
+    for (var indexRemove = 0; indexRemove < divRemove.length; indexRemove++) {
+      console.log("here");
+      divRemove[indexRemove].remove();
+    }
+  }
+
+  var addInputType = function addInputType(className) {
+    var div = document.createElement("div");
+    div.className = "type-group type-group--input";
+    div.innerHTML = "\n            <input class=\" inputitem\" type=\"text\" name=\"product-type[]\" placeholder='Nh\u1EADp t\xEAn Ph\xE2n Nh\xF3m'>\n            <input class=\" inputitem\" type=\"text\" name=\"product-type-quantity[]\" placeholder='Nh\u1EADp S\u1ED1 L\u01B0\u1EE3ng'>\n            <input class=\" inputitem\" type=\"text\" name=\"product-type-price[]\" placeholder='Nh\u1EADp Gi\xE1'>\n        ";
+    document.querySelector(className).appendChild(div);
+  };
+
+  function submitThemSP() {
+    return _submitThemSP.apply(this, arguments);
+  }
+
+  function _submitThemSP() {
+    _submitThemSP = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+      var files, fdata, typesGroup, productTypeName, productTypeQuantity, productTypePrice, i, name, quantity, price, _i;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              //lấy hình ảnh san phẩm
+              files = document.getElementById("upload").files;
+              document.getElementById("error_productName").innerHTML = "";
+              document.getElementById("error_productDescription").innerHTML = "";
+              document.getElementById("error-productType").innerHTML = "";
+              document.getElementById("error-image").innerHTML = "";
+
+              if (!(document.querySelector("#product-name").value.trim() == "")) {
+                _context2.next = 8;
+                break;
+              }
+
+              document.getElementById("error_productName").innerHTML = "Tên Sản Phẩm không được bỏ trống !!";
+              return _context2.abrupt("return");
+
+            case 8:
+              if (!(document.querySelector("#product-description").value.trim() == "")) {
+                _context2.next = 11;
+                break;
+              }
+
+              document.getElementById("error_productDescription").innerHTML = "Mô Tả không được bỏ trống !!";
+              return _context2.abrupt("return");
+
+            case 11:
+              if (!(files.length == 0)) {
+                _context2.next = 14;
+                break;
+              }
+
+              document.getElementById("error-image").innerHTML = "Sản Phẩm Phải có ít Nhất 1 hình ảnh !!";
+              return _context2.abrupt("return");
+
+            case 14:
+              fdata = new FormData();
+              fdata.append("productName", document.querySelector("#product-name").value);
+              fdata.append("productDescription", document.querySelector("#product-description").value);
+              fdata.append("categoryId", document.querySelector(".add-product__category").value);
+              typesGroup = [];
+              productTypeName = document.getElementsByName("product-type[]");
+              productTypeQuantity = document.getElementsByName("product-type-quantity[]");
+              productTypePrice = document.getElementsByName("product-type-price[]");
+              i = 0;
+
+            case 23:
+              if (!(i < productTypeName.length && i < productTypePrice.length && i < productTypeQuantity.length)) {
+                _context2.next = 33;
+                break;
+              }
+
+              name = productTypeName[i].value;
+              quantity = productTypeQuantity[i].value;
+              price = productTypePrice[i].value;
+
+              if (!(name.trim() == "" || quantity.trim() == "" || price.trim() == "")) {
+                _context2.next = 29;
+                break;
+              }
+
+              return _context2.abrupt("continue", 30);
+
+            case 29:
+              typesGroup.push({
+                name: name,
+                quantity: quantity,
+                price: price
+              });
+
+            case 30:
+              i++;
+              _context2.next = 23;
+              break;
+
+            case 33:
+              if (!(typesGroup.length == 0)) {
+                _context2.next = 36;
+                break;
+              }
+
+              document.getElementById("error-productType").innerHTML = "Sản phẩm phải có ít nhất 1 phân nhóm";
+              return _context2.abrupt("return");
+
+            case 36:
+              fdata.append("productTypes", JSON.stringify(typesGroup));
+
+              for (_i = 0; _i < files.length; _i++) {
+                fdata.append("images[]", files[_i]);
+              }
+
+              _context2.next = 40;
+              return postProduct(fdata);
+
+            case 40:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+    return _submitThemSP.apply(this, arguments);
+  }
+
+  function postProduct(_x) {
+    return _postProduct.apply(this, arguments);
+  }
+
+  function _postProduct() {
+    _postProduct = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(product) {
+      var btnSubmit, response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              btnSubmit = document.querySelector(".btn__submit-AddProduct");
+              _context3.prev = 1;
+              btnSubmit.disabled = true;
+              _context3.next = 5;
+              return axios.post("/api/admin/new-product", product, {
+                headers: {
+                  "Content-Type": "multipart/form-data"
+                }
+              });
+
+            case 5:
+              response = _context3.sent;
+
+              if (response.status === 200) {
+                console.log(response);
+                window.location.reload();
+              }
+
+              _context3.next = 12;
+              break;
+
+            case 9:
+              _context3.prev = 9;
+              _context3.t0 = _context3["catch"](1);
+              console.log("error", _context3.t0.response);
+
+            case 12:
+              _context3.prev = 12;
+              btnSubmit.disabled = false;
+              return _context3.finish(12);
+
+            case 15:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[1, 9, 12, 15]]);
+    }));
+    return _postProduct.apply(this, arguments);
+  }
+
+  function editsp(_x2) {
+    return _editsp.apply(this, arguments);
+  }
+
+  function _editsp() {
+    _editsp = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id) {
+      var response, data, dataproducttype, datasp, divRemove, indexRemove, sldiv, div;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              document.getElementById("error_productName-edit").innerHTML = "";
+              document.getElementById("error_productDescription-edit").innerHTML = "";
+              document.getElementById("error-productType-edit").innerHTML = "";
+              _context4.prev = 3;
+              _context4.next = 6;
+              return axios.post("/api/admin/get-Group-product", {
+                id: id
+              });
+
+            case 6:
+              response = _context4.sent;
+
+              if (response.status === 200) {
+                data = response.data;
+                dataproducttype = data[0];
+                datasp = data[1]; //tạo dữ liệu cho sản phẩm
+
+                document.getElementById("product-name-edit").value = datasp[0].productName;
+                document.getElementById("product-id-edit").value = datasp[0].productId;
+                document.getElementById("product-description-edit").value = datasp[0].description;
+                document.getElementById(datasp[0].categoryId).selected = true; //xóa hết tất cả cac div được tạo
+
+                divRemove = document.querySelectorAll(".type-group");
+
+                for (indexRemove = 0; indexRemove < divRemove.length; indexRemove++) {
+                  divRemove[indexRemove].remove();
+                } //tạo dữ liệu cho type
+
+
+                for (sldiv = 0; sldiv < dataproducttype.length; sldiv++) {
+                  div = document.createElement("div");
+                  div.className = "type-group type-group--input";
+                  div.innerHTML = "\n                        <input class=\" inputitem\" type=\"text\" name=\"product-type-edit[]\" placeholder='Nh\u1EADp t\xEAn Ph\xE2n Nh\xF3m' value= '".concat(dataproducttype[sldiv]["name"], "'>\n                        <input class=\" inputitem\" type=\"text\" name=\"product-type-quantity-edit[]\" placeholder='Nh\u1EADp S\u1ED1 L\u01B0\u1EE3ng' value= '").concat(dataproducttype[sldiv]["quantity"], "'>\n                        <input class=\" inputitem\" type=\"text\" name=\"product-type-price-edit[]\" placeholder='Nh\u1EADp Gi\xE1' value= ").concat(dataproducttype[sldiv]["price"], ">\n                    ");
+                  document.querySelector(".product-types__group-edit").appendChild(div);
+                }
+              }
+
+              _context4.next = 13;
+              break;
+
+            case 10:
+              _context4.prev = 10;
+              _context4.t0 = _context4["catch"](3);
+              console.log("error", _context4.t0.response);
+
+            case 13:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[3, 10]]);
+    }));
+    return _editsp.apply(this, arguments);
+  }
+
+  function submitSuaSP(_x3) {
+    return _submitSuaSP.apply(this, arguments);
+  }
+
+  function _submitSuaSP() {
+    _submitSuaSP = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(e) {
+      var fdata, typesGroup, productTypeName, productTypeQuantity, productTypePrice, i, name, quantity, price, files, _i2;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              document.getElementById("error_productName-edit").innerHTML = "";
+              document.getElementById("error_productDescription-edit").innerHTML = "";
+              document.getElementById("error-productType-edit").innerHTML = "";
+
+              if (!(document.querySelector("#product-name-edit").value.trim() == "")) {
+                _context5.next = 6;
+                break;
+              }
+
+              document.getElementById("error_productName-edit").innerHTML = "Tên Sản Phẩm không được bỏ trống !!";
+              return _context5.abrupt("return");
+
+            case 6:
+              if (!(document.querySelector("#product-description-edit").value.trim() == "")) {
+                _context5.next = 9;
+                break;
+              }
+
+              document.getElementById("error_productDescription-edit").innerHTML = "Mô Tả không được bỏ trống";
+              return _context5.abrupt("return");
+
+            case 9:
+              fdata = new FormData();
+              fdata.append("productId", document.querySelector("#product-id-edit").value);
+              fdata.append("productName", document.querySelector("#product-name-edit").value);
+              fdata.append("productDescription", document.querySelector("#product-description-edit").value);
+              fdata.append("categoryId", document.querySelector(".add-product__category").value);
+              typesGroup = [];
+              productTypeName = document.getElementsByName("product-type-edit[]");
+              productTypeQuantity = document.getElementsByName("product-type-quantity-edit[]");
+              productTypePrice = document.getElementsByName("product-type-price-edit[]");
+              i = 0;
+
+            case 19:
+              if (!(i < productTypeName.length && i < productTypePrice.length && i < productTypeQuantity.length)) {
+                _context5.next = 29;
+                break;
+              }
+
+              name = productTypeName[i].value;
+              quantity = productTypeQuantity[i].value;
+              price = productTypePrice[i].value;
+
+              if (!(name.trim() == "" || quantity.trim() == "" || price.trim() == "")) {
+                _context5.next = 25;
+                break;
+              }
+
+              return _context5.abrupt("continue", 26);
+
+            case 25:
+              typesGroup.push({
+                name: name,
+                quantity: quantity,
+                price: price
+              });
+
+            case 26:
+              i++;
+              _context5.next = 19;
+              break;
+
+            case 29:
+              if (!(typesGroup.length == 0)) {
+                _context5.next = 32;
+                break;
+              }
+
+              document.getElementById("error-productType-edit").innerHTML = "Sản phẩm phải có ít nhất 1 phân nhóm";
+              return _context5.abrupt("return");
+
+            case 32:
+              fdata.append("productTypes", JSON.stringify(typesGroup)); //lấy tất cả hình ảnh
+
+              files = document.getElementById("upload-edit").files;
+
+              for (_i2 = 0; _i2 < files.length; _i2++) {
+                fdata.append("images[]", files[_i2]);
+              }
+
+              _context5.next = 37;
+              return postProductToEdit(fdata);
+
+            case 37:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5);
+    }));
+    return _submitSuaSP.apply(this, arguments);
+  }
+
+  function postProductToEdit(_x4) {
+    return _postProductToEdit.apply(this, arguments);
+  }
+
+  function _postProductToEdit() {
+    _postProductToEdit = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(productEdit) {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.prev = 0;
+              _context6.next = 3;
+              return axios.post("/api/admin/edit-product", productEdit, {
+                headers: {
+                  "Content-Type": "multipart/form-data"
+                }
+              });
+
+            case 3:
+              response = _context6.sent;
+
+              if (response.status === 200) {
+                console.log(response);
+                window.location.reload();
+              }
+
+              _context6.next = 10;
+              break;
+
+            case 7:
+              _context6.prev = 7;
+              _context6.t0 = _context6["catch"](0);
+              console.log("error", _context6.t0.response);
+
+            case 10:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6, null, [[0, 7]]);
+    }));
+    return _postProductToEdit.apply(this, arguments);
+  }
+
+  $("#btnReposiveLeft").click(function () {
+    if ($("#box-content").hasClass("showLeft")) {
+      $("#box-content").removeClass("showLeft");
+    } else {
+      $("#box-content").addClass("showLeft");
+    }
+  });
+});
 
 /***/ }),
 
