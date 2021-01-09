@@ -195,11 +195,8 @@ $(document).ready(function() {
         document.getElementById("error_productName-edit").innerHTML = "";
         document.getElementById("error_productDescription-edit").innerHTML = "";
         document.getElementById("error-productType-edit").innerHTML = "";
-        const btnSubmit = document.querySelector(".btn__submit-AddProduct");
 
         try {
-            btnSubmit.disabled = true;
-
             const response = await axios.post("/api/admin/get-Group-product", {
                 id
             });
@@ -243,8 +240,6 @@ $(document).ready(function() {
             }
         } catch (e) {
             console.log("error", e.response);
-        } finally {
-            btnSubmit.disabled = false;
         }
     }
 
@@ -336,7 +331,10 @@ $(document).ready(function() {
     }
 
     async function postProductToEdit(productEdit) {
+        const btnSubmit = document.querySelector(".btn-product__submit--edit");
+
         try {
+            btnSubmit.disabled = true;
             const response = await axios.post(
                 "/api/admin/edit-product",
                 productEdit,
@@ -352,6 +350,8 @@ $(document).ready(function() {
             }
         } catch (e) {
             console.log("error", e.response);
+        } finally {
+            btnSubmit.disabled = false;
         }
     }
 
