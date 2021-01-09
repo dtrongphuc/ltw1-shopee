@@ -20369,7 +20369,7 @@ $(document).ready(function () {
 
   function _editsp() {
     _editsp = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(id) {
-      var response, data, dataproducttype, datasp, divRemove, indexRemove, sldiv, div;
+      var btnSubmit, response, data, dataproducttype, datasp, divRemove, indexRemove, sldiv, div;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
@@ -20377,13 +20377,15 @@ $(document).ready(function () {
               document.getElementById("error_productName-edit").innerHTML = "";
               document.getElementById("error_productDescription-edit").innerHTML = "";
               document.getElementById("error-productType-edit").innerHTML = "";
-              _context4.prev = 3;
-              _context4.next = 6;
+              btnSubmit = document.querySelector(".btn__submit-AddProduct");
+              _context4.prev = 4;
+              btnSubmit.disabled = true;
+              _context4.next = 8;
               return axios.post("/api/admin/get-Group-product", {
                 id: id
               });
 
-            case 6:
+            case 8:
               response = _context4.sent;
 
               if (response.status === 200) {
@@ -20411,20 +20413,25 @@ $(document).ready(function () {
                 }
               }
 
-              _context4.next = 13;
+              _context4.next = 15;
               break;
 
-            case 10:
-              _context4.prev = 10;
-              _context4.t0 = _context4["catch"](3);
+            case 12:
+              _context4.prev = 12;
+              _context4.t0 = _context4["catch"](4);
               console.log("error", _context4.t0.response);
 
-            case 13:
+            case 15:
+              _context4.prev = 15;
+              btnSubmit.disabled = false;
+              return _context4.finish(15);
+
+            case 18:
             case "end":
               return _context4.stop();
           }
         }
-      }, _callee4, null, [[3, 10]]);
+      }, _callee4, null, [[4, 12, 15, 18]]);
     }));
     return _editsp.apply(this, arguments);
   }

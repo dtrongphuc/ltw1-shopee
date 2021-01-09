@@ -29,11 +29,11 @@
                     <a href="admin/chartstatistical">Quản lý thống kê</a>
                 </li>
                 <li class="item">
-                    <i class="fas fa-file-invoice-dollar"></i>
+                    <i class="fas fa-users-cog"></i>
                     <a href="admin/usermanagement">Quản lý người dùng</a>
                 </li>
                 <li class="item">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-file-invoice-dollar"></i>
                     <a href="admin/ordermanagement">Quản lý Đơn Hàng</a>
                 </li>
             </ul>
