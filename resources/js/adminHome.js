@@ -304,7 +304,6 @@ $(document).ready(function() {
         let productTypePrice = document.getElementsByName(
             "product-type-price-edit[]"
         );
-
         for (
             let i = 0;
             i < productTypeName.length &&
