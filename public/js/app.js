@@ -20243,15 +20243,6 @@ $(document).ready(function () {
               return _context2.abrupt("return");
 
             case 14:
-              if (!(document.querySelector("#product-type-name").value.trim() == "" || document.querySelector("#product-type-quantity").value.trim() == "" || document.querySelector("#product-type-price").value.trim() == "")) {
-                _context2.next = 17;
-                break;
-              }
-
-              document.getElementById("error-productType").innerHTML = "Sản phẩm phải có ít nhất 1 phân nhóm !!";
-              return _context2.abrupt("return");
-
-            case 17:
               fdata = new FormData();
               fdata.append("productName", document.querySelector("#product-name").value);
               fdata.append("productDescription", document.querySelector("#product-description").value);
@@ -20260,31 +20251,56 @@ $(document).ready(function () {
               productTypeName = document.getElementsByName("product-type[]");
               productTypeQuantity = document.getElementsByName("product-type-quantity[]");
               productTypePrice = document.getElementsByName("product-type-price[]");
+              i = 0;
 
-              for (i = 0; i < productTypeName.length && i < productTypePrice.length && i < productTypeQuantity.length; i++) {
-                name = productTypeName[i].value;
-                quantity = productTypeQuantity[i].value;
-                price = productTypePrice[i].value;
-
-                if (name.trim() != "" || quantity.trim() != "" || price.trim() != "") {
-                  typesGroup.push({
-                    name: name,
-                    quantity: quantity,
-                    price: price
-                  });
-                }
+            case 23:
+              if (!(i < productTypeName.length && i < productTypePrice.length && i < productTypeQuantity.length)) {
+                _context2.next = 33;
+                break;
               }
 
-              fdata.append("productTypes", JSON.stringify(typesGroup)); // tại sao chổ này lại dùng lại phải chuyển thành Json
+              name = productTypeName[i].value;
+              quantity = productTypeQuantity[i].value;
+              price = productTypePrice[i].value;
+
+              if (!(name.trim() == "" || quantity.trim() == "" || price.trim() == "")) {
+                _context2.next = 29;
+                break;
+              }
+
+              return _context2.abrupt("continue", 30);
+
+            case 29:
+              typesGroup.push({
+                name: name,
+                quantity: quantity,
+                price: price
+              });
+
+            case 30:
+              i++;
+              _context2.next = 23;
+              break;
+
+            case 33:
+              if (!(typesGroup.length == 0)) {
+                _context2.next = 36;
+                break;
+              }
+
+              document.getElementById("error-productType").innerHTML = "Sản phẩm phải có ít nhất 1 phân nhóm";
+              return _context2.abrupt("return");
+
+            case 36:
+              fdata.append("productTypes", JSON.stringify(typesGroup));
 
               for (_i = 0; _i < files.length; _i++) {
                 fdata.append("images[]", files[_i]);
               }
 
-              _context2.next = 30;
-              return postProduct(fdata);
+              console.log("sucess: " + typesGroup.length); //await postProduct(fdata);
 
-            case 30:
+            case 39:
             case "end":
               return _context2.stop();
           }
@@ -20371,7 +20387,6 @@ $(document).ready(function () {
 
               if (response.status === 200) {
                 data = response.data;
-                console.log(data);
                 dataproducttype = data[0];
                 datasp = data[1]; //tạo dữ liệu cho sản phẩm
 
@@ -20447,15 +20462,6 @@ $(document).ready(function () {
               return _context5.abrupt("return");
 
             case 9:
-              if (!(document.querySelector("#product-type-name-edit").value.trim() == "" || document.querySelector("#product-type-quantity-edit").value.trim() == "" || document.querySelector("#product-type-price-edit").value.trim() == "")) {
-                _context5.next = 12;
-                break;
-              }
-
-              document.getElementById("error-productType-edit").innerHTML = "Sản phẩm phải có ít nhất 1 phân nhóm";
-              return _context5.abrupt("return");
-
-            case 12:
               fdata = new FormData();
               fdata.append("productId", document.querySelector("#product-id-edit").value);
               fdata.append("productName", document.querySelector("#product-name-edit").value);
@@ -20465,21 +20471,47 @@ $(document).ready(function () {
               productTypeName = document.getElementsByName("product-type-edit[]");
               productTypeQuantity = document.getElementsByName("product-type-quantity-edit[]");
               productTypePrice = document.getElementsByName("product-type-price-edit[]");
+              i = 0;
 
-              for (i = 0; i < productTypeName.length && i < productTypePrice.length && i < productTypeQuantity.length; i++) {
-                name = productTypeName[i].value;
-                quantity = productTypeQuantity[i].value;
-                price = productTypePrice[i].value;
-
-                if (name.trim() != "" || quantity.trim() != "" || price.trim() != "") {
-                  typesGroup.push({
-                    name: name,
-                    quantity: quantity,
-                    price: price
-                  });
-                }
+            case 19:
+              if (!(i < productTypeName.length && i < productTypePrice.length && i < productTypeQuantity.length)) {
+                _context5.next = 29;
+                break;
               }
 
+              name = productTypeName[i].value;
+              quantity = productTypeQuantity[i].value;
+              price = productTypePrice[i].value;
+
+              if (!(name.trim() == "" || quantity.trim() == "" || price.trim() == "")) {
+                _context5.next = 25;
+                break;
+              }
+
+              return _context5.abrupt("continue", 26);
+
+            case 25:
+              typesGroup.push({
+                name: name,
+                quantity: quantity,
+                price: price
+              });
+
+            case 26:
+              i++;
+              _context5.next = 19;
+              break;
+
+            case 29:
+              if (!(typesGroup.length == 0)) {
+                _context5.next = 32;
+                break;
+              }
+
+              document.getElementById("error-productType-edit").innerHTML = "Sản phẩm phải có ít nhất 1 phân nhóm";
+              return _context5.abrupt("return");
+
+            case 32:
               fdata.append("productTypes", JSON.stringify(typesGroup)); //lấy tất cả hình ảnh
 
               files = document.getElementById("upload-edit").files;
@@ -20488,10 +20520,10 @@ $(document).ready(function () {
                 fdata.append("images[]", files[_i2]);
               }
 
-              _context5.next = 27;
+              _context5.next = 37;
               return postProductToEdit(fdata);
 
-            case 27:
+            case 37:
             case "end":
               return _context5.stop();
           }

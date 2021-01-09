@@ -104,13 +104,6 @@ $(document).ready(function() {
                 "Sản Phẩm Phải có ít Nhất 1 hình ảnh !!";
             return;
         }
-        if (document.querySelector("#product-type-name").value.trim() == "" || 
-            document.querySelector("#product-type-quantity").value.trim() == "" ||
-            document.querySelector("#product-type-price").value.trim() == "") {
-            document.getElementById("error-productType").innerHTML =
-                "Sản phẩm phải có ít nhất 1 phân nhóm !!";
-            return;
-        }
         
 
         var fdata = new FormData();
@@ -148,25 +141,33 @@ $(document).ready(function() {
             let quantity = productTypeQuantity[i].value;
             let price = productTypePrice[i].value;
             if (
-                name.trim() != "" ||
-                quantity.trim() != "" ||
-                price.trim() != ""
+                name.trim() == "" ||
+                quantity.trim() == "" ||
+                price.trim() == ""
             ) {
-                typesGroup.push({
-                    name: name,
-                    quantity: quantity,
-                    price: price
-                });
+                continue;
             }
+            typesGroup.push({
+                name: name,
+                quantity: quantity,
+                price: price
+            });
+        }
+        //kiem tra san pham co phan nhom hay khong
+        if (typesGroup.length == 0) {
+            document.getElementById("error-productType").innerHTML =
+                "Sản phẩm phải có ít nhất 1 phân nhóm";
+            return;
         }
 
-        fdata.append("productTypes", JSON.stringify(typesGroup)); // tại sao chổ này lại dùng lại phải chuyển thành Json
+        fdata.append("productTypes", JSON.stringify(typesGroup)); 
 
         
         for (let i = 0; i < files.length; i++) {
             fdata.append("images[]", files[i]);
         }
-        await postProduct(fdata);
+        console.log("sucess: "+ typesGroup.length);
+        //await postProduct(fdata);
     }
 
     async function postProduct(product) {
@@ -203,7 +204,6 @@ $(document).ready(function() {
             });
             if (response.status === 200) {
                 let data = response.data;
-                console.log(data);
                 let dataproducttype = data[0];
                 let datasp = data[1];
 
@@ -246,9 +246,7 @@ $(document).ready(function() {
     }
 
     async function submitSuaSP(e) {
-       
         
-
         document.getElementById("error_productName-edit").innerHTML = "";
         document.getElementById("error_productDescription-edit").innerHTML = "";
         document.getElementById("error-productType-edit").innerHTML = "";
@@ -262,13 +260,7 @@ $(document).ready(function() {
                 "Mô Tả không được bỏ trống";
             return;
         }
-        if (document.querySelector("#product-type-name-edit").value.trim() == "" || 
-            document.querySelector("#product-type-quantity-edit").value.trim() == "" ||
-            document.querySelector("#product-type-price-edit").value.trim() == "") {
-            document.getElementById("error-productType-edit").innerHTML =
-                "Sản phẩm phải có ít nhất 1 phân nhóm";
-            return;
-        }
+        
 
         var fdata = new FormData();
         fdata.append(
@@ -291,8 +283,12 @@ $(document).ready(function() {
 
         let typesGroup = [];
         let productTypeName = document.getElementsByName("product-type-edit[]");
-        let productTypeQuantity = document.getElementsByName("product-type-quantity-edit[]");
-        let productTypePrice = document.getElementsByName("product-type-price-edit[]");
+        let productTypeQuantity = document.getElementsByName(
+            "product-type-quantity-edit[]"
+        );
+        let productTypePrice = document.getElementsByName(
+            "product-type-price-edit[]"
+        );
         for (
             let i = 0;
             i < productTypeName.length &&
@@ -304,16 +300,25 @@ $(document).ready(function() {
             let quantity = productTypeQuantity[i].value;
             let price = productTypePrice[i].value;
             if (
-                name.trim() != "" ||
-                quantity.trim() != "" ||
-                price.trim() != ""
+                name.trim() == "" ||
+                quantity.trim() == "" ||
+                price.trim() == ""
             ) {
+                continue;
+            }
                 typesGroup.push({
                     name: name,
                     quantity: quantity,
                     price: price
                 });
-            }
+            
+        }
+
+        //kiem tra san pham co phan nhom hay khong
+        if (typesGroup.length == 0) {
+            document.getElementById("error-productType-edit").innerHTML =
+                "Sản phẩm phải có ít nhất 1 phân nhóm";
+            return;
         }
 
         fdata.append("productTypes", JSON.stringify(typesGroup));
@@ -323,6 +328,7 @@ $(document).ready(function() {
         for (let i = 0; i < files.length; i++) {
             fdata.append("images[]", files[i]);
         }
+
         await postProductToEdit(fdata);
     }
 
