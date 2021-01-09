@@ -109,7 +109,7 @@ class PayController extends Controller
             ProductType::where('id', $cart->typeid)->update(['quantity' => $producttype->quantity - $cart->quantity]);
         }
 
-        $tt = DB::table('carts')->truncate();  // xóa trong  giỏ hàng và id trở về 0
+        $tt = DB::table('carts')->where('carts.userId', $iduser)->truncate();  // xóa trong  giỏ hàng và id trở về 0
         // $tt = DB::table('bills')->truncate();  // xóa trong  giỏ hàng và id trở về 0
         // $tt = DB::table('detail_bills')->truncate();  // xóa trong  giỏ hàng và id trở về 0
     }
