@@ -17,10 +17,11 @@ class PayController extends Controller
     {
         if (DB::table('carts')->count() == 0)
             return redirect()->back();
-
+        $iduser = Auth::id();
         $productsofcart = DB::table('products')
             ->join('carts', 'carts.productId', '=', 'products.productId')
             ->join('product_types', 'carts.type', 'product_types.id')
+            ->where('carts.userId', $iduser)
             ->select(
                 'carts.id',
                 'products.productName',
@@ -55,10 +56,11 @@ class PayController extends Controller
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 404);
         }
-
+        $iduser = Auth::id();
         $carts = DB::table('products')
             ->join('carts', 'carts.productId', '=', 'products.productId')
             ->join('product_types', 'carts.type', 'product_types.id')
+            ->where('carts.userId', $iduser)
             ->select('carts.id', 'products.productName', 'product_types.price', 'carts.quantity', 'carts.type', 'products.productId', 'product_types.id as typeid')
             ->get();
 
@@ -107,7 +109,7 @@ class PayController extends Controller
             ProductType::where('id', $cart->typeid)->update(['quantity' => $producttype->quantity - $cart->quantity]);
         }
 
-        $tt = DB::table('carts')->truncate();  // xóa trong  giỏ hàng và id trở về 0
+        $tt = DB::table('carts')->where('carts.userId', $iduser)->truncate();  // xóa trong  giỏ hàng và id trở về 0
         // $tt = DB::table('bills')->truncate();  // xóa trong  giỏ hàng và id trở về 0
         // $tt = DB::table('detail_bills')->truncate();  // xóa trong  giỏ hàng và id trở về 0
     }
