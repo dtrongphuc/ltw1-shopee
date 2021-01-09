@@ -4,7 +4,7 @@ $(document).ready(function() {
             editsp(btn.dataset.productId);
         });
     });
-
+    
     document.querySelector(".btn__add-type")?.addEventListener("click", () => {
         addInputType(".product-types__group");
     });
@@ -52,6 +52,18 @@ $(document).ready(function() {
             }
         });
     });
+
+    document.querySelectorAll(".btn__edit-category").forEach(btn => {
+        btn.addEventListener("click", () => {
+            EditCategory(btn.dataset.categoryId, btn.dataset.categoryTen,btn.dataset.categoryMota);
+        });
+    });
+
+    function EditCategory(categoryId,categoryTen,categoryMota){
+        document.getElementById("id-category").value = categoryId;
+        document.getElementById("name-category").value = categoryTen;
+        document.getElementById("description-category").value = categoryMota;
+    }
 
     function Removeimput() {
         //xóa hết tất cả cac div được tạo
