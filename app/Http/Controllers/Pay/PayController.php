@@ -17,10 +17,11 @@ class PayController extends Controller
     {
         if (DB::table('carts')->count() == 0)
             return redirect()->back();
-
+        $iduser = Auth::id();
         $productsofcart = DB::table('products')
             ->join('carts', 'carts.productId', '=', 'products.productId')
             ->join('product_types', 'carts.type', 'product_types.id')
+            ->where('carts.userId', $iduser)
             ->select(
                 'carts.id',
                 'products.productName',
