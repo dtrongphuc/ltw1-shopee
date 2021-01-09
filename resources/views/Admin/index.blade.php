@@ -51,7 +51,7 @@
                     </a>
 
                     <div class="dropdown-menu " style="top: 8px !important;" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="/">Trở về</a>
+                        <a class="dropdown-item" href="/">Trở về trang chủ</a>
                         <a class="dropdown-item" href="/logout">Log out</a>
                     </div>
                 </div>
