@@ -247,10 +247,11 @@ $(document).ready(function() {
 
     async function submitSuaSP(e) {
        
+        
+
         document.getElementById("error_productName-edit").innerHTML = "";
         document.getElementById("error_productDescription-edit").innerHTML = "";
         document.getElementById("error-productType-edit").innerHTML = "";
-        document.getElementById("error-image-edit").innerHTML = "";
         if (document.querySelector("#product-name-edit").value.trim() == "") {
             document.getElementById("error_productName-edit").innerHTML =
                 "Tên Sản Phẩm không được bỏ trống !!";
@@ -290,13 +291,8 @@ $(document).ready(function() {
 
         let typesGroup = [];
         let productTypeName = document.getElementsByName("product-type-edit[]");
-        let productTypeQuantity = document.getElementsByName(
-            "product-type-quantity-edit[]"
-        );
-        let productTypePrice = document.getElementsByName(
-            "product-type-price-edit[]"
-        );
-
+        let productTypeQuantity = document.getElementsByName("product-type-quantity-edit[]");
+        let productTypePrice = document.getElementsByName("product-type-price-edit[]");
         for (
             let i = 0;
             i < productTypeName.length &&

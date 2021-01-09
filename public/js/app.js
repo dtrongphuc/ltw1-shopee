@@ -20428,35 +20428,34 @@ $(document).ready(function () {
               document.getElementById("error_productName-edit").innerHTML = "";
               document.getElementById("error_productDescription-edit").innerHTML = "";
               document.getElementById("error-productType-edit").innerHTML = "";
-              document.getElementById("error-image-edit").innerHTML = "";
 
               if (!(document.querySelector("#product-name-edit").value.trim() == "")) {
-                _context5.next = 7;
+                _context5.next = 6;
                 break;
               }
 
               document.getElementById("error_productName-edit").innerHTML = "Tên Sản Phẩm không được bỏ trống !!";
               return _context5.abrupt("return");
 
-            case 7:
+            case 6:
               if (!(document.querySelector("#product-description-edit").value.trim() == "")) {
-                _context5.next = 10;
+                _context5.next = 9;
                 break;
               }
 
               document.getElementById("error_productDescription-edit").innerHTML = "Mô Tả không được bỏ trống";
               return _context5.abrupt("return");
 
-            case 10:
+            case 9:
               if (!(document.querySelector("#product-type-name-edit").value.trim() == "" || document.querySelector("#product-type-quantity-edit").value.trim() == "" || document.querySelector("#product-type-price-edit").value.trim() == "")) {
-                _context5.next = 13;
+                _context5.next = 12;
                 break;
               }
 
               document.getElementById("error-productType-edit").innerHTML = "Sản phẩm phải có ít nhất 1 phân nhóm";
               return _context5.abrupt("return");
 
-            case 13:
+            case 12:
               fdata = new FormData();
               fdata.append("productId", document.querySelector("#product-id-edit").value);
               fdata.append("productName", document.querySelector("#product-name-edit").value);
@@ -20489,10 +20488,10 @@ $(document).ready(function () {
                 fdata.append("images[]", files[_i2]);
               }
 
-              _context5.next = 28;
+              _context5.next = 27;
               return postProductToEdit(fdata);
 
-            case 28:
+            case 27:
             case "end":
               return _context5.stop();
           }
