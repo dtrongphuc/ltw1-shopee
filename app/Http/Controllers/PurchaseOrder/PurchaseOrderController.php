@@ -10,13 +10,13 @@ use Illuminate\Support\Facades\Auth;
 class PurchaseOrderController extends Controller
 {
     public function purchaseorder(){
-        $userId = Auth::id();
+        $user = Auth::user();
         // dd($user->email);
         $detail_bill = DB::table('detail_bills')
         ->join('bills', 'bills.id', '=', 'detail_bills.billId')
         ->join('products', 'products.productId', '=', 'detail_bills.productId')
         ->join('product_types', 'detail_bills.type', 'product_types.id')
-        ->where('bills.userId', $userId)
+        ->where('bills.userId', $user->id)
         ->select('bills.id', 'products.productName', 'products.productId', 'detail_bills.quantity', 'detail_bills.totalPrice', 'product_types.name', 'bills.status','bills.totalPrice as billTotalPrice',
         DB::raw('(select productImage from product_images where productId = products.productId limit 1) as productImage'))
         ->get();
