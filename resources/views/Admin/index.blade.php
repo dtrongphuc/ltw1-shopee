@@ -89,39 +89,8 @@
                                         <td style='width: 300px;'>{{$category[$i]->description}}</td>
                                         <td style='text-align: center; width: 80px;'><a href="{{'/admin/delete-category/'.$category[$i]->categoryId}}"><i class="fas fa-trash-alt"></i></a></td>
                                         <td style='text-align: center; width: 80px;'>
-                                            <button type="button" data-toggle="modal" data-target="#suaDM"><i class="fas fa-edit"></i></button>
-                                            <!-- Modal Sửa Danh Mục -->
-                                            <div id="suaDM" class="modal fade" role="dialog">
-                                                <div class="modal-dialog" style="max-width: 1000px !important;">
+                                            <button type="button" class="btn__edit-category" data-category-id="{{$category[$i]->categoryId}}" data-category-ten="{{$category[$i]->categoryName}}" data-category-mota="{{$category[$i]->description}}" data-toggle="modal" data-target="#suaDM"><i class="fas fa-edit"></i></button>
 
-                                                    <!-- Modal content-->
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title">Sửa Danh Mục</h4><button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        </div>
-
-                                                        <form action="{{route('edit.category')}}" method="POST">
-                                                            @csrf
-                                                            <div class="modal-body row">
-                                                                <div class="col-md-12 itemadd">
-                                                                    <label class="col-md-2 labelitem" for="">Tên Danh Mục</label>
-                                                                    <input class="col-md-9 inputitem" name="tenDM" type="text" placeholder='Nhập tên Danh Mục' value="{{$category[$i]->categoryName}}">
-                                                                    <input type="hidden" name="IdDM" value="{{$category[$i]->categoryId}}">
-                                                                </div>
-
-                                                                <div class="col-md-12 itemadd">
-                                                                    <label class="col-md-2 labelitem" for="">Mô tả</label>
-                                                                    <textarea class="col-md-9 inputitem" name="motaDM" cols="50">{{$category[$i]->description}}</textarea>
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
-                                                                <button type="submit" class="btn btn-success btn__submit-EditProduct" style="width:100px;">Sửa</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </td>
                                     </tr>
                                     @endfor
@@ -225,7 +194,38 @@
         </div>
     </div>
 
+    <!-- Modal Sửa Danh Mục -->
+    <div id="suaDM" class="modal fade" role="dialog">
+        <div class="modal-dialog" style="max-width: 1000px !important;">
 
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Sửa Danh Mục</h4><button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <form action="{{route('edit.category')}}" method="POST">
+                    @csrf
+                    <div class="modal-body row">
+                        <div class="col-md-12 itemadd">
+                            <label class="col-md-2 labelitem" for="">Tên Danh Mục</label>
+                            <input class="col-md-9 inputitem" id="name-category" name="tenDM" type="text" placeholder='Nhập tên Danh Mục'>
+                            <input type="hidden" name="IdDM" id="id-category">
+                        </div>
+
+                        <div class="col-md-12 itemadd">
+                            <label class="col-md-2 labelitem" for="">Mô tả</label>
+                            <textarea class="col-md-9 inputitem" name="motaDM" cols="50" id="description-category" placeholder='Nhập Mô tả Danh Mục'></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" style="width:100px;" data-dismiss="modal">Đóng</button>
+                        <button type="submit" class="btn btn-success btn__submit-EditProduct" style="width:100px;">Sửa</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal Thêm san pham -->
     <div id="themSP" class="modal fade" role="dialog">
