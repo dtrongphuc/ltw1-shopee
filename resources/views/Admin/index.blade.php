@@ -205,12 +205,14 @@
                     <div class="modal-body row">
                         <div class="col-md-12 itemadd">
                             <label class="col-md-2 labelitem" for="">Tên Danh Mục</label>
-                            <input class="col-md-9 inputitem" type="text" name="tenDM" placeholder='Nhập tên Danh Mục' required>
+                            <input class="col-md-9 inputitem" type="text" name="tenDM" placeholder='Nhập tên Danh Mục'>
+
                         </div>
 
                         <div class="col-md-12 itemadd">
                             <label class="col-md-2 labelitem" for="">Mô tả</label>
-                            <textarea class="col-md-9 inputitem" rows="4" cols="50" name="motaDM" required></textarea>
+                            <textarea class="col-md-9 inputitem" rows="4" cols="50" name="motaDM"></textarea>
+
                         </div>
                     </div>
                     <div class="modal-footer">

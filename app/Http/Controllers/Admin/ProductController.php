@@ -10,12 +10,14 @@ use App\Models\Product;
 use App\Models\ProductType;
 use App\Models\ProductImage;
 
+
 use function PHPSTORM_META\type;
 
 class ProductController extends Controller
 {
     public function index()
     {
+
         $category = DB::table('categories')->where('categories.status', '=', '1')->get();
 
         $product = DB::table('products')
@@ -61,6 +63,8 @@ class ProductController extends Controller
 
     public function AddProduct(Request $request)
     {
+
+
         $productCount = 0;
         $producTypes = json_decode($request->productTypes, true);
         foreach ($producTypes as $type) {

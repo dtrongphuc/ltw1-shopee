@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Categories;
 use Illuminate\Support\Facades\DB;
+use Validator;
 
 class CategoryController extends Controller
 {
@@ -26,21 +27,46 @@ class CategoryController extends Controller
 
     public function AddCategory(Request $req)
     {
-        $cate = Categories::create([
-            'categoryName' => $req->tenDM,
-            'description' => $req->motaDM,
+        $validator = Validator::make($req->all(), [
+            'tenDM' => 'required',
+        ], [
+            'tenDM.required' => 'Vui lòng điền Tên',
         ]);
 
-        //return response()->json($cate, 200);
+        if ($validator->fails()) {
+            return back()->withErrors($validator);
+        }
+
+        $mota = $req->motaDM;
+        if ($mota == null)
+            $mota = null;
+        $cate = Categories::create([
+            'categoryName' => $req->tenDM,
+            'description' => $mota,
+        ]);
+
+        // return response()->json(['success' => true], 200);
         return redirect('/admin')->with('success', 'Data Saved');
     }
 
     public function EditCategory(Request $req)
     {
+        $validator = Validator::make($req->all(), [
+            'tenDM' => 'required',
+        ], [
+            'tenDM.required' => 'Vui lòng điền Tên',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator);
+        }
+        $mota = $req->input('motaDM');
+        if ($mota == null)
+            $mota = null;
         $cate = Categories::where('categoryId', '=', (int)$req->input('IdDM'))
             ->update([
                 'categoryName' => $req->input('tenDM'),
-                'description' => $req->input('motaDM')
+                'description' => $mota
             ]);
 
         //return response()->json($cate, 200);
