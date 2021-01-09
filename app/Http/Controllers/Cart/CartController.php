@@ -12,10 +12,18 @@ class CartController extends Controller
 {
     public function cart()
     {
+        $iduser = Auth::id();
         $productsofcart = DB::table('products')
             ->join('carts', 'carts.productId', '=', 'products.productId')
             ->join('product_types', 'carts.type', 'product_types.id')
-            ->select('carts.id', 'products.productName', 'product_types.price', 'carts.quantity', 'product_types.name', 'products.productId',
+            ->where('carts.userId', $iduser)
+            ->select(
+                'carts.id', 
+                'products.productName', 
+                'product_types.price', 
+                'carts.quantity', 
+                'product_types.name', 
+                'products.productId',
             DB::raw('(select productImage from product_images where productId = products.productId limit 1) as productImage'))
             ->get();
         $sum = 0;
@@ -23,6 +31,7 @@ class CartController extends Controller
         {
             $sum = $sum + ($sp->quantity * $sp->price);
         }
+
         return view('pages/cart', ['products' => $productsofcart], ['payall' => $sum]);
     }
     public function deleteCartById($cartId)
