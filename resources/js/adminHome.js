@@ -276,9 +276,8 @@ $(document).ready(function() {
 
         fdata.append(
             "categoryId",
-            document.querySelector(".add-product__category").value
+            document.querySelector(".add-product__category-edit").value
         );
-
         let typesGroup = [];
         let productTypeName = document.getElementsByName("product-type-edit[]");
         let productTypeQuantity = document.getElementsByName(

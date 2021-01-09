@@ -334,7 +334,7 @@
 
                         <div class="col-md-12 itemadd">
                             <label class="col-md-2 labelitem" for="">Danh Mục Sản Phẩm</label>
-                            <select name="category" class="col-md-9 inputitem add-product__category" id="select-edit-category">
+                            <select name="category" class="col-md-9 inputitem add-product__category-edit" id="select-edit-category">
                                 @foreach($category as $cate)
                                 <option id="{{$cate->categoryId}}" value="{{$cate->categoryId}}">{{$cate->categoryName}}</option>
                                 @endforeach
