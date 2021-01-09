@@ -87,7 +87,7 @@
                                         <td style='text-align: center; width: 125px;'>{{$category[$i]->categoryId}}</td>
                                         <td style='width: 300px;'>{{$category[$i]->categoryName}}</td>
                                         <td style='width: 300px;'>{{$category[$i]->description}}</td>
-                                        <td style='text-align: center; width: 80px;'><a href="{{'/delete-category/'.$category[$i]->categoryId}}"><i class="fas fa-trash-alt"></i></a></td>
+                                        <td style='text-align: center; width: 80px;'><a href="{{'/admin/delete-category/'.$category[$i]->categoryId}}"><i class="fas fa-trash-alt"></i></a></td>
                                         <td style='text-align: center; width: 80px;'>
                                             <button type="button" data-toggle="modal" data-target="#suaDM"><i class="fas fa-edit"></i></button>
                                             <!-- Modal Sửa Danh Mục -->
@@ -174,7 +174,7 @@
                                         <td>{{$sanpham[$i]->rate}}</td>
                                         <td>{{$sanpham[$i]->sold}}</td>
                                         <td>{{$sanpham[$i]->postAt}}</td>
-                                        <td><a href="{{'/delete-product/'.$sanpham[$i]->productId}}"><i class="fas fa-trash-alt"></i></a></td>
+                                        <td><a href="{{'/admin/delete-product/'.$sanpham[$i]->productId}}"><i class="fas fa-trash-alt"></i></a></td>
                                         <td>
                                             <button type="button" class="btn__edit-product" data-product-id="{{$sanpham[$i]->productId}}" data-toggle="modal" data-target="#suaSP"><i class="fas fa-edit"></i></button>
 
