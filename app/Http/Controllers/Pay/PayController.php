@@ -70,16 +70,18 @@ class PayController extends Controller
         {
             $sum = $sum + ($sp->quantity * $sp->price);
         }
-        //dd($user->phonenumber);
-        $insertt = DB::table('bills')->insert(
-            ['customerName' => $user->userName,
+        
+
+        $insertt = DB::table('bills')->insert([
+            'userId' => \Auth::id(),
+            'customerName' => $user->userName,
             'phoneNumber' => $user->phoneNumber,
             'address' => $user->addRess,
             'totalPrice' => $sum,
             'createAt' => $today,
             'expectedAt' => $expected,
-            'status' => 1]
-        );
+            'status' => 1
+        ]);
 
         //them vào chi tiết đơn hàng
         $billmaxid =  DB::table('bills')->max('id');        
