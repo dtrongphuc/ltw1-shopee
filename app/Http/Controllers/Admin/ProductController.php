@@ -36,7 +36,7 @@ class ProductController extends Controller
                 'categories.categoryName'
             )
             ->join('categories', 'products.categoryId', 'categories.categoryId')
-            ->orderBy('productId', 'asc')
+            ->orderBy('postAt', 'desc')
             ->paginate(6);
 
         //$product = Product::all();

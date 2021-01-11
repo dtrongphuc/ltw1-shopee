@@ -11,7 +11,7 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $order = Bill::paginate(10);
+        $order = Bill::orderBy('createAt', 'desc')->paginate(10);
         return view('Admin/Order', ['orders' => $order]);
     }
 
