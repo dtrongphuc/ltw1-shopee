@@ -75,6 +75,12 @@ class FavoriteController extends Controller
         $favorite = Favorite::where('userId', '=', $userId)
                             ->where('productId', '=', $productId)
                             ->delete();
+        //cập nhật lại số sp yêu thích
+        $likecount = Product::where('productId', $productId)->get();
+        // dd($likecount[0]->likeCount);
+        //dd($likecount);
+        Product::where('productId', $productId)
+                    ->update(['likeCount' => $likecount[0]->likeCount - 1]);
         return redirect()->back();
     }
 }

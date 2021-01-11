@@ -66,7 +66,7 @@
                                                     {{ $product->productName }}
                                                 </div>
                                                 <div class="favorite__product-infopeoduct--price mt-auto p-2">₫
-                                                    {{ $product->price }}
+                                                    {{number_format(floatval($product->price))}}
                                                 </div>
                                             </div>
                                         </a>
