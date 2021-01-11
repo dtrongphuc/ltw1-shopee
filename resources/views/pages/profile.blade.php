@@ -152,35 +152,36 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="modal-body">
-                                    <form action="" class="register__body-form">
+                                <form action="{{route('change.account.password')}}" method="post" class="register__body-form">
+                                    @csrf
+                                    <div class="modal-body">
                                         <div class="form-group">
                                             <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                                            <input type="text" class="form-control" placeholder="Mật khẩu cũ" require>
+                                            <input type="password" class="form-control" name="old-password" placeholder="Mật khẩu cũ"  autocomplete="new-password"  require>
                                             <div class="invalid-feedback">
                                                 *Mật khẩu phải 8 kí tự trở lên
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                                            <input type="text" class="form-control" placeholder="Mật khẩu mới" require>
+                                            <input type="password" class="form-control" name="new-password" placeholder="Mật khẩu mới"  autocomplete="new-password"  require>
                                             <div class="invalid-feedback">
                                                 *Mật khẩu phải 8 kí tự trở lên
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <!-- thêm  class 'is-invalid' để hiển thị thông báo khi nhập sai  -->
-                                            <input type="text" class="form-control" placeholder="nhập lại mật khẩu" require>
+                                            <input type="password" class="form-control" name="confirm-password" placeholder="nhập lại mật khẩu"   autocomplete="new-password" require>
                                             <div class="invalid-feedback">
                                                 *nhập lại mật khẩu không khớp
                                             </div>
                                         </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary btn-changeinfo">Lưu thay
-                                        đổi</button>
-                                </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                        <button type="submit" class="btn btn-primary btn-changeinfo">Lưu thay đổi</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

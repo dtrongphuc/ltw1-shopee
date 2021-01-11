@@ -100,6 +100,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cart', [CartController::class, 'cart']);
 
     Route::get('/pay', 'App\Http\Controllers\Pay\PayController@pay');
+    Route::get('/cart/delete/{cartid}', [CartController::class, 'deleteCartById'])->name('cart.delete');
 
     Route::post('/pay/paytoorder', [PayController::class, 'ToPurchaseOrder'])
         ->name('pay.toorder');
@@ -143,7 +144,6 @@ Route::get('/api/admin/statisticalquarter', [ChartController::class, 'Statistica
 Route::get('/api/admin/statisticalmonth', [ChartController::class, 'StatisticalMonth']);
 
 //giỏ hàng
-Route::get('/cart/delete/{cartid}', [CartController::class, 'deleteCartById'])->name('cart.delete');
 // Route::post('/cart/UpQuantity', [CartController::class, 'upQuantityProduct'])->name('cart.upquantify');
 
 //thánh toán
