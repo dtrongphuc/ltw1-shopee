@@ -38,6 +38,7 @@ class AuthController extends AuthBaseController
             $user = Auth::user();
 
             if (!Auth::user()->hasVerifiedEmail()) {
+                Auth::logout();
                 return $this->sendError('Verify Error.', ['verify' => 'Tài khoản chưa được xác thực'], 401);
             }
             Auth::login($user);
