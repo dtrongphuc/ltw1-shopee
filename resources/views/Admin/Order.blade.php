@@ -53,7 +53,7 @@
 
                     <div class="dropdown-menu " style="top: 8px !important;" aria-labelledby="dropdownMenuLink">
                         <a class="dropdown-item" href="/">Trở về trang chủ</a>
-                        <a class="dropdown-item" href="/logout">Log out</a>
+                        <a class="dropdown-item" href="/logout">Đăng Xuất</a>
                     </div>
                 </div>
             </div>
